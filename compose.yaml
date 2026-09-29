@@ -93,6 +93,9 @@ services:
     build:
       context: .
       dockerfile: frontend/Dockerfile
+      args:
+        # The SPA mode is fixed at build time and follows the API mode (as on the stand).
+        VITE_DATA_MODE: ${INFRA_MODE:-fixture}
     ports:
       - "127.0.0.1:${WEB_PORT:-8080}:80"
     depends_on:

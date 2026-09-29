@@ -1,4 +1,4 @@
-# Запуск, проверка и будущий deployment
+# Запуск, проверка и развёртывание
 
 Нормативный маршрут: [OPS-01–OPS-06](REQUIREMENTS_SPEC.md#ops--переносимость-и-эксплуатация),
 [SEC](REQUIREMENTS_SPEC.md#sec--доступ-и-аудит) и
@@ -896,8 +896,8 @@ uv run --locked python backend/scripts/load_test.py --base-url https://localhost
 ## Локальный старт
 
 ```sh
-uv sync --locked
-uv run --locked pytest
+uv sync --locked --group platform --group train --group research
+make check
 uv run --locked uvicorn infra_pulse_backend.api.app:app --reload --host 127.0.0.1 --port 8000
 ```
 
@@ -912,7 +912,8 @@ snapshot он возвращает 200 и фактический `stage`: `infer
 INFRA_MODE=fixture uv run --locked uvicorn infra_pulse_backend.api.app:app --host 127.0.0.1 --port 8000
 ```
 
-Во втором терминале по очереди: `cd frontend`, `npm ci`, `npm run dev`.
+Во втором терминале из корня: `npm --prefix frontend ci`, затем
+`VITE_DATA_MODE=fixture npm --prefix frontend run dev`.
 Стартовый экран на 5173. Synthetic fixture не содержит вероятности и помечена
 `source=synthetic_fixture`. Для replay см. [backend](../backend/README.md) и
 [frontend](../frontend/README.md): он работает на bounded PostgreSQL срезе,
@@ -1046,13 +1047,14 @@ version. «Нет новых событий» не считать outage без 
 ## GitHub Actions: что проверяется
 
 Workflow [Checks](../.github/workflows/ci.yml) запускается при push и pull request.
-Выполняются три job на Ubuntu:
+Выполняются четыре job на Ubuntu:
 
 | Job | Назначение |
 | --- | --- |
 | Backend | Установка полного Python-окружения, imports, конфигурация MLflow, Ruff/format, все pytest с тестовой PostgreSQL 17 для received/replay интеграций, совпадение generated contracts |
 | API without research | Минимальная установка, отсутствие research/ML-пакетов, API и проверки границ компонентов; тесты HTTP parity helpers не требуют DuckDB |
-| Frontend | npm ci, генерация TS из OpenAPI, TypeScript/Vite build, тест обработчика обновления и проверка отсутствия расхождения TS-схемы |
+| Deploy scripts | `shellcheck deploy/*.sh deploy/lldap/*.sh deploy/grafana/*.sh` — тот же шаг, что в `Deploy stand`: предупреждение роняет CI до деплоя |
+| Frontend | npm ci, генерация TS из OpenAPI, TypeScript/Vite build, `check:words` (запрещённые слова вне «Исследования»), все тесты `npm test` и проверка отсутствия расхождения TS-схемы |
 
 Это CI, без deployment на VPS и без обучения на реальных данных. Развёртывание —
 отдельный ручной workflow `Deploy stand` ([runbook](../deploy/README.md)); он не

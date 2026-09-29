@@ -62,8 +62,8 @@ sync. Обычный `uv run` в проверенной версии не уда
 | root base → backend | infra-pulse-backend → infra-pulse-core, FastAPI/Uvicorn/settings, psycopg, python-multipart, ldap3, openpyxl, defusedxml (пачки XML без DTD и сущностей), fastapi-swagger 0.4.60 (только файлы Swagger UI для `/api/docs`, без CDN) | HTTP и локальное чтение PostgreSQL replay без research/training |
 | dev | pytest, httpx, Ruff | Tests и lint/format |
 | data | DuckDB, PyArrow | Out-of-core SQL, Parquet |
-| platform | SQLAlchemy, Alembic, psycopg | Дополнительные platform зависимости; текущие replay SQL-миграции запускает отдельный loader |
-| inference | core[features] (NumPy/Pandas) + CatBoost | Библиотеки будущего worker, не готовый worker |
+| platform | SQLAlchemy, Alembic, psycopg | Локальные скрипты загрузки и сверки replay (вместе с `data`). SQLAlchemy и Alembic код не импортирует: `make check` и CI проверяют только их установку. SQL-миграции `backend/migrations` применяют `backend/scripts/migrate_operational_db.py` (образ ops) и worker при старте |
+| inference | core[features] (NumPy/Pandas) + CatBoost | Не используется: образ worker ставит группу `data` и extra `worker` пакета backend (core[features]) без CatBoost — список v9 статичный |
 | train | infra-pulse-research → core[features], DuckDB/PyArrow, NumPy, sklearn/CatBoost, MLflow | Локальный ETL, labels/train/evaluate |
 | research | JupyterLab, Matplotlib | Ноутбуки и графики |
 | sequence | infra-pulse-research + PyTorch (`torch>=2.6,<3`, в lock 2.14.0) | Только локальные исследования последовательностей и эпизодов; вне CI, Docker и `default-groups` |

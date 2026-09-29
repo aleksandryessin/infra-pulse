@@ -20,8 +20,9 @@
 | Почему прогноз обесточивания (в исследовании — «Отказ датчика») и почему в продукте статичный список? | [Выбор направления](DIRECTION_DECISION_2026-09-26.md), [журнал решений](../data-science/experiments/sensor-failure/DECISION_LOG.md), [итог v9](../data-science/experiments/sensor-failure/FINAL_V9.md) |
 | Какие требования выполнять и чем подтверждать? | [REQUIREMENTS_SPEC](REQUIREMENTS_SPEC.md); источники R/Q — [REQUIREMENTS_REVIEW](REQUIREMENTS_REVIEW_2026-09-20.md) |
 | Что ещё нужно решить? | [REQUIREMENTS_DECISIONS](REQUIREMENTS_DECISIONS.md) |
-| Где исследование, метки и отчёты? | [data-science](../data-science/README.md) |
+| Где исследование, метки и отчёты? | [data-science](../data-science/README.md), [«Отказ датчика»: версии и отчёты](../data-science/experiments/sensor-failure/README.md) |
 | Как вносить изменения? | [CONTRIBUTING](../CONTRIBUTING.md) |
+| Где сопроводительная документация DOCX и PDF (ТЗ §19 п. 4)? | [Папка на Яндекс Диске](https://disk.yandex.ru/d/Ws5JRA4PUH_kMw) |
 
 Сырые данные организаторов, корпоративные скриншоты, учётные данные и секреты не
 публикуются.

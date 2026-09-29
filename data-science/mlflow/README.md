@@ -1,5 +1,11 @@
 # Локальный MLflow
 
+Запуск из корня репозитория: `make mlflow` (цель `Makefile` запускает
+`data-science/mlflow/server.py`, адрес из `config.toml` — http://127.0.0.1:5000); проверка —
+`make mlflow-smoke`. Итоговая модель v9 — статичный список без обучения; её числа — в
+[отчёте v9](../reports/sensor-failure-final-v9-2026-09-27.json) и
+[FINAL_V9](../experiments/sensor-failure/FINAL_V9.md).
+
 ## Последовательности фазы (28.09.2026)
 
 Новый [sequence runner](../experiments/sequence/README.md) использует этот launcher:

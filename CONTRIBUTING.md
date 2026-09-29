@@ -75,7 +75,8 @@ README компонента ведёт к этим ID и описывает ло
 - Изменение PostgreSQL read/write пути: `make check-db` с двумя
   `INFRA_TEST_*_DSN` на отдельную одноразовую БД. Пропущенные DB-тесты не
   считаются проверкой пути данных.
-- Frontend: `npm --prefix frontend run build`; при изменении UI — применимая
+- Frontend: `npm --prefix frontend run build`, `npm --prefix frontend test` и
+  `npm --prefix frontend run check:words` (как в CI); при изменении UI — применимая
   проверка сценария в браузере с указанием viewport/темы и результатов.
 - Contracts: `make contracts`, затем `npm --prefix frontend run generate:api`,
   проверки совместимости и frontend build.
