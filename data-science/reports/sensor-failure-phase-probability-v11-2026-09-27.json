@@ -1,0 +1,2768 @@
+{
+ "stage": "v11: probability layer on the phase list (Poisson–gamma empirical Bayes)",
+ "protocol": "fixed in the script header before computation; dev decides, holdout (sixth use) is calibration only",
+ "dev": {
+  "2023->2024": {
+   "k_of_n_table": [
+    {
+     "events_from": 0,
+     "events_to": 37,
+     "n": 198,
+     "k": 104
+    },
+    {
+     "events_from": 38,
+     "events_to": 62,
+     "n": 122,
+     "k": 88
+    },
+    {
+     "events_from": 63,
+     "events_to": null,
+     "n": 118,
+     "k": 95
+    }
+   ],
+   "issued": {
+    "bayes": {
+     "cards": 485,
+     "observed_share": 0.7587628865979381,
+     "mean_forecast": 0.7664328457244743,
+     "brier": 0.17239434217986457,
+     "log_loss": 0.5263811091438394,
+     "ece": 0.022436964101484422,
+     "bins": 5,
+     "inside_bins": 4,
+     "table": [
+      {
+       "forecast_min": 0.3729634824594168,
+       "forecast_max": 0.6101932972243631,
+       "mean_forecast": 0.5469109638375559,
+       "n": 97,
+       "k": 55,
+       "observed": 0.5670103092783505,
+       "wilson_low": 0.46771404416848805,
+       "wilson_high": 0.6612010067628736,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.6102946206954659,
+       "forecast_max": 0.7544103200696579,
+       "mean_forecast": 0.6875868776004468,
+       "n": 97,
+       "k": 68,
+       "observed": 0.7010309278350515,
+       "wilson_low": 0.6036901803954189,
+       "wilson_high": 0.783054972398666,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.7544203563048082,
+       "forecast_max": 0.8474778899188341,
+       "mean_forecast": 0.8007495945782349,
+       "n": 97,
+       "k": 78,
+       "observed": 0.8041237113402062,
+       "wilson_low": 0.7142143988267906,
+       "wilson_high": 0.8708616015540047,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.8477690456575667,
+       "forecast_max": 0.9019822805741875,
+       "mean_forecast": 0.8822175572652455,
+       "n": 98,
+       "k": 85,
+       "observed": 0.8673469387755102,
+       "wilson_low": 0.7861693677036048,
+       "wilson_high": 0.9208108839813649,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.9021276668815997,
+       "forecast_max": 0.9622380356862397,
+       "mean_forecast": 0.9150375861541763,
+       "n": 96,
+       "k": 82,
+       "observed": 0.8541666666666666,
+       "wilson_low": 0.7699800750432338,
+       "wilson_high": 0.9110987538216883,
+       "inside": false
+      }
+     ]
+    },
+    "bayes_display": {
+     "cards": 485,
+     "observed_share": 0.7587628865979381,
+     "mean_forecast": 0.766631621603752,
+     "brier": 0.17191139946641243,
+     "log_loss": 0.5232471793327144,
+     "ece": 0.02230172469653563,
+     "bins": 4,
+     "inside_bins": 4,
+     "table": [
+      {
+       "forecast_min": 0.35000000000000003,
+       "forecast_max": 0.6000000000000001,
+       "mean_forecast": 0.5564814814814815,
+       "n": 108,
+       "k": 60,
+       "observed": 0.5555555555555556,
+       "wilson_low": 0.4615344791712406,
+       "wilson_high": 0.645760123194963,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.65,
+       "forecast_max": 0.75,
+       "mean_forecast": 0.7098214285714286,
+       "n": 112,
+       "k": 83,
+       "observed": 0.7410714285714286,
+       "wilson_low": 0.6529065137033165,
+       "wilson_high": 0.8132472687030039,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.8,
+       "forecast_max": 0.8500000000000001,
+       "mean_forecast": 0.8275700934579437,
+       "n": 107,
+       "k": 86,
+       "observed": 0.8037383177570093,
+       "wilson_low": 0.7185255265844488,
+       "wilson_high": 0.8678968996526317,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.9,
+       "forecast_max": 0.9133303316165431,
+       "mean_forecast": 0.9092806106191127,
+       "n": 158,
+       "k": 139,
+       "observed": 0.879746835443038,
+       "wilson_low": 0.8198170302357599,
+       "wilson_high": 0.9216486992182247,
+       "inside": true
+      }
+     ]
+    },
+    "bayes_decay90": {
+     "cards": 485,
+     "observed_share": 0.7587628865979381,
+     "mean_forecast": 0.7755578955100882,
+     "brier": 0.16903339883373067,
+     "log_loss": 0.5217912925093989,
+     "ece": 0.018639015409106112,
+     "bins": 5,
+     "inside_bins": 4,
+     "table": [
+      {
+       "forecast_min": 0.4169249296280742,
+       "forecast_max": 0.6196518028987038,
+       "mean_forecast": 0.5523453626355681,
+       "n": 97,
+       "k": 54,
+       "observed": 0.5567010309278351,
+       "wilson_low": 0.45755626177249387,
+       "wilson_high": 0.6515257044001969,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.6200297134147975,
+       "forecast_max": 0.7817900445904624,
+       "mean_forecast": 0.6904673015344128,
+       "n": 97,
+       "k": 67,
+       "observed": 0.6907216494845361,
+       "wilson_low": 0.5929522976148841,
+       "wilson_high": 0.7739597704205298,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.7895885953833087,
+       "forecast_max": 0.8601017595620483,
+       "mean_forecast": 0.8316092857048694,
+       "n": 97,
+       "k": 78,
+       "observed": 0.8041237113402062,
+       "wilson_low": 0.7142143988267906,
+       "wilson_high": 0.8708616015540047,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.8609415686192189,
+       "forecast_max": 0.8997444624059788,
+       "mean_forecast": 0.8790829849956293,
+       "n": 97,
+       "k": 85,
+       "observed": 0.8762886597938144,
+       "wilson_low": 0.7961108835611934,
+       "wilson_high": 0.9277967101302989,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.9000449838229903,
+       "forecast_max": 0.9714637175470422,
+       "mean_forecast": 0.9242845426799613,
+       "n": 97,
+       "k": 84,
+       "observed": 0.865979381443299,
+       "wilson_low": 0.7840983171863207,
+       "wilson_high": 0.9199761917465006,
+       "inside": false
+      }
+     ]
+    },
+    "bayes_events": {
+     "cards": 485,
+     "observed_share": 0.7587628865979381,
+     "mean_forecast": 0.8294021426345566,
+     "brier": 0.17142467960318142,
+     "log_loss": 0.5396448476446738,
+     "ece": 0.07063925603661846,
+     "bins": 5,
+     "inside_bins": 2,
+     "table": [
+      {
+       "forecast_min": 0.4806217786663343,
+       "forecast_max": 0.6662646534795335,
+       "mean_forecast": 0.5918827312169329,
+       "n": 97,
+       "k": 51,
+       "observed": 0.5257731958762887,
+       "wilson_low": 0.4273259458893044,
+       "wilson_high": 0.6222567660073732,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.6750734052478655,
+       "forecast_max": 0.8427020940090465,
+       "mean_forecast": 0.7649740672778571,
+       "n": 97,
+       "k": 72,
+       "observed": 0.7422680412371134,
+       "wilson_low": 0.6471721989159662,
+       "wilson_high": 0.8189052929128029,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.8427712497504943,
+       "forecast_max": 0.907521261059328,
+       "mean_forecast": 0.8765903408265797,
+       "n": 97,
+       "k": 76,
+       "observed": 0.7835051546391752,
+       "wilson_low": 0.6915965374341109,
+       "wilson_high": 0.8538132934293423,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.9078126509109149,
+       "forecast_max": 0.9657756543441012,
+       "mean_forecast": 0.9401450288498044,
+       "n": 97,
+       "k": 81,
+       "observed": 0.8350515463917526,
+       "wilson_low": 0.7487336056111964,
+       "wilson_high": 0.895841649045612,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.9658331403896159,
+       "forecast_max": 0.9841380865476376,
+       "mean_forecast": 0.9734185450016088,
+       "n": 97,
+       "k": 88,
+       "observed": 0.9072164948453608,
+       "wilson_low": 0.8329895046109212,
+       "wilson_high": 0.9504173433565841,
+       "inside": false
+      }
+     ]
+    },
+    "naive": {
+     "cards": 485,
+     "observed_share": 0.7587628865979381,
+     "mean_forecast": 0.7759059629575645,
+     "brier": 0.1726845896199866,
+     "log_loss": 0.5283189002005803,
+     "ece": 0.02698484797934722,
+     "bins": 5,
+     "inside_bins": 4,
+     "table": [
+      {
+       "forecast_min": 0.36888928522627734,
+       "forecast_max": 0.6166872753761669,
+       "mean_forecast": 0.5525303808840542,
+       "n": 98,
+       "k": 56,
+       "observed": 0.5714285714285714,
+       "wilson_low": 0.4725825662207811,
+       "wilson_high": 0.6648858160512964,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.6311112880171877,
+       "forecast_max": 0.7671903813085694,
+       "mean_forecast": 0.7016706369250544,
+       "n": 99,
+       "k": 70,
+       "observed": 0.7070707070707071,
+       "wilson_low": 0.6110363794739133,
+       "wilson_high": 0.7876349753085872,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.7759509798153159,
+       "forecast_max": 0.8586002627268918,
+       "mean_forecast": 0.8164550118033578,
+       "n": 98,
+       "k": 79,
+       "observed": 0.8061224489795918,
+       "wilson_low": 0.716929944546576,
+       "wilson_high": 0.8722202651908988,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.8639211181716617,
+       "forecast_max": 0.9107611107407521,
+       "mean_forecast": 0.8948482706629648,
+       "n": 99,
+       "k": 86,
+       "observed": 0.8686868686868687,
+       "wilson_low": 0.7882011546038707,
+       "wilson_high": 0.9216283307405815,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.9141191596237085,
+       "forecast_max": 0.9670807810823792,
+       "mean_forecast": 0.9241588098883354,
+       "n": 91,
+       "k": 77,
+       "observed": 0.8461538461538461,
+       "wilson_low": 0.7581767476900746,
+       "wilson_high": 0.9060887223146491,
+       "inside": false
+      }
+     ]
+    },
+    "k_of_n": {
+     "cards": 485,
+     "observed_share": 0.7587628865979381,
+     "mean_forecast": 0.7015119239070335,
+     "brier": 0.17082789112977836,
+     "log_loss": 0.5218325451795993,
+     "ece": 0.05725096269090457,
+     "bins": 2,
+     "inside_bins": 0,
+     "table": [
+      {
+       "forecast_min": 0.5252525252525253,
+       "forecast_max": 0.7213114754098361,
+       "mean_forecast": 0.6250388009598303,
+       "n": 279,
+       "k": 191,
+       "observed": 0.6845878136200717,
+       "wilson_low": 0.627867749593749,
+       "wilson_high": 0.7362936750340285,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.8050847457627118,
+       "forecast_max": 0.8050847457627118,
+       "mean_forecast": 0.8050847457627117,
+       "n": 206,
+       "k": 177,
+       "observed": 0.8592233009708737,
+       "wilson_low": 0.8051321611617148,
+       "wilson_high": 0.9001617367117287,
+       "inside": false
+      }
+     ]
+    }
+   },
+   "all_pair_days": {
+    "bayes": {
+     "cards": 6066,
+     "observed_share": 0.45812726673260795,
+     "mean_forecast": 0.44995138608271373,
+     "brier": 0.10271658835567732,
+     "log_loss": 0.32333663561232123,
+     "ece": 0.035501111003591934,
+     "bins": 5,
+     "inside_bins": 1,
+     "table": [
+      {
+       "forecast_min": 0.03297511623368459,
+       "forecast_max": 0.036309989696124624,
+       "mean_forecast": 0.03500044584279652,
+       "n": 1218,
+       "k": 0,
+       "observed": 0.0,
+       "wilson_low": 0.0,
+       "wilson_high": 0.0031441064046272447,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.03633040246861344,
+       "forecast_max": 0.4182782765677481,
+       "mean_forecast": 0.05810329249482121,
+       "n": 1209,
+       "k": 30,
+       "observed": 0.02481389578163772,
+       "wilson_low": 0.017435799442654228,
+       "wilson_high": 0.03520223671969377,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.41834784754529253,
+       "forecast_max": 0.6202276108392251,
+       "mean_forecast": 0.538004370917324,
+       "n": 1214,
+       "k": 706,
+       "observed": 0.5815485996705108,
+       "wilson_low": 0.5535840154160354,
+       "wilson_high": 0.6089987047012608,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.6202471057801177,
+       "forecast_max": 0.8352977451870104,
+       "mean_forecast": 0.7268212580456865,
+       "n": 1213,
+       "k": 955,
+       "observed": 0.7873042044517725,
+       "wilson_low": 0.7633866042278122,
+       "wilson_high": 0.8094077512577335,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.8353072119650079,
+       "forecast_max": 0.962259914225144,
+       "mean_forecast": 0.8925381122210622,
+       "n": 1212,
+       "k": 1088,
+       "observed": 0.8976897689768977,
+       "wilson_low": 0.8793520133004281,
+       "wilson_high": 0.9135144258804652,
+       "inside": true
+      }
+     ]
+    },
+    "bayes_display": {
+     "cards": 6066,
+     "observed_share": 0.45812726673260795,
+     "mean_forecast": 0.4555442209196463,
+     "brier": 0.10287921852059026,
+     "log_loss": 0.3280491371790561,
+     "ece": 0.04069712428312312,
+     "bins": 4,
+     "inside_bins": 1,
+     "table": [
+      {
+       "forecast_min": 0.05,
+       "forecast_max": 0.4,
+       "mean_forecast": 0.06100164203612478,
+       "n": 2436,
+       "k": 33,
+       "observed": 0.013546798029556651,
+       "wilson_low": 0.009662192292849665,
+       "wilson_high": 0.018963272573394117,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.45,
+       "forecast_max": 0.6000000000000001,
+       "mean_forecast": 0.5463292117465225,
+       "n": 1294,
+       "k": 731,
+       "observed": 0.5649149922720247,
+       "wilson_low": 0.5377494964686357,
+       "wilson_high": 0.5916961924351566,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.65,
+       "forecast_max": 0.8500000000000001,
+       "mean_forecast": 0.7614149008885851,
+       "n": 1463,
+       "k": 1199,
+       "observed": 0.8195488721804511,
+       "wilson_low": 0.7990139015594411,
+       "wilson_high": 0.8384100711449056,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.9,
+       "forecast_max": 0.9138995625616664,
+       "mean_forecast": 0.9093141398609106,
+       "n": 873,
+       "k": 816,
+       "observed": 0.9347079037800687,
+       "wilson_low": 0.9163410990025447,
+       "wilson_high": 0.9492656422834527,
+       "inside": false
+      }
+     ]
+    },
+    "bayes_decay90": {
+     "cards": 6066,
+     "observed_share": 0.45812726673260795,
+     "mean_forecast": 0.4710584622328881,
+     "brier": 0.10536432780007297,
+     "log_loss": 0.345942881200616,
+     "ece": 0.05388573596680452,
+     "bins": 5,
+     "inside_bins": 0,
+     "table": [
+      {
+       "forecast_min": 0.08178249967594851,
+       "forecast_max": 0.09179182831917464,
+       "mean_forecast": 0.08667681435115605,
+       "n": 1218,
+       "k": 0,
+       "observed": 0.0,
+       "wilson_low": 0.0,
+       "wilson_high": 0.0031441064046272447,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.09212459631542846,
+       "forecast_max": 0.40868656438289125,
+       "mean_forecast": 0.11255863793214195,
+       "n": 1209,
+       "k": 39,
+       "observed": 0.03225806451612903,
+       "wilson_low": 0.0236860316918701,
+       "wilson_high": 0.04379318406062388,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.40934440177135184,
+       "forecast_max": 0.6132023258065878,
+       "mean_forecast": 0.5346499761241689,
+       "n": 1213,
+       "k": 699,
+       "observed": 0.5762572135201979,
+       "wilson_low": 0.5482503780728568,
+       "wilson_high": 0.603782557027324,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.6133483288011965,
+       "forecast_max": 0.8434410294490923,
+       "mean_forecast": 0.7292113506900184,
+       "n": 1213,
+       "k": 921,
+       "observed": 0.7592745259686727,
+       "wilson_low": 0.7344205829958386,
+       "wilson_high": 0.7824913963447757,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.8434520264476826,
+       "forecast_max": 0.9714637175470422,
+       "mean_forecast": 0.8925977653251628,
+       "n": 1213,
+       "k": 1120,
+       "observed": 0.9233305853256389,
+       "wilson_low": 0.9069849288473352,
+       "wilson_high": 0.9370033108709651,
+       "inside": false
+      }
+     ]
+    },
+    "bayes_events": {
+     "cards": 6066,
+     "observed_share": 0.45812726673260795,
+     "mean_forecast": 0.48185336641833737,
+     "brier": 0.10096894716992082,
+     "log_loss": 0.31829965685876305,
+     "ece": 0.026736940263355234,
+     "bins": 5,
+     "inside_bins": 2,
+     "table": [
+      {
+       "forecast_min": 0.029076695045252485,
+       "forecast_max": 0.03193542396618428,
+       "mean_forecast": 0.030706060432311815,
+       "n": 1218,
+       "k": 0,
+       "observed": 0.0,
+       "wilson_low": 0.0,
+       "wilson_high": 0.0031441064046272447,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.03197414372899283,
+       "forecast_max": 0.4612017847949654,
+       "mean_forecast": 0.05747436026920785,
+       "n": 1209,
+       "k": 31,
+       "observed": 0.02564102564102564,
+       "wilson_low": 0.01812181037458125,
+       "wilson_high": 0.0361652457422274,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.4612088791140496,
+       "forecast_max": 0.6659817272841486,
+       "mean_forecast": 0.5716633973868795,
+       "n": 1213,
+       "k": 678,
+       "observed": 0.5589447650453421,
+       "wilson_low": 0.5308602524933935,
+       "wilson_high": 0.5866570973408002,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.6659831326918411,
+       "forecast_max": 0.9003189760021206,
+       "mean_forecast": 0.8003859196439083,
+       "n": 1213,
+       "k": 980,
+       "observed": 0.807914262159934,
+       "wilson_low": 0.7847863572813234,
+       "wilson_high": 0.8290979806637304,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.9003193134324802,
+       "forecast_max": 0.9841380865476376,
+       "mean_forecast": 0.9494972926325315,
+       "n": 1213,
+       "k": 1090,
+       "observed": 0.8985985160758451,
+       "wilson_low": 0.8803328011401039,
+       "wilson_high": 0.9143474596267864,
+       "inside": false
+      }
+     ]
+    },
+    "naive": {
+     "cards": 6066,
+     "observed_share": 0.45812726673260795,
+     "mean_forecast": 0.44083970237831877,
+     "brier": 0.10189782469366335,
+     "log_loss": 0.30791357948870945,
+     "ece": 0.01728756435428924,
+     "bins": 4,
+     "inside_bins": 3,
+     "table": [
+      {
+       "forecast_min": 0.0,
+       "forecast_max": 0.41549287098528664,
+       "mean_forecast": 0.012522453791026648,
+       "n": 2436,
+       "k": 33,
+       "observed": 0.013546798029556651,
+       "wilson_low": 0.009662192292849665,
+       "wilson_high": 0.018963272573394117,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.4374878053458634,
+       "forecast_max": 0.6311112880171877,
+       "mean_forecast": 0.5502198497005172,
+       "n": 1310,
+       "k": 747,
+       "observed": 0.5702290076335877,
+       "wilson_low": 0.5432541441586097,
+       "wilson_high": 0.5967931796588123,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.6449925267628924,
+       "forecast_max": 0.8473262603149506,
+       "mean_forecast": 0.7519121533941128,
+       "n": 1146,
+       "k": 937,
+       "observed": 0.8176265270506108,
+       "wilson_low": 0.7942200690003861,
+       "wilson_high": 0.838910616130505,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.8530713551414534,
+       "forecast_max": 0.9670807810823792,
+       "mean_forecast": 0.9038753034877426,
+       "n": 1174,
+       "k": 1062,
+       "observed": 0.9045996592844975,
+       "wilson_low": 0.8864511572369101,
+       "wilson_high": 0.9201089099232241,
+       "inside": true
+      }
+     ]
+    },
+    "k_of_n": {
+     "cards": 6066,
+     "observed_share": 0.45812726673260795,
+     "mean_forecast": 0.6089387537339613,
+     "brier": 0.21341447585713932,
+     "log_loss": 0.6118526660105627,
+     "ece": 0.18704847337161948,
+     "bins": 2,
+     "inside_bins": 0,
+     "table": [
+      {
+       "forecast_min": 0.5252525252525253,
+       "forecast_max": 0.7213114754098361,
+       "mean_forecast": 0.5626104055046315,
+       "n": 4907,
+       "k": 1736,
+       "observed": 0.3537803138373752,
+       "wilson_low": 0.3405210173113756,
+       "wilson_high": 0.36726837666948503,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.8050847457627118,
+       "forecast_max": 0.8050847457627118,
+       "mean_forecast": 0.8050847457627118,
+       "n": 1159,
+       "k": 1043,
+       "observed": 0.899913718723037,
+       "wilson_low": 0.8812922530518846,
+       "wilson_high": 0.9158928493730715,
+       "inside": false
+      }
+     ]
+    }
+   },
+   "ranking": {
+    "same_issued_cards_share": 0.9508840864440079,
+    "identical_selection": false,
+    "spearman_within_day_median": 0.9884932990795081
+   },
+   "prior": {
+    "alpha_median": 1.0208942232636093,
+    "beta_median_days": 15.344165522075437,
+    "prior_mean_incidents_per_14d_median": 0.9184170471841705
+   }
+  },
+  "2024->2023": {
+   "k_of_n_table": [
+    {
+     "events_from": 0,
+     "events_to": 37,
+     "n": 137,
+     "k": 77
+    },
+    {
+     "events_from": 38,
+     "events_to": 62,
+     "n": 142,
+     "k": 114
+    },
+    {
+     "events_from": 63,
+     "events_to": null,
+     "n": 206,
+     "k": 177
+    }
+   ],
+   "issued": {
+    "bayes": {
+     "cards": 438,
+     "observed_share": 0.6552511415525114,
+     "mean_forecast": 0.6898259917621815,
+     "brier": 0.22084648095620202,
+     "log_loss": 0.6361363979363055,
+     "ece": 0.06844602448153671,
+     "bins": 5,
+     "inside_bins": 3,
+     "table": [
+      {
+       "forecast_min": 0.2163249001855128,
+       "forecast_max": 0.5611869822626279,
+       "mean_forecast": 0.4523606706512264,
+       "n": 88,
+       "k": 47,
+       "observed": 0.5340909090909091,
+       "wilson_low": 0.43063280602477044,
+       "wilson_high": 0.6346970662771058,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.5614347110964969,
+       "forecast_max": 0.6198507695369848,
+       "mean_forecast": 0.5934385736632007,
+       "n": 87,
+       "k": 47,
+       "observed": 0.5402298850574713,
+       "wilson_low": 0.4360264044396558,
+       "wilson_high": 0.6410308028310219,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.6199385569271368,
+       "forecast_max": 0.7611008645577028,
+       "mean_forecast": 0.690619020649469,
+       "n": 88,
+       "k": 61,
+       "observed": 0.6931818181818182,
+       "wilson_low": 0.5904365208409637,
+       "wilson_high": 0.7797660888696687,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.7612523798084835,
+       "forecast_max": 0.8673479526836,
+       "mean_forecast": 0.817328656645428,
+       "n": 87,
+       "k": 60,
+       "observed": 0.6896551724137931,
+       "wilson_low": 0.5861598330932992,
+       "wilson_high": 0.7771098583256103,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.8677893092764815,
+       "forecast_max": 0.9206161538041077,
+       "mean_forecast": 0.8957366195514044,
+       "n": 88,
+       "k": 72,
+       "observed": 0.8181818181818182,
+       "wilson_low": 0.7248754936722209,
+       "wilson_high": 0.884869981145291,
+       "inside": false
+      }
+     ]
+    },
+    "bayes_display": {
+     "cards": 438,
+     "observed_share": 0.6552511415525114,
+     "mean_forecast": 0.6910654271414659,
+     "brier": 0.22094005737839367,
+     "log_loss": 0.6367525339112223,
+     "ece": 0.07234396595425119,
+     "bins": 5,
+     "inside_bins": 3,
+     "table": [
+      {
+       "forecast_min": 0.2,
+       "forecast_max": 0.55,
+       "mean_forecast": 0.4538888888888889,
+       "n": 90,
+       "k": 48,
+       "observed": 0.5333333333333333,
+       "wilson_low": 0.4310200470971506,
+       "wilson_high": 0.6329174816747374,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.6000000000000001,
+       "forecast_max": 0.6000000000000001,
+       "mean_forecast": 0.6,
+       "n": 88,
+       "k": 47,
+       "observed": 0.5340909090909091,
+       "wilson_low": 0.43063280602477044,
+       "wilson_high": 0.6346970662771058,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.65,
+       "forecast_max": 0.75,
+       "mean_forecast": 0.6994791666666668,
+       "n": 96,
+       "k": 68,
+       "observed": 0.7083333333333334,
+       "wilson_low": 0.610799219414304,
+       "wilson_high": 0.7898353858003561,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.8,
+       "forecast_max": 0.8500000000000001,
+       "mean_forecast": 0.8296511627906974,
+       "n": 86,
+       "k": 59,
+       "observed": 0.686046511627907,
+       "wilson_low": 0.5817939831445498,
+       "wilson_high": 0.7743884534994991,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.9,
+       "forecast_max": 0.9088593970516332,
+       "mean_forecast": 0.904316116512334,
+       "n": 78,
+       "k": 65,
+       "observed": 0.8333333333333334,
+       "wilson_low": 0.7354422072155546,
+       "wilson_high": 0.8999314902683655,
+       "inside": false
+      }
+     ]
+    },
+    "bayes_decay90": {
+     "cards": 438,
+     "observed_share": 0.6552511415525114,
+     "mean_forecast": 0.6822559141607168,
+     "brier": 0.20915888926175713,
+     "log_loss": 0.6078809682600969,
+     "ece": 0.039161057586925306,
+     "bins": 5,
+     "inside_bins": 5,
+     "table": [
+      {
+       "forecast_min": 0.16955312992413735,
+       "forecast_max": 0.5407548908766762,
+       "mean_forecast": 0.4470201544279584,
+       "n": 88,
+       "k": 42,
+       "observed": 0.4772727272727273,
+       "wilson_low": 0.37606451443681693,
+       "wilson_high": 0.5803822373619323,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.5418597912355941,
+       "forecast_max": 0.6524512834901068,
+       "mean_forecast": 0.5990482455941152,
+       "n": 87,
+       "k": 46,
+       "observed": 0.5287356321839081,
+       "wilson_low": 0.4248617443382648,
+       "wilson_high": 0.6301791179979336,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.6543198882604557,
+       "forecast_max": 0.7366971731163066,
+       "mean_forecast": 0.6983085191013202,
+       "n": 88,
+       "k": 61,
+       "observed": 0.6931818181818182,
+       "wilson_low": 0.5904365208409637,
+       "wilson_high": 0.7797660888696687,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.7391653183230094,
+       "forecast_max": 0.8312920936060211,
+       "mean_forecast": 0.7817720032517204,
+       "n": 87,
+       "k": 64,
+       "observed": 0.735632183908046,
+       "wilson_low": 0.6344340373111473,
+       "wilson_high": 0.8169010338456796,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.8318012421481611,
+       "forecast_max": 0.9327982734393442,
+       "mean_forecast": 0.8853159713889746,
+       "n": 88,
+       "k": 74,
+       "observed": 0.8409090909090909,
+       "wilson_low": 0.7504968606350919,
+       "wilson_high": 0.9028018623836709,
+       "inside": true
+      }
+     ]
+    },
+    "bayes_events": {
+     "cards": 438,
+     "observed_share": 0.6552511415525114,
+     "mean_forecast": 0.7577208369660445,
+     "brier": 0.229548993328874,
+     "log_loss": 0.6889857563491187,
+     "ece": 0.10716105682795399,
+     "bins": 5,
+     "inside_bins": 2,
+     "table": [
+      {
+       "forecast_min": 0.21463614575489054,
+       "forecast_max": 0.6092397815523379,
+       "mean_forecast": 0.48283811067687454,
+       "n": 89,
+       "k": 44,
+       "observed": 0.4943820224719101,
+       "wilson_low": 0.39291271906748554,
+       "wilson_high": 0.5963162472579548,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.6092527040083172,
+       "forecast_max": 0.7295065250458745,
+       "mean_forecast": 0.6588766307583089,
+       "n": 86,
+       "k": 47,
+       "observed": 0.5465116279069767,
+       "wilson_low": 0.44155981420304113,
+       "wilson_high": 0.6474857949579708,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.7296622364155497,
+       "forecast_max": 0.8421584990268622,
+       "mean_forecast": 0.7812353573022804,
+       "n": 88,
+       "k": 63,
+       "observed": 0.7159090909090909,
+       "wilson_low": 0.614202221177759,
+       "wilson_high": 0.7995536367341242,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.8423161203672086,
+       "forecast_max": 0.9285705735242868,
+       "mean_forecast": 0.895640572408443,
+       "n": 87,
+       "k": 60,
+       "observed": 0.6896551724137931,
+       "wilson_low": 0.5861598330932992,
+       "wilson_high": 0.7771098583256103,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.9287957053231831,
+       "forecast_max": 0.9922355133856638,
+       "mean_forecast": 0.9724579915174535,
+       "n": 88,
+       "k": 73,
+       "observed": 0.8295454545454546,
+       "wilson_low": 0.7376293870111583,
+       "wilson_high": 0.893892711906979,
+       "inside": false
+      }
+     ]
+    },
+    "naive": {
+     "cards": 438,
+     "observed_share": 0.6552511415525114,
+     "mean_forecast": 0.7000002062903159,
+     "brier": 0.2223108908479907,
+     "log_loss": 0.6415270696683145,
+     "ece": 0.0757345670157234,
+     "bins": 5,
+     "inside_bins": 3,
+     "table": [
+      {
+       "forecast_min": 0.2055752302617178,
+       "forecast_max": 0.5699421809549361,
+       "mean_forecast": 0.4579352777903972,
+       "n": 90,
+       "k": 48,
+       "observed": 0.5333333333333333,
+       "wilson_low": 0.4310200470971506,
+       "wilson_high": 0.6329174816747374,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.5861252059885125,
+       "forecast_max": 0.6311112880171877,
+       "mean_forecast": 0.6052161872633088,
+       "n": 88,
+       "k": 47,
+       "observed": 0.5340909090909091,
+       "wilson_low": 0.43063280602477044,
+       "wilson_high": 0.6346970662771058,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.6449925267628924,
+       "forecast_max": 0.7759509798153159,
+       "mean_forecast": 0.710923268216573,
+       "n": 91,
+       "k": 64,
+       "observed": 0.7032967032967034,
+       "wilson_low": 0.6027577176380822,
+       "wilson_high": 0.7873664472853271,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.7843819180329908,
+       "forecast_max": 0.8832762451402913,
+       "mean_forecast": 0.8388066658894247,
+       "n": 88,
+       "k": 60,
+       "observed": 0.6818181818181818,
+       "wilson_low": 0.5786503842476456,
+       "wilson_high": 0.7697756013623611,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.8834136183122415,
+       "forecast_max": 0.929106415948522,
+       "mean_forecast": 0.908862800850295,
+       "n": 81,
+       "k": 68,
+       "observed": 0.8395061728395061,
+       "wilson_low": 0.7445275209556033,
+       "wilson_high": 0.9037393669861611,
+       "inside": false
+      }
+     ]
+    },
+    "k_of_n": {
+     "cards": 438,
+     "observed_share": 0.6552511415525114,
+     "mean_forecast": 0.7091705091763489,
+     "brier": 0.21424567905937003,
+     "log_loss": 0.620022634812688,
+     "ece": 0.053919367623837436,
+     "bins": 2,
+     "inside_bins": 1,
+     "table": [
+      {
+       "forecast_min": 0.5620437956204379,
+       "forecast_max": 0.8028169014084507,
+       "mean_forecast": 0.6538385422021179,
+       "n": 320,
+       "k": 192,
+       "observed": 0.6,
+       "wilson_low": 0.5454430682200072,
+       "wilson_high": 0.6521844138576504,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.8592233009708737,
+       "forecast_max": 0.8592233009708737,
+       "mean_forecast": 0.8592233009708734,
+       "n": 118,
+       "k": 95,
+       "observed": 0.8050847457627118,
+       "wilson_low": 0.7244709740380223,
+       "wilson_high": 0.8664602021776543,
+       "inside": true
+      }
+     ]
+    }
+   },
+   "all_pair_days": {
+    "bayes": {
+     "cards": 6570,
+     "observed_share": 0.39512937595129377,
+     "mean_forecast": 0.38831511455479706,
+     "brier": 0.1253129190968924,
+     "log_loss": 0.3757650686288778,
+     "ece": 0.04132931737429988,
+     "bins": 5,
+     "inside_bins": 1,
+     "table": [
+      {
+       "forecast_min": 0.02429109783267273,
+       "forecast_max": 0.02812337569124953,
+       "mean_forecast": 0.02652045260784624,
+       "n": 1320,
+       "k": 0,
+       "observed": 0.0,
+       "wilson_low": 0.0,
+       "wilson_high": 0.002901857744914497,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.028150550564729617,
+       "forecast_max": 0.03725916134534177,
+       "mean_forecast": 0.03150735672609069,
+       "n": 1309,
+       "k": 14,
+       "observed": 0.0106951871657754,
+       "wilson_low": 0.0063814343947180925,
+       "wilson_high": 0.017872519776143035,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.03728186590193239,
+       "forecast_max": 0.5769881251655704,
+       "mean_forecast": 0.3989843829868766,
+       "n": 1314,
+       "k": 671,
+       "observed": 0.510654490106545,
+       "wilson_low": 0.48363385105528217,
+       "wilson_high": 0.5376130119971514,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.5769884087924827,
+       "forecast_max": 0.7524079720002065,
+       "mean_forecast": 0.6379153575728692,
+       "n": 1313,
+       "k": 849,
+       "observed": 0.6466108149276466,
+       "wilson_low": 0.6203606865340315,
+       "wilson_high": 0.6720055327591622,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.7524118185732048,
+       "forecast_max": 0.9206306037149146,
+       "mean_forecast": 0.8471322918495232,
+       "n": 1314,
+       "k": 1062,
+       "observed": 0.8082191780821918,
+       "wilson_low": 0.7860452237742905,
+       "wilson_high": 0.8285961716711105,
+       "inside": false
+      }
+     ]
+    },
+    "bayes_display": {
+     "cards": 6570,
+     "observed_share": 0.39512937595129377,
+     "mean_forecast": 0.3959395628027994,
+     "brier": 0.12576927702588717,
+     "log_loss": 0.3819141673596118,
+     "ece": 0.05067320055013576,
+     "bins": 4,
+     "inside_bins": 1,
+     "table": [
+      {
+       "forecast_min": 0.0,
+       "forecast_max": 0.05,
+       "mean_forecast": 0.044893617021276595,
+       "n": 2820,
+       "k": 16,
+       "observed": 0.005673758865248227,
+       "wilson_low": 0.003495437567395869,
+       "wilson_high": 0.00919705906555975,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.1,
+       "forecast_max": 0.6000000000000001,
+       "mean_forecast": 0.5149142224681793,
+       "n": 1807,
+       "k": 1081,
+       "observed": 0.5982291090204759,
+       "wilson_low": 0.5754389848099442,
+       "wilson_high": 0.6206024580197322,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.65,
+       "forecast_max": 0.75,
+       "mean_forecast": 0.6937086092715232,
+       "n": 755,
+       "k": 537,
+       "observed": 0.7112582781456953,
+       "wilson_low": 0.6779270589628177,
+       "wilson_high": 0.7424505270841253,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.8,
+       "forecast_max": 0.9081146380719604,
+       "mean_forecast": 0.8590260333454479,
+       "n": 1188,
+       "k": 962,
+       "observed": 0.8097643097643098,
+       "wilson_low": 0.7864605842144586,
+       "wilson_high": 0.8310711414779489,
+       "inside": false
+      }
+     ]
+    },
+    "bayes_decay90": {
+     "cards": 6570,
+     "observed_share": 0.39512937595129377,
+     "mean_forecast": 0.4022357400001466,
+     "brier": 0.12306325400795257,
+     "log_loss": 0.3859374109164818,
+     "ece": 0.05364712803700222,
+     "bins": 5,
+     "inside_bins": 1,
+     "table": [
+      {
+       "forecast_min": 0.06371025096598101,
+       "forecast_max": 0.07698379356618923,
+       "mean_forecast": 0.0720184409883769,
+       "n": 1318,
+       "k": 14,
+       "observed": 0.010622154779969651,
+       "wilson_low": 0.006337788265054297,
+       "wilson_high": 0.01775102842826206,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.07717019647520842,
+       "forecast_max": 0.0999665133924862,
+       "mean_forecast": 0.08747681324221399,
+       "n": 1311,
+       "k": 0,
+       "observed": 0.0,
+       "wilson_low": 0.0,
+       "wilson_high": 0.0029217207608886117,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.0999681453224622,
+       "forecast_max": 0.5567653887834033,
+       "mean_forecast": 0.4004034216060258,
+       "n": 1313,
+       "k": 617,
+       "observed": 0.4699162223914699,
+       "wilson_low": 0.4430468288018071,
+       "wilson_high": 0.49696114178478434,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.5569735490217537,
+       "forecast_max": 0.7178259044037966,
+       "mean_forecast": 0.6388005309971214,
+       "n": 1314,
+       "k": 901,
+       "observed": 0.6856925418569254,
+       "wilson_low": 0.6600804593309721,
+       "wilson_high": 0.7102220110114423,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.7179220779525204,
+       "forecast_max": 0.9332124706925812,
+       "mean_forecast": 0.8127646987205561,
+       "n": 1314,
+       "k": 1064,
+       "observed": 0.8097412480974124,
+       "wilson_low": 0.78762720326866,
+       "wilson_high": 0.8300494583270885,
+       "inside": true
+      }
+     ]
+    },
+    "bayes_events": {
+     "cards": 6570,
+     "observed_share": 0.39512937595129377,
+     "mean_forecast": 0.4231074798663636,
+     "brier": 0.12531287595385246,
+     "log_loss": 0.38438879990087493,
+     "ece": 0.05439819532783316,
+     "bins": 5,
+     "inside_bins": 0,
+     "table": [
+      {
+       "forecast_min": 0.018846167448603093,
+       "forecast_max": 0.02134807388187468,
+       "mean_forecast": 0.020309159936230965,
+       "n": 1320,
+       "k": 0,
+       "observed": 0.0,
+       "wilson_low": 0.0,
+       "wilson_high": 0.002901857744914497,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.02134832168826902,
+       "forecast_max": 0.033573871288129775,
+       "mean_forecast": 0.026588763736417192,
+       "n": 1309,
+       "k": 14,
+       "observed": 0.0106951871657754,
+       "wilson_low": 0.0063814343947180925,
+       "wilson_high": 0.017872519776143035,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.0336039322190384,
+       "forecast_max": 0.6099378211310946,
+       "mean_forecast": 0.42590251310668126,
+       "n": 1313,
+       "k": 646,
+       "observed": 0.492003046458492,
+       "wilson_low": 0.4650238795880252,
+       "wilson_high": 0.5190288720868915,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.6099690016141068,
+       "forecast_max": 0.8308013941534085,
+       "mean_forecast": 0.7200307447724672,
+       "n": 1315,
+       "k": 859,
+       "observed": 0.6532319391634981,
+       "wilson_low": 0.6270947411338916,
+       "wilson_high": 0.6784764510396035,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.8309391472994204,
+       "forecast_max": 0.9922355133856638,
+       "mean_forecast": 0.9231933974031584,
+       "n": 1313,
+       "k": 1077,
+       "observed": 0.8202589489718203,
+       "wilson_low": 0.7985645994175635,
+       "wilson_high": 0.8400847263631531,
+       "inside": false
+      }
+     ]
+    },
+    "naive": {
+     "cards": 6570,
+     "observed_share": 0.39512937595129377,
+     "mean_forecast": 0.3809575916485563,
+     "brier": 0.12544004915942944,
+     "log_loss": 0.3867308677882729,
+     "ece": 0.042348044292587275,
+     "bins": 3,
+     "inside_bins": 1,
+     "table": [
+      {
+       "forecast_min": 0.0,
+       "forecast_max": 0.5861252059885125,
+       "mean_forecast": 0.14159194713613663,
+       "n": 4028,
+       "k": 756,
+       "observed": 0.18768619662363456,
+       "wilson_low": 0.17592745432749443,
+       "wilson_high": 0.2000400936039521,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.6016992656978009,
+       "forecast_max": 0.7671903813085694,
+       "mean_forecast": 0.657331216838805,
+       "n": 1267,
+       "k": 810,
+       "observed": 0.6393054459352802,
+       "wilson_low": 0.6124791347182271,
+       "wilson_high": 0.6652895502225239,
+       "inside": true
+      },
+      {
+       "forecast_min": 0.7759509798153159,
+       "forecast_max": 0.929106415948522,
+       "mean_forecast": 0.8625257743779535,
+       "n": 1275,
+       "k": 1030,
+       "observed": 0.807843137254902,
+       "wilson_low": 0.7853042928676909,
+       "wilson_high": 0.8285324794112215,
+       "inside": false
+      }
+     ]
+    },
+    "k_of_n": {
+     "cards": 6570,
+     "observed_share": 0.39512937595129377,
+     "mean_forecast": 0.6320304235282901,
+     "brier": 0.25267043270888406,
+     "log_loss": 0.6957391527126447,
+     "ece": 0.23690104757699626,
+     "bins": 2,
+     "inside_bins": 0,
+     "table": [
+      {
+       "forecast_min": 0.5620437956204379,
+       "forecast_max": 0.8028169014084507,
+       "mean_forecast": 0.6014241291577865,
+       "n": 5790,
+       "k": 1947,
+       "observed": 0.3362694300518135,
+       "wilson_low": 0.32421249992168955,
+       "wilson_high": 0.3485434829136024,
+       "inside": false
+      },
+      {
+       "forecast_min": 0.8592233009708737,
+       "forecast_max": 0.8592233009708737,
+       "mean_forecast": 0.8592233009708737,
+       "n": 780,
+       "k": 649,
+       "observed": 0.8320512820512821,
+       "wilson_low": 0.8042032560181736,
+       "wilson_high": 0.8566445479258888,
+       "inside": false
+      }
+     ]
+    }
+   },
+   "ranking": {
+    "same_issued_cards_share": 0.9908675799086758,
+    "identical_selection": false,
+    "spearman_within_day_median": 0.9932203389830507
+   },
+   "prior": {
+    "alpha_median": 0.7938992568910065,
+    "beta_median_days": 15.9353814742148,
+    "prior_mean_incidents_per_14d_median": 0.7223744292237443
+   }
+  }
+ },
+ "criterion": {
+  "ece_not_worse_than": "k_of_n",
+  "inside_bins_min": 4,
+  "bins": 5
+ },
+ "verdict": {
+  "per_direction": {
+   "2023->2024": {
+    "bayes": {
+     "ece": 0.022436964101484422,
+     "ece_k_of_n": 0.05725096269090457,
+     "inside_bins": 4,
+     "bins": 5,
+     "pass": true
+    },
+    "bayes_display": {
+     "ece": 0.02230172469653563,
+     "ece_k_of_n": 0.05725096269090457,
+     "inside_bins": 4,
+     "bins": 4,
+     "pass": true
+    }
+   },
+   "2024->2023": {
+    "bayes": {
+     "ece": 0.06844602448153671,
+     "ece_k_of_n": 0.053919367623837436,
+     "inside_bins": 3,
+     "bins": 5,
+     "pass": false
+    },
+    "bayes_display": {
+     "ece": 0.07234396595425119,
+     "ece_k_of_n": 0.053919367623837436,
+     "inside_bins": 3,
+     "bins": 5,
+     "pass": false
+    }
+   }
+  },
+  "pass": false
+ },
+ "display_table_dev": [
+  {
+   "shown": "20%",
+   "n": 3,
+   "k": 1,
+   "observed": 0.3333333333333333,
+   "wilson_low": 0.0614903152761605,
+   "wilson_high": 0.7923450448735121,
+   "passes": true
+  },
+  {
+   "shown": "25%",
+   "n": 8,
+   "k": 3,
+   "observed": 0.375,
+   "wilson_low": 0.13684175946152105,
+   "wilson_high": 0.6942621454161981,
+   "passes": true
+  },
+  {
+   "shown": "30%",
+   "n": 7,
+   "k": 4,
+   "observed": 0.5714285714285714,
+   "wilson_low": 0.2504542304090258,
+   "wilson_high": 0.8417830777373732,
+   "passes": true
+  },
+  {
+   "shown": "35%",
+   "n": 7,
+   "k": 5,
+   "observed": 0.7142857142857143,
+   "wilson_low": 0.35892909014821267,
+   "wilson_high": 0.9177828342909844,
+   "passes": false
+  },
+  {
+   "shown": "40%",
+   "n": 4,
+   "k": 4,
+   "observed": 1.0,
+   "wilson_low": 0.5100999795960008,
+   "wilson_high": 1.0,
+   "passes": false
+  },
+  {
+   "shown": "45%",
+   "n": 17,
+   "k": 11,
+   "observed": 0.6470588235294118,
+   "wilson_low": 0.4129996672121182,
+   "wilson_high": 0.826905138560951,
+   "passes": true
+  },
+  {
+   "shown": "50%",
+   "n": 34,
+   "k": 19,
+   "observed": 0.5588235294117647,
+   "wilson_low": 0.3945361778918369,
+   "wilson_high": 0.7111675978470325,
+   "passes": true
+  },
+  {
+   "shown": "55%",
+   "n": 65,
+   "k": 34,
+   "observed": 0.5230769230769231,
+   "wilson_low": 0.40379420402276267,
+   "wilson_high": 0.6397840974693585,
+   "passes": true
+  },
+  {
+   "shown": "60%",
+   "n": 141,
+   "k": 74,
+   "observed": 0.524822695035461,
+   "wilson_low": 0.44283301378980977,
+   "wilson_high": 0.6054956431706215,
+   "passes": true
+  },
+  {
+   "shown": "65%",
+   "n": 63,
+   "k": 37,
+   "observed": 0.5873015873015873,
+   "wilson_low": 0.46415095351811103,
+   "wilson_high": 0.7004172195956385,
+   "passes": true
+  },
+  {
+   "shown": "70%",
+   "n": 61,
+   "k": 49,
+   "observed": 0.8032786885245902,
+   "wilson_low": 0.6868982151122219,
+   "wilson_high": 0.8837231144046315,
+   "passes": true
+  },
+  {
+   "shown": "75%",
+   "n": 84,
+   "k": 65,
+   "observed": 0.7738095238095238,
+   "wilson_low": 0.6735289274916636,
+   "wilson_high": 0.8501409510169247,
+   "passes": true
+  },
+  {
+   "shown": "80%",
+   "n": 83,
+   "k": 64,
+   "observed": 0.7710843373493976,
+   "wilson_low": 0.6699173072434109,
+   "wilson_high": 0.8482675258319817,
+   "passes": true
+  },
+  {
+   "shown": "85%",
+   "n": 110,
+   "k": 81,
+   "observed": 0.7363636363636363,
+   "wilson_low": 0.6470570975969133,
+   "wilson_high": 0.8097179301609537,
+   "passes": false
+  },
+  {
+   "shown": "90%",
+   "n": 88,
+   "k": 75,
+   "observed": 0.8522727272727273,
+   "wilson_low": 0.7634870210099294,
+   "wilson_high": 0.9115883261094588,
+   "passes": true
+  },
+  {
+   "shown": "> 90%",
+   "n": 148,
+   "k": 129,
+   "observed": 0.8716216216216216,
+   "wilson_low": 0.8081880347559076,
+   "wilson_high": 0.916251117623941,
+   "passes": true
+  }
+ ],
+ "display_table_by_year": {
+  "2023": [
+   {
+    "shown": "20%",
+    "n": 3,
+    "k": 1,
+    "observed": 0.3333333333333333,
+    "wilson_low": 0.0614903152761605,
+    "wilson_high": 0.7923450448735121,
+    "passes": true
+   },
+   {
+    "shown": "25%",
+    "n": 8,
+    "k": 3,
+    "observed": 0.375,
+    "wilson_low": 0.13684175946152105,
+    "wilson_high": 0.6942621454161981,
+    "passes": true
+   },
+   {
+    "shown": "30%",
+    "n": 7,
+    "k": 4,
+    "observed": 0.5714285714285714,
+    "wilson_low": 0.2504542304090258,
+    "wilson_high": 0.8417830777373732,
+    "passes": true
+   },
+   {
+    "shown": "35%",
+    "n": 6,
+    "k": 4,
+    "observed": 0.6666666666666666,
+    "wilson_low": 0.29998832134152864,
+    "wilson_high": 0.9032306674407831,
+    "passes": true
+   },
+   {
+    "shown": "40%",
+    "n": 2,
+    "k": 2,
+    "observed": 1.0,
+    "wilson_low": 0.34237195288961925,
+    "wilson_high": 1.0,
+    "passes": true
+   },
+   {
+    "shown": "45%",
+    "n": 14,
+    "k": 8,
+    "observed": 0.5714285714285714,
+    "wilson_low": 0.3259026690286936,
+    "wilson_high": 0.7861949006959948,
+    "passes": true
+   },
+   {
+    "shown": "50%",
+    "n": 11,
+    "k": 6,
+    "observed": 0.5454545454545454,
+    "wilson_low": 0.28008775568998817,
+    "wilson_high": 0.7872904245601196,
+    "passes": true
+   },
+   {
+    "shown": "55%",
+    "n": 39,
+    "k": 20,
+    "observed": 0.5128205128205128,
+    "wilson_low": 0.3619910864569657,
+    "wilson_high": 0.661350712168669,
+    "passes": true
+   },
+   {
+    "shown": "60%",
+    "n": 88,
+    "k": 47,
+    "observed": 0.5340909090909091,
+    "wilson_low": 0.43063280602477044,
+    "wilson_high": 0.6346970662771058,
+    "passes": true
+   },
+   {
+    "shown": "65%",
+    "n": 37,
+    "k": 21,
+    "observed": 0.5675675675675675,
+    "wilson_low": 0.40913906334200717,
+    "wilson_high": 0.713285131596487,
+    "passes": true
+   },
+   {
+    "shown": "70%",
+    "n": 23,
+    "k": 20,
+    "observed": 0.8695652173913043,
+    "wilson_low": 0.678721020269818,
+    "wilson_high": 0.954624234856553,
+    "passes": true
+   },
+   {
+    "shown": "75%",
+    "n": 36,
+    "k": 27,
+    "observed": 0.75,
+    "wilson_low": 0.5892923231679656,
+    "wilson_high": 0.8624967616077461,
+    "passes": true
+   },
+   {
+    "shown": "80%",
+    "n": 35,
+    "k": 22,
+    "observed": 0.6285714285714286,
+    "wilson_low": 0.46336640488021064,
+    "wilson_high": 0.7683439263110894,
+    "passes": false
+   },
+   {
+    "shown": "85%",
+    "n": 51,
+    "k": 37,
+    "observed": 0.7254901960784313,
+    "wilson_low": 0.5905308805092127,
+    "wilson_high": 0.8288587798945684,
+    "passes": false
+   },
+   {
+    "shown": "90%",
+    "n": 40,
+    "k": 32,
+    "observed": 0.8,
+    "wilson_low": 0.6524239261814333,
+    "wilson_high": 0.8950013502683314,
+    "passes": false
+   },
+   {
+    "shown": "> 90%",
+    "n": 38,
+    "k": 33,
+    "observed": 0.868421052631579,
+    "wilson_low": 0.7267282994850112,
+    "wilson_high": 0.9424621712426856,
+    "passes": true
+   }
+  ],
+  "2024": [
+   {
+    "shown": "35%",
+    "n": 1,
+    "k": 1,
+    "observed": 1.0,
+    "wilson_low": 0.20654329147389294,
+    "wilson_high": 1.0,
+    "passes": true
+   },
+   {
+    "shown": "40%",
+    "n": 2,
+    "k": 2,
+    "observed": 1.0,
+    "wilson_low": 0.34237195288961925,
+    "wilson_high": 1.0,
+    "passes": true
+   },
+   {
+    "shown": "45%",
+    "n": 3,
+    "k": 3,
+    "observed": 1.0,
+    "wilson_low": 0.43849391955098227,
+    "wilson_high": 1.0,
+    "passes": true
+   },
+   {
+    "shown": "50%",
+    "n": 23,
+    "k": 13,
+    "observed": 0.5652173913043478,
+    "wilson_low": 0.3681104930501695,
+    "wilson_high": 0.7436563166780135,
+    "passes": true
+   },
+   {
+    "shown": "55%",
+    "n": 26,
+    "k": 14,
+    "observed": 0.5384615384615384,
+    "wilson_low": 0.3545763620443012,
+    "wilson_high": 0.712444173047651,
+    "passes": true
+   },
+   {
+    "shown": "60%",
+    "n": 53,
+    "k": 27,
+    "observed": 0.5094339622641509,
+    "wilson_low": 0.3788330425329779,
+    "wilson_high": 0.6387597064396054,
+    "passes": true
+   },
+   {
+    "shown": "65%",
+    "n": 26,
+    "k": 16,
+    "observed": 0.6153846153846154,
+    "wilson_low": 0.42534520039420076,
+    "wilson_high": 0.7757164048816557,
+    "passes": true
+   },
+   {
+    "shown": "70%",
+    "n": 38,
+    "k": 29,
+    "observed": 0.7631578947368421,
+    "wilson_low": 0.6079288083466214,
+    "wilson_high": 0.8700643850303049,
+    "passes": true
+   },
+   {
+    "shown": "75%",
+    "n": 48,
+    "k": 38,
+    "observed": 0.7916666666666666,
+    "wilson_low": 0.6574082647864651,
+    "wilson_high": 0.8826985220411018,
+    "passes": true
+   },
+   {
+    "shown": "80%",
+    "n": 48,
+    "k": 42,
+    "observed": 0.875,
+    "wilson_low": 0.7529927291394518,
+    "wilson_high": 0.9414302824959915,
+    "passes": true
+   },
+   {
+    "shown": "85%",
+    "n": 59,
+    "k": 44,
+    "observed": 0.7457627118644068,
+    "wilson_low": 0.6220361301768266,
+    "wilson_high": 0.8394416170479418,
+    "passes": false
+   },
+   {
+    "shown": "90%",
+    "n": 48,
+    "k": 43,
+    "observed": 0.8958333333333334,
+    "wilson_low": 0.7783231187385907,
+    "wilson_high": 0.9546789490988218,
+    "passes": true
+   },
+   {
+    "shown": "> 90%",
+    "n": 110,
+    "k": 96,
+    "observed": 0.8727272727272727,
+    "wilson_low": 0.7976481880956428,
+    "wilson_high": 0.9226508941379168,
+    "passes": true
+   }
+  ]
+ },
+ "holdout": {
+  "use": "SIXTH use of the holdout 2025-07..2026-06: calibration only, descriptive, no selection (M has no parameters; the decision rests on dev)",
+  "k_of_n_table": "the product table (dev 2023 + 2024, 3 bins)",
+  "issued": {
+   "bayes": {
+    "cards": 484,
+    "observed_share": 0.7727272727272727,
+    "mean_forecast": 0.8168499249090171,
+    "brier": 0.16509620673495096,
+    "log_loss": 0.5119423387416884,
+    "ece": 0.04412265218174437,
+    "bins": 5,
+    "inside_bins": 4,
+    "table": [
+     {
+      "forecast_min": 0.5500015837803416,
+      "forecast_max": 0.728840406362641,
+      "mean_forecast": 0.6495032463175383,
+      "n": 97,
+      "k": 56,
+      "observed": 0.5773195876288659,
+      "wilson_low": 0.4779127957568308,
+      "wilson_high": 0.6708353399332019,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.7291489387979166,
+      "forecast_max": 0.7975652640109586,
+      "mean_forecast": 0.7707698579548423,
+      "n": 97,
+      "k": 70,
+      "observed": 0.7216494845360825,
+      "wilson_low": 0.6253217812082499,
+      "wilson_high": 0.8010895411031771,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.7977774423451345,
+      "forecast_max": 0.8490275063420936,
+      "mean_forecast": 0.8326984269353227,
+      "n": 96,
+      "k": 78,
+      "observed": 0.8125,
+      "wilson_low": 0.7229756303456031,
+      "wilson_high": 0.877976277476387,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.8490496404263861,
+      "forecast_max": 0.9234754353243221,
+      "mean_forecast": 0.8817255005906708,
+      "n": 97,
+      "k": 85,
+      "observed": 0.8762886597938144,
+      "wilson_low": 0.7961108835611934,
+      "wilson_high": 0.9277967101302989,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.9243608868546273,
+      "forecast_max": 0.9747221184526293,
+      "mean_forecast": 0.9497159793655392,
+      "n": 97,
+      "k": 85,
+      "observed": 0.8762886597938144,
+      "wilson_low": 0.7961108835611934,
+      "wilson_high": 0.9277967101302989,
+      "inside": false
+     }
+    ]
+   },
+   "bayes_display": {
+    "cards": 484,
+    "observed_share": 0.7727272727272727,
+    "mean_forecast": 0.8174866115317551,
+    "brier": 0.16521506170624625,
+    "log_loss": 0.5089166733402695,
+    "ece": 0.04475933880448232,
+    "bins": 4,
+    "inside_bins": 3,
+    "table": [
+     {
+      "forecast_min": 0.55,
+      "forecast_max": 0.75,
+      "mean_forecast": 0.6851973684210527,
+      "n": 152,
+      "k": 94,
+      "observed": 0.618421052631579,
+      "wilson_low": 0.5391769349477636,
+      "wilson_high": 0.6918268535143671,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.8,
+      "forecast_max": 0.8,
+      "mean_forecast": 0.7999999999999999,
+      "n": 65,
+      "k": 49,
+      "observed": 0.7538461538461538,
+      "wilson_low": 0.6369398600835174,
+      "wilson_high": 0.842421456329814,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.8500000000000001,
+      "forecast_max": 0.8500000000000001,
+      "mean_forecast": 0.8499999999999998,
+      "n": 121,
+      "k": 101,
+      "observed": 0.8347107438016529,
+      "wilson_low": 0.7584442250683895,
+      "wilson_high": 0.8903779624075799,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.9,
+      "forecast_max": 0.9404886152413032,
+      "mean_forecast": 0.9360515067217087,
+      "n": 146,
+      "k": 130,
+      "observed": 0.8904109589041096,
+      "wilson_low": 0.8293929061084429,
+      "wilson_high": 0.9314105022908268,
+      "inside": false
+     }
+    ]
+   },
+   "bayes_decay90": {
+    "cards": 484,
+    "observed_share": 0.7727272727272727,
+    "mean_forecast": 0.8060306574896071,
+    "brier": 0.16411090875308076,
+    "log_loss": 0.5037752191572037,
+    "ece": 0.03479991810573247,
+    "bins": 5,
+    "inside_bins": 5,
+    "table": [
+     {
+      "forecast_min": 0.41222018745232963,
+      "forecast_max": 0.7145632118367992,
+      "mean_forecast": 0.6457509168133782,
+      "n": 97,
+      "k": 63,
+      "observed": 0.6494845360824743,
+      "wilson_low": 0.5504892147387033,
+      "wilson_high": 0.7370905142620265,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.7149473310862415,
+      "forecast_max": 0.7802441272436917,
+      "mean_forecast": 0.7504449563731841,
+      "n": 97,
+      "k": 65,
+      "observed": 0.6701030927835051,
+      "wilson_low": 0.571625410672298,
+      "wilson_high": 0.7556204878457737,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.7807969224758333,
+      "forecast_max": 0.8476439680920874,
+      "mean_forecast": 0.8145785432513325,
+      "n": 96,
+      "k": 74,
+      "observed": 0.7708333333333334,
+      "wilson_low": 0.6773130351588962,
+      "wilson_high": 0.843511951620162,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.8492882698325798,
+      "forecast_max": 0.9142551201449138,
+      "mean_forecast": 0.8787980406412386,
+      "n": 97,
+      "k": 85,
+      "observed": 0.8762886597938144,
+      "wilson_low": 0.7961108835611934,
+      "wilson_high": 0.9277967101302989,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.9143969310083868,
+      "forecast_max": 0.9717524805184538,
+      "mean_forecast": 0.9406689529025286,
+      "n": 97,
+      "k": 87,
+      "observed": 0.8969072164948454,
+      "wilson_low": 0.820540642581251,
+      "wilson_high": 0.9430331206275834,
+      "inside": true
+     }
+    ]
+   },
+   "bayes_events": {
+    "cards": 484,
+    "observed_share": 0.7727272727272727,
+    "mean_forecast": 0.8762424147452493,
+    "brier": 0.17162401725387924,
+    "log_loss": 0.618797282512705,
+    "ece": 0.10351514201797656,
+    "bins": 5,
+    "inside_bins": 0,
+    "table": [
+     {
+      "forecast_min": 0.5521008794555932,
+      "forecast_max": 0.800534837919986,
+      "mean_forecast": 0.6657462867602187,
+      "n": 97,
+      "k": 53,
+      "observed": 0.5463917525773195,
+      "wilson_low": 0.44743914347874386,
+      "wilson_high": 0.6418097379352757,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.8010655140018809,
+      "forecast_max": 0.8970146820471956,
+      "mean_forecast": 0.8564080198310474,
+      "n": 97,
+      "k": 69,
+      "observed": 0.711340206185567,
+      "wilson_low": 0.614479497470417,
+      "wilson_high": 0.792098740082339,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.8970531654933075,
+      "forecast_max": 0.9269453420711052,
+      "mean_forecast": 0.9133671701148233,
+      "n": 96,
+      "k": 82,
+      "observed": 0.8541666666666666,
+      "wilson_low": 0.7699800750432338,
+      "wilson_high": 0.9110987538216883,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.9269704340340307,
+      "forecast_max": 0.9816153960510489,
+      "mean_forecast": 0.9563590219067029,
+      "n": 97,
+      "k": 83,
+      "observed": 0.8556701030927835,
+      "wilson_low": 0.7722041904209146,
+      "wilson_high": 0.9120372337532355,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.9816538479054,
+      "forecast_max": 0.9999999999999999,
+      "mean_forecast": 0.9897143045502538,
+      "n": 97,
+      "k": 87,
+      "observed": 0.8969072164948454,
+      "wilson_low": 0.820540642581251,
+      "wilson_high": 0.9430331206275834,
+      "inside": false
+     }
+    ]
+   },
+   "naive": {
+    "cards": 484,
+    "observed_share": 0.7727272727272727,
+    "mean_forecast": 0.8273750341461974,
+    "brier": 0.16605894412596778,
+    "log_loss": 0.5203795900278866,
+    "ece": 0.054647761418924676,
+    "bins": 5,
+    "inside_bins": 3,
+    "table": [
+     {
+      "forecast_min": 0.5531263792869118,
+      "forecast_max": 0.7486281388796405,
+      "mean_forecast": 0.6602319520278849,
+      "n": 100,
+      "k": 56,
+      "observed": 0.56,
+      "wilson_low": 0.4622792771125631,
+      "wilson_high": 0.6532813459903167,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.7499610601530654,
+      "forecast_max": 0.815050272278203,
+      "mean_forecast": 0.7858832917275905,
+      "n": 99,
+      "k": 74,
+      "observed": 0.7474747474747475,
+      "wilson_low": 0.6537534716648654,
+      "wilson_high": 0.8227074157581231,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.8173164759472653,
+      "forecast_max": 0.8586002627268918,
+      "mean_forecast": 0.8460533574705079,
+      "n": 94,
+      "k": 77,
+      "observed": 0.8191489361702128,
+      "wilson_low": 0.7293285364486144,
+      "wilson_high": 0.8839075512686756,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.859141579078955,
+      "forecast_max": 0.9343414644855939,
+      "mean_forecast": 0.8941181076772915,
+      "n": 94,
+      "k": 82,
+      "observed": 0.8723404255319149,
+      "wilson_low": 0.7899995060049553,
+      "wilson_high": 0.9254425963318832,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.9368121874368867,
+      "forecast_max": 0.996302136283517,
+      "mean_forecast": 0.9592552342169739,
+      "n": 97,
+      "k": 85,
+      "observed": 0.8762886597938144,
+      "wilson_low": 0.7961108835611934,
+      "wilson_high": 0.9277967101302989,
+      "inside": false
+     }
+    ]
+   },
+   "k_of_n": {
+    "cards": 484,
+    "observed_share": 0.7727272727272727,
+    "mean_forecast": 0.7657553807886855,
+    "brier": 0.1597443940687692,
+    "log_loss": 0.49424856079064194,
+    "ece": 0.027616415376992692,
+    "bins": 2,
+    "inside_bins": 2,
+    "table": [
+     {
+      "forecast_min": 0.5402985074626866,
+      "forecast_max": 0.7651515151515151,
+      "mean_forecast": 0.6772544303277005,
+      "n": 220,
+      "k": 144,
+      "observed": 0.6545454545454545,
+      "wilson_low": 0.589541995233528,
+      "wilson_high": 0.7142442536138712,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.8395061728395061,
+      "forecast_max": 0.8395061728395061,
+      "mean_forecast": 0.8395061728395062,
+      "n": 264,
+      "k": 230,
+      "observed": 0.8712121212121212,
+      "wilson_low": 0.8254202252452152,
+      "wilson_high": 0.9063555705982982,
+      "inside": true
+     }
+    ]
+   }
+  },
+  "all_pair_days": {
+   "bayes": {
+    "cards": 6250,
+    "observed_share": 0.4792,
+    "mean_forecast": 0.4814176973879288,
+    "brier": 0.1050914235683827,
+    "log_loss": 0.33185482180254,
+    "ece": 0.019788623946194857,
+    "bins": 5,
+    "inside_bins": 2,
+    "table": [
+     {
+      "forecast_min": 0.0009388859502936684,
+      "forecast_max": 0.03572962245279542,
+      "mean_forecast": 0.03265141902872701,
+      "n": 1253,
+      "k": 0,
+      "observed": 0.0,
+      "wilson_low": 0.0,
+      "wilson_high": 0.0030565506424994203,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.03572978251517566,
+      "forecast_max": 0.460820786822713,
+      "mean_forecast": 0.08361357737593333,
+      "n": 1247,
+      "k": 104,
+      "observed": 0.08340016038492382,
+      "wilson_low": 0.06930384910524223,
+      "wilson_high": 0.10005540469635824,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.4608494704977883,
+      "forecast_max": 0.718771875821604,
+      "mean_forecast": 0.5997531473939917,
+      "n": 1250,
+      "k": 764,
+      "observed": 0.6112,
+      "wilson_low": 0.5838741908753592,
+      "wilson_high": 0.6378444057958631,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.7188057807499006,
+      "forecast_max": 0.8425487496251073,
+      "mean_forecast": 0.7891195362103433,
+      "n": 1250,
+      "k": 1027,
+      "observed": 0.8216,
+      "wilson_low": 0.7994002332166511,
+      "wilson_high": 0.841829089530337,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.8425514407188173,
+      "forecast_max": 0.9926604288134143,
+      "mean_forecast": 0.9020731161106822,
+      "n": 1250,
+      "k": 1100,
+      "observed": 0.88,
+      "wilson_low": 0.8608107616188008,
+      "wilson_high": 0.8968607018260235,
+      "inside": false
+     }
+    ]
+   },
+   "bayes_display": {
+    "cards": 6250,
+    "observed_share": 0.4792,
+    "mean_forecast": 0.4864256746356152,
+    "brier": 0.10587563703096592,
+    "log_loss": 0.3377984926079643,
+    "ece": 0.03804167463561522,
+    "bins": 5,
+    "inside_bins": 1,
+    "table": [
+     {
+      "forecast_min": 0.0,
+      "forecast_max": 0.05,
+      "mean_forecast": 0.0473293768545994,
+      "n": 2359,
+      "k": 0,
+      "observed": 0.0,
+      "wilson_low": 0.0,
+      "wilson_high": 0.0016258389897994008,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.4,
+      "forecast_max": 0.45,
+      "mean_forecast": 0.4410994764397906,
+      "n": 191,
+      "k": 138,
+      "observed": 0.7225130890052356,
+      "wilson_low": 0.6551007231572592,
+      "wilson_high": 0.7811510834384574,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.5,
+      "forecast_max": 0.7000000000000001,
+      "mean_forecast": 0.6089942763695829,
+      "n": 1223,
+      "k": 752,
+      "observed": 0.6148814390842191,
+      "wilson_low": 0.5872888905347398,
+      "wilson_high": 0.641754532837927,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.75,
+      "forecast_max": 0.8500000000000001,
+      "mean_forecast": 0.8085422740524781,
+      "n": 1715,
+      "k": 1422,
+      "observed": 0.8291545189504373,
+      "wilson_low": 0.8106103133189697,
+      "wilson_high": 0.846227408085958,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.9,
+      "forecast_max": 0.9400748760720996,
+      "mean_forecast": 0.9354468063944817,
+      "n": 762,
+      "k": 683,
+      "observed": 0.8963254593175853,
+      "wilson_low": 0.8726559389379622,
+      "wilson_high": 0.9160188993053506,
+      "inside": false
+     }
+    ]
+   },
+   "bayes_decay90": {
+    "cards": 6250,
+    "observed_share": 0.4792,
+    "mean_forecast": 0.4920567073352456,
+    "brier": 0.10777569653354849,
+    "log_loss": 0.35407330652444513,
+    "ece": 0.046028286260654534,
+    "bins": 5,
+    "inside_bins": 1,
+    "table": [
+     {
+      "forecast_min": 0.002267525897187443,
+      "forecast_max": 0.09599311498086584,
+      "mean_forecast": 0.08833080533361098,
+      "n": 1253,
+      "k": 0,
+      "observed": 0.0,
+      "wilson_low": 0.0,
+      "wilson_high": 0.0030565506424994203,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.09604430684853252,
+      "forecast_max": 0.41851720059273245,
+      "mean_forecast": 0.1309840464347821,
+      "n": 1247,
+      "k": 90,
+      "observed": 0.07217321571772253,
+      "wilson_low": 0.059086195364460886,
+      "wilson_high": 0.08788812976191801,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.41885712015555815,
+      "forecast_max": 0.7082806456502275,
+      "mean_forecast": 0.5855106228871837,
+      "n": 1250,
+      "k": 803,
+      "observed": 0.6424,
+      "wilson_low": 0.6154301792895661,
+      "wilson_high": 0.6684972322750206,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.7083981094391004,
+      "forecast_max": 0.826337736073486,
+      "mean_forecast": 0.7638279776946834,
+      "n": 1250,
+      "k": 985,
+      "observed": 0.788,
+      "wilson_low": 0.7644765943519527,
+      "wilson_high": 0.8097586200483353,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.8263846972156558,
+      "forecast_max": 0.9925835545039307,
+      "mean_forecast": 0.8917324521046105,
+      "n": 1250,
+      "k": 1117,
+      "observed": 0.8936,
+      "wilson_low": 0.8752837294296155,
+      "wilson_high": 0.9095043969174444,
+      "inside": true
+     }
+    ]
+   },
+   "bayes_events": {
+    "cards": 6250,
+    "observed_share": 0.4792,
+    "mean_forecast": 0.5069437572601067,
+    "brier": 0.1062901672946896,
+    "log_loss": 0.3970677485643499,
+    "ece": 0.02864935455519343,
+    "bins": 5,
+    "inside_bins": 2,
+    "table": [
+     {
+      "forecast_min": 0.0003166894360458767,
+      "forecast_max": 0.02149108170059862,
+      "mean_forecast": 0.01199180451653115,
+      "n": 1253,
+      "k": 0,
+      "observed": 0.0,
+      "wilson_low": 0.0,
+      "wilson_high": 0.0030565506424994203,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.02153965045254437,
+      "forecast_max": 0.45723061255277364,
+      "mean_forecast": 0.07712109739603348,
+      "n": 1247,
+      "k": 99,
+      "observed": 0.07939053728949479,
+      "wilson_low": 0.06564448348778536,
+      "wilson_high": 0.09572015292980741,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.4572420375355411,
+      "forecast_max": 0.7852377071612296,
+      "mean_forecast": 0.6076498340938417,
+      "n": 1250,
+      "k": 742,
+      "observed": 0.5936,
+      "wilson_low": 0.5661248824762026,
+      "wilson_high": 0.620501562203891,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.7852548394290957,
+      "forecast_max": 0.9185061222664401,
+      "mean_forecast": 0.872669224605271,
+      "n": 1250,
+      "k": 1058,
+      "observed": 0.8464,
+      "wilson_low": 0.8253524252631226,
+      "wilson_high": 0.8653249298350016,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.9185101719056973,
+      "forecast_max": 0.9999999999999999,
+      "mean_forecast": 0.9654431359917668,
+      "n": 1250,
+      "k": 1096,
+      "observed": 0.8768,
+      "wilson_low": 0.8574165274316652,
+      "wilson_high": 0.8938745447420449,
+      "inside": false
+     }
+    ]
+   },
+   "naive": {
+    "cards": 6250,
+    "observed_share": 0.4792,
+    "mean_forecast": 0.4736228401774043,
+    "brier": 0.10524984767894043,
+    "log_loss": 0.32482995275240223,
+    "ece": 0.020694015940647133,
+    "bins": 4,
+    "inside_bins": 2,
+    "table": [
+     {
+      "forecast_min": 0.0,
+      "forecast_max": 0.45865507291931046,
+      "mean_forecast": 0.03331669302880386,
+      "n": 2551,
+      "k": 139,
+      "observed": 0.05448843590748726,
+      "wilson_low": 0.04633131470655464,
+      "wilson_high": 0.06398534836954371,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.4790258187092583,
+      "forecast_max": 0.7387991829245829,
+      "mean_forecast": 0.6142111810196639,
+      "n": 1228,
+      "k": 749,
+      "observed": 0.6099348534201955,
+      "wilson_low": 0.5823509943991038,
+      "wilson_high": 0.6368330305599496,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.7391996221188764,
+      "forecast_max": 0.8530713551414534,
+      "mean_forecast": 0.8072801288031388,
+      "n": 1334,
+      "k": 1105,
+      "observed": 0.828335832083958,
+      "wilson_low": 0.8071642714313364,
+      "wilson_high": 0.8476217660188371,
+      "inside": true
+     },
+     {
+      "forecast_min": 0.8536228292992616,
+      "forecast_max": 0.9999999999993086,
+      "mean_forecast": 0.9181959939109615,
+      "n": 1137,
+      "k": 1002,
+      "observed": 0.8812664907651715,
+      "wilson_low": 0.8611679446093455,
+      "wilson_high": 0.8987973301492188,
+      "inside": false
+     }
+    ]
+   },
+   "k_of_n": {
+    "cards": 6250,
+    "observed_share": 0.4792,
+    "mean_forecast": 0.6494377479605342,
+    "brier": 0.211932713716866,
+    "log_loss": 0.6056724747686673,
+    "ece": 0.19597601956547234,
+    "bins": 2,
+    "inside_bins": 0,
+    "table": [
+     {
+      "forecast_min": 0.5402985074626866,
+      "forecast_max": 0.7651515151515151,
+      "mean_forecast": 0.5881992857031457,
+      "n": 4727,
+      "k": 1636,
+      "observed": 0.3460968902052041,
+      "wilson_low": 0.3326649496646659,
+      "wilson_high": 0.3597787795863832,
+      "inside": false
+     },
+     {
+      "forecast_min": 0.8395061728395061,
+      "forecast_max": 0.8395061728395061,
+      "mean_forecast": 0.8395061728395061,
+      "n": 1523,
+      "k": 1359,
+      "observed": 0.8923177938279712,
+      "wilson_low": 0.8757508209929066,
+      "wilson_high": 0.9069105893328273,
+      "inside": false
+     }
+    ]
+   }
+  },
+  "display_table": [
+   {
+    "shown": "55%",
+    "n": 7,
+    "k": 3,
+    "observed": 0.42857142857142855,
+    "wilson_low": 0.15821692226262685,
+    "wilson_high": 0.7495457695909742,
+    "passes": true
+   },
+   {
+    "shown": "60%",
+    "n": 31,
+    "k": 20,
+    "observed": 0.6451612903225806,
+    "wilson_low": 0.469476380428149,
+    "wilson_high": 0.7888355225843418,
+    "passes": true
+   },
+   {
+    "shown": "65%",
+    "n": 19,
+    "k": 10,
+    "observed": 0.5263157894736842,
+    "wilson_low": 0.31707482511825114,
+    "wilson_high": 0.7267049451255145,
+    "passes": true
+   },
+   {
+    "shown": "70%",
+    "n": 38,
+    "k": 23,
+    "observed": 0.6052631578947368,
+    "wilson_low": 0.4471758699869596,
+    "wilson_high": 0.7440214073638108,
+    "passes": true
+   },
+   {
+    "shown": "75%",
+    "n": 57,
+    "k": 38,
+    "observed": 0.6666666666666666,
+    "wilson_low": 0.5372226902277747,
+    "wilson_high": 0.7750636401777372,
+    "passes": true
+   },
+   {
+    "shown": "80%",
+    "n": 65,
+    "k": 49,
+    "observed": 0.7538461538461538,
+    "wilson_low": 0.6369398600835174,
+    "wilson_high": 0.842421456329814,
+    "passes": true
+   },
+   {
+    "shown": "85%",
+    "n": 121,
+    "k": 101,
+    "observed": 0.8347107438016529,
+    "wilson_low": 0.7584442250683895,
+    "wilson_high": 0.8903779624075799,
+    "passes": true
+   },
+   {
+    "shown": "90%",
+    "n": 16,
+    "k": 14,
+    "observed": 0.875,
+    "wilson_low": 0.6397666856325173,
+    "wilson_high": 0.9650232506629428,
+    "passes": true
+   },
+   {
+    "shown": "> 90%",
+    "n": 130,
+    "k": 116,
+    "observed": 0.8923076923076924,
+    "wilson_low": 0.8273356350476297,
+    "wilson_high": 0.9347592592154395,
+    "passes": true
+   }
+  ],
+  "ranking": {
+   "same_issued_cards_share": 0.9864077669902913,
+   "identical_selection": false,
+   "spearman_within_day_median": 0.992619926199262
+  },
+  "prior": {
+   "alpha_median": 1.0029819831800033,
+   "beta_median_days": 13.647110573486557,
+   "prior_mean_incidents_per_14d_median": 1.0249619482496195
+  }
+ },
+ "seconds": 0.9,
+ "git_sha": "298365a3a66c934d4b1cd526cc9a9aeefea6d9ec",
+ "git_dirty": true,
+ "labels": {
+  "7d": "data-science/artifacts/sensor-failure-v1/model_labels_v5",
+  "14d, 21d, events": "data-science/artifacts/next-2026-09-27/ds-exploration5/labels",
+  "exploration5_labels_summary_sha256": "a44a4ab3815786e9c027332bdd686c62d6c8f6888ce93810b0296c27d5b47073"
+ }
+}

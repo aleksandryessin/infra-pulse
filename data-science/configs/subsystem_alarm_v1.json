@@ -1,0 +1,136 @@
+{
+  "version": "subsystem-alarm-v1",
+  "status": "frozen_before_fit_2026-09-26",
+  "question": "Will at least one source alarm=true be registered for the object_id x system_type group in [issued_at, issued_at + 24h)?",
+  "interpretation": "registered source alarm forecast; not a confirmed physical fault, incident or dispatch outcome",
+  "source": {
+    "opener": "infra_pulse_research.modeling.fire_source.open_fire_source",
+    "view": "current_enriched_events",
+    "snapshot_version": "journal-curated-v4",
+    "policy_version": "alarm-spike-exclusions-v1",
+    "reference_basis": "current_snapshot_no_validity_dates",
+    "timezone": "Europe/Moscow assumed local wall time"
+  },
+  "unit": ["object_id", "system_type", "issued_at"],
+  "cadence": "daily 00:00 local",
+  "horizon_hours": 24,
+  "system_types": {
+    "Газовая охрана": "gas",
+    "Диагностическая подсистема": "diag",
+    "Диспетчерский контроль": "disp",
+    "Охранная подсистема": "sec",
+    "Пожарная охрана": "fire",
+    "Температурная подсистема": "temp"
+  },
+  "sensor_types": {
+    "Газовый датчик": "gas_sensor",
+    "ИБП": "ups",
+    "Датчик затопления": "flood",
+    "Переключатель": "switch",
+    "Состояние вентилятора": "fan",
+    "Состояние насоса": "pump",
+    "Состояние охраны": "guard_state",
+    "Состояние фазы": "phase",
+    "9-секционный люк": "hatch9",
+    "Датчик движения": "motion",
+    "КД АВ": "kd_av",
+    "КД Дверь": "kd_door",
+    "КД Люк": "kd_hatch",
+    "Стекло": "glass",
+    "Датчик дыма": "smoke",
+    "Ручной извещатель": "manual_call",
+    "Состояние УИР-Р": "uir",
+    "Тепловой датчик": "heat",
+    "Датчик температуры": "temperature"
+  },
+  "unknown_sensor_type_code": "other",
+  "candidates": "groups with at least one channel message strictly before issued_at; rows without object_id or system_type are out of scope and counted",
+  "label": {
+    "positive": "any source row with alarm=true for any channel of the group in [t, t+24h); simultaneous true/false rows are counted as conflicts, true is kept",
+    "negative": "no alarm=true row in a fully covered window; per-channel future messages are not required",
+    "excluded": "window touches an uncovered source day, a policy_days day scoped to a sensor type of the group (or unscoped), a split boundary, data end, 2021, or a cutoff whose 30-day lookback starts before 2019-01-01 or inside 2021"
+  },
+  "splits": {
+    "development": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2025-01-01"]],
+    "excluded_2021_and_lookback": [["2021-01-01", "2022-01-31"]],
+    "validation_2025_h1": [["2025-01-01", "2025-07-01"]],
+    "diagnostic_2025_h2_viewed": [["2025-07-01", "2026-01-01"]],
+    "test_2026_jan_may_viewed": [["2026-01-01", "2026-06-01"]],
+    "diagnostic_2026_june": [["2026-06-01", "2026-07-01"]]
+  },
+  "features": {
+    "channel_first_then_group": true,
+    "windows_hours": [1, 6, 24, 168],
+    "lags_hours": [1, 6, 24, 168],
+    "history_lookback_hours": 720,
+    "baseline": {
+      "window": "[t-30d, t-24h) hourly medians of the channel's own value_numeric",
+      "center": "median",
+      "scale": "1.4826 * MAD, fallback IQR / 1.349; zero scale -> null with reason",
+      "min_hours": 20,
+      "min_distinct_days": 5
+    },
+    "pronounced_change_abs_z": 3.0,
+    "group_aggregation": "per sensor type inside the group: median, p90, max, count of channels with |z| >= pronounced_change_abs_z",
+    "prefixes": {
+      "cat__": "base categoricals: target system type, object kind, last signal sensor type, last observed text state",
+      "cal__": "calendar of issued_at",
+      "own_sig__": "own group message/alarm/text/recency history",
+      "own_num__": "own group value_numeric dynamics (anything derived from value_numeric)",
+      "comp__": "composition: known channels, per sensor-type counts/shares, numeric channel share",
+      "qual__": "history coverage, conflicts, pickets unknown/range",
+      "nbr_obj_sig__": "other systems of the same object, per system code, message/alarm/recency",
+      "nbr_obj_num__": "other systems of the same object, per system code, value_numeric dynamics",
+      "nbr_pk_sig__": "channels of other groups on the same unambiguous point picket in the object",
+      "nbr_pk_num__": "value_numeric dynamics of those same-picket channels",
+      "name__": "variant E only: channel name of the last alarm and of the maximum normalized deviation; 'несколько каналов' on ties",
+      "card__": "never a model input: object/system/channel/picket context for the dispatcher card"
+    }
+  },
+  "feature_sets": {
+    "A": {"include": ["cat__", "cal__", "own_sig__", "comp__", "qual__"]},
+    "B": {"include": ["cat__", "cal__", "own_sig__", "comp__", "qual__", "own_num__"]},
+    "C": {"include": ["cat__", "cal__", "own_sig__", "comp__", "qual__", "own_num__", "nbr_obj_sig__", "nbr_obj_num__", "nbr_pk_sig__", "nbr_pk_num__"]},
+    "D": {"include": ["cat__", "cal__", "own_sig__", "comp__", "qual__", "nbr_obj_sig__", "nbr_pk_sig__"]},
+    "E": {"include": ["cat__", "cal__", "own_sig__", "comp__", "qual__", "own_num__", "nbr_obj_sig__", "nbr_obj_num__", "nbr_pk_sig__", "nbr_pk_num__", "name__"]}
+  },
+  "preprocessing": "drop development-constant and exact-duplicate columns; object_id/channel ids are keys only",
+  "models": {
+    "rule_share": "own_sig__alarm_channel_share_24h desc, then own_sig__hours_since_last_alarm asc (null = never in lookback)",
+    "rule_repeat": "own_sig__alarm_rows_24h > 0",
+    "logreg": {
+      "imputer": "median, fitted on development",
+      "missing_indicators": true,
+      "scaler": "RobustScaler, fitted on development",
+      "categorical": "OneHotEncoder(handle_unknown=infrequent_if_exist, min_frequency=20), fitted on development",
+      "class_weight": "balanced",
+      "C": 1.0,
+      "max_iter": 2000,
+      "solver": "lbfgs"
+    },
+    "catboost": {
+      "loss_function": "Logloss",
+      "iterations": 400,
+      "depth": 4,
+      "learning_rate": 0.05,
+      "l2_leaf_reg": 5,
+      "random_seed": 17,
+      "auto_class_weights": "Balanced",
+      "task_type": "CPU",
+      "thread_count": 8
+    },
+    "hyperparameter_search": false
+  },
+  "fit_rows": "development, outcome in positive/negative only",
+  "evaluation": {
+    "card_budget_per_day": 10,
+    "threshold": "chosen on validation_2025_h1 only, maximizing F1 of the budget-capped card policy",
+    "top_k_comparison": 10,
+    "one_card_per_group_per_24h": true,
+    "size_buckets_channels": [1, 2, 9, 50, 200],
+    "bootstrap": {"replicates": 400, "seed": 17, "blocks": ["iso_week", "object_id"], "cards": "fixed on the full period, metrics resampled"},
+    "deltas": [["C", "B", "neighbours"], ["C", "D", "numeric"], ["E", "C", "names"]],
+    "name_transfer": {"hash": "sha256('subsystem-alarm-v1:' + object_id)", "heldout_rule": "int(hex, 16) % 5 == 0", "fit": "development rows of held-in objects", "evaluate": "validation_2025_h1 rows split by held-in / held-out object"}
+  },
+  "forbidden": ["using test_2026_jan_may_viewed or diagnostics to change features, parameters, threshold or subsystem choice", "fit on excluded rows", "object_id or channel_id as model features"]
+}

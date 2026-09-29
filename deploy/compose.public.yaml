@@ -1,0 +1,191 @@
+# Public access override (deploy/README.md «Публичный доступ»; SEC-02–SEC-04).
+# Always the third file, after compose.yaml and deploy/compose.server.yaml:
+#
+#   docker compose -f compose.yaml -f deploy/compose.server.yaml \
+#     -f deploy/compose.public.yaml --env-file <DEPLOY_PATH>/shared/.env <command>
+#
+# deploy/remote-deploy.sh --public (or STAND_PUBLIC=true in the server .env) adds it.
+# Caddy is the only service with host ports (80/443, automatic Let's Encrypt, staging
+# first). web, api, db and lldap publish nothing. The API runs with directory login
+# (INFRA_AUTH_MODE=ldap) against a test lldap; accounts are created by
+# deploy/lldap/bootstrap.sh from a server-only file, never from Git.
+
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "5"
+
+x-hardening: &hardening
+  security_opt:
+    - "no-new-privileges:true"
+
+services:
+  caddy:
+    <<: *hardening
+    # caddy 2.11.4-alpine; the digest pins the multi-arch index.
+    image: caddy:2.11.4-alpine@sha256:6aeddd44c3078b0f9a35206472a11420648a79c184603ef95957d0a20044cb2b
+    environment:
+      PUBLIC_HOST: ${PUBLIC_HOST:?set PUBLIC_HOST in the server .env}
+      ACME_EMAIL: ${ACME_EMAIL:?set ACME_EMAIL in the server .env}
+      ACME_CA: ${ACME_CA:-https://acme-staging-v02.api.letsencrypt.org/directory}
+      HSTS_MAX_AGE: ${HSTS_MAX_AGE:-300}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - type: bind
+        source: ./deploy/Caddyfile
+        target: /etc/caddy/Caddyfile
+        read_only: true
+      # Certificates and ACME account; keep across deploys (rate limits).
+      - caddy_data:/data
+      - caddy_config:/config
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    depends_on:
+      web:
+        condition: service_healthy
+    restart: unless-stopped
+    mem_limit: 256m
+    cpus: 0.5
+    logging: *logging
+
+  # Test directory (SEC-02). Web UI 17170 and LDAP 3890 stay on the Compose network.
+  lldap:
+    <<: *hardening
+    # lldap v0.6.3-alpine (bash, curl, jq, jo and /app/bootstrap.sh inside).
+    image: lldap/lldap:v0.6.3-alpine@sha256:2a8454b668c1aba7157e832eab0e242e1e7eb5fb7591d7e7774ba05286511ca8
+    environment:
+      LLDAP_LDAP_BASE_DN: ${LLDAP_BASE_DN:-dc=infrapulse,dc=local}
+      LLDAP_JWT_SECRET: ${LLDAP_JWT_SECRET:?set LLDAP_JWT_SECRET in the server .env}
+      LLDAP_KEY_SEED: ${LLDAP_KEY_SEED:?set LLDAP_KEY_SEED in the server .env}
+      # Initial password of the directory administrator "admin" (not an app user).
+      LLDAP_LDAP_USER_PASS: ${LLDAP_ADMIN_PASSWORD:?set LLDAP_ADMIN_PASSWORD in the server .env}
+      TZ: UTC
+    volumes:
+      - lldap_data:/data
+    restart: unless-stopped
+    mem_limit: 256m
+    cpus: 0.5
+    logging: *logging
+
+  api:
+    environment:
+      INFRA_AUTH_MODE: ldap
+      INFRA_LDAP_URL: ldap://lldap:3890
+      INFRA_LDAP_BASE_DN: ${LLDAP_BASE_DN:-dc=infrapulse,dc=local}
+      INFRA_SESSION_TTL_MINUTES: ${INFRA_SESSION_TTL_MINUTES:-480}
+      # true: public read-only API docs https://<PUBLIC_HOST>/api/docs and /api/openapi.json
+      # (routes still need a session or token); Caddy answers 404 on /docs, /redoc, /openapi.json.
+      INFRA_PUBLIC_DOCS: ${INFRA_PUBLIC_DOCS:-false}
+      # api is reachable only from web; Caddy sets X-Forwarded-For (client value
+      # replaced), so uvicorn may take the client address from it for the throttle.
+      FORWARDED_ALLOW_IPS: "*"
+    ports: !reset []
+    depends_on:
+      lldap:
+        condition: service_healthy
+
+  web:
+    ports: !reset []
+
+  # ---- OPS-G: Grafana (OPS-06, SHOULD/P2), profile `analytics` ----
+  # Starts only with COMPOSE_PROFILES=analytics in the server .env (or --profile
+  # analytics). Reached only through Caddy at https://<PUBLIC_HOST>/grafana/; no host
+  # port. Sign-in: lldap groups analyst -> Viewer, admin -> Admin; no anonymous
+  # access, no local admin, sign-up, snapshots, public dashboards, alerting,
+  # telemetry or plugin downloads. Reads PostgreSQL only as GRAFANA_DB_USER, a member
+  # of analytics_read (migration 0016, deploy/grafana/create-reader.sh).
+  grafana:
+    <<: *hardening
+    profiles: ["analytics"]
+    # grafana 12.4.11 (Alpine); the digest pins the multi-arch index.
+    image: grafana/grafana:12.4.11@sha256:3ea272e5cab64a4a62240c682e2c62433b25614d956d44c299a10cb6994f6f2e
+    environment:
+      GF_SERVER_ROOT_URL: https://${PUBLIC_HOST:?set PUBLIC_HOST in the server .env}/grafana/
+      GF_SERVER_SERVE_FROM_SUB_PATH: "false"
+      GF_SECURITY_DISABLE_INITIAL_ADMIN_CREATION: "true"
+      GF_SECURITY_COOKIE_SECURE: "true"
+      GF_SECURITY_COOKIE_SAMESITE: lax
+      GF_SECURITY_DISABLE_GRAVATAR: "true"
+      GF_SECURITY_ALLOW_EMBEDDING: "false"
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+      GF_AUTH_BASIC_ENABLED: "false"
+      GF_AUTH_LOGIN_MAXIMUM_LIFETIME_DURATION: ${INFRA_SESSION_TTL_MINUTES:-480}m
+      GF_AUTH_LDAP_ENABLED: "true"
+      GF_AUTH_LDAP_CONFIG_FILE: /etc/grafana/ldap.toml
+      GF_AUTH_LDAP_ALLOW_SIGN_UP: "true"
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_USERS_ALLOW_ORG_CREATE: "false"
+      GF_USERS_VIEWERS_CAN_EDIT: "false"
+      GF_EXPLORE_ENABLED: "false"
+      GF_SNAPSHOTS_ENABLED: "false"
+      GF_SNAPSHOTS_EXTERNAL_ENABLED: "false"
+      GF_PUBLIC_DASHBOARDS_ENABLED: "false"
+      GF_UNIFIED_ALERTING_ENABLED: "false"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+      GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES: "false"
+      GF_ANALYTICS_FEEDBACK_LINKS_ENABLED: "false"
+      GF_NEWS_NEWS_FEED_ENABLED: "false"
+      GF_PLUGINS_PREINSTALL_DISABLED: "true"
+      GF_PLUGINS_PLUGIN_ADMIN_ENABLED: "false"
+      GF_PLUGINS_PUBLIC_KEY_RETRIEVAL_DISABLED: "true"
+      # Home: text states; the stand has no numeric channels (owner review 29.09).
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /etc/grafana/dashboards/signals-state.json
+      GF_LOG_MODE: console
+      # Interpolated by deploy/grafana/ldap.toml and the data source provisioning.
+      LLDAP_BASE_DN: ${LLDAP_BASE_DN:-dc=infrapulse,dc=local}
+      POSTGRES_DB: ${POSTGRES_DB:-infra_pulse}
+      GRAFANA_DB_USER: ${GRAFANA_DB_USER:-grafana_reader}
+      # Optional in Compose: a required value would break stands without the profile
+      # (interpolation covers every profile); create-reader.sh refuses an empty one.
+      GRAFANA_DB_PASSWORD: ${GRAFANA_DB_PASSWORD:-}
+    volumes:
+      - type: bind
+        source: ./deploy/grafana/ldap.toml
+        target: /etc/grafana/ldap.toml
+        read_only: true
+      - type: bind
+        source: ./deploy/grafana/provisioning
+        target: /etc/grafana/provisioning
+        read_only: true
+      - type: bind
+        source: ./deploy/grafana/dashboards
+        target: /etc/grafana/dashboards
+        read_only: true
+      # Grafana's own SQLite: users signed in via LDAP and their sessions; no signal data.
+      - grafana_data:/var/lib/grafana
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:3000/api/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 30s
+    depends_on:
+      db:
+        condition: service_healthy
+      lldap:
+        condition: service_healthy
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: 0.5
+    logging: *logging
+
+volumes:
+  caddy_data:
+  caddy_config:
+  lldap_data:
+  # OPS-G, profile `analytics`.
+  grafana_data:

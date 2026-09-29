@@ -1,0 +1,35 @@
+{
+  "batch_id": "synthetic-dispatch-demo-001",
+  "records": [
+    {
+      "source_record_id": "pump-1",
+      "object_id": "synthetic-object-A",
+      "channel_id": "synthetic-pump-channel",
+      "sensor_type": "Состояние насоса",
+      "system_type": "Дренаж",
+      "value_raw": "Неисправен",
+      "alarm": true,
+      "event_at": "2026-09-24T10:00:00+03:00"
+    },
+    {
+      "source_record_id": "fan-1",
+      "object_id": "synthetic-object-A",
+      "channel_id": "synthetic-fan-channel",
+      "sensor_type": "Состояние вентилятора",
+      "system_type": "Вентиляция",
+      "value_raw": "Обесточен",
+      "alarm": false,
+      "event_at": "2026-09-24T10:00:10+03:00"
+    },
+    {
+      "source_record_id": "pump-2",
+      "object_id": "synthetic-object-A",
+      "channel_id": "synthetic-pump-channel",
+      "sensor_type": "Состояние насоса",
+      "system_type": "Дренаж",
+      "value_raw": "Норма",
+      "alarm": false,
+      "event_at": "2026-09-24T10:00:20+03:00"
+    }
+  ]
+}

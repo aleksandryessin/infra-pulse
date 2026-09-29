@@ -1,0 +1,22 @@
+{
+  "byte_identical_outputs": true,
+  "code_hash_identical": true,
+  "code_sha256": "5368bc12f0a75fae28c1e2fb1d961d944e4158d1bc9a52cca57c1ed74f794883",
+  "config_hash_identical": true,
+  "config_sha256": "38b4b2d6fd1c344b2e0911fcd8aae9fffb105d850c1032a0e601e9a2b0e2e4b1",
+  "dataset_input_hashes_identical": true,
+  "dataset_sha256": "6093811125717a0bd67139e2dc1480f475fdcb3450ce89a71d7b91e0686dad0b",
+  "etl_code_sha256": "b29a4da160578937450812c7c2d02618ec39e0c5b29fb0f7f63f6b6a74271839",
+  "files_checked_per_run": 393,
+  "first_manifest_sha256": "36a304d20f97fd6572e3dbf902ad8f1015a7bd094ab1ad529b1193efd3f01b72",
+  "git_dirty": true,
+  "git_sha": "879828d90cca55d2e69720512d5f06a32e6c264a",
+  "models_fitted": 0,
+  "normalized_manifest_identical": true,
+  "runtime": {
+    "elapsed_seconds": 10.028,
+    "peak_rss_mb": 26.2
+  },
+  "second_manifest_sha256": "1fbf041e1472f7e28c49d1684cca711ff2cfc6fc79ef71434c34acff44f5c16a",
+  "version": "curated-repro-v1"
+}

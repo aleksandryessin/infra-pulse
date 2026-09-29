@@ -1,0 +1,78 @@
+{
+  "version": "sensor-failure-tuning-v2",
+  "status": "frozen_before_fit_2026-09-26_user_confirmed",
+  "confirmation": "user confirmed 2026-09-26: main budget 2 cards/day, duration threshold > 2 s",
+  "base_protocol": "configs/sensor_failure_model_v1.json after the F1 leakage fix (LEAKAGE_AUDIT.md)",
+  "question": "Will a registered loss of connection ('Неисправен', organizer: loss of connection with the device) or a technical value start on a candidate channel of the card within the horizon after the cutoff?",
+  "interpretation": "registered technical event; not a confirmed breakdown; action = remote check, crew visit only after confirmation",
+  "episode": {"q_hours": 24, "cluster_window_minutes": 10},
+  "targets": {
+    "connection_loss_gt2s": {
+      "role": "main",
+      "label": "connection_loss",
+      "episode_filter": "duration > 2 s or open at data end",
+      "why": "durations cluster on even seconds (polling cycle about 2 s); 1-2 s = one missed poll, treated as noise",
+      "equivalence": "source timestamps have 1 s resolution, so > 2 s means >= 3 s"
+    },
+    "connection_loss_all": {"role": "declared variant, evaluated with the selected configuration", "label": "connection_loss", "episode_filter": "all episodes"},
+    "connection_loss_1h": {"role": "declared variant, evaluated with the selected configuration", "label": "connection_loss", "episode_filter": "duration >= 1 h or open"},
+    "technical_value": {"role": "second target, tuned separately", "label": "technical_value", "episode_filter": "all episodes"}
+  },
+  "horizons": {
+    "24h": {"issue": "daily 00:00", "main_budget_per_day": 2, "extra_budgets": [1, 3], "role": "tuned"},
+    "72h": {"issue": "rolling list: every day new cards are added for object x type pairs without an open card, open cards are not displaced and are shown as continuation until their own 72 h window closes", "main_max_open": 6, "extra_max_open": [3], "role": "tuned"},
+    "48h": {"issue": "every 2 days", "budget": 4, "role": "report only, selected configuration"}
+  },
+  "variable_budget_policy": "up to the main budget, a card is issued only if its calibrated risk estimate is >= a level chosen on calibration_and_threshold cards (max precision subject to recall >= persistence at the same budget); reported beside the fixed budget, final stage only",
+  "card_units": {
+    "A": "object_id x sensor_type everywhere",
+    "B": "object_id x system_type, except 'Диспетчерский контроль' which stays object_id x sensor_type",
+    "choice": "the product unit is chosen by action with the technologist, not by the metric; both are reported"
+  },
+  "folds": [
+    {"fit": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2023-01-01"]], "evaluate": [["2023-01-01", "2024-01-01"]]},
+    {"fit": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2024-01-01"]], "evaluate": [["2024-01-01", "2025-01-01"]]}
+  ],
+  "fold_note": "cutoffs whose horizon window crosses the fit/evaluate boundary are dropped from fit (embargo = horizon)",
+  "fit_rows": "fold fit years, candidate rows with a known label: all positives plus negatives with sha256('sensor-failure-model-v1:' + channel_id + ':' + issued_at) mod 100 < 10, weighted 10 before Balanced weighting",
+  "selection": {
+    "metric": "mean over folds of card precision at the main budget (24h: top-2 per day; 72h: rolling list with max 6 open)",
+    "constraint": "mean over folds of event recall at the same budget >= persistence event recall - 0.02",
+    "tie_break": "if precision differs by < 0.005: higher mean card PR-AUC, then the simpler candidate (persistence < fewer features < shallower model)",
+    "always_reported": "precision and recall at budgets 1, 2, 3 (24h) and max open 3, 6 (72h), ceilings, persistence"
+  },
+  "candidates": {
+    "reference": "persistence: hours since the last candidate of the label (ascending), ties by episode starts in 30 days",
+    "catboost_configs": [
+      {"depth": 4, "iterations": 400, "learning_rate": 0.05},
+      {"depth": 6, "iterations": 400, "learning_rate": 0.05},
+      {"depth": 8, "iterations": 400, "learning_rate": 0.05},
+      {"depth": 6, "iterations": 1000, "learning_rate": 0.03},
+      {"depth": 8, "iterations": 1000, "learning_rate": 0.03},
+      {"depth": 6, "iterations": 400, "learning_rate": 0.1}
+    ],
+    "catboost_fixed": {"loss_function": "Logloss", "l2_leaf_reg": 5, "random_seed": 17, "auto_class_weights": "Balanced", "task_type": "CPU", "thread_count": 6},
+    "feature_sets": {
+      "F2": ["hist__", "cal__", "cat__", "ctx__"],
+      "F3": ["hist__", "cal__", "cat__", "ctx__", "num__"],
+      "F3_noproxy": "F3 without columns matching ctx__*_other_channels (audit F2: object identity proxy)"
+    },
+    "card_aggregation": ["max", "noisy_or", "mean_top2"],
+    "combination": ["model_only", "rank_mean_with_persistence", "per_sensor_type_best_of_model_or_persistence_by_folds"],
+    "logistic_regression": "not used (user decision)"
+  },
+  "mlflow": {
+    "tracking_uri": "http://127.0.0.1:5059",
+    "experiment": "sensor-failure-tuning-v2",
+    "run_layout": "one parent run per fit (target x horizon x fold x feature set x CatBoost config) with the model; child runs per card unit x aggregation x combination with fold metrics; persistence runs per fold",
+    "never_delete": true
+  },
+  "final": {
+    "refit": "selected candidate per target x horizon refitted on all development years",
+    "calibration": "isotonic on calibration_and_threshold cards (2025 H1)",
+    "holdout": "2025-07-01..2026-07-01, evaluated once, labelled 'second use of the holdout' (first use: sensor-failure-model-v1)",
+    "success": "week-block 95% lower bound of (selected - persistence) card precision at the main budget > 0 and event recall >= persistence - 0.02; otherwise persistence is demonstrated",
+    "tz_targets": "precision 0.7 / recall 0.5 are reported beside the ceilings with justification"
+  },
+  "time_budget": "about 2-3 hours of compute; if exceeded, CatBoost configs are cut symmetrically before the run and the cut is recorded here"
+}

@@ -1,0 +1,450 @@
+{
+  "code_sha256": "f3f3668956d9c3fd5d07b14806021a24cf435f349318512f787b0fb77e179f09",
+  "config_sha256": "109f542880c8474b2060edb737db0cd01f8b4d63765a4a119175285c37141257",
+  "dataset_manifest_sha256": "36a304d20f97fd6572e3dbf902ad8f1015a7bd094ab1ad529b1193efd3f01b72",
+  "git_dirty": true,
+  "git_sha": "879828d90cca55d2e69720512d5f06a32e6c264a",
+  "models_fitted": 0,
+  "runtime": {
+    "elapsed_seconds": 171.232,
+    "peak_rss_mb": 319.2
+  },
+  "scope": "2019, 2020, 2022–2026; 2021 excluded by study constraint",
+  "version": "source-parquet-verification-v1",
+  "years": {
+    "2019": {
+      "archive": {
+        "alarm_boolean_counts": {
+          "false": 20859129,
+          "true": 134199
+        },
+        "columns": [
+          "ид_события",
+          "ид_канала_данных",
+          "дата",
+          "время",
+          "тревожное",
+          "значение_датчика"
+        ],
+        "max_local_timestamp": "2019-12-31 23:59:52",
+        "min_local_timestamp": "2019-01-01 00:00:21",
+        "records": 20993328,
+        "technical_headers": 0
+      },
+      "curated": {
+        "epoch_by_sensor_type": {},
+        "epoch_placeholder_count": 0,
+        "max_local_timestamp": "2019-12-31 23:59:52",
+        "min_local_timestamp": "2019-01-01 00:00:21",
+        "records": 20915859
+      },
+      "deterministic_sample_extra_in_legacy": 0,
+      "deterministic_sample_missing_from_legacy": 0,
+      "deterministic_sample_modulus": 10000,
+      "deterministic_sample_multiset_equal": true,
+      "deterministic_sample_records": 2220,
+      "legacy_parquet": {
+        "alarm_invalid_count": 0,
+        "alarm_true_count": 134199,
+        "columns_and_types": [
+          "pyarrow.Field<event_id: int64>",
+          "pyarrow.Field<channel_id: int64>",
+          "pyarrow.Field<event_date: date32[day]>",
+          "pyarrow.Field<event_time: time64[us]>",
+          "pyarrow.Field<is_alarm: bool>",
+          "pyarrow.Field<raw_value: string>",
+          "pyarrow.Field<value_numeric: double>",
+          "pyarrow.Field<state_code: string>",
+          "pyarrow.Field<incident_class: string>",
+          "pyarrow.Field<is_epoch_placeholder: bool>",
+          "pyarrow.Field<system_type: string>",
+          "pyarrow.Field<sensor_type: string>",
+          "pyarrow.Field<location_tag: string>"
+        ],
+        "file_sha256": "8d52af5146b6fdb94cfde9caba215364322d876a126ccd7086bc0273569cb0dd",
+        "max_date": "2019-12-31",
+        "min_date": "2019-01-01",
+        "records": 20993328
+      },
+      "raw_vs_curated_date_bounds_equal": true,
+      "raw_vs_curated_record_accounting_equal": true,
+      "raw_vs_legacy_alarm_counts_equal": true,
+      "raw_vs_legacy_date_bounds_equal": true,
+      "raw_vs_legacy_record_count_equal": true
+    },
+    "2020": {
+      "archive": {
+        "alarm_boolean_counts": {
+          "false": 27846736,
+          "true": 325662
+        },
+        "columns": [
+          "ид_события",
+          "ид_канала_данных",
+          "дата",
+          "время",
+          "тревожное",
+          "значение_датчика"
+        ],
+        "max_local_timestamp": "2020-12-31 23:59:59",
+        "min_local_timestamp": "2020-01-01 00:00:04",
+        "records": 28172398,
+        "technical_headers": 0
+      },
+      "curated": {
+        "epoch_by_sensor_type": {
+          "Состояние охраны": 172
+        },
+        "epoch_placeholder_count": 172,
+        "max_local_timestamp": "2020-12-31 23:59:59",
+        "min_local_timestamp": "2020-01-01 00:00:04",
+        "records": 28098930
+      },
+      "deterministic_sample_extra_in_legacy": 0,
+      "deterministic_sample_missing_from_legacy": 0,
+      "deterministic_sample_modulus": 10000,
+      "deterministic_sample_multiset_equal": true,
+      "deterministic_sample_records": 2725,
+      "legacy_parquet": {
+        "alarm_invalid_count": 0,
+        "alarm_true_count": 325662,
+        "columns_and_types": [
+          "pyarrow.Field<event_id: int64>",
+          "pyarrow.Field<channel_id: int64>",
+          "pyarrow.Field<event_date: date32[day]>",
+          "pyarrow.Field<event_time: time64[us]>",
+          "pyarrow.Field<is_alarm: bool>",
+          "pyarrow.Field<raw_value: string>",
+          "pyarrow.Field<value_numeric: double>",
+          "pyarrow.Field<state_code: string>",
+          "pyarrow.Field<incident_class: string>",
+          "pyarrow.Field<is_epoch_placeholder: bool>",
+          "pyarrow.Field<system_type: string>",
+          "pyarrow.Field<sensor_type: string>",
+          "pyarrow.Field<location_tag: string>"
+        ],
+        "file_sha256": "2d4771917f78d480b698f76cb965850f653b9dface4524980871afcaa0ebd1e8",
+        "max_date": "2020-12-31",
+        "min_date": "2020-01-01",
+        "records": 28172398
+      },
+      "raw_vs_curated_date_bounds_equal": true,
+      "raw_vs_curated_record_accounting_equal": true,
+      "raw_vs_legacy_alarm_counts_equal": true,
+      "raw_vs_legacy_date_bounds_equal": true,
+      "raw_vs_legacy_record_count_equal": true
+    },
+    "2022": {
+      "archive": {
+        "alarm_boolean_counts": {
+          "false": 43349645,
+          "true": 133504
+        },
+        "columns": [
+          "ид_события",
+          "ид_канала_данных",
+          "дата",
+          "время",
+          "тревожное",
+          "значение_датчика"
+        ],
+        "max_local_timestamp": "2022-12-31 23:59:56",
+        "min_local_timestamp": "2022-01-01 00:00:00",
+        "records": 43483149,
+        "technical_headers": 0
+      },
+      "curated": {
+        "epoch_by_sensor_type": {
+          "<unknown>": 933,
+          "Состояние охраны": 14223
+        },
+        "epoch_placeholder_count": 15156,
+        "max_local_timestamp": "2022-12-31 23:59:56",
+        "min_local_timestamp": "2022-01-01 00:00:00",
+        "records": 43423449
+      },
+      "deterministic_sample_extra_in_legacy": 0,
+      "deterministic_sample_missing_from_legacy": 0,
+      "deterministic_sample_modulus": 10000,
+      "deterministic_sample_multiset_equal": true,
+      "deterministic_sample_records": 4312,
+      "legacy_parquet": {
+        "alarm_invalid_count": 0,
+        "alarm_true_count": 133504,
+        "columns_and_types": [
+          "pyarrow.Field<event_id: int64>",
+          "pyarrow.Field<channel_id: int64>",
+          "pyarrow.Field<event_date: date32[day]>",
+          "pyarrow.Field<event_time: time64[us]>",
+          "pyarrow.Field<is_alarm: bool>",
+          "pyarrow.Field<raw_value: string>",
+          "pyarrow.Field<value_numeric: double>",
+          "pyarrow.Field<state_code: string>",
+          "pyarrow.Field<incident_class: string>",
+          "pyarrow.Field<is_epoch_placeholder: bool>",
+          "pyarrow.Field<system_type: string>",
+          "pyarrow.Field<sensor_type: string>",
+          "pyarrow.Field<location_tag: string>"
+        ],
+        "file_sha256": "f250807af5bb915e543ac365ae244d8d523c3d63b81f0511fdaac462547df6a6",
+        "max_date": "2022-12-31",
+        "min_date": "2022-01-01",
+        "records": 43483149
+      },
+      "raw_vs_curated_date_bounds_equal": true,
+      "raw_vs_curated_record_accounting_equal": true,
+      "raw_vs_legacy_alarm_counts_equal": true,
+      "raw_vs_legacy_date_bounds_equal": true,
+      "raw_vs_legacy_record_count_equal": true
+    },
+    "2023": {
+      "archive": {
+        "alarm_boolean_counts": {
+          "false": 31829413,
+          "true": 107712
+        },
+        "columns": [
+          "ид_события",
+          "ид_канала_данных",
+          "дата",
+          "время",
+          "тревожное",
+          "значение_датчика"
+        ],
+        "max_local_timestamp": "2023-12-31 23:59:58",
+        "min_local_timestamp": "2023-01-01 00:00:02",
+        "records": 31937125,
+        "technical_headers": 0
+      },
+      "curated": {
+        "epoch_by_sensor_type": {
+          "<unknown>": 610,
+          "Состояние охраны": 15552
+        },
+        "epoch_placeholder_count": 16162,
+        "max_local_timestamp": "2023-12-31 23:59:58",
+        "min_local_timestamp": "2023-01-01 00:00:02",
+        "records": 31322874
+      },
+      "deterministic_sample_extra_in_legacy": 0,
+      "deterministic_sample_missing_from_legacy": 0,
+      "deterministic_sample_modulus": 10000,
+      "deterministic_sample_multiset_equal": true,
+      "deterministic_sample_records": 3244,
+      "legacy_parquet": {
+        "alarm_invalid_count": 0,
+        "alarm_true_count": 107712,
+        "columns_and_types": [
+          "pyarrow.Field<event_id: int64>",
+          "pyarrow.Field<channel_id: int64>",
+          "pyarrow.Field<event_date: date32[day]>",
+          "pyarrow.Field<event_time: time64[us]>",
+          "pyarrow.Field<is_alarm: bool>",
+          "pyarrow.Field<raw_value: string>",
+          "pyarrow.Field<value_numeric: double>",
+          "pyarrow.Field<state_code: string>",
+          "pyarrow.Field<incident_class: string>",
+          "pyarrow.Field<is_epoch_placeholder: bool>",
+          "pyarrow.Field<system_type: string>",
+          "pyarrow.Field<sensor_type: string>",
+          "pyarrow.Field<location_tag: string>"
+        ],
+        "file_sha256": "5165d66e80cdf2d2a89a881e8049eb21fa3174298aefe430204ef44bbc4d0a6a",
+        "max_date": "2023-12-31",
+        "min_date": "2023-01-01",
+        "records": 31937125
+      },
+      "raw_vs_curated_date_bounds_equal": true,
+      "raw_vs_curated_record_accounting_equal": true,
+      "raw_vs_legacy_alarm_counts_equal": true,
+      "raw_vs_legacy_date_bounds_equal": true,
+      "raw_vs_legacy_record_count_equal": true
+    },
+    "2024": {
+      "archive": {
+        "alarm_boolean_counts": {
+          "false": 48908680,
+          "true": 115203
+        },
+        "columns": [
+          "ид_события",
+          "ид_канала_данных",
+          "дата",
+          "время",
+          "тревожное",
+          "значение_датчика"
+        ],
+        "max_local_timestamp": "2024-12-31 23:59:59",
+        "min_local_timestamp": "2024-01-01 00:00:00",
+        "records": 49023883,
+        "technical_headers": 0
+      },
+      "curated": {
+        "epoch_by_sensor_type": {
+          "Состояние охраны": 16108
+        },
+        "epoch_placeholder_count": 16108,
+        "max_local_timestamp": "2024-12-31 23:59:59",
+        "min_local_timestamp": "2024-01-01 00:00:00",
+        "records": 48993335
+      },
+      "deterministic_sample_extra_in_legacy": 0,
+      "deterministic_sample_missing_from_legacy": 0,
+      "deterministic_sample_modulus": 10000,
+      "deterministic_sample_multiset_equal": true,
+      "deterministic_sample_records": 4903,
+      "legacy_parquet": {
+        "alarm_invalid_count": 0,
+        "alarm_true_count": 115203,
+        "columns_and_types": [
+          "pyarrow.Field<event_id: int64>",
+          "pyarrow.Field<channel_id: int64>",
+          "pyarrow.Field<event_date: date32[day]>",
+          "pyarrow.Field<event_time: time64[us]>",
+          "pyarrow.Field<is_alarm: bool>",
+          "pyarrow.Field<raw_value: string>",
+          "pyarrow.Field<value_numeric: double>",
+          "pyarrow.Field<state_code: string>",
+          "pyarrow.Field<incident_class: string>",
+          "pyarrow.Field<is_epoch_placeholder: bool>",
+          "pyarrow.Field<system_type: string>",
+          "pyarrow.Field<sensor_type: string>",
+          "pyarrow.Field<location_tag: string>"
+        ],
+        "file_sha256": "9689eb3dfacc85a71664df0c4172501458f917240466049e804a92cfb62d8006",
+        "max_date": "2024-12-31",
+        "min_date": "2024-01-01",
+        "records": 49023883
+      },
+      "raw_vs_curated_date_bounds_equal": true,
+      "raw_vs_curated_record_accounting_equal": true,
+      "raw_vs_legacy_alarm_counts_equal": true,
+      "raw_vs_legacy_date_bounds_equal": true,
+      "raw_vs_legacy_record_count_equal": true
+    },
+    "2025": {
+      "archive": {
+        "alarm_boolean_counts": {
+          "false": 55285325,
+          "true": 256471
+        },
+        "columns": [
+          "ид_события",
+          "ид_канала_данных",
+          "дата",
+          "время",
+          "тревожное",
+          "значение_датчика"
+        ],
+        "max_local_timestamp": "2025-12-31 23:59:59",
+        "min_local_timestamp": "2025-01-01 00:00:05",
+        "records": 55541796,
+        "technical_headers": 1
+      },
+      "curated": {
+        "epoch_by_sensor_type": {
+          "Состояние охраны": 15320
+        },
+        "epoch_placeholder_count": 15320,
+        "max_local_timestamp": "2025-12-31 23:59:59",
+        "min_local_timestamp": "2025-01-01 00:00:05",
+        "records": 55521310
+      },
+      "deterministic_sample_extra_in_legacy": 0,
+      "deterministic_sample_missing_from_legacy": 0,
+      "deterministic_sample_modulus": 10000,
+      "deterministic_sample_multiset_equal": true,
+      "deterministic_sample_records": 5597,
+      "legacy_parquet": {
+        "alarm_invalid_count": 0,
+        "alarm_true_count": 256471,
+        "columns_and_types": [
+          "pyarrow.Field<event_id: int64>",
+          "pyarrow.Field<channel_id: int64>",
+          "pyarrow.Field<event_date: date32[day]>",
+          "pyarrow.Field<event_time: time64[us]>",
+          "pyarrow.Field<is_alarm: bool>",
+          "pyarrow.Field<raw_value: string>",
+          "pyarrow.Field<value_numeric: double>",
+          "pyarrow.Field<state_code: string>",
+          "pyarrow.Field<incident_class: string>",
+          "pyarrow.Field<is_epoch_placeholder: bool>",
+          "pyarrow.Field<system_type: string>",
+          "pyarrow.Field<sensor_type: string>",
+          "pyarrow.Field<location_tag: string>"
+        ],
+        "file_sha256": "cefcbd063d1efe976131cd1b32e66b7935afe5b2b878df4f42a5eadaa73c1b00",
+        "max_date": "2025-12-31",
+        "min_date": "2025-01-01",
+        "records": 55541796
+      },
+      "raw_vs_curated_date_bounds_equal": true,
+      "raw_vs_curated_record_accounting_equal": true,
+      "raw_vs_legacy_alarm_counts_equal": true,
+      "raw_vs_legacy_date_bounds_equal": true,
+      "raw_vs_legacy_record_count_equal": true
+    },
+    "2026": {
+      "archive": {
+        "alarm_boolean_counts": {
+          "false": 30499967,
+          "true": 195422
+        },
+        "columns": [
+          "ид_события",
+          "ид_канала_данных",
+          "дата",
+          "время",
+          "тревожное",
+          "значение_датчика"
+        ],
+        "max_local_timestamp": "2026-06-30 23:59:59",
+        "min_local_timestamp": "2026-01-01 00:00:00",
+        "records": 30695389,
+        "technical_headers": 0
+      },
+      "curated": {
+        "epoch_by_sensor_type": {
+          "Состояние охраны": 6951
+        },
+        "epoch_placeholder_count": 6951,
+        "max_local_timestamp": "2026-06-30 23:59:59",
+        "min_local_timestamp": "2026-01-01 00:00:00",
+        "records": 30687038
+      },
+      "deterministic_sample_extra_in_legacy": 0,
+      "deterministic_sample_missing_from_legacy": 0,
+      "deterministic_sample_modulus": 10000,
+      "deterministic_sample_multiset_equal": true,
+      "deterministic_sample_records": 3181,
+      "legacy_parquet": {
+        "alarm_invalid_count": 0,
+        "alarm_true_count": 195422,
+        "columns_and_types": [
+          "pyarrow.Field<event_id: int64>",
+          "pyarrow.Field<channel_id: int64>",
+          "pyarrow.Field<event_date: date32[day]>",
+          "pyarrow.Field<event_time: time64[us]>",
+          "pyarrow.Field<is_alarm: bool>",
+          "pyarrow.Field<raw_value: string>",
+          "pyarrow.Field<value_numeric: double>",
+          "pyarrow.Field<state_code: string>",
+          "pyarrow.Field<incident_class: string>",
+          "pyarrow.Field<is_epoch_placeholder: bool>",
+          "pyarrow.Field<system_type: string>",
+          "pyarrow.Field<sensor_type: string>",
+          "pyarrow.Field<location_tag: string>"
+        ],
+        "file_sha256": "6d5caea40a56b5391a67837a94d9fab7f7e14c0135d438d0dca7bad627382908",
+        "max_date": "2026-06-30",
+        "min_date": "2026-01-01",
+        "records": 30695389
+      },
+      "raw_vs_curated_date_bounds_equal": true,
+      "raw_vs_curated_record_accounting_equal": true,
+      "raw_vs_legacy_alarm_counts_equal": true,
+      "raw_vs_legacy_date_bounds_equal": true,
+      "raw_vs_legacy_record_count_equal": true
+    }
+  }
+}

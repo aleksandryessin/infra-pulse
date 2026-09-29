@@ -1,0 +1,254 @@
+{
+  "check": "core-research-parity-v9",
+  "config": "sensor-failure-final-v9",
+  "detector": "phase-feeder-episodes-all-q24h-w10m-v1",
+  "source": {
+    "excluded_rules": 1,
+    "records": 3357367,
+    "layer": "journal-curated-v4 + alarm-spike-exclusions-v1"
+  },
+  "episodes": {
+    "research": 11058,
+    "core": 11058,
+    "matched": 11058,
+    "research_only": 0,
+    "core_only": 0,
+    "end_mismatch": 0,
+    "by_year": {
+      "2019": {
+        "core": 112,
+        "end_mismatch": 0,
+        "matched": 112,
+        "research": 112
+      },
+      "2020": {
+        "core": 424,
+        "end_mismatch": 0,
+        "matched": 424,
+        "research": 424
+      },
+      "2021": {
+        "core": 507,
+        "end_mismatch": 0,
+        "matched": 507,
+        "research": 507
+      },
+      "2022": {
+        "core": 1691,
+        "end_mismatch": 0,
+        "matched": 1691,
+        "research": 1691
+      },
+      "2023": {
+        "core": 1691,
+        "end_mismatch": 0,
+        "matched": 1691,
+        "research": 1691
+      },
+      "2024": {
+        "core": 2636,
+        "end_mismatch": 0,
+        "matched": 2636,
+        "research": 2636
+      },
+      "2025": {
+        "core": 2539,
+        "end_mismatch": 0,
+        "matched": 2539,
+        "research": 2539
+      },
+      "2026": {
+        "core": 1458,
+        "end_mismatch": 0,
+        "matched": 1458,
+        "research": 1458
+      }
+    }
+  },
+  "events": {
+    "research_phase_events": 2947,
+    "core_events": 2947,
+    "first_phase_start_equal": 2947,
+    "research_only": 0,
+    "core_only": 0,
+    "research_events_mixing_types_with_phase": 13
+  },
+  "score_fold_2024": {
+    "cards": 6588,
+    "function_parity": {
+      "equal": 6588,
+      "max_abs_diff": 0.0
+    },
+    "data_parity": {
+      "equal": 6588,
+      "differ": 0,
+      "max_abs_diff": 0.0,
+      "mean_diff": 0.0
+    }
+  },
+  "open_sets_fold_2024": {
+    "days": 353,
+    "days_equal": 353,
+    "days_differ": 0,
+    "first_differ": null,
+    "max_pairs_differ": 0,
+    "open_research_mean": 10.0,
+    "open_core_mean": 10.0,
+    "cards_issued_research": 509,
+    "cards_issued_core": 509,
+    "k": 10,
+    "days_window": 14,
+    "period": [
+      "2024-01-01",
+      "2024-12-18"
+    ]
+  },
+  "layout": {
+    "phase_channels": 957,
+    "by_kind": {
+      "feeder:lighting": 506,
+      "feeder:other": 73,
+      "feeder:ozk": 37,
+      "feeder:pumps": 59,
+      "feeder:ventilation": 133,
+      "landmark:ats": 75,
+      "landmark:input": 2,
+      "landmark:other": 4,
+      "landmark:panel": 68
+    },
+    "picket_forms": {
+      "point": 677,
+      "range": 157,
+      "unknown": 123
+    },
+    "feeders_other_stems": [
+      {
+        "stem": "ФТС# ПК#",
+        "channels": 11
+      },
+      {
+        "stem": "Фрез.# ПК#",
+        "channels": 8
+      },
+      {
+        "stem": "ФТС# ПК# щит.#",
+        "channels": 6
+      },
+      {
+        "stem": "ФР# ПК#",
+        "channels": 5
+      },
+      {
+        "stem": "Питание ПУИ# в ДП",
+        "channels": 4
+      },
+      {
+        "stem": "Фрез.# щит. ПК#",
+        "channels": 4
+      },
+      {
+        "stem": "ФВР# ПК#",
+        "channels": 4
+      },
+      {
+        "stem": "Питание ПУИ #",
+        "channels": 3
+      },
+      {
+        "stem": "ФТС# ПК# щит.",
+        "channels": 2
+      },
+      {
+        "stem": "Ф.Резерв #",
+        "channels": 2
+      },
+      {
+        "stem": "ФТС# щит. ПК#",
+        "channels": 2
+      },
+      {
+        "stem": "ППУ ввод Б ПК#",
+        "channels": 2
+      },
+      {
+        "stem": "ППУ ввод А ПК#",
+        "channels": 2
+      },
+      {
+        "stem": "Питание ПУИ <место 1>",
+        "channels": 1
+      },
+      {
+        "stem": "Питание ПУИ <место 2>",
+        "channels": 1
+      },
+      {
+        "stem": "Фидер ФТС",
+        "channels": 1
+      },
+      {
+        "stem": "Питание ПУИ",
+        "channels": 1
+      },
+      {
+        "stem": "Фидер АНС Щитовая ДП",
+        "channels": 1
+      },
+      {
+        "stem": "Фидер АО Щитовая ДП",
+        "channels": 1
+      },
+      {
+        "stem": "Фидер В Щитовая ДП",
+        "channels": 1
+      },
+      {
+        "stem": "Наличие #В",
+        "channels": 1
+      },
+      {
+        "stem": "ОК# Закрыт ПК#",
+        "channels": 1
+      },
+      {
+        "stem": "ОК# Открыт ПК#",
+        "channels": 1
+      },
+      {
+        "stem": "ФРез# ПК# щит .",
+        "channels": 1
+      },
+      {
+        "stem": "ФРез# ПК# щит.",
+        "channels": 1
+      },
+      {
+        "stem": "ОК-# вкл",
+        "channels": 1
+      },
+      {
+        "stem": "ОК-#",
+        "channels": 1
+      },
+      {
+        "stem": "ФТС ПК# Г# ПК#",
+        "channels": 1
+      },
+      {
+        "stem": "Ф пит. Резерв ПК#",
+        "channels": 1
+      },
+      {
+        "stem": "ФТС щит. ПК#",
+        "channels": 1
+      },
+      {
+        "stem": "ФТС ПК#",
+        "channels": 1
+      }
+    ]
+  },
+  "seconds": 14.6,
+  "git_sha": "b1ebb2087d7579476c58f93d98786ccc2ab51106",
+  "git_dirty": true
+}

@@ -1,0 +1,158 @@
+/* Мнемосхема объекта (F2): лёгкий объём без теней и градиентов, радиус 4 px, токены C4. */
+.mnemo { padding: 18px 20px 16px; display: grid; gap: 12px; min-width: 0; }
+.mnemo__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.mnemo__title { margin: 0; font-size: 24px; font-weight: 700; line-height: 1.25; }
+.mnemo__subtitle { margin: 4px 0 0; color: var(--muted); }
+.mnemo__counters { display: grid; grid-template-columns: auto auto; gap: 0 16px; margin: 0; font-size: 13px; line-height: 18px; text-align: right; }
+.mnemo__counters dt { color: var(--muted); }
+.mnemo__counters dd { margin: 0; font-weight: 700; min-width: 24px; }
+
+.mnemo__states { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: stretch; }
+.mnemo-chip { display: inline-flex; align-items: center; gap: 16px; min-height: 30px; padding: 0 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); font-weight: 600; font-size: 13px; }
+.mnemo-chip__main { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.mnemo-chip a { color: var(--accent-text); }
+.mnemo-chip--forecast { background: var(--forecast-soft); border-color: var(--forecast-fill); color: var(--forecast-text); }
+.mnemo-chip--released { border-style: dashed; border-color: var(--neutral-fill); color: var(--foreground); }
+.mnemo-chip--none { color: var(--muted); font-weight: 400; }
+button.mnemo-chip--alarm { border-color: var(--attention-fill); color: var(--attention-text); cursor: pointer; gap: 8px; font: inherit; font-weight: 600; font-size: 13px; }
+button.mnemo-chip--alarm-past { cursor: pointer; gap: 8px; font: inherit; font-weight: 600; font-size: 13px; color: var(--foreground); }
+.mnemo-chip--reason { max-width: 100%; padding: 4px 12px; line-height: 1.4; }
+/* Сводка тревожных сообщений группы под её названием (правило 2); не прокручивается. */
+.mnemo-group-alarms { position: absolute; left: 0; display: grid; justify-items: start; gap: 0; padding: 0 0 0 22px; border: 0; background: none; color: var(--attention-text); font: inherit; font-size: 11.5px; font-weight: 600; line-height: 13px; text-align: left; cursor: pointer; }
+.mnemo-group-alarms--past { color: var(--muted); }
+.mnemo-group-alarms[aria-pressed='true'] span:first-child { text-decoration: underline; text-underline-offset: 2px; }
+.mnemo-group-alarms:focus-visible { outline: 1.5px dashed var(--focus); }
+/* Правило 6: счётчик линий за правым краем трассы. */
+.mnemo-beyond { position: absolute; padding: 2px 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--accent-text); font: inherit; font-size: 12px; cursor: pointer; }
+.mnemo-chip__main[aria-pressed='true'] { text-decoration: underline; text-underline-offset: 3px; }
+
+.mnemo__bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* Фильтр групп линий (P1-9): переключатели в строке с «Вписать»; нажатый — рамка акцента. */
+.mnemo-groups { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.mnemo-group-toggle { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--muted); font: inherit; font-size: 13px; cursor: pointer; }
+.mnemo-group-toggle[aria-pressed='true'] { border-color: var(--accent-text); background: var(--selected-surface); color: var(--foreground); }
+.mnemo-group-toggle:disabled { cursor: default; opacity: 0.55; }
+.mnemo-group-toggle__count { font-weight: 700; }
+.mnemo-groups__all { font-size: 13px; margin-left: 4px; }
+/* Строка скрытой группы: не прокручивается вместе с трассой, тревога остаётся видна и выбирается. */
+.mnemo-hidden-row { position: absolute; left: 0; right: 0; display: flex; align-items: center; gap: 16px; padding: 0 4px; background: var(--surface); border-top: 1px dashed var(--line); border-bottom: 1px dashed var(--line); font-size: 12.5px; }
+.mnemo-hidden-row__show { display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; color: var(--muted); font: inherit; cursor: pointer; }
+.mnemo-hidden-row__show:hover { color: var(--accent-text); }
+.mnemo-hidden-row__alarm { display: inline-flex; align-items: center; gap: 6px; padding: 0 6px; border: 0; background: none; color: var(--attention-text); font: inherit; font-weight: 600; cursor: pointer; }
+.mnemo__convention { margin: 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--neutral-fill); font-size: 12.5px; }
+
+.mnemo__canvas { position: relative; min-width: 0; }
+.mnemo__areas { display: flex; gap: 12px; align-items: stretch; }
+.mnemo-svg--left, .mnemo-svg--column { flex: none; }
+.mnemo__track { flex: none; overflow-x: auto; overflow-y: hidden; }
+.mnemo__track.is-scrolling { border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
+.mnemo-svg { display: block; font-family: inherit; }
+.mnemo-svg text { fill: var(--foreground); font-size: 13px; }
+.mnemo-svg .mnemo-small { fill: var(--muted); font-size: 12px; }
+.mnemo-svg .mnemo-rows-title { font-weight: 700; font-size: 13px; }
+.mnemo-svg .mnemo-row-label { font-size: 13px; }
+.mnemo-icon { color: var(--foreground); }
+.mnemo-icon--row { color: var(--muted); }
+
+.mnemo-band { fill: var(--surface-soft); }
+.mnemo-grid { stroke: var(--line); stroke-dasharray: 2 4; }
+.mnemo-axis line { stroke: var(--muted); }
+
+.mnemo-hatch__bg { fill: var(--forecast-soft); }
+.mnemo-hatch__line { stroke: var(--forecast-fill); stroke-width: 1.8; stroke-opacity: 0.8; }
+/* Тёмная тема: штриховка прогноза спокойнее, красный тревоги не меняется. */
+:root[data-theme='dark'] .mnemo-hatch__line { stroke-opacity: 0.45; }
+:root[data-theme='dark'] .mnemo-hatch__bg { fill-opacity: 0.6; }
+
+.mnemo-tunnel__top { fill: var(--surface-soft); stroke: var(--neutral-fill); stroke-width: 1; }
+.mnemo-tunnel__side { fill: var(--line); stroke: var(--neutral-fill); stroke-width: 1; }
+.mnemo-tunnel__front--none { fill: var(--surface); stroke: var(--neutral-fill); stroke-width: 1.2; }
+.mnemo-tunnel__front--forecast { stroke: var(--forecast-fill); stroke-width: 1.5; }
+.mnemo-tunnel__front--released { fill: var(--surface); stroke: var(--neutral-fill); stroke-width: 1.8; stroke-dasharray: 5 3; }
+.mnemo-tunnel__tail { fill: none; stroke: var(--neutral-fill); stroke-dasharray: 4 3; }
+
+.mnemo-cube__front { fill: var(--surface); stroke: var(--neutral-text); }
+.mnemo-cube__top { fill: var(--surface-soft); stroke: var(--neutral-text); }
+.mnemo-cube__side { fill: var(--line); stroke: var(--neutral-text); }
+.mnemo-cube__floor { fill: var(--surface-soft); stroke: var(--neutral-text); }
+.mnemo-svg .mnemo-cube__label { font-size: 12px; font-weight: 600; }
+
+.mnemo-node { fill: var(--surface); stroke: var(--foreground); stroke-width: 1.5; }
+.mnemo-node--stack { stroke: var(--muted); }
+/* Подпись плотного знака: скрыта, видна при наведении и фокусе клавиатуры. */
+.mnemo-label-pop { visibility: hidden; }
+.mnemo-label-pop rect { fill: var(--surface); stroke: var(--line); }
+.mnemo-hit:hover .mnemo-label-pop, .mnemo-hit:focus-visible .mnemo-label-pop, .mnemo-hit.is-selected .mnemo-label-pop { visibility: visible; }
+.mnemo-bar { fill: var(--foreground); }
+.mnemo-link line { stroke: var(--foreground); stroke-width: 1.5; }
+.mnemo-link rect { fill: var(--surface); stroke: var(--foreground); }
+.mnemo-svg .mnemo-link text { font-size: 11px; }
+.mnemo-badge { fill: var(--foreground); }
+.mnemo-svg .mnemo-badge__text, .mnemo-legend .mnemo-badge__text { fill: var(--surface); font-size: 11.5px; font-weight: 700; }
+.mnemo-svg .mnemo-label { font-size: 11.5px; fill: var(--foreground); }
+.mnemo-svg .mnemo-label--muted { font-size: 11px; fill: var(--muted); }
+
+.mnemo-alarm__square { fill: var(--attention-fill); }
+/* F6, правило 3: на трассе только квадрат «!» / «!N»; запись, после которой была «Норма», — серый контур. */
+.mnemo-svg .mnemo-alarm__count { fill: var(--surface); font-size: 11px; font-weight: 800; }
+.mnemo-alarm--cleared .mnemo-alarm__square { fill: var(--surface); stroke: var(--neutral-fill); stroke-width: 1.5; }
+.mnemo-alarm--cleared .mnemo-alarm__stem { stroke: var(--neutral-fill); }
+.mnemo-svg .mnemo-alarm--cleared .mnemo-alarm__count { fill: var(--muted); }
+.mnemo-alarm__mark { fill: var(--surface); }
+.mnemo-alarm__stem { stroke: var(--attention-fill); stroke-width: 2; }
+.mnemo-svg .mnemo-alarm__text { fill: var(--attention-text); font-size: 12px; font-weight: 700; }
+
+.mnemo-unknown { fill: var(--surface); stroke: var(--neutral-fill); stroke-dasharray: 4 3; }
+.mnemo-svg .mnemo-unknown__title { font-weight: 700; }
+
+/* Выбор — синее кольцо; фокус клавиатуры — отдельный контур того же цвета, тоньше. */
+.mnemo-hit { cursor: pointer; outline: none; }
+.mnemo-hit__area { fill: transparent; }
+.mnemo-ring { fill: none; stroke: var(--accent-text); stroke-width: 2.5; }
+.mnemo-focus { fill: none; stroke: none; }
+.mnemo-hit:focus-visible .mnemo-focus { stroke: var(--focus); stroke-width: 1.5; stroke-dasharray: 3 2; }
+.mnemo-hit:hover .mnemo-node, .mnemo-hit:hover .mnemo-cube__front { stroke: var(--accent-text); }
+.mnemo-hit:hover .mnemo-tunnel__front--none, .mnemo-hit:hover .mnemo-tunnel__front--released { stroke: var(--accent-text); }
+
+.mnemo__hint { margin: 0; }
+
+/* Полоса сведений между схемой и легендой (не drawer, не закреплена) */
+.info-strip { display: grid; scroll-margin: 16px; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: start; padding: 12px 16px; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent-text); border-radius: 4px; }
+.info-strip h3 { margin: 0 0 2px; font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.info-strip__meta { margin: 0 0 4px; }
+.info-strip__line { margin: 0; }
+.info-strip__alarm { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 4px 0 0; color: var(--attention-text); }
+.info-strip__alarm .muted { color: var(--muted); }
+.info-strip__alarm--past { color: var(--foreground); }
+.info-strip__alarm--past strong { font-weight: 600; }
+.info-strip__facts { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0; padding: 0; list-style: none; }
+.info-strip__actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.info-strip__table { margin-top: 6px; }
+
+/* Легенда в три колонки */
+.mnemo-legend { border-top: 1px solid var(--line); padding-top: 10px; }
+.mnemo-legend summary { cursor: pointer; font-size: 13px; font-weight: 700; width: fit-content; }
+.mnemo-legend[open] summary { margin-bottom: 8px; }
+.mnemo-legend__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 24px; }
+.mnemo-legend ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; align-content: start; font-size: 12.5px; }
+.mnemo-legend li { display: flex; align-items: center; gap: 8px; }
+.mnemo-legend__swatch { flex: none; }
+.mnemo-legend__icon { flex: none; color: var(--foreground); }
+.mnemo-legend__mark { display: inline-flex; width: 30px; justify-content: center; flex: none; }
+.mnemo-legend__pk { fill: var(--foreground); font-size: 11px; font-weight: 700; }
+.mnemo-legend__past { fill: var(--surface); stroke: var(--neutral-fill); stroke-width: 1.5; }
+
+@media (max-width: 1300px) {
+  .mnemo__head { flex-direction: column; gap: 8px; }
+  .mnemo__counters { grid-template-columns: repeat(4, auto auto); text-align: left; gap: 0 8px; }
+  .mnemo__counters dd { margin-right: 12px; }
+  .mnemo-legend__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 1439px) {
+  .info-strip { grid-template-columns: 1fr; }
+  .info-strip__actions { justify-content: flex-start; }
+}
+@media (max-width: 1100px) {
+  .mnemo-legend__grid { grid-template-columns: 1fr; }
+}

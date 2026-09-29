@@ -1,0 +1,106 @@
+name: infra-pulse-msk
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-infra_pulse}
+      POSTGRES_USER: ${POSTGRES_USER:-infra_pulse}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-local-dev-only}
+    ports:
+      - "127.0.0.1:${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    mem_limit: 2g
+    cpus: 1.0
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  # One-shot, before api and worker: the operational migrations as the owner
+  # (POSTGRES_USER), then LOGIN of the runtime role infra_pulse_app with
+  # INFRA_DB_APP_PASSWORD (backend/migrations/9000_runtime_role.sql). Same image as the
+  # worker, so no extra build.
+  migrate:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      target: worker
+    command: ["python", "-m", "infra_pulse_backend.storage.migrations_pg"]
+    environment:
+      INFRA_DB_DSN: postgresql://${POSTGRES_USER:-infra_pulse}:${POSTGRES_PASSWORD:-local-dev-only}@db:5432/${POSTGRES_DB:-infra_pulse}
+      INFRA_DB_APP_PASSWORD: ${INFRA_DB_APP_PASSWORD:-local-dev-only-app-password}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+    mem_limit: 512m
+    cpus: 1.0
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      INFRA_MODE: ${INFRA_MODE:-scaffold}
+      # B1: an upload (POST /api/v1/imports) is recorded in PostgreSQL and stored on the
+      # shared volume; the worker below processes it. Scaffold routes ignore the DSN.
+      # Runtime role infra_pulse_app (DML only); INFRA_DB_APP_DSN overrides the DSN.
+      INFRA_DB_DSN: ${INFRA_DB_APP_DSN:-postgresql://infra_pulse_app:${INFRA_DB_APP_PASSWORD:-local-dev-only-app-password}@db:5432/${POSTGRES_DB:-infra_pulse}?application_name=infra-pulse-api}
+      INFRA_RECEIVED_NAMESPACE: ${INFRA_RECEIVED_NAMESPACE:-local-received}
+      INFRA_RECEIVED_STREAM_ID: ${INFRA_RECEIVED_STREAM_ID:-local-received-1}
+      INFRA_UPLOAD_DIR: /app/var/uploads
+    ports:
+      - "127.0.0.1:${API_PORT:-8000}:8000"
+    volumes:
+      - uploads:/app/var/uploads
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    mem_limit: 1g
+    cpus: 1.0
+    healthcheck:
+      # Liveness only. Readiness remains 503 until model + storage are implemented.
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/live')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+  # B1 ingestion worker: the backend image, stage `worker`. Reads uploads from the shared
+  # volume, loads the received scope and calls the forecast recompute. As the runtime
+  # role it skips the migrations (the migrate service applies them); as the owner
+  # (INFRA_DB_APP_DSN rollback) it applies them at start. One instance: uploads are
+  # processed in order.
+  worker:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      target: worker
+    environment:
+      INFRA_DB_DSN: ${INFRA_DB_APP_DSN:-postgresql://infra_pulse_app:${INFRA_DB_APP_PASSWORD:-local-dev-only-app-password}@db:5432/${POSTGRES_DB:-infra_pulse}?application_name=infra-pulse-worker}
+      INFRA_RECEIVED_NAMESPACE: ${INFRA_RECEIVED_NAMESPACE:-local-received}
+      INFRA_RECEIVED_STREAM_ID: ${INFRA_RECEIVED_STREAM_ID:-local-received-1}
+      INFRA_UPLOAD_DIR: /app/var/uploads
+    volumes:
+      - uploads:/app/var/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    mem_limit: 1536m
+    cpus: 1.0
+  web:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "127.0.0.1:${WEB_PORT:-8080}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    mem_limit: 128m
+    cpus: 0.5
+volumes:
+  postgres_data:
+  # Uploaded CSV files: written by api, read and cleaned by worker; no data in images.
+  uploads:

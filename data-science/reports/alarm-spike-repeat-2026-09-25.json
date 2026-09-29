@@ -1,0 +1,18 @@
+{
+  "all_output_hashes_identical": true,
+  "code_sha256_identical": true,
+  "counts_identical": true,
+  "differing_output_paths": [],
+  "first_runtime": {
+    "elapsed_seconds": 3.912,
+    "peak_rss_mb": 5544.0
+  },
+  "output_files_compared": 5,
+  "policy_version": "alarm-spike-exclusions-v1",
+  "rules_identical": true,
+  "second_runtime": {
+    "elapsed_seconds": 3.976,
+    "peak_rss_mb": 3696.3
+  },
+  "source_manifest_sha256_identical": true
+}

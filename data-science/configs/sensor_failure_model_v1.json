@@ -1,0 +1,78 @@
+{
+  "version": "sensor-failure-model-v1",
+  "status": "frozen_before_fit_2026-09-26",
+  "labels_config": "configs/sensor_failure_v1.json",
+  "question": "Will a registered technical event of a sensor channel start within the horizon after the daily cutoff?",
+  "interpretation": "registered technical event (sustained connection loss or technical value); not a confirmed breakdown; the cause is known only after a field visit",
+  "episode": {"q_hours": 24, "cluster_window_minutes": 10},
+  "targets": {
+    "connection_loss_1h": {
+      "role": "main",
+      "label": "connection_loss",
+      "episode_filter": "duration >= 1 h or still open at data end",
+      "decision": "user 2026-09-26: sustained loss of connection that justifies a crew visit"
+    },
+    "technical_value": {
+      "role": "main numeric",
+      "label": "technical_value",
+      "episode_filter": "all episodes",
+      "scope_note": "temperature is the effective case; gas and UPS reported, not tuned"
+    }
+  },
+  "declared_sensitivities": ["connection_loss (all durations)", "connection_loss_s1", "connection_loss_s2 (pumps/fans, separate)", "technical_value with duration >= 1 h"],
+  "horizons": {
+    "24h": {"role": "main", "cadence": "daily 00:00", "card_budget_per_day": [5, 10]},
+    "48h": {"role": "declared", "cadence": "daily 00:00", "card_budget_per_day": [10]},
+    "168h": {"role": "declared", "cadence": "weekly, Monday 00:00", "card_budget_per_week": [20, 50]}
+  },
+  "units": {
+    "prediction": "channel x cutoff; channels in an active episode or inside the Q shadow at t are not candidates",
+    "card": "object_id x sensor_type at cutoff; card score = max of candidate channel scores; card lists channels with pickets",
+    "event": "mass cluster: episode starts of one object within 10 min chained; an event qualifies if at least one member episode passes the target filter",
+    "card_positive": "at least one qualifying event starts on a candidate channel of the card in [t, t+H)",
+    "event_captured": "a card at cutoff t covers at least one channel of the event and the event starts in [t, t+H); lead = event start - t"
+  },
+  "periods": {
+    "development": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2025-01-01"]],
+    "calibration_and_threshold": [["2025-01-01", "2025-07-01"]],
+    "holdout": [["2025-07-01", "2026-07-01"]],
+    "holdout_note": "not evaluated for any sensor-failure label before this freeze; the same months were viewed for other targets (alarm studies), so the holdout is not blind in the strict sense",
+    "excluded": "2021 and cutoffs whose 30-day lookback touches 2021 or starts before 2019-01-01"
+  },
+  "feature_sets": {
+    "F1": {"include": ["hist__", "cal__", "cat__"], "meaning": "own channel failure history, message/alarm activity, calendar, sensor/system type"},
+    "F2": {"include": ["hist__", "cal__", "cat__", "ctx__"], "meaning": "+ context: failures and clusters of the same object / object x sensor type / system in the past"},
+    "F3": {"include": ["hist__", "cal__", "cat__", "ctx__", "num__"], "meaning": "+ own value_numeric dynamics (temperature/gas: level, z, trend, stuck value)"},
+    "comparisons": [["F2", "F1", "context"], ["F3", "F2", "numeric"]],
+    "scope": "the F1/F2/F3 ablation is fitted for the main 24h horizon; declared 48h and 168h horizons use F3 only; declared label sensitivities are scored with the main-target F3 models",
+    "forbidden": ["channel names", "object names", "object_id/channel_id as features", "future information"]
+  },
+  "fit_rows": {
+    "rule": "development candidate rows with a known label: all positives plus negatives with sha256('sensor-failure-model-v1:' + channel_id + ':' + issued_at) mod 100 < 10",
+    "weighting": "negatives weighted by 10 before class balancing so the sampled set represents development",
+    "scoring": "every calibration and holdout candidate row is scored, in monthly chunks",
+    "added": "2026-09-26 before any fit, because development has about 20 million channel-days"
+  },
+  "baselines": {
+    "persistence": "rank channels by hours since the last candidate of the label (ascending, none = last), ties by episode starts in the past 30 days",
+    "type_rate": "development start rate of the channel's sensor type"
+  },
+  "models": {
+    "logreg": {"imputer": "median + missing indicators", "transform": "sign(x)*log1p(|x|) then RobustScaler, all fitted on development", "class_weight": "balanced", "C": 1.0, "max_iter": 5000, "solver": "lbfgs"},
+    "catboost": {"loss_function": "Logloss", "iterations": 400, "depth": 4, "learning_rate": 0.05, "l2_leaf_reg": 5, "random_seed": 17, "auto_class_weights": "Balanced", "task_type": "CPU", "thread_count": 8},
+    "hyperparameter_search": false
+  },
+  "calibration": {
+    "method": "isotonic regression of the card score on calibration_and_threshold cards; channel scores stay rankings",
+    "display_rule": "the word 'вероятность' is used only if holdout card-level ECE <= 0.05; otherwise 'оценка риска'"
+  },
+  "evaluation": {
+    "primary": "holdout, horizon 24h, 10 cards/day: event recall and card precision versus persistence",
+    "also": ["PR-AUC of card scores", "Brier/ECE after calibration", "lead hours", "by sensor type (gas, fire, security first)", "single-channel vs mass events", "cards to already failing objects", "weekday/weekend"],
+    "bootstrap": {"replicates": 400, "seed": 17, "blocks": ["iso_week", "object_id"]},
+    "success": "model minus persistence event recall at 10 cards/day has a week-block 95% lower bound > 0 and card precision is not lower than persistence minus 0.02",
+    "failure": "otherwise the persistence rule is the demonstrated forecast and the model is reported as not better",
+    "tz_targets": "Precision 0.7 / Recall 0.5 are organizer defaults; values below are reported with justification (organizer Q&A)"
+  },
+  "inference_budget": "TZ: scoring for one object <= 5 minutes; measure batch time per object"
+}

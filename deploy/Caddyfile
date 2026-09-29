@@ -1,0 +1,74 @@
+# Public entry point of the stand (deploy/README.md «Публичный доступ», SEC-04).
+# Caddy is the only service with host ports: 80 (ACME HTTP-01 and redirect to HTTPS)
+# and 443. Values come from the environment of the caddy service
+# (deploy/compose.public.yaml <- server .env); nothing host-specific is kept in Git.
+#
+#   PUBLIC_HOST   DNS name of the stand, A/AAAA record points to the server
+#   ACME_EMAIL    contact for Let's Encrypt
+#   ACME_CA       Let's Encrypt staging by default; production after the staging check
+#   HSTS_MAX_AGE  seconds; short while on staging, 31536000 after the real certificate
+
+{
+	email {$ACME_EMAIL}
+	acme_ca {$ACME_CA}
+	# No admin endpoint inside the container; configuration changes need a restart.
+	admin off
+	servers {
+		protocols h1 h2
+	}
+}
+
+{$PUBLIC_HOST} {
+	tls {
+		protocols tls1.2 tls1.3
+	}
+
+	header {
+		Strict-Transport-Security "max-age={$HSTS_MAX_AGE}"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "no-referrer"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+		Cross-Origin-Opener-Policy "same-origin"
+		Cross-Origin-Resource-Policy "same-origin"
+		Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+		-Server
+	}
+
+	# API documentation: Swagger UI /api/docs (its files under /api/docs/) and the schema
+	# /api/openapi.json are served by the API when INFRA_PUBLIC_DOCS=true, through web
+	# like every /api/ path, under the site-wide CSP above: the page has no inline script
+	# and loads nothing from other hosts, so there is no CSP exception for it. Only the
+	# documentation is public; every API route still needs a session or a token.
+	# The root paths stay closed; without this the SPA fallback would answer 200 there.
+	@apidocs path /docs /docs/* /redoc /redoc/* /openapi.json
+	respond @apidocs 404
+
+	# Uploads are capped at 50 MB by the API (imports contract); a small margin here.
+	request_body {
+		max_size 55MB
+	}
+
+	encode zstd gzip
+
+	# ---- OPS-G: Grafana under /grafana/ (profile `analytics`, OPS-06) ----
+	# Without the profile the upstream is absent and /grafana/ answers 502.
+	# Grafana's page needs inline scripts and web workers, which the site-wide CSP
+	# forbids. This header block has a path matcher, so Caddy sorts it before the
+	# site-wide one; both are deferred, and this one is applied last and wins.
+	header /grafana/* {
+		defer
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' blob:; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+	}
+	redir /grafana /grafana/ 308
+	handle_path /grafana/* {
+		reverse_proxy grafana:3000 {
+			header_up X-Request-ID {http.request.uuid}
+		}
+	}
+
+	reverse_proxy web:80 {
+		# One ID per request for the audit journal; a client-sent value is replaced.
+		header_up X-Request-ID {http.request.uuid}
+	}
+}

@@ -1,0 +1,4242 @@
+{
+ "stage": "stage1 report (target >= 2 s, seed 17, folds 2023/2024)",
+ "status": "frozen_before_fit_2026-09-26_user_instruction",
+ "amended_before_fit": "changed by the team before any fit (2026-09-26): instead of 72 fits (4 horizons x 3 sets x 3 seeds x 2 folds, target all episodes) only 10 fits with one seed (17) on the '>= 2 s' target at 10 and 14 days; because one seed gives no noise estimate the criterion is model vs static list and persistence; set comparisons with F2 are exploration only; the 'all episodes' stage and other horizons with a model only after the team's decision on these results",
+ "noise_reference": "v3: seed spread of fold-mean precision up to 0.014 at about 0.15 (24 h, 2 per day); one seed here gives no noise estimate",
+ "horizons": {
+  "240h": {
+   "sets": [
+    "F2",
+    "F2+sel"
+   ],
+   "policies": {
+    "release_open10": {
+     "summary": {
+      "F2": {
+       "folds": [
+        {
+         "card_precision": 0.5317919075144508,
+         "event_recall": 0.3715898400752587,
+         "lead_hours_median": 148.85055555555556,
+         "new_cards_per_day": 1.4219178082191781,
+         "cards_selected": 519
+        },
+        {
+         "card_precision": 0.5974264705882353,
+         "event_recall": 0.42587601078167114,
+         "lead_hours_median": 142.07694444444445,
+         "new_cards_per_day": 1.4863387978142077,
+         "cards_selected": 544
+        }
+       ],
+       "mean": {
+        "card_precision": 0.564609189051343,
+        "event_recall": 0.39873292542846495,
+        "lead_hours_median": 145.46375,
+        "new_cards_per_day": 1.454128303016693
+       }
+      },
+      "F2+sel": {
+       "folds": [
+        {
+         "card_precision": 0.5185909980430529,
+         "event_recall": 0.38381937911571024,
+         "lead_hours_median": 134.26166666666666,
+         "new_cards_per_day": 1.4,
+         "cards_selected": 511
+        },
+        {
+         "card_precision": 0.6363636363636364,
+         "event_recall": 0.47349505840071876,
+         "lead_hours_median": 135.27666666666667,
+         "new_cards_per_day": 1.5628415300546448,
+         "cards_selected": 572
+        }
+       ],
+       "mean": {
+        "card_precision": 0.5774773172033446,
+        "event_recall": 0.4286572187582145,
+        "lead_hours_median": 134.76916666666665,
+        "new_cards_per_day": 1.4814207650273223
+       }
+      },
+      "persistence": {
+       "folds": [
+        {
+         "card_precision": 0.48118811881188117,
+         "event_recall": 0.37723424270931327,
+         "lead_hours_median": 144.98083333333332,
+         "new_cards_per_day": 1.3835616438356164,
+         "cards_selected": 505
+        },
+        {
+         "card_precision": 0.5311284046692607,
+         "event_recall": 0.4609164420485175,
+         "lead_hours_median": 132.36944444444444,
+         "new_cards_per_day": 1.4043715846994536,
+         "cards_selected": 514
+        }
+       ],
+       "mean": {
+        "card_precision": 0.5061582617405709,
+        "event_recall": 0.4190753423789154,
+        "lead_hours_median": 138.67513888888888,
+        "new_cards_per_day": 1.3939666142675349
+       }
+      },
+      "static_list": {
+       "folds": [
+        {
+         "card_precision": 0.5465116279069767,
+         "event_recall": 0.4158043273753528,
+         "lead_hours_median": 158.56555555555553,
+         "new_cards_per_day": 1.4136986301369863,
+         "cards_selected": 516
+        },
+        {
+         "card_precision": 0.6347826086956522,
+         "event_recall": 0.5085354896675651,
+         "lead_hours_median": 134.51291666666665,
+         "new_cards_per_day": 1.5710382513661203,
+         "cards_selected": 575
+        }
+       ],
+       "mean": {
+        "card_precision": 0.5906471183013144,
+        "event_recall": 0.46216990852145895,
+        "lead_hours_median": 146.5392361111111,
+        "new_cards_per_day": 1.4923684407515534
+       }
+      },
+      "ceiling": {
+       "folds": [
+        {
+         "card_precision": 0.9815950920245399,
+         "event_recall": 0.883349012229539,
+         "lead_hours_median": 189.31333333333333,
+         "new_cards_per_day": 1.7863013698630137,
+         "cards_selected": 652
+        },
+        {
+         "card_precision": 0.9718934911242604,
+         "event_recall": 0.9002695417789758,
+         "lead_hours_median": 179.945,
+         "new_cards_per_day": 1.8469945355191257,
+         "cards_selected": 676
+        }
+       ],
+       "mean": {
+        "card_precision": 0.9767442915744001,
+        "event_recall": 0.8918092770042574,
+        "lead_hours_median": 184.62916666666666,
+        "new_cards_per_day": 1.8166479526910697
+       }
+      }
+     },
+     "exploration_vs_F2": {
+      "F2+sel": [
+       -0.013200909471397959,
+       0.03893716577540107
+      ]
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "seed": 17,
+      "schemes": {
+       "iso_week": {
+        "blocks": 106,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.5653409090909091,
+           "low": 0.5387963473696075,
+           "high": 0.5925556916590702,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.3997220935618342,
+           "low": 0.3729141759056329,
+           "high": 0.4260813411301225,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.5813953488372093,
+           "low": 0.5489587759469965,
+           "high": 0.6113229588764941,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.43075497915701716,
+           "low": 0.39651570823935084,
+           "high": 0.4618601246785077,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.506416584402764,
+           "low": 0.4727725175638235,
+           "high": 0.5436581566220238,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.41963872163038446,
+           "low": 0.3795163295950448,
+           "high": 0.45764567855725063,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.594296228150874,
+           "low": 0.5678248278365713,
+           "high": 0.6224576599575147,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.4654932839277443,
+           "low": 0.4379032238648217,
+           "high": 0.4927780995600144,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.05892432468814501,
+           "low": 0.021251399954946393,
+           "high": 0.09870972372402574,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": -0.01991662806855027,
+           "low": -0.07218041644901452,
+           "high": 0.026188727808703384,
+           "undefined_replicates": 0,
+           "share_positive": 0.215
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": -0.028955319059964957,
+           "low": -0.0579712947222184,
+           "high": -0.0019264878189280924,
+           "undefined_replicates": 0,
+           "share_positive": 0.0125
+          },
+          "event_recall": {
+           "point": -0.06577119036591011,
+           "low": -0.09424253170719422,
+           "high": -0.03684875060547749,
+           "undefined_replicates": 0,
+           "share_positive": 0.0
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.07497876443444529,
+           "low": 0.03813157785343731,
+           "high": 0.11150903428349898,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.0111162575266327,
+           "low": -0.037654247077053074,
+           "high": 0.06033491159803185,
+           "undefined_replicates": 0,
+           "share_positive": 0.695
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": -0.012900879313664682,
+           "low": -0.03750762088061034,
+           "high": 0.011612461135068025,
+           "undefined_replicates": 0,
+           "share_positive": 0.1675
+          },
+          "event_recall": {
+           "point": -0.034738304770727146,
+           "low": -0.06813968059874086,
+           "high": 0.0014325849159773337,
+           "undefined_replicates": 0,
+           "share_positive": 0.03
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": 0.016054439746300275,
+           "low": -0.008505313156511058,
+           "high": 0.03851925656766011,
+           "undefined_replicates": 0,
+           "share_positive": 0.92
+          },
+          "event_recall": {
+           "point": 0.03103288559518297,
+           "low": 0.00041635624995715523,
+           "high": 0.05954764005483776,
+           "undefined_replicates": 0,
+           "share_positive": 0.975
+          }
+         }
+        }
+       },
+       "object": {
+        "blocks": 74,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.5653409090909091,
+           "low": 0.4545841959972395,
+           "high": 0.6444928725149688,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.3997220935618342,
+           "low": 0.21293532065421933,
+           "high": 0.5543521401645398,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.5813953488372093,
+           "low": 0.4875464513765309,
+           "high": 0.6545600195878044,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.43075497915701716,
+           "low": 0.2676897533206831,
+           "high": 0.5659411738166158,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.506416584402764,
+           "low": 0.4063944892473118,
+           "high": 0.5804287011079963,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.41963872163038446,
+           "low": 0.3261709045031056,
+           "high": 0.4904931608996724,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.594296228150874,
+           "low": 0.4938990791062802,
+           "high": 0.680307014106583,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.4654932839277443,
+           "low": 0.32061824561403507,
+           "high": 0.5921977708394749,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.05892432468814501,
+           "low": 0.001410785489839578,
+           "high": 0.12677736665371606,
+           "undefined_replicates": 0,
+           "share_positive": 0.98
+          },
+          "event_recall": {
+           "point": -0.01991662806855027,
+           "low": -0.16174706599045247,
+           "high": 0.107014364786505,
+           "undefined_replicates": 0,
+           "share_positive": 0.39
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": -0.028955319059964957,
+           "low": -0.12168912366220408,
+           "high": 0.04591886362321991,
+           "undefined_replicates": 0,
+           "share_positive": 0.215
+          },
+          "event_recall": {
+           "point": -0.06577119036591011,
+           "low": -0.1917393010180409,
+           "high": 0.06678236248069135,
+           "undefined_replicates": 0,
+           "share_positive": 0.1675
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.07497876443444529,
+           "low": 0.02467699518821488,
+           "high": 0.13151599430433725,
+           "undefined_replicates": 0,
+           "share_positive": 0.9975
+          },
+          "event_recall": {
+           "point": 0.0111162575266327,
+           "low": -0.10474666324059906,
+           "high": 0.11807355636136783,
+           "undefined_replicates": 0,
+           "share_positive": 0.59
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": -0.012900879313664682,
+           "low": -0.08074143479748451,
+           "high": 0.05342374409849789,
+           "undefined_replicates": 0,
+           "share_positive": 0.35
+          },
+          "event_recall": {
+           "point": -0.034738304770727146,
+           "low": -0.14325209117547244,
+           "high": 0.09031927882191028,
+           "undefined_replicates": 0,
+           "share_positive": 0.2975
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": 0.016054439746300275,
+           "low": -0.0174698202463785,
+           "high": 0.07192318767256894,
+           "undefined_replicates": 0,
+           "share_positive": 0.81
+          },
+          "event_recall": {
+           "point": 0.03103288559518297,
+           "low": -0.027250581769142218,
+           "high": 0.10455149364642384,
+           "undefined_replicates": 0,
+           "share_positive": 0.7875
+          }
+         }
+        }
+       }
+      }
+     },
+     "criterion_main": {
+      "F2": {
+       "precision_minus_static_week": {
+        "point": -0.028955319059964957,
+        "low": -0.0579712947222184,
+        "high": -0.0019264878189280924,
+        "undefined_replicates": 0,
+        "share_positive": 0.0125
+       },
+       "precision_minus_static_object": {
+        "point": -0.028955319059964957,
+        "low": -0.12168912366220408,
+        "high": 0.04591886362321991,
+        "undefined_replicates": 0,
+        "share_positive": 0.215
+       },
+       "precision_minus_persistence_week": {
+        "point": 0.05892432468814501,
+        "low": 0.021251399954946393,
+        "high": 0.09870972372402574,
+        "undefined_replicates": 0,
+        "share_positive": 1.0
+       },
+       "recall_model": 0.3997220935618342,
+       "recall_static_list": 0.4654932839277443,
+       "pass": false
+      },
+      "F2+sel": {
+       "precision_minus_static_week": {
+        "point": -0.012900879313664682,
+        "low": -0.03750762088061034,
+        "high": 0.011612461135068025,
+        "undefined_replicates": 0,
+        "share_positive": 0.1675
+       },
+       "precision_minus_static_object": {
+        "point": -0.012900879313664682,
+        "low": -0.08074143479748451,
+        "high": 0.05342374409849789,
+        "undefined_replicates": 0,
+        "share_positive": 0.35
+       },
+       "precision_minus_persistence_week": {
+        "point": 0.07497876443444529,
+        "low": 0.03813157785343731,
+        "high": 0.11150903428349898,
+        "undefined_replicates": 0,
+        "share_positive": 1.0
+       },
+       "recall_model": 0.43075497915701716,
+       "recall_static_list": 0.4654932839277443,
+       "pass": false
+      }
+     }
+    },
+    "release_open5": {
+     "summary": {
+      "F2": {
+       "folds": [
+        {
+         "card_precision": 0.6210526315789474,
+         "event_recall": 0.2539981185324553,
+         "lead_hours_median": 150.89069444444445,
+         "new_cards_per_day": 0.7808219178082192,
+         "cards_selected": 285
+        },
+        {
+         "card_precision": 0.6905537459283387,
+         "event_recall": 0.28751123090745734,
+         "lead_hours_median": 146.95583333333332,
+         "new_cards_per_day": 0.8387978142076503,
+         "cards_selected": 307
+        }
+       ],
+       "mean": {
+        "card_precision": 0.6558031887536431,
+        "event_recall": 0.2707546747199563,
+        "lead_hours_median": 148.92326388888887,
+        "new_cards_per_day": 0.8098098660079347
+       }
+      },
+      "F2+sel": {
+       "folds": [
+        {
+         "card_precision": 0.6036363636363636,
+         "event_recall": 0.24553151458137348,
+         "lead_hours_median": 148.85055555555556,
+         "new_cards_per_day": 0.7534246575342466,
+         "cards_selected": 275
+        },
+        {
+         "card_precision": 0.6943521594684385,
+         "event_recall": 0.27133872416891286,
+         "lead_hours_median": 142.07694444444445,
+         "new_cards_per_day": 0.8224043715846995,
+         "cards_selected": 301
+        }
+       ],
+       "mean": {
+        "card_precision": 0.6489942615524011,
+        "event_recall": 0.2584351193751432,
+        "lead_hours_median": 145.46375,
+        "new_cards_per_day": 0.787914514559473
+       }
+      },
+      "persistence": {
+       "folds": [
+        {
+         "card_precision": 0.5227272727272727,
+         "event_recall": 0.2530573847601129,
+         "lead_hours_median": 135.70888888888888,
+         "new_cards_per_day": 0.7232876712328767,
+         "cards_selected": 264
+        },
+        {
+         "card_precision": 0.5471698113207547,
+         "event_recall": 0.28751123090745734,
+         "lead_hours_median": 112.84694444444445,
+         "new_cards_per_day": 0.7240437158469946,
+         "cards_selected": 265
+        }
+       ],
+       "mean": {
+        "card_precision": 0.5349485420240137,
+        "event_recall": 0.2702843078337851,
+        "lead_hours_median": 124.27791666666667,
+        "new_cards_per_day": 0.7236656935399357
+       }
+      },
+      "static_list": {
+       "folds": [
+        {
+         "card_precision": 0.5538461538461539,
+         "event_recall": 0.22765757290686736,
+         "lead_hours_median": 169.70444444444445,
+         "new_cards_per_day": 0.7123287671232876,
+         "cards_selected": 260
+        },
+        {
+         "card_precision": 0.7347560975609756,
+         "event_recall": 0.3243486073674753,
+         "lead_hours_median": 141.54361111111112,
+         "new_cards_per_day": 0.8961748633879781,
+         "cards_selected": 328
+        }
+       ],
+       "mean": {
+        "card_precision": 0.6443011257035647,
+        "event_recall": 0.27600309013717134,
+        "lead_hours_median": 155.62402777777777,
+        "new_cards_per_day": 0.8042518152556328
+       }
+      },
+      "ceiling": {
+       "folds": [
+        {
+         "card_precision": 1.0,
+         "event_recall": 0.6933207902163687,
+         "lead_hours_median": 182.1375,
+         "new_cards_per_day": 1.0438356164383562,
+         "cards_selected": 381
+        },
+        {
+         "card_precision": 0.9952380952380953,
+         "event_recall": 0.7520215633423181,
+         "lead_hours_median": 178.54555555555555,
+         "new_cards_per_day": 1.1475409836065573,
+         "cards_selected": 420
+        }
+       ],
+       "mean": {
+        "card_precision": 0.9976190476190476,
+        "event_recall": 0.7226711767793434,
+        "lead_hours_median": 180.34152777777777,
+        "new_cards_per_day": 1.0956883000224567
+       }
+      }
+     },
+     "exploration_vs_F2": {
+      "F2+sel": [
+       -0.017416267942583774,
+       0.0037984135400997987
+      ]
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "seed": 17,
+      "schemes": {
+       "iso_week": {
+        "blocks": 106,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.6576271186440678,
+           "low": 0.620932403834184,
+           "high": 0.6908795513023862,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.27234830940250115,
+           "low": 0.24843424393216207,
+           "high": 0.29830486698411224,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.6520979020979021,
+           "low": 0.6145121291646949,
+           "high": 0.6910823378311463,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.25937934228809634,
+           "low": 0.23396635894437243,
+           "high": 0.2873222140762463,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.5351043643263758,
+           "low": 0.4927466105656849,
+           "high": 0.5782858389066589,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.2746641963872163,
+           "low": 0.23791802195108722,
+           "high": 0.31181653768506057,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.6564102564102564,
+           "low": 0.6230030233363777,
+           "high": 0.69437430786268,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.2779064381658175,
+           "low": 0.2526101576705607,
+           "high": 0.3063883882063069,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.122522754317692,
+           "low": 0.07732024700308898,
+           "high": 0.17136549004471166,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": -0.002315886984715132,
+           "low": -0.04987096133170961,
+           "high": 0.03913619227144205,
+           "undefined_replicates": 0,
+           "share_positive": 0.5075
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": 0.0012168622338113444,
+           "low": -0.038337525417719655,
+           "high": 0.04183017312249044,
+           "undefined_replicates": 0,
+           "share_positive": 0.4775
+          },
+          "event_recall": {
+           "point": -0.00555812876331635,
+           "low": -0.03257491477577893,
+           "high": 0.024598966418051735,
+           "undefined_replicates": 0,
+           "share_positive": 0.3775
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.11699353777152632,
+           "low": 0.06855008199461009,
+           "high": 0.16738697966143673,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": -0.015284854099119949,
+           "low": -0.0582622998544396,
+           "high": 0.023439303853511378,
+           "undefined_replicates": 0,
+           "share_positive": 0.245
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": -0.004312354312354327,
+           "low": -0.04385363118677736,
+           "high": 0.034455826434858755,
+           "undefined_replicates": 0,
+           "share_positive": 0.365
+          },
+          "event_recall": {
+           "point": -0.018527095877721167,
+           "low": -0.05408394755186501,
+           "high": 0.01677731099475255,
+           "undefined_replicates": 0,
+           "share_positive": 0.1475
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": -0.005529216546165672,
+           "low": -0.037591560631204765,
+           "high": 0.025709769320921165,
+           "undefined_replicates": 0,
+           "share_positive": 0.38
+          },
+          "event_recall": {
+           "point": -0.012968967114404817,
+           "low": -0.041309351428335826,
+           "high": 0.01484448941405894,
+           "undefined_replicates": 0,
+           "share_positive": 0.1775
+          }
+         }
+        }
+       },
+       "object": {
+        "blocks": 74,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.6576271186440678,
+           "low": 0.5474781279645831,
+           "high": 0.7354888386359066,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.27234830940250115,
+           "low": 0.10900031975827072,
+           "high": 0.41414019223039983,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.6520979020979021,
+           "low": 0.5510720720720721,
+           "high": 0.7242471203728128,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.25937934228809634,
+           "low": 0.11165786447293025,
+           "high": 0.38705636882527006,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.5351043643263758,
+           "low": 0.41804173566945463,
+           "high": 0.6279991011692867,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.2746641963872163,
+           "low": 0.19218354316059463,
+           "high": 0.3449043580581744,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.6564102564102564,
+           "low": 0.5440799232736573,
+           "high": 0.7623388285135383,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.2779064381658175,
+           "low": 0.12386962936174674,
+           "high": 0.4125194026870709,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.122522754317692,
+           "low": 0.048991901268088146,
+           "high": 0.21032173914793081,
+           "undefined_replicates": 0,
+           "share_positive": 0.9975
+          },
+          "event_recall": {
+           "point": -0.002315886984715132,
+           "low": -0.111801767643172,
+           "high": 0.09733560127645623,
+           "undefined_replicates": 0,
+           "share_positive": 0.4525
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": 0.0012168622338113444,
+           "low": -0.12457024663952843,
+           "high": 0.09592722647283712,
+           "undefined_replicates": 0,
+           "share_positive": 0.53
+          },
+          "event_recall": {
+           "point": -0.00555812876331635,
+           "low": -0.1344935051159451,
+           "high": 0.12393351660419163,
+           "undefined_replicates": 0,
+           "share_positive": 0.4725
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.11699353777152632,
+           "low": 0.04722089889747974,
+           "high": 0.19850017985002272,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": -0.015284854099119949,
+           "low": -0.11643476035699535,
+           "high": 0.07768064032069054,
+           "undefined_replicates": 0,
+           "share_positive": 0.3475
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": -0.004312354312354327,
+           "low": -0.13121043781649752,
+           "high": 0.0976051980492406,
+           "undefined_replicates": 0,
+           "share_positive": 0.4825
+          },
+          "event_recall": {
+           "point": -0.018527095877721167,
+           "low": -0.15779138437985132,
+           "high": 0.1314151691331924,
+           "undefined_replicates": 0,
+           "share_positive": 0.3875
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": -0.005529216546165672,
+           "low": -0.051389589320478386,
+           "high": 0.03610091412264982,
+           "undefined_replicates": 0,
+           "share_positive": 0.385
+          },
+          "event_recall": {
+           "point": -0.012968967114404817,
+           "low": -0.06034800630658123,
+           "high": 0.033781393026290775,
+           "undefined_replicates": 0,
+           "share_positive": 0.2925
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    "norelease_open10": {
+     "summary": {
+      "F2": {
+       "folds": [
+        {
+         "card_precision": 0.5405405405405406,
+         "event_recall": 0.36970837253057387,
+         "lead_hours_median": 127.66666666666667,
+         "new_cards_per_day": 1.0136986301369864,
+         "cards_selected": 370
+        },
+        {
+         "card_precision": 0.6114285714285714,
+         "event_recall": 0.41868823000898475,
+         "lead_hours_median": 108.6888888888889,
+         "new_cards_per_day": 0.9562841530054644,
+         "cards_selected": 350
+        }
+       ],
+       "mean": {
+        "card_precision": 0.575984555984556,
+        "event_recall": 0.3941983012697793,
+        "lead_hours_median": 118.17777777777778,
+        "new_cards_per_day": 0.9849913915712254
+       }
+      },
+      "F2+sel": {
+       "folds": [
+        {
+         "card_precision": 0.5675675675675675,
+         "event_recall": 0.39793038570084666,
+         "lead_hours_median": 117.0886111111111,
+         "new_cards_per_day": 1.0136986301369864,
+         "cards_selected": 370
+        },
+        {
+         "card_precision": 0.6285714285714286,
+         "event_recall": 0.43216531895777177,
+         "lead_hours_median": 111.66305555555556,
+         "new_cards_per_day": 0.9562841530054644,
+         "cards_selected": 350
+        }
+       ],
+       "mean": {
+        "card_precision": 0.598069498069498,
+        "event_recall": 0.4150478523293092,
+        "lead_hours_median": 114.37583333333333,
+        "new_cards_per_day": 0.9849913915712254
+       }
+      },
+      "persistence": {
+       "folds": [
+        {
+         "card_precision": 0.44054054054054054,
+         "event_recall": 0.34619002822201317,
+         "lead_hours_median": 129.86041666666668,
+         "new_cards_per_day": 1.0136986301369864,
+         "cards_selected": 370
+        },
+        {
+         "card_precision": 0.48,
+         "event_recall": 0.33513027852650495,
+         "lead_hours_median": 122.4825,
+         "new_cards_per_day": 0.9562841530054644,
+         "cards_selected": 350
+        }
+       ],
+       "mean": {
+        "card_precision": 0.46027027027027023,
+        "event_recall": 0.34066015337425903,
+        "lead_hours_median": 126.17145833333333,
+        "new_cards_per_day": 0.9849913915712254
+       }
+      },
+      "static_list": {
+       "folds": [
+        {
+         "card_precision": 0.5459459459459459,
+         "event_recall": 0.4280338664158043,
+         "lead_hours_median": 116.88305555555556,
+         "new_cards_per_day": 1.0136986301369864,
+         "cards_selected": 370
+        },
+        {
+         "card_precision": 0.6114285714285714,
+         "event_recall": 0.4950584007187781,
+         "lead_hours_median": 118.04611111111112,
+         "new_cards_per_day": 0.9562841530054644,
+         "cards_selected": 350
+        }
+       ],
+       "mean": {
+        "card_precision": 0.5786872586872587,
+        "event_recall": 0.46154613356729124,
+        "lead_hours_median": 117.46458333333334,
+        "new_cards_per_day": 0.9849913915712254
+       }
+      },
+      "ceiling": {
+       "folds": [
+        {
+         "card_precision": 0.9945945945945946,
+         "event_recall": 0.7676387582314205,
+         "lead_hours_median": 130.5886111111111,
+         "new_cards_per_day": 1.0136986301369864,
+         "cards_selected": 370
+        },
+        {
+         "card_precision": 0.9914285714285714,
+         "event_recall": 0.7834681042228212,
+         "lead_hours_median": 117.42722222222223,
+         "new_cards_per_day": 0.9562841530054644,
+         "cards_selected": 350
+        }
+       ],
+       "mean": {
+        "card_precision": 0.9930115830115831,
+        "event_recall": 0.7755534312271208,
+        "lead_hours_median": 124.00791666666666,
+        "new_cards_per_day": 0.9849913915712254
+       }
+      }
+     },
+     "exploration_vs_F2": {
+      "F2+sel": [
+       0.027027027027026973,
+       0.017142857142857126
+      ]
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "seed": 17,
+      "schemes": {
+       "iso_week": {
+        "blocks": 106,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.5708333333333333,
+           "low": 0.5348334371108343,
+           "high": 0.6063763655280041,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.3997220935618342,
+           "low": 0.37233808935791024,
+           "high": 0.4273983836276838,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.5930555555555556,
+           "low": 0.556781660692951,
+           "high": 0.6265956876206823,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.41547012505789715,
+           "low": 0.3851646402364291,
+           "high": 0.4486534856876595,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.4625,
+           "low": 0.4190357142857143,
+           "high": 0.5029018445322793,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.34877257989810095,
+           "low": 0.31394363421363813,
+           "high": 0.38212539914347143,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.5819444444444445,
+           "low": 0.5499818840579711,
+           "high": 0.6149289511347373,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.4701250578971746,
+           "low": 0.44304066144736987,
+           "high": 0.49710858203302527,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.10833333333333328,
+           "low": 0.0630097847358122,
+           "high": 0.15696614583333332,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.05094951366373324,
+           "low": 0.012533179312124287,
+           "high": 0.08913098177113075,
+           "undefined_replicates": 0,
+           "share_positive": 0.9975
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": -0.011111111111111183,
+           "low": -0.0468795955882353,
+           "high": 0.02311688311688311,
+           "undefined_replicates": 0,
+           "share_positive": 0.2475
+          },
+          "event_recall": {
+           "point": -0.07040296433534043,
+           "low": -0.09692691999012228,
+           "high": -0.04521873860031527,
+           "undefined_replicates": 0,
+           "share_positive": 0.0
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.13055555555555554,
+           "low": 0.08700871496924126,
+           "high": 0.17777777777777776,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.0666975451597962,
+           "low": 0.03056510268149257,
+           "high": 0.10546627877304456,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": 0.011111111111111072,
+           "low": -0.02410373200117551,
+           "high": 0.04933219178082192,
+           "undefined_replicates": 0,
+           "share_positive": 0.705
+          },
+          "event_recall": {
+           "point": -0.05465493283927747,
+           "low": -0.08593035522681439,
+           "high": -0.02206660999399413,
+           "undefined_replicates": 0,
+           "share_positive": 0.0025
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": 0.022222222222222254,
+           "low": 0.0025703463203463218,
+           "high": 0.04110023918243101,
+           "undefined_replicates": 0,
+           "share_positive": 0.9825
+          },
+          "event_recall": {
+           "point": 0.015748031496062964,
+           "low": -0.011271284906374945,
+           "high": 0.045437446131284406,
+           "undefined_replicates": 0,
+           "share_positive": 0.8525
+          }
+         }
+        }
+       },
+       "object": {
+        "blocks": 74,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.5708333333333333,
+           "low": 0.45871707517834276,
+           "high": 0.6593280668505391,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.3997220935618342,
+           "low": 0.2101171216310097,
+           "high": 0.5492560434094422,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.5930555555555556,
+           "low": 0.4981447045051334,
+           "high": 0.6714133966013666,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.41547012505789715,
+           "low": 0.24235170817603086,
+           "high": 0.5534032790415877,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.4625,
+           "low": 0.3494907384780802,
+           "high": 0.5515646374829001,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.34877257989810095,
+           "low": 0.2646131558511963,
+           "high": 0.4148195618048829,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.5819444444444445,
+           "low": 0.4594967630037951,
+           "high": 0.6824683347857748,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.4701250578971746,
+           "low": 0.3129963249001331,
+           "high": 0.5954050288517191,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.10833333333333328,
+           "low": 0.03208496409399485,
+           "high": 0.1843779623535827,
+           "undefined_replicates": 0,
+           "share_positive": 0.995
+          },
+          "event_recall": {
+           "point": 0.05094951366373324,
+           "low": -0.086362895856791,
+           "high": 0.17660068020109548,
+           "undefined_replicates": 0,
+           "share_positive": 0.7575
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": -0.011111111111111183,
+           "low": -0.10168564645708944,
+           "high": 0.07925376631547366,
+           "undefined_replicates": 0,
+           "share_positive": 0.385
+          },
+          "event_recall": {
+           "point": -0.07040296433534043,
+           "low": -0.19749730109035948,
+           "high": 0.06245765331596224,
+           "undefined_replicates": 0,
+           "share_positive": 0.145
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.13055555555555554,
+           "low": 0.04929494127355631,
+           "high": 0.20277989600333904,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.0666975451597962,
+           "low": -0.054182123794576584,
+           "high": 0.1787009114222712,
+           "undefined_replicates": 0,
+           "share_positive": 0.865
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": 0.011111111111111072,
+           "low": -0.06778095410687088,
+           "high": 0.08876002639608671,
+           "undefined_replicates": 0,
+           "share_positive": 0.615
+          },
+          "event_recall": {
+           "point": -0.05465493283927747,
+           "low": -0.16996145302979057,
+           "high": 0.07904737910452649,
+           "undefined_replicates": 0,
+           "share_positive": 0.2225
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": 0.022222222222222254,
+           "low": -0.01330363164005978,
+           "high": 0.07459713330768074,
+           "undefined_replicates": 0,
+           "share_positive": 0.8825
+          },
+          "event_recall": {
+           "point": 0.015748031496062964,
+           "low": -0.027738655061516057,
+           "high": 0.07199482906336507,
+           "undefined_replicates": 0,
+           "share_positive": 0.73
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    "norelease_open5": {
+     "summary": {
+      "F2": {
+       "folds": [
+        {
+         "card_precision": 0.6756756756756757,
+         "event_recall": 0.2436500470366886,
+         "lead_hours_median": 118.28194444444445,
+         "new_cards_per_day": 0.5068493150684932,
+         "cards_selected": 185
+        },
+        {
+         "card_precision": 0.7085714285714285,
+         "event_recall": 0.25426774483378256,
+         "lead_hours_median": 110.57222222222222,
+         "new_cards_per_day": 0.4781420765027322,
+         "cards_selected": 175
+        }
+       ],
+       "mean": {
+        "card_precision": 0.692123552123552,
+        "event_recall": 0.24895889593523557,
+        "lead_hours_median": 114.42708333333334,
+        "new_cards_per_day": 0.4924956957856127
+       }
+      },
+      "F2+sel": {
+       "folds": [
+        {
+         "card_precision": 0.6270270270270271,
+         "event_recall": 0.2436500470366886,
+         "lead_hours_median": 118.60166666666667,
+         "new_cards_per_day": 0.5068493150684932,
+         "cards_selected": 185
+        },
+        {
+         "card_precision": 0.7371428571428571,
+         "event_recall": 0.261455525606469,
+         "lead_hours_median": 114.42777777777778,
+         "new_cards_per_day": 0.4781420765027322,
+         "cards_selected": 175
+        }
+       ],
+       "mean": {
+        "card_precision": 0.6820849420849421,
+        "event_recall": 0.2525527863215788,
+        "lead_hours_median": 116.51472222222222,
+        "new_cards_per_day": 0.4924956957856127
+       }
+      },
+      "persistence": {
+       "folds": [
+        {
+         "card_precision": 0.4810810810810811,
+         "event_recall": 0.1909689557855127,
+         "lead_hours_median": 124.12333333333333,
+         "new_cards_per_day": 0.5068493150684932,
+         "cards_selected": 185
+        },
+        {
+         "card_precision": 0.5314285714285715,
+         "event_recall": 0.19137466307277629,
+         "lead_hours_median": 106.37555555555555,
+         "new_cards_per_day": 0.4781420765027322,
+         "cards_selected": 175
+        }
+       ],
+       "mean": {
+        "card_precision": 0.5062548262548263,
+        "event_recall": 0.1911718094291445,
+        "lead_hours_median": 115.24944444444444,
+        "new_cards_per_day": 0.4924956957856127
+       }
+      },
+      "static_list": {
+       "folds": [
+        {
+         "card_precision": 0.5837837837837838,
+         "event_recall": 0.23518344308560676,
+         "lead_hours_median": 127.97208333333333,
+         "new_cards_per_day": 0.5068493150684932,
+         "cards_selected": 185
+        },
+        {
+         "card_precision": 0.76,
+         "event_recall": 0.3045822102425876,
+         "lead_hours_median": 111.66305555555556,
+         "new_cards_per_day": 0.4781420765027322,
+         "cards_selected": 175
+        }
+       ],
+       "mean": {
+        "card_precision": 0.6718918918918919,
+        "event_recall": 0.2698828266640972,
+        "lead_hours_median": 119.81756944444444,
+        "new_cards_per_day": 0.4924956957856127
+       }
+      },
+      "ceiling": {
+       "folds": [
+        {
+         "card_precision": 1.0,
+         "event_recall": 0.548447789275635,
+         "lead_hours_median": 130.57444444444445,
+         "new_cards_per_day": 0.5068493150684932,
+         "cards_selected": 185
+        },
+        {
+         "card_precision": 1.0,
+         "event_recall": 0.5696316262353999,
+         "lead_hours_median": 129.31027777777777,
+         "new_cards_per_day": 0.4781420765027322,
+         "cards_selected": 175
+        }
+       ],
+       "mean": {
+        "card_precision": 1.0,
+        "event_recall": 0.5590397077555174,
+        "lead_hours_median": 129.9423611111111,
+        "new_cards_per_day": 0.4924956957856127
+       }
+      }
+     },
+     "exploration_vs_F2": {
+      "F2+sel": [
+       -0.048648648648648596,
+       0.02857142857142858
+      ]
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "seed": 17,
+      "schemes": {
+       "iso_week": {
+        "blocks": 106,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.6861111111111111,
+           "low": 0.644059482001756,
+           "high": 0.7312544642857143,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.2524316813339509,
+           "low": 0.22869636537129762,
+           "high": 0.278056049457618,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.6722222222222223,
+           "low": 0.6276493506493506,
+           "high": 0.7234689619196661,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.25335803612783697,
+           "low": 0.22598985781730346,
+           "high": 0.27915021439612514,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.5166666666666667,
+           "low": 0.4530806587837838,
+           "high": 0.577515348501264,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.19870310328855953,
+           "low": 0.17259173377131293,
+           "high": 0.2296885921793569,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.6666666666666666,
+           "low": 0.6256329113924051,
+           "high": 0.7114428571428572,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.27281148679944417,
+           "low": 0.24906538057003488,
+           "high": 0.29663223681712303,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.1694444444444444,
+           "low": 0.10604797979797981,
+           "high": 0.2463892663043478,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.053728578045391356,
+           "low": 0.02328577633417682,
+           "high": 0.08159794816576191,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": 0.019444444444444486,
+           "low": -0.025318464938718015,
+           "high": 0.06378929765886279,
+           "undefined_replicates": 0,
+           "share_positive": 0.78
+          },
+          "event_recall": {
+           "point": -0.020379805465493284,
+           "low": -0.04806810163467442,
+           "high": 0.009890307607711205,
+           "undefined_replicates": 0,
+           "share_positive": 0.07
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.15555555555555556,
+           "low": 0.09208834586466172,
+           "high": 0.2234350649350649,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.05465493283927744,
+           "low": 0.02193048931070381,
+           "high": 0.08879312616816146,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": 0.005555555555555647,
+           "low": -0.04417870861532835,
+           "high": 0.05754516577327772,
+           "undefined_replicates": 0,
+           "share_positive": 0.5725
+          },
+          "event_recall": {
+           "point": -0.019453450671607198,
+           "low": -0.04357524813790734,
+           "high": 0.008513846508434142,
+           "undefined_replicates": 0,
+           "share_positive": 0.0825
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": -0.01388888888888884,
+           "low": -0.053526382173638885,
+           "high": 0.023196930946291563,
+           "undefined_replicates": 0,
+           "share_positive": 0.25
+          },
+          "event_recall": {
+           "point": 0.0009263547938860861,
+           "low": -0.01830004986852844,
+           "high": 0.02251326129163741,
+           "undefined_replicates": 0,
+           "share_positive": 0.535
+          }
+         }
+        }
+       },
+       "object": {
+        "blocks": 74,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.6861111111111111,
+           "low": 0.563262957181529,
+           "high": 0.7730782429649965,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.2524316813339509,
+           "low": 0.0888813287852285,
+           "high": 0.3958131744160982,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.6722222222222223,
+           "low": 0.5541912330171751,
+           "high": 0.7596598465473144,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.25335803612783697,
+           "low": 0.1069744259408169,
+           "high": 0.37022892275283964,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.5166666666666667,
+           "low": 0.39747216108435574,
+           "high": 0.6056347103237985,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.19870310328855953,
+           "low": 0.14333104552733927,
+           "high": 0.24534623934956543,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.6666666666666666,
+           "low": 0.530244979033326,
+           "high": 0.7923394495412843,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.27281148679944417,
+           "low": 0.11892169844292483,
+           "high": 0.40816239964994677,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.1694444444444444,
+           "low": 0.0660357265448772,
+           "high": 0.2643938056147164,
+           "undefined_replicates": 0,
+           "share_positive": 0.9975
+          },
+          "event_recall": {
+           "point": 0.053728578045391356,
+           "low": -0.08053674828356357,
+           "high": 0.18074504358965068,
+           "undefined_replicates": 0,
+           "share_positive": 0.7675
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": 0.019444444444444486,
+           "low": -0.1125652422430304,
+           "high": 0.11874336444237353,
+           "undefined_replicates": 0,
+           "share_positive": 0.6175
+          },
+          "event_recall": {
+           "point": -0.020379805465493284,
+           "low": -0.1594114572368182,
+           "high": 0.11610001115335145,
+           "undefined_replicates": 0,
+           "share_positive": 0.3775
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.15555555555555556,
+           "low": 0.04314678005722803,
+           "high": 0.25814663042944097,
+           "undefined_replicates": 0,
+           "share_positive": 0.9975
+          },
+          "event_recall": {
+           "point": 0.05465493283927744,
+           "low": -0.0561609474076837,
+           "high": 0.1544308193402101,
+           "undefined_replicates": 0,
+           "share_positive": 0.8175
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": 0.005555555555555647,
+           "low": -0.14505658806938324,
+           "high": 0.12273184253179618,
+           "undefined_replicates": 0,
+           "share_positive": 0.5275
+          },
+          "event_recall": {
+           "point": -0.019453450671607198,
+           "low": -0.15041392766510192,
+           "high": 0.11427310563107215,
+           "undefined_replicates": 0,
+           "share_positive": 0.36
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": -0.01388888888888884,
+           "low": -0.0734584578553295,
+           "high": 0.060534185260692513,
+           "undefined_replicates": 0,
+           "share_positive": 0.3125
+          },
+          "event_recall": {
+           "point": 0.0009263547938860861,
+           "low": -0.03819091987195433,
+           "high": 0.04123708668479607,
+           "undefined_replicates": 0,
+           "share_positive": 0.5025
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "fits": [
+    {
+     "fold": 0,
+     "set": "F2",
+     "seconds": 104.0,
+     "fit_rows": 575611,
+     "fit_positive": 45161,
+     "columns": 72
+    },
+    {
+     "fold": 0,
+     "set": "F2+sel",
+     "seconds": 118.9,
+     "fit_rows": 575611,
+     "fit_positive": 45161,
+     "columns": 116
+    },
+    {
+     "fold": 1,
+     "set": "F2",
+     "seconds": 179.4,
+     "fit_rows": 936632,
+     "fit_positive": 80813,
+     "columns": 72
+    },
+    {
+     "fold": 1,
+     "set": "F2+sel",
+     "seconds": 206.8,
+     "fit_rows": 936632,
+     "fit_positive": 80813,
+     "columns": 116
+    }
+   ],
+   "hygiene": {
+    "thread_count": 6,
+    "os_cpu_count": 14,
+    "cpu_model": "Apple M4 Max"
+   }
+  },
+  "336h": {
+   "sets": [
+    "F2",
+    "F2+sel",
+    "F2+W"
+   ],
+   "policies": {
+    "release_open14": {
+     "summary": {
+      "F2": {
+       "folds": [
+        {
+         "card_precision": 0.601063829787234,
+         "event_recall": 0.488328664799253,
+         "lead_hours_median": 206.42833333333334,
+         "new_cards_per_day": 1.5452054794520549,
+         "cards_selected": 564
+        },
+        {
+         "card_precision": 0.659432387312187,
+         "event_recall": 0.5750224618149147,
+         "lead_hours_median": 202.7263888888889,
+         "new_cards_per_day": 1.6366120218579234,
+         "cards_selected": 599
+        }
+       ],
+       "mean": {
+        "card_precision": 0.6302481085497105,
+        "event_recall": 0.5316755633070839,
+        "lead_hours_median": 204.57736111111112,
+        "new_cards_per_day": 1.590908750654989
+       }
+      },
+      "F2+sel": {
+       "folds": [
+        {
+         "card_precision": 0.5761467889908257,
+         "event_recall": 0.46591970121381887,
+         "lead_hours_median": 226.5638888888889,
+         "new_cards_per_day": 1.4931506849315068,
+         "cards_selected": 545
+        },
+        {
+         "card_precision": 0.657762938230384,
+         "event_recall": 0.5579514824797843,
+         "lead_hours_median": 201.67638888888888,
+         "new_cards_per_day": 1.6366120218579234,
+         "cards_selected": 599
+        }
+       ],
+       "mean": {
+        "card_precision": 0.6169548636106048,
+        "event_recall": 0.5119355918468016,
+        "lead_hours_median": 214.1201388888889,
+        "new_cards_per_day": 1.564881353394715
+       }
+      },
+      "F2+W": {
+       "folds": [
+        {
+         "card_precision": 0.5921985815602837,
+         "event_recall": 0.4864612511671335,
+         "lead_hours_median": 205.18333333333334,
+         "new_cards_per_day": 1.5452054794520549,
+         "cards_selected": 564
+        },
+        {
+         "card_precision": 0.6287744227353463,
+         "event_recall": 0.5256064690026954,
+         "lead_hours_median": 202.91833333333332,
+         "new_cards_per_day": 1.5382513661202186,
+         "cards_selected": 563
+        }
+       ],
+       "mean": {
+        "card_precision": 0.610486502147815,
+        "event_recall": 0.5060338600849145,
+        "lead_hours_median": 204.05083333333334,
+        "new_cards_per_day": 1.5417284227861368
+       }
+      },
+      "persistence": {
+       "folds": [
+        {
+         "card_precision": 0.5469314079422383,
+         "event_recall": 0.4957983193277311,
+         "lead_hours_median": 214.60166666666666,
+         "new_cards_per_day": 1.5178082191780822,
+         "cards_selected": 554
+        },
+        {
+         "card_precision": 0.575591985428051,
+         "event_recall": 0.5498652291105122,
+         "lead_hours_median": 191.17097222222222,
+         "new_cards_per_day": 1.5,
+         "cards_selected": 549
+        }
+       ],
+       "mean": {
+        "card_precision": 0.5612616966851447,
+        "event_recall": 0.5228317742191216,
+        "lead_hours_median": 202.88631944444444,
+        "new_cards_per_day": 1.5089041095890412
+       }
+      },
+      "static_list": {
+       "folds": [
+        {
+         "card_precision": 0.6145833333333334,
+         "event_recall": 0.5284780578898226,
+         "lead_hours_median": 210.19972222222222,
+         "new_cards_per_day": 1.5780821917808219,
+         "cards_selected": 576
+        },
+        {
+         "card_precision": 0.6715927750410509,
+         "event_recall": 0.6028751123090745,
+         "lead_hours_median": 202.32472222222222,
+         "new_cards_per_day": 1.6639344262295082,
+         "cards_selected": 609
+        }
+       ],
+       "mean": {
+        "card_precision": 0.6430880541871922,
+        "event_recall": 0.5656765850994485,
+        "lead_hours_median": 206.26222222222222,
+        "new_cards_per_day": 1.621008309005165
+       }
+      },
+      "ceiling": {
+       "folds": [
+        {
+         "card_precision": 0.9812138728323699,
+         "event_recall": 0.9187675070028011,
+         "lead_hours_median": 275.48833333333334,
+         "new_cards_per_day": 1.895890410958904,
+         "cards_selected": 692
+        },
+        {
+         "card_precision": 0.975397973950796,
+         "event_recall": 0.9290206648697215,
+         "lead_hours_median": 266.5763888888889,
+         "new_cards_per_day": 1.8879781420765027,
+         "cards_selected": 691
+        }
+       ],
+       "mean": {
+        "card_precision": 0.978305923391583,
+        "event_recall": 0.9238940859362612,
+        "lead_hours_median": 271.03236111111113,
+        "new_cards_per_day": 1.8919342765177034
+       }
+      }
+     },
+     "exploration_vs_F2": {
+      "F2+sel": [
+       -0.02491704079640833,
+       -0.0016694490818029983
+      ],
+      "F2+W": [
+       -0.00886524822695034,
+       -0.03065796457684067
+      ]
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "seed": 17,
+      "schemes": {
+       "iso_week": {
+        "blocks": 106,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.6319444444444444,
+           "low": 0.6039998645261804,
+           "high": 0.6600381618029825,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5326540064844836,
+           "low": 0.49575863943602266,
+           "high": 0.5725509532142726,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.6197183098591549,
+           "low": 0.587353195050582,
+           "high": 0.6495313956441175,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5164427975914775,
+           "low": 0.4810462416368891,
+           "high": 0.5507166140552023,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+W": {
+          "card_precision": {
+           "point": 0.612153708668454,
+           "low": 0.5826042707356082,
+           "high": 0.6440072316294877,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5094951366373321,
+           "low": 0.4745593566763724,
+           "high": 0.5491086621494257,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.5602189781021898,
+           "low": 0.5327573623357849,
+           "high": 0.5930505743521386,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5224641037517369,
+           "low": 0.48959083223959843,
+           "high": 0.5556720394011581,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.6454081632653061,
+           "low": 0.6126214355592327,
+           "high": 0.6757579831049109,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5701713756368689,
+           "low": 0.5390713120560463,
+           "high": 0.6033853888608112,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.07172546634225463,
+           "low": 0.04169075461083379,
+           "high": 0.10381855895388618,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.01018990273274667,
+           "low": -0.038468388245770285,
+           "high": 0.0561013261074844,
+           "undefined_replicates": 0,
+           "share_positive": 0.6525
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": -0.013463718820861725,
+           "low": -0.04109418228915634,
+           "high": 0.019076414084946192,
+           "undefined_replicates": 0,
+           "share_positive": 0.1975
+          },
+          "event_recall": {
+           "point": -0.03751736915238535,
+           "low": -0.07045286734615512,
+           "high": -0.0058172236327340195,
+           "undefined_replicates": 0,
+           "share_positive": 0.0175
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.05949933175696509,
+           "low": 0.029929760187960463,
+           "high": 0.09117511947565739,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": -0.006021306160259421,
+           "low": -0.050229305605401516,
+           "high": 0.03629746621049424,
+           "undefined_replicates": 0,
+           "share_positive": 0.39
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": -0.025689853406151264,
+           "low": -0.05374254647920107,
+           "high": 0.008183029495543318,
+           "undefined_replicates": 0,
+           "share_positive": 0.0525
+          },
+          "event_recall": {
+           "point": -0.05372857804539144,
+           "low": -0.08999995329789502,
+           "high": -0.02107883424724435,
+           "undefined_replicates": 0,
+           "share_positive": 0.0025
+          }
+         },
+         "F2+W - persistence": {
+          "card_precision": {
+           "point": 0.05193473056626419,
+           "low": 0.02222940050283432,
+           "high": 0.08688532351612706,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": -0.012968967114404761,
+           "low": -0.057011368134799706,
+           "high": 0.034716814422949764,
+           "undefined_replicates": 0,
+           "share_positive": 0.28
+          }
+         },
+         "F2+W - static_list": {
+          "card_precision": {
+           "point": -0.03325445459685217,
+           "low": -0.06588879276384062,
+           "high": -0.0006327150808233622,
+           "undefined_replicates": 0,
+           "share_positive": 0.025
+          },
+          "event_recall": {
+           "point": -0.06067623899953678,
+           "low": -0.0934294382845807,
+           "high": -0.026942649449236737,
+           "undefined_replicates": 0,
+           "share_positive": 0.0
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": -0.012226134585289539,
+           "low": -0.030843198420919,
+           "high": 0.008702018262690724,
+           "undefined_replicates": 0,
+           "share_positive": 0.1325
+          },
+          "event_recall": {
+           "point": -0.01621120889300609,
+           "low": -0.03761418667110821,
+           "high": 0.00665995813789171,
+           "undefined_replicates": 0,
+           "share_positive": 0.075
+          }
+         },
+         "F2+W - F2": {
+          "card_precision": {
+           "point": -0.019790735775990442,
+           "low": -0.03505868207313474,
+           "high": -0.005245123591932742,
+           "undefined_replicates": 0,
+           "share_positive": 0.0025
+          },
+          "event_recall": {
+           "point": -0.02315886984715143,
+           "low": -0.038486714248371925,
+           "high": -0.007977113792147075,
+           "undefined_replicates": 0,
+           "share_positive": 0.0
+          }
+         }
+        }
+       },
+       "object": {
+        "blocks": 74,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.6319444444444444,
+           "low": 0.5354972877302631,
+           "high": 0.705159670285984,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5326540064844836,
+           "low": 0.36234867553637784,
+           "high": 0.6721317715430034,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.6197183098591549,
+           "low": 0.5229232167809958,
+           "high": 0.6967182697603354,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5164427975914775,
+           "low": 0.35083649931878147,
+           "high": 0.6509507668871571,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+W": {
+          "card_precision": {
+           "point": 0.612153708668454,
+           "low": 0.5132381188938566,
+           "high": 0.693497521153909,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5094951366373321,
+           "low": 0.33805785671629074,
+           "high": 0.6528320642978004,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.5602189781021898,
+           "low": 0.45305897233218606,
+           "high": 0.6456484392901698,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5224641037517369,
+           "low": 0.41443894222860306,
+           "high": 0.6172652780360833,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.6454081632653061,
+           "low": 0.5558384876329744,
+           "high": 0.7180300280112045,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5701713756368689,
+           "low": 0.4282427813436164,
+           "high": 0.6712464466997456,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.07172546634225463,
+           "low": 0.023242267628204225,
+           "high": 0.1292743099997183,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.01018990273274667,
+           "low": -0.10314496325370369,
+           "high": 0.10166442384521203,
+           "undefined_replicates": 0,
+           "share_positive": 0.5375
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": -0.013463718820861725,
+           "low": -0.07219606249512767,
+           "high": 0.037992908480776216,
+           "undefined_replicates": 0,
+           "share_positive": 0.295
+          },
+          "event_recall": {
+           "point": -0.03751736915238535,
+           "low": -0.15326984159722787,
+           "high": 0.07792487712179041,
+           "undefined_replicates": 0,
+           "share_positive": 0.2525
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.05949933175696509,
+           "low": 0.0074004349821070155,
+           "high": 0.11626783341972287,
+           "undefined_replicates": 0,
+           "share_positive": 0.99
+          },
+          "event_recall": {
+           "point": -0.006021306160259421,
+           "low": -0.11822360647289326,
+           "high": 0.08508271179957926,
+           "undefined_replicates": 0,
+           "share_positive": 0.395
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": -0.025689853406151264,
+           "low": -0.08298265292050785,
+           "high": 0.02808283530649795,
+           "undefined_replicates": 0,
+           "share_positive": 0.155
+          },
+          "event_recall": {
+           "point": -0.05372857804539144,
+           "low": -0.16444473293886355,
+           "high": 0.06181274131686855,
+           "undefined_replicates": 0,
+           "share_positive": 0.15
+          }
+         },
+         "F2+W - persistence": {
+          "card_precision": {
+           "point": 0.05193473056626419,
+           "low": -0.000956231890270142,
+           "high": 0.12074675828978423,
+           "undefined_replicates": 0,
+           "share_positive": 0.9725
+          },
+          "event_recall": {
+           "point": -0.012968967114404761,
+           "low": -0.1425430540646123,
+           "high": 0.09229214415636332,
+           "undefined_replicates": 0,
+           "share_positive": 0.4
+          }
+         },
+         "F2+W - static_list": {
+          "card_precision": {
+           "point": -0.03325445459685217,
+           "low": -0.11316236103250985,
+           "high": 0.02203321607573163,
+           "undefined_replicates": 0,
+           "share_positive": 0.1225
+          },
+          "event_recall": {
+           "point": -0.06067623899953678,
+           "low": -0.1860157757415262,
+           "high": 0.0695456399564902,
+           "undefined_replicates": 0,
+           "share_positive": 0.165
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": -0.012226134585289539,
+           "low": -0.034066945849537164,
+           "high": 0.006766838751332512,
+           "undefined_replicates": 0,
+           "share_positive": 0.1175
+          },
+          "event_recall": {
+           "point": -0.01621120889300609,
+           "low": -0.031064407252323463,
+           "high": 0.004111525197211962,
+           "undefined_replicates": 0,
+           "share_positive": 0.0525
+          }
+         },
+         "F2+W - F2": {
+          "card_precision": {
+           "point": -0.019790735775990442,
+           "low": -0.04961138984461659,
+           "high": 0.0019058902518308775,
+           "undefined_replicates": 0,
+           "share_positive": 0.045
+          },
+          "event_recall": {
+           "point": -0.02315886984715143,
+           "low": -0.07528362307877684,
+           "high": 0.011856504588527451,
+           "undefined_replicates": 0,
+           "share_positive": 0.2275
+          }
+         }
+        }
+       }
+      }
+     },
+     "criterion_main": {
+      "F2": {
+       "precision_minus_static_week": {
+        "point": -0.013463718820861725,
+        "low": -0.04109418228915634,
+        "high": 0.019076414084946192,
+        "undefined_replicates": 0,
+        "share_positive": 0.1975
+       },
+       "precision_minus_static_object": {
+        "point": -0.013463718820861725,
+        "low": -0.07219606249512767,
+        "high": 0.037992908480776216,
+        "undefined_replicates": 0,
+        "share_positive": 0.295
+       },
+       "precision_minus_persistence_week": {
+        "point": 0.07172546634225463,
+        "low": 0.04169075461083379,
+        "high": 0.10381855895388618,
+        "undefined_replicates": 0,
+        "share_positive": 1.0
+       },
+       "recall_model": 0.5326540064844836,
+       "recall_static_list": 0.5701713756368689,
+       "pass": false
+      },
+      "F2+sel": {
+       "precision_minus_static_week": {
+        "point": -0.025689853406151264,
+        "low": -0.05374254647920107,
+        "high": 0.008183029495543318,
+        "undefined_replicates": 0,
+        "share_positive": 0.0525
+       },
+       "precision_minus_static_object": {
+        "point": -0.025689853406151264,
+        "low": -0.08298265292050785,
+        "high": 0.02808283530649795,
+        "undefined_replicates": 0,
+        "share_positive": 0.155
+       },
+       "precision_minus_persistence_week": {
+        "point": 0.05949933175696509,
+        "low": 0.029929760187960463,
+        "high": 0.09117511947565739,
+        "undefined_replicates": 0,
+        "share_positive": 1.0
+       },
+       "recall_model": 0.5164427975914775,
+       "recall_static_list": 0.5701713756368689,
+       "pass": false
+      },
+      "F2+W": {
+       "precision_minus_static_week": {
+        "point": -0.03325445459685217,
+        "low": -0.06588879276384062,
+        "high": -0.0006327150808233622,
+        "undefined_replicates": 0,
+        "share_positive": 0.025
+       },
+       "precision_minus_static_object": {
+        "point": -0.03325445459685217,
+        "low": -0.11316236103250985,
+        "high": 0.02203321607573163,
+        "undefined_replicates": 0,
+        "share_positive": 0.1225
+       },
+       "precision_minus_persistence_week": {
+        "point": 0.05193473056626419,
+        "low": 0.02222940050283432,
+        "high": 0.08688532351612706,
+        "undefined_replicates": 0,
+        "share_positive": 1.0
+       },
+       "recall_model": 0.5094951366373321,
+       "recall_static_list": 0.5701713756368689,
+       "pass": false
+      }
+     }
+    },
+    "release_open5": {
+     "summary": {
+      "F2": {
+       "folds": [
+        {
+         "card_precision": 0.7531914893617021,
+         "event_recall": 0.2586367880485528,
+         "lead_hours_median": 211.91583333333332,
+         "new_cards_per_day": 0.6438356164383562,
+         "cards_selected": 235
+        },
+        {
+         "card_precision": 0.7873134328358209,
+         "event_recall": 0.3243486073674753,
+         "lead_hours_median": 214.39944444444444,
+         "new_cards_per_day": 0.73224043715847,
+         "cards_selected": 268
+        }
+       ],
+       "mean": {
+        "card_precision": 0.7702524610987616,
+        "event_recall": 0.291492697708014,
+        "lead_hours_median": 213.15763888888887,
+        "new_cards_per_day": 0.6880380267984131
+       }
+      },
+      "F2+sel": {
+       "folds": [
+        {
+         "card_precision": 0.6555023923444976,
+         "event_recall": 0.21101774042950514,
+         "lead_hours_median": 211.8075,
+         "new_cards_per_day": 0.5726027397260274,
+         "cards_selected": 209
+        },
+        {
+         "card_precision": 0.7811320754716982,
+         "event_recall": 0.3054806828391734,
+         "lead_hours_median": 203.08999999999997,
+         "new_cards_per_day": 0.7240437158469946,
+         "cards_selected": 265
+        }
+       ],
+       "mean": {
+        "card_precision": 0.7183172339080979,
+        "event_recall": 0.2582492116343393,
+        "lead_hours_median": 207.44875,
+        "new_cards_per_day": 0.648323227786511
+       }
+      },
+      "F2+W": {
+       "folds": [
+        {
+         "card_precision": 0.728448275862069,
+         "event_recall": 0.24929971988795518,
+         "lead_hours_median": 205.93305555555557,
+         "new_cards_per_day": 0.6356164383561644,
+         "cards_selected": 232
+        },
+        {
+         "card_precision": 0.7837837837837838,
+         "event_recall": 0.3036837376460018,
+         "lead_hours_median": 224.55875,
+         "new_cards_per_day": 0.7076502732240437,
+         "cards_selected": 259
+        }
+       ],
+       "mean": {
+        "card_precision": 0.7561160298229264,
+        "event_recall": 0.2764917287669785,
+        "lead_hours_median": 215.2459027777778,
+        "new_cards_per_day": 0.6716333557901041
+       }
+      },
+      "persistence": {
+       "folds": [
+        {
+         "card_precision": 0.5756097560975609,
+         "event_recall": 0.26143790849673204,
+         "lead_hours_median": 203.05902777777777,
+         "new_cards_per_day": 0.5616438356164384,
+         "cards_selected": 205
+        },
+        {
+         "card_precision": 0.6467889908256881,
+         "event_recall": 0.33782569631626236,
+         "lead_hours_median": 160.73222222222222,
+         "new_cards_per_day": 0.5956284153005464,
+         "cards_selected": 218
+        }
+       ],
+       "mean": {
+        "card_precision": 0.6111993734616246,
+        "event_recall": 0.2996318024064972,
+        "lead_hours_median": 181.895625,
+        "new_cards_per_day": 0.5786361254584924
+       }
+      },
+      "static_list": {
+       "folds": [
+        {
+         "card_precision": 0.6495327102803738,
+         "event_recall": 0.22782446311858076,
+         "lead_hours_median": 205.58472222222224,
+         "new_cards_per_day": 0.5863013698630137,
+         "cards_selected": 214
+        },
+        {
+         "card_precision": 0.8267148014440433,
+         "event_recall": 0.31536388140161725,
+         "lead_hours_median": 227.8213888888889,
+         "new_cards_per_day": 0.7568306010928961,
+         "cards_selected": 277
+        }
+       ],
+       "mean": {
+        "card_precision": 0.7381237558622086,
+        "event_recall": 0.271594172260099,
+        "lead_hours_median": 216.70305555555558,
+        "new_cards_per_day": 0.671565985477955
+       }
+      },
+      "ceiling": {
+       "folds": [
+        {
+         "card_precision": 1.0,
+         "event_recall": 0.6853408029878618,
+         "lead_hours_median": 274.3531944444444,
+         "new_cards_per_day": 0.9780821917808219,
+         "cards_selected": 357
+        },
+        {
+         "card_precision": 1.0,
+         "event_recall": 0.7035040431266847,
+         "lead_hours_median": 249.38555555555556,
+         "new_cards_per_day": 0.9672131147540983,
+         "cards_selected": 354
+        }
+       ],
+       "mean": {
+        "card_precision": 1.0,
+        "event_recall": 0.6944224230572733,
+        "lead_hours_median": 261.869375,
+        "new_cards_per_day": 0.9726476532674602
+       }
+      }
+     },
+     "exploration_vs_F2": {
+      "F2+sel": [
+       -0.09768909701720452,
+       -0.00618135736412273
+      ],
+      "F2+W": [
+       -0.024743213499633154,
+       -0.0035296490520371204
+      ]
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "seed": 17,
+      "schemes": {
+       "iso_week": {
+        "blocks": 106,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.7724550898203593,
+           "low": 0.7342964018608482,
+           "high": 0.8117196238452297,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.29504400185270957,
+           "low": 0.2678517999064984,
+           "high": 0.3274810237908444,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.7261146496815286,
+           "low": 0.6817915066154502,
+           "high": 0.7676468819532143,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.26169522927281147,
+           "low": 0.22850857402435182,
+           "high": 0.2923683350580034,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+W": {
+          "card_precision": {
+           "point": 0.75564681724846,
+           "low": 0.7101127309784898,
+           "high": 0.7950310559006211,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.2774432607688745,
+           "low": 0.2533314275077119,
+           "high": 0.3038936463390408,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.6181384248210023,
+           "low": 0.5678445151595509,
+           "high": 0.6631437768240342,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.30245484020379804,
+           "low": 0.26633397256153246,
+           "high": 0.33926115727916284,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.75,
+           "low": 0.7055958246346555,
+           "high": 0.7923730831315577,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.27373784159333026,
+           "low": 0.2436825383437431,
+           "high": 0.30409888357256776,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.15431666499935692,
+           "low": 0.10694521705156448,
+           "high": 0.20845296357331045,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": -0.007410838351088467,
+           "low": -0.04511911537097114,
+           "high": 0.03197553197499334,
+           "undefined_replicates": 0,
+           "share_positive": 0.32
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": 0.022455089820359264,
+           "low": -0.019841045769680876,
+           "high": 0.06553216443327829,
+           "undefined_replicates": 0,
+           "share_positive": 0.8375
+          },
+          "event_recall": {
+           "point": 0.021306160259379314,
+           "low": -0.002885712045053068,
+           "high": 0.04803365151426349,
+           "undefined_replicates": 0,
+           "share_positive": 0.9425
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.10797622486052627,
+           "low": 0.054507626668437725,
+           "high": 0.161755849559286,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": -0.04075961093098657,
+           "low": -0.08552555567725896,
+           "high": 0.0005067200779809406,
+           "undefined_replicates": 0,
+           "share_positive": 0.0275
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": -0.023885350318471388,
+           "low": -0.07217994611014217,
+           "high": 0.02230244797629063,
+           "undefined_replicates": 0,
+           "share_positive": 0.1725
+          },
+          "event_recall": {
+           "point": -0.012042612320518786,
+           "low": -0.04523125318767951,
+           "high": 0.014850281972596852,
+           "undefined_replicates": 0,
+           "share_positive": 0.2
+          }
+         },
+         "F2+W - persistence": {
+          "card_precision": {
+           "point": 0.1375083924274576,
+           "low": 0.09193408069909982,
+           "high": 0.1877703929092098,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": -0.025011579434923548,
+           "low": -0.0664172868343383,
+           "high": 0.01650109955800829,
+           "undefined_replicates": 0,
+           "share_positive": 0.1075
+          }
+         },
+         "F2+W - static_list": {
+          "card_precision": {
+           "point": 0.0056468172484599455,
+           "low": -0.04022772093348256,
+           "high": 0.04986052308178782,
+           "undefined_replicates": 0,
+           "share_positive": 0.5775
+          },
+          "event_recall": {
+           "point": 0.0037054191755442334,
+           "low": -0.025842452144446183,
+           "high": 0.03220933101960015,
+           "undefined_replicates": 0,
+           "share_positive": 0.625
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": -0.04634044013883065,
+           "low": -0.09232257582333787,
+           "high": -0.006681959659308306,
+           "undefined_replicates": 0,
+           "share_positive": 0.0125
+          },
+          "event_recall": {
+           "point": -0.0333487725798981,
+           "low": -0.06038089008878621,
+           "high": -0.008721455584592232,
+           "undefined_replicates": 0,
+           "share_positive": 0.005
+          }
+         },
+         "F2+W - F2": {
+          "card_precision": {
+           "point": -0.01680827257189932,
+           "low": -0.04667454617227065,
+           "high": 0.01246391248636175,
+           "undefined_replicates": 0,
+           "share_positive": 0.1175
+          },
+          "event_recall": {
+           "point": -0.01760074108383508,
+           "low": -0.03163584599410752,
+           "high": -0.003366191057662189,
+           "undefined_replicates": 0,
+           "share_positive": 0.0075
+          }
+         }
+        }
+       },
+       "object": {
+        "blocks": 74,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.7724550898203593,
+           "low": 0.6887564020486556,
+           "high": 0.8340262420757777,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.29504400185270957,
+           "low": 0.122010540917246,
+           "high": 0.44046690627966906,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.7261146496815286,
+           "low": 0.6132954545454545,
+           "high": 0.7889390706495969,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.26169522927281147,
+           "low": 0.09876582327663246,
+           "high": 0.40320619344796377,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+W": {
+          "card_precision": {
+           "point": 0.75564681724846,
+           "low": 0.653243538351083,
+           "high": 0.8232456815592573,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.2774432607688745,
+           "low": 0.1074594026483286,
+           "high": 0.4174880584329085,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.6181384248210023,
+           "low": 0.4916758928288995,
+           "high": 0.7102003441494592,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.30245484020379804,
+           "low": 0.21130668393311522,
+           "high": 0.3779309954224933,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.75,
+           "low": 0.6352611353601932,
+           "high": 0.8448353973754473,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.27373784159333026,
+           "low": 0.11328552026165532,
+           "high": 0.4034275837228544,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.15431666499935692,
+           "low": 0.07909080064591749,
+           "high": 0.24418687957002644,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": -0.007410838351088467,
+           "low": -0.13174252257444274,
+           "high": 0.09424369886838256,
+           "undefined_replicates": 0,
+           "share_positive": 0.395
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": 0.022455089820359264,
+           "low": -0.07974321078116625,
+           "high": 0.12163676855075117,
+           "undefined_replicates": 0,
+           "share_positive": 0.705
+          },
+          "event_recall": {
+           "point": 0.021306160259379314,
+           "low": -0.10128947132709093,
+           "high": 0.1450716475540738,
+           "undefined_replicates": 0,
+           "share_positive": 0.595
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.10797622486052627,
+           "low": 0.022142215851724514,
+           "high": 0.20153130760914395,
+           "undefined_replicates": 0,
+           "share_positive": 0.99
+          },
+          "event_recall": {
+           "point": -0.04075961093098657,
+           "low": -0.1543710991806744,
+           "high": 0.06386137675119476,
+           "undefined_replicates": 0,
+           "share_positive": 0.205
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": -0.023885350318471388,
+           "low": -0.16185918632425977,
+           "high": 0.08500817908663731,
+           "undefined_replicates": 0,
+           "share_positive": 0.33
+          },
+          "event_recall": {
+           "point": -0.012042612320518786,
+           "low": -0.15133785234810906,
+           "high": 0.13231601771888019,
+           "undefined_replicates": 0,
+           "share_positive": 0.4275
+          }
+         },
+         "F2+W - persistence": {
+          "card_precision": {
+           "point": 0.1375083924274576,
+           "low": 0.061555448130531855,
+           "high": 0.22911568363499454,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": -0.025011579434923548,
+           "low": -0.14657795324793366,
+           "high": 0.0778766863142287,
+           "undefined_replicates": 0,
+           "share_positive": 0.3
+          }
+         },
+         "F2+W - static_list": {
+          "card_precision": {
+           "point": 0.0056468172484599455,
+           "low": -0.11629482526090186,
+           "high": 0.11238498529629927,
+           "undefined_replicates": 0,
+           "share_positive": 0.5525
+          },
+          "event_recall": {
+           "point": 0.0037054191755442334,
+           "low": -0.12500512359602023,
+           "high": 0.13084933197009996,
+           "undefined_replicates": 0,
+           "share_positive": 0.505
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": -0.04634044013883065,
+           "low": -0.12154899294165945,
+           "high": -0.008060866176835076,
+           "undefined_replicates": 0,
+           "share_positive": 0.0075
+          },
+          "event_recall": {
+           "point": -0.0333487725798981,
+           "low": -0.06233070973633793,
+           "high": 0.01154839560742089,
+           "undefined_replicates": 0,
+           "share_positive": 0.0525
+          }
+         },
+         "F2+W - F2": {
+          "card_precision": {
+           "point": -0.01680827257189932,
+           "low": -0.061083644616407355,
+           "high": 0.007724146386199735,
+           "undefined_replicates": 0,
+           "share_positive": 0.0825
+          },
+          "event_recall": {
+           "point": -0.01760074108383508,
+           "low": -0.030623269051106915,
+           "high": -0.0021809542599716906,
+           "undefined_replicates": 0,
+           "share_positive": 0.015
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    "norelease_open14": {
+     "summary": {
+      "F2": {
+       "folds": [
+        {
+         "card_precision": 0.5925925925925926,
+         "event_recall": 0.5070028011204482,
+         "lead_hours_median": 162.23416666666665,
+         "new_cards_per_day": 1.0356164383561643,
+         "cards_selected": 378
+        },
+        {
+         "card_precision": 0.6371428571428571,
+         "event_recall": 0.5372866127583109,
+         "lead_hours_median": 165.48263888888889,
+         "new_cards_per_day": 0.9562841530054644,
+         "cards_selected": 350
+        }
+       ],
+       "mean": {
+        "card_precision": 0.6148677248677248,
+        "event_recall": 0.5221447069393795,
+        "lead_hours_median": 163.85840277777777,
+        "new_cards_per_day": 0.9959502956808144
+       }
+      },
+      "F2+sel": {
+       "folds": [
+        {
+         "card_precision": 0.5740740740740741,
+         "event_recall": 0.4677871148459384,
+         "lead_hours_median": 171.20666666666668,
+         "new_cards_per_day": 1.0356164383561643,
+         "cards_selected": 378
+        },
+        {
+         "card_precision": 0.6342857142857142,
+         "event_recall": 0.5238095238095238,
+         "lead_hours_median": 178.02722222222224,
+         "new_cards_per_day": 0.9562841530054644,
+         "cards_selected": 350
+        }
+       ],
+       "mean": {
+        "card_precision": 0.6041798941798942,
+        "event_recall": 0.4957983193277311,
+        "lead_hours_median": 174.61694444444447,
+        "new_cards_per_day": 0.9959502956808144
+       }
+      },
+      "F2+W": {
+       "folds": [
+        {
+         "card_precision": 0.5767195767195767,
+         "event_recall": 0.4939309056956116,
+         "lead_hours_median": 165.45388888888888,
+         "new_cards_per_day": 1.0356164383561643,
+         "cards_selected": 378
+        },
+        {
+         "card_precision": 0.6228571428571429,
+         "event_recall": 0.5013477088948787,
+         "lead_hours_median": 169.66708333333332,
+         "new_cards_per_day": 0.9562841530054644,
+         "cards_selected": 350
+        }
+       ],
+       "mean": {
+        "card_precision": 0.5997883597883598,
+        "event_recall": 0.49763930729524514,
+        "lead_hours_median": 167.56048611111112,
+        "new_cards_per_day": 0.9959502956808144
+       }
+      },
+      "persistence": {
+       "folds": [
+        {
+         "card_precision": 0.46296296296296297,
+         "event_recall": 0.4276377217553688,
+         "lead_hours_median": 182.06430555555556,
+         "new_cards_per_day": 1.0356164383561643,
+         "cards_selected": 378
+        },
+        {
+         "card_precision": 0.5028571428571429,
+         "event_recall": 0.42048517520215634,
+         "lead_hours_median": 160.58180555555555,
+         "new_cards_per_day": 0.9562841530054644,
+         "cards_selected": 350
+        }
+       ],
+       "mean": {
+        "card_precision": 0.48291005291005296,
+        "event_recall": 0.4240614484787626,
+        "lead_hours_median": 171.32305555555556,
+        "new_cards_per_day": 0.9959502956808144
+       }
+      },
+      "static_list": {
+       "folds": [
+        {
+         "card_precision": 0.6058201058201058,
+         "event_recall": 0.5630252100840336,
+         "lead_hours_median": 166.19861111111112,
+         "new_cards_per_day": 1.0356164383561643,
+         "cards_selected": 378
+        },
+        {
+         "card_precision": 0.64,
+         "event_recall": 0.5920934411500449,
+         "lead_hours_median": 163.44694444444445,
+         "new_cards_per_day": 0.9562841530054644,
+         "cards_selected": 350
+        }
+       ],
+       "mean": {
+        "card_precision": 0.6229100529100529,
+        "event_recall": 0.5775593256170393,
+        "lead_hours_median": 164.8227777777778,
+        "new_cards_per_day": 0.9959502956808144
+       }
+      },
+      "ceiling": {
+       "folds": [
+        {
+         "card_precision": 0.9894179894179894,
+         "event_recall": 0.8468720821661998,
+         "lead_hours_median": 170.8961111111111,
+         "new_cards_per_day": 1.0356164383561643,
+         "cards_selected": 378
+        },
+        {
+         "card_precision": 0.9885714285714285,
+         "event_recall": 0.8328840970350404,
+         "lead_hours_median": 177.725,
+         "new_cards_per_day": 0.9562841530054644,
+         "cards_selected": 350
+        }
+       ],
+       "mean": {
+        "card_precision": 0.988994708994709,
+        "event_recall": 0.8398780896006202,
+        "lead_hours_median": 174.31055555555554,
+        "new_cards_per_day": 0.9959502956808144
+       }
+      }
+     },
+     "exploration_vs_F2": {
+      "F2+sel": [
+       -0.01851851851851849,
+       -0.0028571428571428914
+      ],
+      "F2+W": [
+       -0.015873015873015817,
+       -0.014285714285714235
+      ]
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "seed": 17,
+      "schemes": {
+       "iso_week": {
+        "blocks": 106,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.6153846153846154,
+           "low": 0.5782844387755103,
+           "high": 0.6493796382189239,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5340435386753126,
+           "low": 0.5040271566704301,
+           "high": 0.5644722098333586,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.6043956043956044,
+           "low": 0.5655534706283729,
+           "high": 0.644403840840011,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.507179249652617,
+           "low": 0.4688262503102831,
+           "high": 0.541774916992557,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+W": {
+          "card_precision": {
+           "point": 0.5975274725274725,
+           "low": 0.5598982334869431,
+           "high": 0.6326630652260905,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5053265400648448,
+           "low": 0.47286728288119356,
+           "high": 0.5395164629065454,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.48214285714285715,
+           "low": 0.44154283216783213,
+           "high": 0.5211706349206349,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.4339972209356183,
+           "low": 0.3941332666516363,
+           "high": 0.4706539678676564,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.6208791208791209,
+           "low": 0.592047619047619,
+           "high": 0.6516757318828986,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5891616489115331,
+           "low": 0.5556689071616226,
+           "high": 0.6196877030662371,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.13324175824175827,
+           "low": 0.09744897959183672,
+           "high": 0.16884319384319382,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.1000463177396943,
+           "low": 0.06496698340704565,
+           "high": 0.13905742246544034,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": -0.005494505494505475,
+           "low": -0.04260122154040254,
+           "high": 0.026615021008403374,
+           "undefined_replicates": 0,
+           "share_positive": 0.36
+          },
+          "event_recall": {
+           "point": -0.055118110236220486,
+           "low": -0.0848088840219918,
+           "high": -0.02416951069805709,
+           "undefined_replicates": 0,
+           "share_positive": 0.0
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.12225274725274721,
+           "low": 0.08331582633053225,
+           "high": 0.1672678827628612,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.07318202871699864,
+           "low": 0.03155647765109478,
+           "high": 0.11690531435921468,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": -0.016483516483516536,
+           "low": -0.0514415584415585,
+           "high": 0.018190235690235687,
+           "undefined_replicates": 0,
+           "share_positive": 0.18
+          },
+          "event_recall": {
+           "point": -0.08198239925891615,
+           "low": -0.11827666979748776,
+           "high": -0.04750138902919491,
+           "undefined_replicates": 0,
+           "share_positive": 0.0
+          }
+         },
+         "F2+W - persistence": {
+          "card_precision": {
+           "point": 0.11538461538461536,
+           "low": 0.07775132275132275,
+           "high": 0.1547619047619047,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.07132931912922647,
+           "low": 0.03204534981952233,
+           "high": 0.1099087286879169,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          }
+         },
+         "F2+W - static_list": {
+          "card_precision": {
+           "point": -0.02335164835164838,
+           "low": -0.05688505560954544,
+           "high": 0.006006493506493436,
+           "undefined_replicates": 0,
+           "share_positive": 0.0625
+          },
+          "event_recall": {
+           "point": -0.08383510884668832,
+           "low": -0.11596519114885917,
+           "high": -0.05200232330643192,
+           "undefined_replicates": 0,
+           "share_positive": 0.0
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": -0.010989010989011061,
+           "low": -0.032743818681318676,
+           "high": 0.008775845864661676,
+           "undefined_replicates": 0,
+           "share_positive": 0.15
+          },
+          "event_recall": {
+           "point": -0.026864289022695664,
+           "low": -0.05264457592711794,
+           "high": -0.00419375021223674,
+           "undefined_replicates": 0,
+           "share_positive": 0.0125
+          }
+         },
+         "F2+W - F2": {
+          "card_precision": {
+           "point": -0.017857142857142905,
+           "low": -0.029441776710684278,
+           "high": -0.006198757763975177,
+           "undefined_replicates": 0,
+           "share_positive": 0.0
+          },
+          "event_recall": {
+           "point": -0.028716998610467837,
+           "low": -0.04439695015163816,
+           "high": -0.014669929605854512,
+           "undefined_replicates": 0,
+           "share_positive": 0.0
+          }
+         }
+        }
+       },
+       "object": {
+        "blocks": 74,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.6153846153846154,
+           "low": 0.525110781826151,
+           "high": 0.6884536770896844,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5340435386753126,
+           "low": 0.3576671738825301,
+           "high": 0.6713350922184708,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.6043956043956044,
+           "low": 0.5151292959118443,
+           "high": 0.6787333895802573,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.507179249652617,
+           "low": 0.3323609017159953,
+           "high": 0.6554665655533888,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+W": {
+          "card_precision": {
+           "point": 0.5975274725274725,
+           "low": 0.5050518134715026,
+           "high": 0.6744177288528389,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5053265400648448,
+           "low": 0.3294727482966044,
+           "high": 0.6475108252513231,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.48214285714285715,
+           "low": 0.3836655312885116,
+           "high": 0.571613878693707,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.4339972209356183,
+           "low": 0.33272200907944294,
+           "high": 0.5269969823056974,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.6208791208791209,
+           "low": 0.5272100120133548,
+           "high": 0.7001706982679046,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.5891616489115331,
+           "low": 0.44441147378832835,
+           "high": 0.6991000738720997,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.13324175824175827,
+           "low": 0.07471904426524811,
+           "high": 0.19358783615977385,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.1000463177396943,
+           "low": -0.027901720138811963,
+           "high": 0.19117696308103485,
+           "undefined_replicates": 0,
+           "share_positive": 0.9525
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": -0.005494505494505475,
+           "low": -0.07274483088694599,
+           "high": 0.05890561224371754,
+           "undefined_replicates": 0,
+           "share_positive": 0.43
+          },
+          "event_recall": {
+           "point": -0.055118110236220486,
+           "low": -0.1662488703702729,
+           "high": 0.0630846892266951,
+           "undefined_replicates": 0,
+           "share_positive": 0.155
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.12225274725274721,
+           "low": 0.07462473075438913,
+           "high": 0.16956071131657977,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.07318202871699864,
+           "low": -0.04640555529645869,
+           "high": 0.1723544583122505,
+           "undefined_replicates": 0,
+           "share_positive": 0.9
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": -0.016483516483516536,
+           "low": -0.08475448331986055,
+           "high": 0.041328047655031515,
+           "undefined_replicates": 0,
+           "share_positive": 0.29
+          },
+          "event_recall": {
+           "point": -0.08198239925891615,
+           "low": -0.19885774482664986,
+           "high": 0.041703680203045615,
+           "undefined_replicates": 0,
+           "share_positive": 0.1025
+          }
+         },
+         "F2+W - persistence": {
+          "card_precision": {
+           "point": 0.11538461538461536,
+           "low": 0.05946387949740446,
+           "high": 0.1716660192396863,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.07132931912922647,
+           "low": -0.054655671109485104,
+           "high": 0.17575692977799862,
+           "undefined_replicates": 0,
+           "share_positive": 0.85
+          }
+         },
+         "F2+W - static_list": {
+          "card_precision": {
+           "point": -0.02335164835164838,
+           "low": -0.09505784069974774,
+           "high": 0.03678257531112356,
+           "undefined_replicates": 0,
+           "share_positive": 0.22
+          },
+          "event_recall": {
+           "point": -0.08383510884668832,
+           "low": -0.2112169780201867,
+           "high": 0.04592884214170521,
+           "undefined_replicates": 0,
+           "share_positive": 0.0875
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": -0.010989010989011061,
+           "low": -0.042831644887008656,
+           "high": 0.01622225869746698,
+           "undefined_replicates": 0,
+           "share_positive": 0.2075
+          },
+          "event_recall": {
+           "point": -0.026864289022695664,
+           "low": -0.06817212167703687,
+           "high": 0.012948990019604773,
+           "undefined_replicates": 0,
+           "share_positive": 0.11
+          }
+         },
+         "F2+W - F2": {
+          "card_precision": {
+           "point": -0.017857142857142905,
+           "low": -0.033325749018706406,
+           "high": -0.005980909438214572,
+           "undefined_replicates": 0,
+           "share_positive": 0.0
+          },
+          "event_recall": {
+           "point": -0.028716998610467837,
+           "low": -0.06800473099826078,
+           "high": -0.003545811907462179,
+           "undefined_replicates": 0,
+           "share_positive": 0.015
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    "norelease_open5": {
+     "summary": {
+      "F2": {
+       "folds": [
+        {
+         "card_precision": 0.7037037037037037,
+         "event_recall": 0.24183006535947713,
+         "lead_hours_median": 172.88305555555556,
+         "new_cards_per_day": 0.3698630136986301,
+         "cards_selected": 135
+        },
+        {
+         "card_precision": 0.784,
+         "event_recall": 0.2641509433962264,
+         "lead_hours_median": 163.10319444444445,
+         "new_cards_per_day": 0.34153005464480873,
+         "cards_selected": 125
+        }
+       ],
+       "mean": {
+        "card_precision": 0.7438518518518519,
+        "event_recall": 0.25299050437785175,
+        "lead_hours_median": 167.99312500000002,
+        "new_cards_per_day": 0.3556965341717194
+       }
+      },
+      "F2+sel": {
+       "folds": [
+        {
+         "card_precision": 0.6370370370370371,
+         "event_recall": 0.20541549953314658,
+         "lead_hours_median": 182.53333333333333,
+         "new_cards_per_day": 0.3698630136986301,
+         "cards_selected": 135
+        },
+        {
+         "card_precision": 0.808,
+         "event_recall": 0.2632524707996406,
+         "lead_hours_median": 178.03583333333333,
+         "new_cards_per_day": 0.34153005464480873,
+         "cards_selected": 125
+        }
+       ],
+       "mean": {
+        "card_precision": 0.7225185185185186,
+        "event_recall": 0.2343339851663936,
+        "lead_hours_median": 180.28458333333333,
+        "new_cards_per_day": 0.3556965341717194
+       }
+      },
+      "F2+W": {
+       "folds": [
+        {
+         "card_precision": 0.7333333333333333,
+         "event_recall": 0.24836601307189543,
+         "lead_hours_median": 165.45305555555555,
+         "new_cards_per_day": 0.3698630136986301,
+         "cards_selected": 135
+        },
+        {
+         "card_precision": 0.768,
+         "event_recall": 0.25067385444743934,
+         "lead_hours_median": 162.76,
+         "new_cards_per_day": 0.34153005464480873,
+         "cards_selected": 125
+        }
+       ],
+       "mean": {
+        "card_precision": 0.7506666666666666,
+        "event_recall": 0.24951993375966738,
+        "lead_hours_median": 164.10652777777779,
+        "new_cards_per_day": 0.3556965341717194
+       }
+      },
+      "persistence": {
+       "folds": [
+        {
+         "card_precision": 0.4666666666666667,
+         "event_recall": 0.19887955182072828,
+         "lead_hours_median": 182.32111111111112,
+         "new_cards_per_day": 0.3698630136986301,
+         "cards_selected": 135
+        },
+        {
+         "card_precision": 0.592,
+         "event_recall": 0.1940700808625337,
+         "lead_hours_median": 155.10652777777779,
+         "new_cards_per_day": 0.34153005464480873,
+         "cards_selected": 125
+        }
+       ],
+       "mean": {
+        "card_precision": 0.5293333333333333,
+        "event_recall": 0.196474816341631,
+        "lead_hours_median": 168.71381944444445,
+        "new_cards_per_day": 0.3556965341717194
+       }
+      },
+      "static_list": {
+       "folds": [
+        {
+         "card_precision": 0.6592592592592592,
+         "event_recall": 0.2446311858076564,
+         "lead_hours_median": 170.50875,
+         "new_cards_per_day": 0.3698630136986301,
+         "cards_selected": 135
+        },
+        {
+         "card_precision": 0.824,
+         "event_recall": 0.30997304582210244,
+         "lead_hours_median": 162.82305555555556,
+         "new_cards_per_day": 0.34153005464480873,
+         "cards_selected": 125
+        }
+       ],
+       "mean": {
+        "card_precision": 0.7416296296296296,
+        "event_recall": 0.2773021158148794,
+        "lead_hours_median": 166.66590277777777,
+        "new_cards_per_day": 0.3556965341717194
+       }
+      },
+      "ceiling": {
+       "folds": [
+        {
+         "card_precision": 1.0,
+         "event_recall": 0.5284780578898226,
+         "lead_hours_median": 177.89513888888888,
+         "new_cards_per_day": 0.3698630136986301,
+         "cards_selected": 135
+        },
+        {
+         "card_precision": 1.0,
+         "event_recall": 0.5354896675651393,
+         "lead_hours_median": 178.0359722222222,
+         "new_cards_per_day": 0.34153005464480873,
+         "cards_selected": 125
+        }
+       ],
+       "mean": {
+        "card_precision": 1.0,
+        "event_recall": 0.5319838627274809,
+        "lead_hours_median": 177.96555555555554,
+        "new_cards_per_day": 0.3556965341717194
+       }
+      }
+     },
+     "exploration_vs_F2": {
+      "F2+sel": [
+       -0.06666666666666665,
+       0.02400000000000002
+      ],
+      "F2+W": [
+       0.02962962962962956,
+       -0.016000000000000014
+      ]
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "seed": 17,
+      "schemes": {
+       "iso_week": {
+        "blocks": 106,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.7346153846153847,
+           "low": 0.6808125458547322,
+           "high": 0.7833418367346938,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.2570634553033812,
+           "low": 0.2302358928321597,
+           "high": 0.2856312385300568,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.7153846153846154,
+           "low": 0.656,
+           "high": 0.7666666666666667,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.238073182028717,
+           "low": 0.21165185614883789,
+           "high": 0.26440629648725983,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+W": {
+          "card_precision": {
+           "point": 0.7384615384615385,
+           "low": 0.68325,
+           "high": 0.7880169811320755,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.2524316813339509,
+           "low": 0.22636422084052216,
+           "high": 0.2794783157837424,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.5346153846153846,
+           "low": 0.4561321909424724,
+           "high": 0.6040859748154581,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.20518758684576194,
+           "low": 0.17156562746248347,
+           "high": 0.23698826660137373,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.7307692307692307,
+           "low": 0.6841885964912281,
+           "high": 0.7744923478910041,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.28161185734136174,
+           "low": 0.25529728028399384,
+           "high": 0.30973085413156537,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.20000000000000007,
+           "low": 0.13816477272727273,
+           "high": 0.2703968253968253,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.05187586845761927,
+           "low": 0.022603086116838558,
+           "high": 0.08840396230370125,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": 0.0038461538461539435,
+           "low": -0.05483870967741933,
+           "high": 0.05884230287859824,
+           "undefined_replicates": 0,
+           "share_positive": 0.5175
+          },
+          "event_recall": {
+           "point": -0.024548402037980532,
+           "low": -0.056153873716659405,
+           "high": 0.0062509726617212165,
+           "undefined_replicates": 0,
+           "share_positive": 0.0525
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.1807692307692308,
+           "low": 0.09082386363636367,
+           "high": 0.2728698752228162,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.03288559518295506,
+           "low": -0.0035043932609503566,
+           "high": 0.06752685589062327,
+           "undefined_replicates": 0,
+           "share_positive": 0.95
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": -0.01538461538461533,
+           "low": -0.08462500000000003,
+           "high": 0.04644432773109248,
+           "undefined_replicates": 0,
+           "share_positive": 0.26
+          },
+          "event_recall": {
+           "point": -0.04353867531264474,
+           "low": -0.0719243054471118,
+           "high": -0.014652718943241626,
+           "undefined_replicates": 0,
+           "share_positive": 0.0
+          }
+         },
+         "F2+W - persistence": {
+          "card_precision": {
+           "point": 0.2038461538461539,
+           "low": 0.14073286052009454,
+           "high": 0.2809350503919373,
+           "undefined_replicates": 0,
+           "share_positive": 1.0
+          },
+          "event_recall": {
+           "point": 0.04724409448818895,
+           "low": 0.016945531168495686,
+           "high": 0.08074210136543654,
+           "undefined_replicates": 0,
+           "share_positive": 0.9975
+          }
+         },
+         "F2+W - static_list": {
+          "card_precision": {
+           "point": 0.007692307692307776,
+           "low": -0.05002906976744179,
+           "high": 0.06184680134680138,
+           "undefined_replicates": 0,
+           "share_positive": 0.585
+          },
+          "event_recall": {
+           "point": -0.029180176007410852,
+           "low": -0.05773790125468468,
+           "high": -0.000918637191947254,
+           "undefined_replicates": 0,
+           "share_positive": 0.0225
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": -0.019230769230769273,
+           "low": -0.07601489361702134,
+           "high": 0.04005769230769229,
+           "undefined_replicates": 0,
+           "share_positive": 0.2375
+          },
+          "event_recall": {
+           "point": -0.01899027327466421,
+           "low": -0.04582178718278709,
+           "high": 0.0032664996359586993,
+           "undefined_replicates": 0,
+           "share_positive": 0.045
+          }
+         },
+         "F2+W - F2": {
+          "card_precision": {
+           "point": 0.0038461538461538325,
+           "low": -0.027454361054766747,
+           "high": 0.029169207317073176,
+           "undefined_replicates": 0,
+           "share_positive": 0.5575
+          },
+          "event_recall": {
+           "point": -0.0046317739694303195,
+           "low": -0.02339849424893344,
+           "high": 0.010704596034873523,
+           "undefined_replicates": 0,
+           "share_positive": 0.32
+          }
+         }
+        }
+       },
+       "object": {
+        "blocks": 74,
+        "scores": {
+         "F2": {
+          "card_precision": {
+           "point": 0.7346153846153847,
+           "low": 0.6120855268327179,
+           "high": 0.8098871936373965,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.2570634553033812,
+           "low": 0.10130409279257852,
+           "high": 0.3821937489551585,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+sel": {
+          "card_precision": {
+           "point": 0.7153846153846154,
+           "low": 0.5663327597509014,
+           "high": 0.7954950495049503,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.238073182028717,
+           "low": 0.09004382579423707,
+           "high": 0.36749913581514687,
+           "undefined_replicates": 0
+          }
+         },
+         "F2+W": {
+          "card_precision": {
+           "point": 0.7384615384615385,
+           "low": 0.6223970143613001,
+           "high": 0.8166923592493297,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.2524316813339509,
+           "low": 0.09775749787081618,
+           "high": 0.38568116907904143,
+           "undefined_replicates": 0
+          }
+         },
+         "persistence": {
+          "card_precision": {
+           "point": 0.5346153846153846,
+           "low": 0.43180194304513214,
+           "high": 0.624634009009009,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.20518758684576194,
+           "low": 0.14643387224050605,
+           "high": 0.2688727205746914,
+           "undefined_replicates": 0
+          }
+         },
+         "static_list": {
+          "card_precision": {
+           "point": 0.7307692307692307,
+           "low": 0.5893435635123614,
+           "high": 0.850194309197302,
+           "undefined_replicates": 0
+          },
+          "event_recall": {
+           "point": 0.28161185734136174,
+           "low": 0.12073463483644159,
+           "high": 0.4228893138026405,
+           "undefined_replicates": 0
+          }
+         }
+        },
+        "deltas": {
+         "F2 - persistence": {
+          "card_precision": {
+           "point": 0.20000000000000007,
+           "low": 0.09704066449765028,
+           "high": 0.292842879136385,
+           "undefined_replicates": 0,
+           "share_positive": 0.995
+          },
+          "event_recall": {
+           "point": 0.05187586845761927,
+           "low": -0.07836978810663023,
+           "high": 0.1699933556948568,
+           "undefined_replicates": 0,
+           "share_positive": 0.7475
+          }
+         },
+         "F2 - static_list": {
+          "card_precision": {
+           "point": 0.0038461538461539435,
+           "low": -0.150771542225438,
+           "high": 0.11841515475880744,
+           "undefined_replicates": 0,
+           "share_positive": 0.5075
+          },
+          "event_recall": {
+           "point": -0.024548402037980532,
+           "low": -0.1534846992368602,
+           "high": 0.11222078551293656,
+           "undefined_replicates": 0,
+           "share_positive": 0.345
+          }
+         },
+         "F2+sel - persistence": {
+          "card_precision": {
+           "point": 0.1807692307692308,
+           "low": 0.0585030392205659,
+           "high": 0.28633299910873444,
+           "undefined_replicates": 0,
+           "share_positive": 0.9975
+          },
+          "event_recall": {
+           "point": 0.03288559518295506,
+           "low": -0.08400671238873487,
+           "high": 0.14245939796259174,
+           "undefined_replicates": 0,
+           "share_positive": 0.67
+          }
+         },
+         "F2+sel - static_list": {
+          "card_precision": {
+           "point": -0.01538461538461533,
+           "low": -0.19206921768707477,
+           "high": 0.11791813343108713,
+           "undefined_replicates": 0,
+           "share_positive": 0.365
+          },
+          "event_recall": {
+           "point": -0.04353867531264474,
+           "low": -0.18311491142269598,
+           "high": 0.10033860860860558,
+           "undefined_replicates": 0,
+           "share_positive": 0.265
+          }
+         },
+         "F2+W - persistence": {
+          "card_precision": {
+           "point": 0.2038461538461539,
+           "low": 0.10589433534607877,
+           "high": 0.2968628589213796,
+           "undefined_replicates": 0,
+           "share_positive": 0.9975
+          },
+          "event_recall": {
+           "point": 0.04724409448818895,
+           "low": -0.07789904540162979,
+           "high": 0.15926292243715184,
+           "undefined_replicates": 0,
+           "share_positive": 0.73
+          }
+         },
+         "F2+W - static_list": {
+          "card_precision": {
+           "point": 0.007692307692307776,
+           "low": -0.12950231131945975,
+           "high": 0.1247576076774691,
+           "undefined_replicates": 0,
+           "share_positive": 0.5125
+          },
+          "event_recall": {
+           "point": -0.029180176007410852,
+           "low": -0.1566285270692562,
+           "high": 0.1091831677577626,
+           "undefined_replicates": 0,
+           "share_positive": 0.3025
+          }
+         },
+         "F2+sel - F2": {
+          "card_precision": {
+           "point": -0.019230769230769273,
+           "low": -0.09230614955680058,
+           "high": 0.047020413604406085,
+           "undefined_replicates": 0,
+           "share_positive": 0.275
+          },
+          "event_recall": {
+           "point": -0.01899027327466421,
+           "low": -0.06518361835779182,
+           "high": 0.025749426286509024,
+           "undefined_replicates": 0,
+           "share_positive": 0.24
+          }
+         },
+         "F2+W - F2": {
+          "card_precision": {
+           "point": 0.0038461538461538325,
+           "low": -0.018520368926858127,
+           "high": 0.04053513701148469,
+           "undefined_replicates": 0,
+           "share_positive": 0.6125
+          },
+          "event_recall": {
+           "point": -0.0046317739694303195,
+           "low": -0.026948199239329947,
+           "high": 0.019001992143658827,
+           "undefined_replicates": 0,
+           "share_positive": 0.3525
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "fits": [
+    {
+     "fold": 0,
+     "set": "F2",
+     "seconds": 104.2,
+     "fit_rows": 582067,
+     "fit_positive": 60359,
+     "columns": 72
+    },
+    {
+     "fold": 0,
+     "set": "F2+sel",
+     "seconds": 119.1,
+     "fit_rows": 582067,
+     "fit_positive": 60359,
+     "columns": 116
+    },
+    {
+     "fold": 0,
+     "set": "F2+W",
+     "seconds": 105.6,
+     "fit_rows": 582067,
+     "fit_positive": 60359,
+     "columns": 78
+    },
+    {
+     "fold": 1,
+     "set": "F2",
+     "seconds": 194.5,
+     "fit_rows": 954606,
+     "fit_positive": 108818,
+     "columns": 72
+    },
+    {
+     "fold": 1,
+     "set": "F2+sel",
+     "seconds": 181.2,
+     "fit_rows": 954606,
+     "fit_positive": 108818,
+     "columns": 116
+    },
+    {
+     "fold": 1,
+     "set": "F2+W",
+     "seconds": 145.9,
+     "fit_rows": 954606,
+     "fit_positive": 108818,
+     "columns": 78
+    }
+   ],
+   "hygiene": {
+    "thread_count": 6,
+    "os_cpu_count": 14,
+    "cpu_model": "Apple M4 Max"
+   }
+  }
+ },
+ "seconds": 4.6,
+ "config_sha256": "4c881e879c747605453a2d68e5ef2fd1b161183684affb7f64b30bdc788ccac1",
+ "labels_summary_sha256": "93081e08b693fff6fc816845213d8999a89216367e9228d7f10a2b5ee6285440",
+ "git_sha": "80970f12c1effc187e45920099259bc4cd00814d",
+ "git_dirty": true
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch batch_id="scada-ods-1-20260630T120500-000185">
+  <record>
+    <event_id>9000004</event_id>
+    <channel_id>demo-700002</channel_id>
+    <date>2026-06-30</date>
+    <time>12:04:30</time>
+    <alarm>false</alarm>
+    <value>Есть питание</value>
+  </record>
+  <record>
+    <event_id>9000005</event_id>
+    <channel_id>demo-700001</channel_id>
+    <date>2026-06-30</date>
+    <time>12:04:58</time>
+    <alarm>false</alarm>
+    <value>27.5</value>
+  </record>
+</batch>

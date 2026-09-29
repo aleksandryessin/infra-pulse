@@ -1,0 +1,35 @@
+# OPS-G (OPS-06, SEC-02): Grafana signs in against the same test lldap as the API
+# (deploy/compose.public.yaml). Single bind: Grafana binds as the user with the
+# typed password, so no directory service account or password is stored here.
+# $__env{LLDAP_BASE_DN} comes from the grafana service environment.
+#
+# Groups -> Grafana roles: analyst -> Viewer, admin -> Admin. A user with neither
+# group (for example a dispatcher only) matches no mapping and Grafana refuses the
+# login: the dispatcher works in the product UI, not in Grafana.
+
+[[servers]]
+host = "lldap"
+port = 3890
+# Traffic stays on the Compose network; lldap listens without TLS there.
+use_ssl = false
+start_tls = false
+ssl_skip_verify = false
+timeout = 10
+
+bind_dn = "uid=%s,ou=people,$__env{LLDAP_BASE_DN}"
+search_filter = "(uid=%s)"
+search_base_dns = ["ou=people,$__env{LLDAP_BASE_DN}"]
+
+[servers.attributes]
+username = "uid"
+name = "cn"
+email = "mail"
+member_of = "memberOf"
+
+[[servers.group_mappings]]
+group_dn = "cn=admin,ou=groups,$__env{LLDAP_BASE_DN}"
+org_role = "Admin"
+
+[[servers.group_mappings]]
+group_dn = "cn=analyst,ou=groups,$__env{LLDAP_BASE_DN}"
+org_role = "Viewer"

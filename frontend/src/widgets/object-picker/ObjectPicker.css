@@ -1,0 +1,23 @@
+/* Левая панель схемы: выбор объекта и «Требуют внимания» (как «Выберите …» в образце мнемосхемы). */
+.object-picker { display: flex; flex-direction: column; gap: 12px; padding: 18px 16px 14px; min-width: 0; }
+.object-picker h2 { margin: 0; font-size: 17px; font-weight: 700; }
+.object-picker__field { display: grid; gap: 4px; }
+.object-picker__select { width: 100%; }
+.object-picker__asof { margin: 0; }
+.object-picker__counts { display: grid; gap: 6px; margin: 0; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.object-picker__counts > div { display: flex; justify-content: space-between; gap: 8px; }
+.object-picker__counts dt { display: inline-flex; align-items: center; gap: 8px; }
+.object-picker__counts dd { margin: 0; font-weight: 700; }
+.object-picker__map-note { margin: -4px 0 0; line-height: 1.4; }
+.object-picker__slot, .picker-entry__slot { display: inline-block; width: 13px; height: 13px; }
+.object-picker__attention { display: grid; gap: 4px; align-content: start; }
+.object-picker__attention h3 { margin: 0 0 4px; font-size: 14px; font-weight: 700; }
+.picker-list { margin: 0 -8px; padding: 0; list-style: none; display: grid; }
+.picker-entry { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 8px; align-items: center; width: 100%; padding: 4px 8px; border: 0; border-left: 3px solid transparent; background: none; color: var(--foreground); font: inherit; text-align: left; cursor: pointer; }
+.picker-entry:hover { background: var(--surface-soft); }
+.picker-entry.is-active { background: var(--selected-surface); border-left-color: var(--accent-text); font-weight: 600; }
+.picker-entry__marks { display: inline-flex; gap: 4px; grid-row: 1; }
+.picker-entry__name { grid-row: 1; grid-column: 2; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.4; }
+.picker-entry__meta { grid-row: 2; grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; color: var(--muted); font-size: 12px; font-weight: 400; line-height: 1.4; }
+.picker-more { display: inline-flex; align-items: center; gap: 2px; padding: 2px 0; font-size: 13px; }
+.object-picker__note { margin: auto 0 0; padding-top: 12px; }

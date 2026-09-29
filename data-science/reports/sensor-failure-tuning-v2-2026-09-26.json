@@ -1,0 +1,6013 @@
+{
+ "version": "sensor-failure-tuning-v2",
+ "status": "local_research_completed_not_release",
+ "question": "Will a registered loss of connection ('Неисправен', organizer: loss of connection with the device) or a technical value start on a candidate channel of the card within the horizon after the cutoff?",
+ "interpretation": "registered technical event; not a confirmed breakdown; holdout 2025-07..2026-06 is the second use of this period (first: sensor-failure-model-v1), selection used development folds only",
+ "config_sha256": "1794d54b135c12f2ea9a2b66cc82d10542e7ce08ce9feba523cc2e0dab9c2acc",
+ "runs": {
+  "connection_loss_gt2s_24h": {
+   "role": "tuned",
+   "selection_from": "connection_loss_gt2s_24h",
+   "main_policy": {
+    "type": "topk",
+    "k": 2
+   },
+   "units": {
+    "A": {
+     "candidate": "F2|c1|mean_top2|model_only",
+     "success": true,
+     "holdout": {
+      "top2_per_day": {
+       "selected": {
+        "cards_selected": 726,
+        "card_precision": 0.190083,
+        "card_pr_auc": 0.110905,
+        "event_events": 1521,
+        "event_capturable": 1436,
+        "event_captured": 177,
+        "event_recall": 0.116371,
+        "event_recall_capturable": 0.123259,
+        "lead_hours_p25": 9.331944,
+        "lead_hours_median": 11.069722,
+        "lead_hours_p75": 14.743889,
+        "event_recall_mass": 0.186903,
+        "event_recall_single_channel": 0.050761,
+        "event_recall_weekday": 0.100686,
+        "event_recall_weekend": 0.214286,
+        "cards_by_sensor_type": {
+         "Датчик движения": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 3,
+          "precision": 0.666667
+         },
+         "ИБП": {
+          "cards": 44,
+          "precision": 0.045455
+         },
+         "КД АВ": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 675,
+          "precision": 0.198519
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.365014,
+         "precision_failing": 0.181132,
+         "precision_not_failing": 0.195228
+        }
+       },
+       "persistence": {
+        "cards_selected": 726,
+        "card_precision": 0.146006,
+        "card_pr_auc": 0.104253,
+        "event_events": 1521,
+        "event_capturable": 1436,
+        "event_captured": 141,
+        "event_recall": 0.092702,
+        "event_recall_capturable": 0.098189,
+        "lead_hours_p25": 9.156111,
+        "lead_hours_median": 11.499444,
+        "lead_hours_p75": 15.655833,
+        "event_recall_mass": 0.094134,
+        "event_recall_single_channel": 0.091371,
+        "event_recall_weekday": 0.089245,
+        "event_recall_weekend": 0.114286,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 26,
+          "precision": 0.0
+         },
+         "Датчик движения": {
+          "cards": 24,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 186,
+          "precision": 0.193548
+         },
+         "Датчик затопления": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 7,
+          "precision": 0.142857
+         },
+         "ИБП": {
+          "cards": 66,
+          "precision": 0.015152
+         },
+         "КД АВ": {
+          "cards": 10,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 10,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Ручной извещатель": {
+          "cards": 23,
+          "precision": 0.391304
+         },
+         "Состояние УИР-Р": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 368,
+          "precision": 0.160326
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.205234,
+         "precision_failing": 0.288591,
+         "precision_not_failing": 0.109185
+        }
+       },
+       "ceiling": {
+        "cards_selected": 726,
+        "card_precision": 0.805785,
+        "event_recall": 0.613412
+       },
+       "card_base_rate": 0.01039,
+       "cards_evaluable": 107316
+      },
+      "top1_per_day": {
+       "selected": {
+        "cards_selected": 363,
+        "card_precision": 0.214876,
+        "card_pr_auc": 0.110905,
+        "event_events": 1521,
+        "event_capturable": 1436,
+        "event_captured": 99,
+        "event_recall": 0.065089,
+        "event_recall_capturable": 0.068942,
+        "lead_hours_p25": 9.432222,
+        "lead_hours_median": 11.812778,
+        "lead_hours_p75": 15.799167,
+        "event_recall_mass": 0.100955,
+        "event_recall_single_channel": 0.031726,
+        "event_recall_weekday": 0.056445,
+        "event_recall_weekend": 0.119048,
+        "cards_by_sensor_type": {
+         "Датчик движения": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "ИБП": {
+          "cards": 16,
+          "precision": 0.0
+         },
+         "КД АВ": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 345,
+          "precision": 0.226087
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.413223,
+         "precision_failing": 0.2,
+         "precision_not_failing": 0.225352
+        }
+       },
+       "persistence": {
+        "cards_selected": 363,
+        "card_precision": 0.143251,
+        "card_pr_auc": 0.104253,
+        "event_events": 1521,
+        "event_capturable": 1436,
+        "event_captured": 74,
+        "event_recall": 0.048652,
+        "event_recall_capturable": 0.051532,
+        "lead_hours_p25": 8.693472,
+        "lead_hours_median": 12.090833,
+        "lead_hours_p75": 16.125625,
+        "event_recall_mass": 0.049113,
+        "event_recall_single_channel": 0.048223,
+        "event_recall_weekday": 0.044241,
+        "event_recall_weekend": 0.07619,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 12,
+          "precision": 0.0
+         },
+         "Датчик движения": {
+          "cards": 14,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 89,
+          "precision": 0.179775
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 4,
+          "precision": 0.25
+         },
+         "ИБП": {
+          "cards": 23,
+          "precision": 0.043478
+         },
+         "КД АВ": {
+          "cards": 6,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Ручной извещатель": {
+          "cards": 6,
+          "precision": 0.5
+         },
+         "Состояние фазы": {
+          "cards": 203,
+          "precision": 0.152709
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.22865,
+         "precision_failing": 0.26506,
+         "precision_not_failing": 0.107143
+        }
+       },
+       "ceiling": {
+        "cards_selected": 363,
+        "card_precision": 0.884298,
+        "event_recall": 0.394477
+       },
+       "card_base_rate": 0.01039,
+       "cards_evaluable": 107316
+      },
+      "top3_per_day": {
+       "selected": {
+        "cards_selected": 1089,
+        "card_precision": 0.162534,
+        "card_pr_auc": 0.110905,
+        "event_events": 1521,
+        "event_capturable": 1436,
+        "event_captured": 221,
+        "event_recall": 0.145299,
+        "event_recall_capturable": 0.1539,
+        "lead_hours_p25": 9.35,
+        "lead_hours_median": 11.031667,
+        "lead_hours_p75": 15.169444,
+        "event_recall_mass": 0.222374,
+        "event_recall_single_channel": 0.073604,
+        "event_recall_weekday": 0.127384,
+        "event_recall_weekend": 0.257143,
+        "cards_by_sensor_type": {
+         "Датчик движения": {
+          "cards": 5,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 7,
+          "precision": 0.428571
+         },
+         "ИБП": {
+          "cards": 85,
+          "precision": 0.058824
+         },
+         "КД АВ": {
+          "cards": 5,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 987,
+          "precision": 0.171226
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.323232,
+         "precision_failing": 0.170455,
+         "precision_not_failing": 0.158752
+        }
+       },
+       "persistence": {
+        "cards_selected": 1089,
+        "card_precision": 0.151515,
+        "card_pr_auc": 0.104253,
+        "event_events": 1521,
+        "event_capturable": 1436,
+        "event_captured": 228,
+        "event_recall": 0.149901,
+        "event_recall_capturable": 0.158774,
+        "lead_hours_p25": 9.395694,
+        "lead_hours_median": 12.063889,
+        "lead_hours_p75": 15.483403,
+        "event_recall_mass": 0.155525,
+        "event_recall_single_channel": 0.14467,
+        "event_recall_weekday": 0.144165,
+        "event_recall_weekend": 0.185714,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 38,
+          "precision": 0.026316
+         },
+         "Датчик движения": {
+          "cards": 38,
+          "precision": 0.026316
+         },
+         "Датчик дыма": {
+          "cards": 267,
+          "precision": 0.202247
+         },
+         "Датчик затопления": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 10,
+          "precision": 0.1
+         },
+         "ИБП": {
+          "cards": 96,
+          "precision": 0.010417
+         },
+         "КД АВ": {
+          "cards": 23,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 14,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 4,
+          "precision": 0.25
+         },
+         "Ручной извещатель": {
+          "cards": 39,
+          "precision": 0.384615
+         },
+         "Состояние УИР-Р": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 555,
+          "precision": 0.163964
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.203857,
+         "precision_failing": 0.306306,
+         "precision_not_failing": 0.11188
+        }
+       },
+       "ceiling": {
+        "cards_selected": 1089,
+        "card_precision": 0.709826,
+        "event_recall": 0.742275
+       },
+       "card_base_rate": 0.01039,
+       "cards_evaluable": 107316
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.142515,
+      "cards_selected": 442,
+      "card_precision": 0.190045,
+      "event_recall": 0.067719
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.044077,
+         "low": 0.005615,
+         "high": 0.07924,
+         "undefined_replicates": 0,
+         "share_positive": 0.9875
+        },
+        "event_recall": {
+         "point": 0.023669,
+         "low": -0.006038,
+         "high": 0.055739,
+         "undefined_replicates": 0,
+         "share_positive": 0.915
+        },
+        "card_pr_auc": {
+         "point": 0.006652,
+         "low": -0.013784,
+         "high": 0.023521,
+         "undefined_replicates": 0,
+         "share_positive": 0.78
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.044077,
+         "low": -0.078388,
+         "high": 0.137969,
+         "undefined_replicates": 0,
+         "share_positive": 0.7525
+        },
+        "event_recall": {
+         "point": 0.023669,
+         "low": -0.077262,
+         "high": 0.14583,
+         "undefined_replicates": 0,
+         "share_positive": 0.645
+        },
+        "card_pr_auc": {
+         "point": 0.006652,
+         "low": -0.057848,
+         "high": 0.061251,
+         "undefined_replicates": 0,
+         "share_positive": 0.61
+        }
+       }
+      }
+     },
+     "cv": {
+      "mean_selected": {
+       "precision": 0.166293,
+       "recall": 0.143526,
+       "pr_auc": 0.105112
+      },
+      "mean_persistence": {
+       "precision": 0.116089,
+       "recall": 0.115129,
+       "pr_auc": 0.073787
+      },
+      "candidates_meeting_recall_floor": 163,
+      "candidates_total": 163
+     }
+    },
+    "B": {
+     "candidate": "F2|c1|mean_top2|model_only",
+     "success": false,
+     "holdout": {
+      "top2_per_day": {
+       "selected": {
+        "cards_selected": 726,
+        "card_precision": 0.190083,
+        "card_pr_auc": 0.11809,
+        "event_events": 1521,
+        "event_capturable": 1436,
+        "event_captured": 177,
+        "event_recall": 0.116371,
+        "event_recall_capturable": 0.123259,
+        "lead_hours_p25": 9.331944,
+        "lead_hours_median": 11.069722,
+        "lead_hours_p75": 14.743889,
+        "event_recall_mass": 0.186903,
+        "event_recall_single_channel": 0.050761,
+        "event_recall_weekday": 0.100686,
+        "event_recall_weekend": 0.214286,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 44,
+          "precision": 0.045455
+         },
+         "Охранная подсистема": {
+          "cards": 4,
+          "precision": 0.0
+         },
+         "Пожарная охрана": {
+          "cards": 3,
+          "precision": 0.666667
+         },
+         "Состояние фазы": {
+          "cards": 675,
+          "precision": 0.198519
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.365014,
+         "precision_failing": 0.181132,
+         "precision_not_failing": 0.195228
+        }
+       },
+       "persistence": {
+        "cards_selected": 726,
+        "card_precision": 0.15427,
+        "card_pr_auc": 0.115269,
+        "event_events": 1521,
+        "event_capturable": 1436,
+        "event_captured": 170,
+        "event_recall": 0.111769,
+        "event_recall_capturable": 0.118384,
+        "lead_hours_p25": 9.358056,
+        "lead_hours_median": 11.927917,
+        "lead_hours_p75": 15.623056,
+        "event_recall_mass": 0.110505,
+        "event_recall_single_channel": 0.112944,
+        "event_recall_weekday": 0.109077,
+        "event_recall_weekend": 0.128571,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 26,
+          "precision": 0.0
+         },
+         "Датчик затопления": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 66,
+          "precision": 0.015152
+         },
+         "Охранная подсистема": {
+          "cards": 41,
+          "precision": 0.0
+         },
+         "Пожарная охрана": {
+          "cards": 205,
+          "precision": 0.243902
+         },
+         "Состояние фазы": {
+          "cards": 378,
+          "precision": 0.15873
+         },
+         "Температурная подсистема": {
+          "cards": 8,
+          "precision": 0.125
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.201102,
+         "precision_failing": 0.315068,
+         "precision_not_failing": 0.113793
+        }
+       },
+       "ceiling": {
+        "cards_selected": 726,
+        "card_precision": 0.80303,
+        "event_recall": 0.628534
+       },
+       "card_base_rate": 0.015672,
+       "cards_evaluable": 67573
+      },
+      "top1_per_day": {
+       "selected": {
+        "cards_selected": 363,
+        "card_precision": 0.214876,
+        "card_pr_auc": 0.11809,
+        "event_events": 1521,
+        "event_capturable": 1436,
+        "event_captured": 99,
+        "event_recall": 0.065089,
+        "event_recall_capturable": 0.068942,
+        "lead_hours_p25": 9.432222,
+        "lead_hours_median": 11.812778,
+        "lead_hours_p75": 15.799167,
+        "event_recall_mass": 0.100955,
+        "event_recall_single_channel": 0.031726,
+        "event_recall_weekday": 0.056445,
+        "event_recall_weekend": 0.119048,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 16,
+          "precision": 0.0
+         },
+         "Охранная подсистема": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 345,
+          "precision": 0.226087
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.413223,
+         "precision_failing": 0.2,
+         "precision_not_failing": 0.225352
+        }
+       },
+       "persistence": {
+        "cards_selected": 363,
+        "card_precision": 0.151515,
+        "card_pr_auc": 0.115269,
+        "event_events": 1521,
+        "event_capturable": 1436,
+        "event_captured": 89,
+        "event_recall": 0.058514,
+        "event_recall_capturable": 0.061978,
+        "lead_hours_p25": 9.167778,
+        "lead_hours_median": 12.127222,
+        "lead_hours_p75": 16.2275,
+        "event_recall_mass": 0.058663,
+        "event_recall_single_channel": 0.058376,
+        "event_recall_weekday": 0.05492,
+        "event_recall_weekend": 0.080952,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 12,
+          "precision": 0.0
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 23,
+          "precision": 0.043478
+         },
+         "Охранная подсистема": {
+          "cards": 24,
+          "precision": 0.0
+         },
+         "Пожарная охрана": {
+          "cards": 96,
+          "precision": 0.229167
+         },
+         "Состояние фазы": {
+          "cards": 203,
+          "precision": 0.152709
+         },
+         "Температурная подсистема": {
+          "cards": 4,
+          "precision": 0.25
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.22865,
+         "precision_failing": 0.277108,
+         "precision_not_failing": 0.114286
+        }
+       },
+       "ceiling": {
+        "cards_selected": 363,
+        "card_precision": 0.884298,
+        "event_recall": 0.406969
+       },
+       "card_base_rate": 0.015672,
+       "cards_evaluable": 67573
+      },
+      "top3_per_day": {
+       "selected": {
+        "cards_selected": 1089,
+        "card_precision": 0.163453,
+        "card_pr_auc": 0.11809,
+        "event_events": 1521,
+        "event_capturable": 1436,
+        "event_captured": 222,
+        "event_recall": 0.145957,
+        "event_recall_capturable": 0.154596,
+        "lead_hours_p25": 9.353472,
+        "lead_hours_median": 11.029722,
+        "lead_hours_p75": 15.102639,
+        "event_recall_mass": 0.223738,
+        "event_recall_single_channel": 0.073604,
+        "event_recall_weekday": 0.128146,
+        "event_recall_weekend": 0.257143,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 85,
+          "precision": 0.058824
+         },
+         "Охранная подсистема": {
+          "cards": 10,
+          "precision": 0.1
+         },
+         "Пожарная охрана": {
+          "cards": 7,
+          "precision": 0.428571
+         },
+         "Состояние фазы": {
+          "cards": 987,
+          "precision": 0.171226
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.323232,
+         "precision_failing": 0.173295,
+         "precision_not_failing": 0.158752
+        }
+       },
+       "persistence": {
+        "cards_selected": 1089,
+        "card_precision": 0.164371,
+        "card_pr_auc": 0.115269,
+        "event_events": 1521,
+        "event_capturable": 1436,
+        "event_captured": 265,
+        "event_recall": 0.174227,
+        "event_recall_capturable": 0.18454,
+        "lead_hours_p25": 9.382222,
+        "lead_hours_median": 11.993889,
+        "lead_hours_p75": 15.474444,
+        "event_recall_mass": 0.175989,
+        "event_recall_single_channel": 0.172589,
+        "event_recall_weekday": 0.167811,
+        "event_recall_weekend": 0.214286,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 39,
+          "precision": 0.025641
+         },
+         "Датчик затопления": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 99,
+          "precision": 0.010101
+         },
+         "Охранная подсистема": {
+          "cards": 67,
+          "precision": 0.074627
+         },
+         "Пожарная охрана": {
+          "cards": 304,
+          "precision": 0.253289
+         },
+         "Состояние фазы": {
+          "cards": 566,
+          "precision": 0.166078
+         },
+         "Температурная подсистема": {
+          "cards": 11,
+          "precision": 0.090909
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.199265,
+         "precision_failing": 0.345622,
+         "precision_not_failing": 0.119266
+        }
+       },
+       "ceiling": {
+        "cards_selected": 1089,
+        "card_precision": 0.706152,
+        "event_recall": 0.758711
+       },
+       "card_base_rate": 0.015672,
+       "cards_evaluable": 67573
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.142515,
+      "cards_selected": 442,
+      "card_precision": 0.190045,
+      "event_recall": 0.067719
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.035813,
+         "low": -0.002707,
+         "high": 0.071429,
+         "undefined_replicates": 0,
+         "share_positive": 0.96
+        },
+        "event_recall": {
+         "point": 0.004602,
+         "low": -0.029971,
+         "high": 0.042564,
+         "undefined_replicates": 0,
+         "share_positive": 0.5975
+        },
+        "card_pr_auc": {
+         "point": 0.002821,
+         "low": -0.018484,
+         "high": 0.019958,
+         "undefined_replicates": 0,
+         "share_positive": 0.62
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.035813,
+         "low": -0.094967,
+         "high": 0.136574,
+         "undefined_replicates": 0,
+         "share_positive": 0.705
+        },
+        "event_recall": {
+         "point": 0.004602,
+         "low": -0.117576,
+         "high": 0.143332,
+         "undefined_replicates": 0,
+         "share_positive": 0.5275
+        },
+        "card_pr_auc": {
+         "point": 0.002821,
+         "low": -0.074291,
+         "high": 0.059248,
+         "undefined_replicates": 0,
+         "share_positive": 0.5775
+        }
+       }
+      }
+     },
+     "cv": {
+      "mean_selected": {
+       "precision": 0.166293,
+       "recall": 0.144017,
+       "pr_auc": 0.10946
+      },
+      "mean_persistence": {
+       "precision": 0.118152,
+       "recall": 0.117671,
+       "pr_auc": 0.080003
+      },
+      "candidates_meeting_recall_floor": 163,
+      "candidates_total": 163
+     }
+    }
+   }
+  },
+  "connection_loss_gt2s_48h": {
+   "role": "report only, 24h selection",
+   "selection_from": "connection_loss_gt2s_24h",
+   "main_policy": "see selection_from",
+   "units": {
+    "A": {
+     "candidate": "F2|c1|mean_top2|model_only",
+     "success": true,
+     "holdout": {
+      "every_2_days_4_cards": {
+       "selected": {
+        "cards_selected": 720,
+        "card_precision": 0.288889,
+        "card_pr_auc": 0.20977,
+        "event_events": 1521,
+        "event_capturable": 1479,
+        "event_captured": 286,
+        "event_recall": 0.188034,
+        "event_recall_capturable": 0.193374,
+        "lead_hours_p25": 11.051667,
+        "lead_hours_median": 21.924167,
+        "lead_hours_p75": 35.130417,
+        "event_recall_mass": 0.304229,
+        "event_recall_single_channel": 0.079949,
+        "event_recall_weekday": 0.167048,
+        "event_recall_weekend": 0.319048,
+        "cards_by_sensor_type": {
+         "Датчик дыма": {
+          "cards": 8,
+          "precision": 0.5
+         },
+         "ИБП": {
+          "cards": 21,
+          "precision": 0.190476
+         },
+         "Состояние фазы": {
+          "cards": 691,
+          "precision": 0.289436
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.283333,
+         "precision_failing": 0.27451,
+         "precision_not_failing": 0.294574
+        }
+       },
+       "persistence": {
+        "cards_selected": 720,
+        "card_precision": 0.234722,
+        "card_pr_auc": 0.169597,
+        "event_events": 1521,
+        "event_capturable": 1479,
+        "event_captured": 283,
+        "event_recall": 0.186062,
+        "event_recall_capturable": 0.191346,
+        "lead_hours_p25": 11.611944,
+        "lead_hours_median": 21.92,
+        "lead_hours_p75": 35.018611,
+        "event_recall_mass": 0.195089,
+        "event_recall_single_channel": 0.177665,
+        "event_recall_weekday": 0.183066,
+        "event_recall_weekend": 0.204762,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 23,
+          "precision": 0.130435
+         },
+         "Датчик движения": {
+          "cards": 27,
+          "precision": 0.037037
+         },
+         "Датчик дыма": {
+          "cards": 185,
+          "precision": 0.259459
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 8,
+          "precision": 0.125
+         },
+         "ИБП": {
+          "cards": 63,
+          "precision": 0.0
+         },
+         "КД АВ": {
+          "cards": 20,
+          "precision": 0.15
+         },
+         "КД Дверь": {
+          "cards": 7,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 3,
+          "precision": 0.333333
+         },
+         "Ручной извещатель": {
+          "cards": 29,
+          "precision": 0.551724
+         },
+         "Состояние УИР-Р": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 353,
+          "precision": 0.271955
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.209722,
+         "precision_failing": 0.430464,
+         "precision_not_failing": 0.182777
+        }
+       },
+       "ceiling": {
+        "cards_selected": 720,
+        "card_precision": 0.859722,
+        "event_recall": 0.700197
+       },
+       "card_base_rate": 0.018978,
+       "cards_evaluable": 106702
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.166667,
+      "cards_selected": 707,
+      "card_precision": 0.292786,
+      "event_recall": 0.187377
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.054167,
+         "low": 0.013501,
+         "high": 0.089404,
+         "undefined_replicates": 0,
+         "share_positive": 1.0
+        },
+        "event_recall": {
+         "point": 0.001972,
+         "low": -0.032387,
+         "high": 0.043637,
+         "undefined_replicates": 0,
+         "share_positive": 0.5725
+        },
+        "card_pr_auc": {
+         "point": 0.040173,
+         "low": 0.014765,
+         "high": 0.062839,
+         "undefined_replicates": 0,
+         "share_positive": 0.9975
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.054167,
+         "low": -0.06,
+         "high": 0.152883,
+         "undefined_replicates": 0,
+         "share_positive": 0.835
+        },
+        "event_recall": {
+         "point": 0.001972,
+         "low": -0.159124,
+         "high": 0.15974,
+         "undefined_replicates": 0,
+         "share_positive": 0.54
+        },
+        "card_pr_auc": {
+         "point": 0.040173,
+         "low": -0.057503,
+         "high": 0.122642,
+         "undefined_replicates": 0,
+         "share_positive": 0.7775
+        }
+       }
+      }
+     }
+    },
+    "B": {
+     "candidate": "F2|c1|mean_top2|model_only",
+     "success": false,
+     "holdout": {
+      "every_2_days_4_cards": {
+       "selected": {
+        "cards_selected": 720,
+        "card_precision": 0.288889,
+        "card_pr_auc": 0.222225,
+        "event_events": 1521,
+        "event_capturable": 1479,
+        "event_captured": 286,
+        "event_recall": 0.188034,
+        "event_recall_capturable": 0.193374,
+        "lead_hours_p25": 11.051667,
+        "lead_hours_median": 21.924167,
+        "lead_hours_p75": 35.130417,
+        "event_recall_mass": 0.304229,
+        "event_recall_single_channel": 0.079949,
+        "event_recall_weekday": 0.167048,
+        "event_recall_weekend": 0.319048,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 21,
+          "precision": 0.190476
+         },
+         "Пожарная охрана": {
+          "cards": 8,
+          "precision": 0.5
+         },
+         "Состояние фазы": {
+          "cards": 691,
+          "precision": 0.289436
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.283333,
+         "precision_failing": 0.27451,
+         "precision_not_failing": 0.294574
+        }
+       },
+       "persistence": {
+        "cards_selected": 720,
+        "card_precision": 0.248611,
+        "card_pr_auc": 0.184618,
+        "event_events": 1521,
+        "event_capturable": 1479,
+        "event_captured": 350,
+        "event_recall": 0.230112,
+        "event_recall_capturable": 0.236646,
+        "lead_hours_p25": 11.755208,
+        "lead_hours_median": 21.459306,
+        "lead_hours_p75": 34.95875,
+        "event_recall_mass": 0.234652,
+        "event_recall_single_channel": 0.225888,
+        "event_recall_weekday": 0.227307,
+        "event_recall_weekend": 0.247619,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 24,
+          "precision": 0.125
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 65,
+          "precision": 0.0
+         },
+         "Охранная подсистема": {
+          "cards": 49,
+          "precision": 0.122449
+         },
+         "Пожарная охрана": {
+          "cards": 210,
+          "precision": 0.342857
+         },
+         "Состояние фазы": {
+          "cards": 363,
+          "precision": 0.267218
+         },
+         "Температурная подсистема": {
+          "cards": 8,
+          "precision": 0.125
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.198611,
+         "precision_failing": 0.468531,
+         "precision_not_failing": 0.194107
+        }
+       },
+       "ceiling": {
+        "cards_selected": 720,
+        "card_precision": 0.855556,
+        "event_recall": 0.719921
+       },
+       "card_base_rate": 0.028372,
+       "cards_evaluable": 67179
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.166667,
+      "cards_selected": 707,
+      "card_precision": 0.292786,
+      "event_recall": 0.187377
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.040278,
+         "low": -0.002794,
+         "high": 0.077174,
+         "undefined_replicates": 0,
+         "share_positive": 0.9625
+        },
+        "event_recall": {
+         "point": -0.042078,
+         "low": -0.091368,
+         "high": 0.008123,
+         "undefined_replicates": 0,
+         "share_positive": 0.0675
+        },
+        "card_pr_auc": {
+         "point": 0.037606,
+         "low": 0.011994,
+         "high": 0.061649,
+         "undefined_replicates": 0,
+         "share_positive": 0.9925
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.040278,
+         "low": -0.094032,
+         "high": 0.147867,
+         "undefined_replicates": 0,
+         "share_positive": 0.765
+        },
+        "event_recall": {
+         "point": -0.042078,
+         "low": -0.247909,
+         "high": 0.151125,
+         "undefined_replicates": 0,
+         "share_positive": 0.425
+        },
+        "card_pr_auc": {
+         "point": 0.037606,
+         "low": -0.07016,
+         "high": 0.120701,
+         "undefined_replicates": 0,
+         "share_positive": 0.7475
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "connection_loss_gt2s_72h": {
+   "role": "tuned",
+   "selection_from": "connection_loss_gt2s_72h",
+   "main_policy": {
+    "type": "rolling",
+    "max_open": 6,
+    "window_days": 3
+   },
+   "units": {
+    "A": {
+     "candidate": "F3_noproxy|c4|noisy_or|rank_mean_with_persistence",
+     "success": true,
+     "holdout": {
+      "rolling_max_open_6": {
+       "selected": {
+        "cards_selected": 720,
+        "card_precision": 0.363889,
+        "card_pr_auc": 0.267321,
+        "event_events": 1521,
+        "event_capturable": 1489,
+        "event_captured": 451,
+        "event_recall": 0.296515,
+        "event_recall_capturable": 0.302888,
+        "lead_hours_p25": 15.720972,
+        "lead_hours_median": 38.038611,
+        "lead_hours_p75": 58.726111,
+        "event_recall_mass": 0.373806,
+        "event_recall_single_channel": 0.224619,
+        "event_recall_weekday": 0.282227,
+        "event_recall_weekend": 0.385714,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 6,
+          "precision": 0.0
+         },
+         "Датчик движения": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 180,
+          "precision": 0.311111
+         },
+         "КД АВ": {
+          "cards": 5,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 527,
+          "precision": 0.390892
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.209722,
+         "precision_failing": 0.470199,
+         "precision_not_failing": 0.335677
+        }
+       },
+       "persistence": {
+        "cards_selected": 720,
+        "card_precision": 0.315278,
+        "card_pr_auc": 0.222334,
+        "event_events": 1521,
+        "event_capturable": 1489,
+        "event_captured": 410,
+        "event_recall": 0.26956,
+        "event_recall_capturable": 0.275353,
+        "lead_hours_p25": 16.185486,
+        "lead_hours_median": 36.318194,
+        "lead_hours_p75": 58.791528,
+        "event_recall_mass": 0.290587,
+        "event_recall_single_channel": 0.25,
+        "event_recall_weekday": 0.26087,
+        "event_recall_weekend": 0.32381,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 34,
+          "precision": 0.117647
+         },
+         "Датчик движения": {
+          "cards": 22,
+          "precision": 0.090909
+         },
+         "Датчик дыма": {
+          "cards": 187,
+          "precision": 0.320856
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 7,
+          "precision": 0.285714
+         },
+         "ИБП": {
+          "cards": 70,
+          "precision": 0.071429
+         },
+         "КД АВ": {
+          "cards": 17,
+          "precision": 0.117647
+         },
+         "КД Дверь": {
+          "cards": 10,
+          "precision": 0.1
+         },
+         "КД Люк": {
+          "cards": 1,
+          "precision": 1.0
+         },
+         "Ручной извещатель": {
+          "cards": 28,
+          "precision": 0.571429
+         },
+         "Состояние фазы": {
+          "cards": 342,
+          "precision": 0.391813
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.181944,
+         "precision_failing": 0.496183,
+         "precision_not_failing": 0.275042
+        }
+       },
+       "ceiling": {
+        "cards_selected": 720,
+        "card_precision": 0.891667,
+        "event_recall": 0.754109
+       },
+       "card_base_rate": 0.026506,
+       "cards_evaluable": 106089
+      },
+      "rolling_max_open_3": {
+       "selected": {
+        "cards_selected": 360,
+        "card_precision": 0.405556,
+        "card_pr_auc": 0.267321,
+        "event_events": 1521,
+        "event_capturable": 1489,
+        "event_captured": 272,
+        "event_recall": 0.17883,
+        "event_recall_capturable": 0.182673,
+        "lead_hours_p25": 14.869514,
+        "lead_hours_median": 35.901806,
+        "lead_hours_p75": 59.046111,
+        "event_recall_mass": 0.219645,
+        "event_recall_single_channel": 0.140863,
+        "event_recall_weekday": 0.173913,
+        "event_recall_weekend": 0.209524,
+        "cards_by_sensor_type": {
+         "Датчик дыма": {
+          "cards": 81,
+          "precision": 0.382716
+         },
+         "Состояние фазы": {
+          "cards": 279,
+          "precision": 0.412186
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.213889,
+         "precision_failing": 0.558442,
+         "precision_not_failing": 0.363958
+        }
+       },
+       "persistence": {
+        "cards_selected": 360,
+        "card_precision": 0.355556,
+        "card_pr_auc": 0.222334,
+        "event_events": 1521,
+        "event_capturable": 1489,
+        "event_captured": 220,
+        "event_recall": 0.144642,
+        "event_recall_capturable": 0.14775,
+        "lead_hours_p25": 16.413125,
+        "lead_hours_median": 36.581111,
+        "lead_hours_p75": 59.274444,
+        "event_recall_mass": 0.156889,
+        "event_recall_single_channel": 0.133249,
+        "event_recall_weekday": 0.139588,
+        "event_recall_weekend": 0.17619,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 14,
+          "precision": 0.214286
+         },
+         "Датчик движения": {
+          "cards": 8,
+          "precision": 0.125
+         },
+         "Датчик дыма": {
+          "cards": 91,
+          "precision": 0.362637
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 3,
+          "precision": 0.666667
+         },
+         "ИБП": {
+          "cards": 34,
+          "precision": 0.088235
+         },
+         "КД АВ": {
+          "cards": 5,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 4,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 1,
+          "precision": 1.0
+         },
+         "Ручной извещатель": {
+          "cards": 13,
+          "precision": 0.692308
+         },
+         "Состояние фазы": {
+          "cards": 185,
+          "precision": 0.410811
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.194444,
+         "precision_failing": 0.557143,
+         "precision_not_failing": 0.306897
+        }
+       },
+       "ceiling": {
+        "cards_selected": 360,
+        "card_precision": 0.969444,
+        "event_recall": 0.535174
+       },
+       "card_base_rate": 0.026506,
+       "cards_evaluable": 106089
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.30303,
+      "cards_selected": 605,
+      "card_precision": 0.378512,
+      "event_recall": 0.268245
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.048611,
+         "low": 0.010588,
+         "high": 0.080325,
+         "undefined_replicates": 0,
+         "share_positive": 0.995
+        },
+        "event_recall": {
+         "point": 0.026956,
+         "low": -0.009335,
+         "high": 0.061931,
+         "undefined_replicates": 0,
+         "share_positive": 0.91
+        },
+        "card_pr_auc": {
+         "point": 0.044987,
+         "low": 0.031257,
+         "high": 0.057768,
+         "undefined_replicates": 0,
+         "share_positive": 1.0
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.048611,
+         "low": -0.0035,
+         "high": 0.120207,
+         "undefined_replicates": 0,
+         "share_positive": 0.9625
+        },
+        "event_recall": {
+         "point": 0.026956,
+         "low": -0.066922,
+         "high": 0.109002,
+         "undefined_replicates": 0,
+         "share_positive": 0.7375
+        },
+        "card_pr_auc": {
+         "point": 0.044987,
+         "low": 0.006723,
+         "high": 0.076444,
+         "undefined_replicates": 0,
+         "share_positive": 0.9925
+        }
+       }
+      }
+     },
+     "cv": {
+      "mean_selected": {
+       "precision": 0.295776,
+       "recall": 0.352124,
+       "pr_auc": 0.225924
+      },
+      "mean_persistence": {
+       "precision": 0.212375,
+       "recall": 0.250733,
+       "pr_auc": 0.161545
+      },
+      "candidates_meeting_recall_floor": 163,
+      "candidates_total": 163
+     }
+    },
+    "B": {
+     "candidate": "F3_noproxy|c2|mean_top2|rank_mean_with_persistence",
+     "success": false,
+     "holdout": {
+      "rolling_max_open_6": {
+       "selected": {
+        "cards_selected": 720,
+        "card_precision": 0.343056,
+        "card_pr_auc": 0.281469,
+        "event_events": 1521,
+        "event_capturable": 1489,
+        "event_captured": 355,
+        "event_recall": 0.233399,
+        "event_recall_capturable": 0.238415,
+        "lead_hours_p25": 16.335139,
+        "lead_hours_median": 37.238056,
+        "lead_hours_p75": 58.226389,
+        "event_recall_mass": 0.345157,
+        "event_recall_single_channel": 0.129442,
+        "event_recall_weekday": 0.218917,
+        "event_recall_weekend": 0.32381,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 48,
+          "precision": 0.145833
+         },
+         "Охранная подсистема": {
+          "cards": 11,
+          "precision": 0.363636
+         },
+         "Пожарная охрана": {
+          "cards": 20,
+          "precision": 0.25
+         },
+         "Состояние фазы": {
+          "cards": 640,
+          "precision": 0.360938
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.180556,
+         "precision_failing": 0.407692,
+         "precision_not_failing": 0.328814
+        }
+       },
+       "persistence": {
+        "cards_selected": 720,
+        "card_precision": 0.320833,
+        "card_pr_auc": 0.240985,
+        "event_events": 1521,
+        "event_capturable": 1489,
+        "event_captured": 456,
+        "event_recall": 0.299803,
+        "event_recall_capturable": 0.306246,
+        "lead_hours_p25": 15.973542,
+        "lead_hours_median": 36.146528,
+        "lead_hours_p75": 58.524792,
+        "event_recall_mass": 0.31105,
+        "event_recall_single_channel": 0.28934,
+        "event_recall_weekday": 0.289092,
+        "event_recall_weekend": 0.366667,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 36,
+          "precision": 0.111111
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 73,
+          "precision": 0.082192
+         },
+         "Охранная подсистема": {
+          "cards": 41,
+          "precision": 0.146341
+         },
+         "Пожарная охрана": {
+          "cards": 206,
+          "precision": 0.359223
+         },
+         "Состояние фазы": {
+          "cards": 356,
+          "precision": 0.390449
+         },
+         "Температурная подсистема": {
+          "cards": 7,
+          "precision": 0.285714
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.166667,
+         "precision_failing": 0.533333,
+         "precision_not_failing": 0.278333
+        }
+       },
+       "ceiling": {
+        "cards_selected": 720,
+        "card_precision": 0.886111,
+        "event_recall": 0.775805
+       },
+       "card_base_rate": 0.03941,
+       "cards_evaluable": 66785
+      },
+      "rolling_max_open_3": {
+       "selected": {
+        "cards_selected": 360,
+        "card_precision": 0.413889,
+        "card_pr_auc": 0.281469,
+        "event_events": 1521,
+        "event_capturable": 1489,
+        "event_captured": 226,
+        "event_recall": 0.148586,
+        "event_recall_capturable": 0.15178,
+        "lead_hours_p25": 14.898194,
+        "lead_hours_median": 35.634583,
+        "lead_hours_p75": 57.355,
+        "event_recall_mass": 0.227831,
+        "event_recall_single_channel": 0.074873,
+        "event_recall_weekday": 0.133486,
+        "event_recall_weekend": 0.242857,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 14,
+          "precision": 0.214286
+         },
+         "Охранная подсистема": {
+          "cards": 1,
+          "precision": 1.0
+         },
+         "Пожарная охрана": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 342,
+          "precision": 0.423977
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.222222,
+         "precision_failing": 0.4875,
+         "precision_not_failing": 0.392857
+        }
+       },
+       "persistence": {
+        "cards_selected": 360,
+        "card_precision": 0.361111,
+        "card_pr_auc": 0.240985,
+        "event_events": 1521,
+        "event_capturable": 1489,
+        "event_captured": 252,
+        "event_recall": 0.16568,
+        "event_recall_capturable": 0.169241,
+        "lead_hours_p25": 16.413125,
+        "lead_hours_median": 36.090833,
+        "lead_hours_p75": 59.193958,
+        "event_recall_mass": 0.175989,
+        "event_recall_single_channel": 0.156091,
+        "event_recall_weekday": 0.160946,
+        "event_recall_weekend": 0.195238,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 14,
+          "precision": 0.214286
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 34,
+          "precision": 0.088235
+         },
+         "Охранная подсистема": {
+          "cards": 15,
+          "precision": 0.2
+         },
+         "Пожарная охрана": {
+          "cards": 105,
+          "precision": 0.4
+         },
+         "Состояние фазы": {
+          "cards": 187,
+          "precision": 0.411765
+         },
+         "Температурная подсистема": {
+          "cards": 4,
+          "precision": 0.5
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.188889,
+         "precision_failing": 0.558824,
+         "precision_not_failing": 0.315068
+        }
+       },
+       "ceiling": {
+        "cards_selected": 360,
+        "card_precision": 0.966667,
+        "event_recall": 0.560815
+       },
+       "card_base_rate": 0.03941,
+       "cards_evaluable": 66785
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.318182,
+      "cards_selected": 684,
+      "card_precision": 0.324561,
+      "event_recall": 0.22288
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.022222,
+         "low": -0.013305,
+         "high": 0.057024,
+         "undefined_replicates": 0,
+         "share_positive": 0.8875
+        },
+        "event_recall": {
+         "point": -0.066404,
+         "low": -0.108664,
+         "high": -0.024964,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "card_pr_auc": {
+         "point": 0.040484,
+         "low": 0.024339,
+         "high": 0.056952,
+         "undefined_replicates": 0,
+         "share_positive": 1.0
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.022222,
+         "low": -0.062668,
+         "high": 0.107113,
+         "undefined_replicates": 0,
+         "share_positive": 0.735
+        },
+        "event_recall": {
+         "point": -0.066404,
+         "low": -0.257352,
+         "high": 0.098416,
+         "undefined_replicates": 0,
+         "share_positive": 0.3275
+        },
+        "card_pr_auc": {
+         "point": 0.040484,
+         "low": -0.042673,
+         "high": 0.106025,
+         "undefined_replicates": 0,
+         "share_positive": 0.835
+        }
+       }
+      }
+     },
+     "cv": {
+      "mean_selected": {
+       "precision": 0.295082,
+       "recall": 0.329743,
+       "pr_auc": 0.241922
+      },
+      "mean_persistence": {
+       "precision": 0.22401,
+       "recall": 0.265664,
+       "pr_auc": 0.17753
+      },
+      "candidates_meeting_recall_floor": 163,
+      "candidates_total": 163
+     }
+    }
+   }
+  },
+  "connection_loss_all_24h": {
+   "role": "declared variant, gt2s 24h selection",
+   "selection_from": "connection_loss_gt2s_24h",
+   "main_policy": "see selection_from",
+   "units": {
+    "A": {
+     "candidate": "F2|c1|mean_top2|model_only",
+     "success": true,
+     "holdout": {
+      "top2_per_day": {
+       "selected": {
+        "cards_selected": 726,
+        "card_precision": 0.23416,
+        "card_pr_auc": 0.138115,
+        "event_events": 1676,
+        "event_capturable": 1584,
+        "event_captured": 218,
+        "event_recall": 0.130072,
+        "event_recall_capturable": 0.137626,
+        "lead_hours_p25": 9.491111,
+        "lead_hours_median": 11.748194,
+        "lead_hours_p75": 15.620556,
+        "event_recall_mass": 0.197133,
+        "event_recall_single_channel": 0.06317,
+        "event_recall_weekday": 0.117237,
+        "event_recall_weekend": 0.205761,
+        "cards_by_sensor_type": {
+         "Датчик движения": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 4,
+          "precision": 0.25
+         },
+         "ИБП": {
+          "cards": 9,
+          "precision": 0.333333
+         },
+         "КД АВ": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 709,
+          "precision": 0.234133
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.342975,
+         "precision_failing": 0.248996,
+         "precision_not_failing": 0.226415
+        }
+       },
+       "persistence": {
+        "cards_selected": 726,
+        "card_precision": 0.158402,
+        "card_pr_auc": 0.115923,
+        "event_events": 1676,
+        "event_capturable": 1584,
+        "event_captured": 152,
+        "event_recall": 0.090692,
+        "event_recall_capturable": 0.09596,
+        "lead_hours_p25": 9.164861,
+        "lead_hours_median": 11.489444,
+        "lead_hours_p75": 15.694722,
+        "event_recall_mass": 0.094385,
+        "event_recall_single_channel": 0.087008,
+        "event_recall_weekday": 0.087927,
+        "event_recall_weekend": 0.106996,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 26,
+          "precision": 0.0
+         },
+         "Датчик движения": {
+          "cards": 24,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 186,
+          "precision": 0.193548
+         },
+         "Датчик затопления": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 7,
+          "precision": 0.142857
+         },
+         "ИБП": {
+          "cards": 66,
+          "precision": 0.015152
+         },
+         "КД АВ": {
+          "cards": 10,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 10,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Ручной извещатель": {
+          "cards": 23,
+          "precision": 0.391304
+         },
+         "Состояние УИР-Р": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 368,
+          "precision": 0.184783
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.205234,
+         "precision_failing": 0.302013,
+         "precision_not_failing": 0.121317
+        }
+       },
+       "ceiling": {
+        "cards_selected": 726,
+        "card_precision": 0.836088,
+        "event_recall": 0.586516
+       },
+       "card_base_rate": 0.011499,
+       "cards_evaluable": 107316
+      },
+      "top1_per_day": {
+       "selected": {
+        "cards_selected": 363,
+        "card_precision": 0.272727,
+        "card_pr_auc": 0.138115,
+        "event_events": 1676,
+        "event_capturable": 1584,
+        "event_captured": 123,
+        "event_recall": 0.073389,
+        "event_recall_capturable": 0.077652,
+        "lead_hours_p25": 9.106389,
+        "lead_hours_median": 11.069722,
+        "lead_hours_p75": 15.393056,
+        "event_recall_mass": 0.113501,
+        "event_recall_single_channel": 0.033373,
+        "event_recall_weekday": 0.069784,
+        "event_recall_weekend": 0.09465,
+        "cards_by_sensor_type": {
+         "Датчик движения": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 2,
+          "precision": 0.5
+         },
+         "ИБП": {
+          "cards": 4,
+          "precision": 0.25
+         },
+         "КД АВ": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 355,
+          "precision": 0.273239
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.396694,
+         "precision_failing": 0.277778,
+         "precision_not_failing": 0.269406
+        }
+       },
+       "persistence": {
+        "cards_selected": 363,
+        "card_precision": 0.157025,
+        "card_pr_auc": 0.115923,
+        "event_events": 1676,
+        "event_capturable": 1584,
+        "event_captured": 79,
+        "event_recall": 0.047136,
+        "event_recall_capturable": 0.049874,
+        "lead_hours_p25": 8.8225,
+        "lead_hours_median": 12.073333,
+        "lead_hours_p75": 16.898611,
+        "event_recall_mass": 0.048984,
+        "event_recall_single_channel": 0.045292,
+        "event_recall_weekday": 0.043964,
+        "event_recall_weekend": 0.065844,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 12,
+          "precision": 0.0
+         },
+         "Датчик движения": {
+          "cards": 14,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 89,
+          "precision": 0.179775
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 4,
+          "precision": 0.25
+         },
+         "ИБП": {
+          "cards": 23,
+          "precision": 0.043478
+         },
+         "КД АВ": {
+          "cards": 6,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Ручной извещатель": {
+          "cards": 6,
+          "precision": 0.5
+         },
+         "Состояние фазы": {
+          "cards": 203,
+          "precision": 0.17734
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.22865,
+         "precision_failing": 0.277108,
+         "precision_not_failing": 0.121429
+        }
+       },
+       "ceiling": {
+        "cards_selected": 363,
+        "card_precision": 0.900826,
+        "event_recall": 0.372912
+       },
+       "card_base_rate": 0.011499,
+       "cards_evaluable": 107316
+      },
+      "top3_per_day": {
+       "selected": {
+        "cards_selected": 1089,
+        "card_precision": 0.222222,
+        "card_pr_auc": 0.138115,
+        "event_events": 1676,
+        "event_capturable": 1584,
+        "event_captured": 306,
+        "event_recall": 0.182578,
+        "event_recall_capturable": 0.193182,
+        "lead_hours_p25": 9.541736,
+        "lead_hours_median": 11.938611,
+        "lead_hours_p75": 15.895556,
+        "event_recall_mass": 0.287933,
+        "event_recall_single_channel": 0.077473,
+        "event_recall_weekday": 0.163992,
+        "event_recall_weekend": 0.292181,
+        "cards_by_sensor_type": {
+         "Датчик движения": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 9,
+          "precision": 0.111111
+         },
+         "ИБП": {
+          "cards": 18,
+          "precision": 0.166667
+         },
+         "КД АВ": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 1058,
+          "precision": 0.224953
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.315886,
+         "precision_failing": 0.235465,
+         "precision_not_failing": 0.216107
+        }
+       },
+       "persistence": {
+        "cards_selected": 1089,
+        "card_precision": 0.165289,
+        "card_pr_auc": 0.115923,
+        "event_events": 1676,
+        "event_capturable": 1584,
+        "event_captured": 250,
+        "event_recall": 0.149165,
+        "event_recall_capturable": 0.157828,
+        "lead_hours_p25": 9.382917,
+        "lead_hours_median": 12.043333,
+        "lead_hours_p75": 15.457917,
+        "event_recall_mass": 0.155317,
+        "event_recall_single_channel": 0.143027,
+        "event_recall_weekday": 0.143754,
+        "event_recall_weekend": 0.18107,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 38,
+          "precision": 0.026316
+         },
+         "Датчик движения": {
+          "cards": 38,
+          "precision": 0.026316
+         },
+         "Датчик дыма": {
+          "cards": 267,
+          "precision": 0.202247
+         },
+         "Датчик затопления": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 10,
+          "precision": 0.1
+         },
+         "ИБП": {
+          "cards": 96,
+          "precision": 0.010417
+         },
+         "КД АВ": {
+          "cards": 23,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 14,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 4,
+          "precision": 0.25
+         },
+         "Ручной извещатель": {
+          "cards": 39,
+          "precision": 0.384615
+         },
+         "Состояние УИР-Р": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 555,
+          "precision": 0.190991
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.203857,
+         "precision_failing": 0.324324,
+         "precision_not_failing": 0.124567
+        }
+       },
+       "ceiling": {
+        "cards_selected": 1089,
+        "card_precision": 0.751148,
+        "event_recall": 0.71778
+       },
+       "card_base_rate": 0.011499,
+       "cards_evaluable": 107316
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.204678,
+      "cards_selected": 463,
+      "card_precision": 0.241901,
+      "event_recall": 0.082936
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.075758,
+         "low": 0.043174,
+         "high": 0.106347,
+         "undefined_replicates": 0,
+         "share_positive": 1.0
+        },
+        "event_recall": {
+         "point": 0.039379,
+         "low": 0.011451,
+         "high": 0.064748,
+         "undefined_replicates": 0,
+         "share_positive": 0.9925
+        },
+        "card_pr_auc": {
+         "point": 0.022192,
+         "low": 0.002035,
+         "high": 0.040781,
+         "undefined_replicates": 0,
+         "share_positive": 0.9825
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.075758,
+         "low": -0.017083,
+         "high": 0.171928,
+         "undefined_replicates": 0,
+         "share_positive": 0.9475
+        },
+        "event_recall": {
+         "point": 0.039379,
+         "low": -0.064391,
+         "high": 0.154233,
+         "undefined_replicates": 0,
+         "share_positive": 0.76
+        },
+        "card_pr_auc": {
+         "point": 0.022192,
+         "low": -0.047837,
+         "high": 0.074154,
+         "undefined_replicates": 0,
+         "share_positive": 0.765
+        }
+       }
+      }
+     }
+    },
+    "B": {
+     "candidate": "F2|c1|mean_top2|model_only",
+     "success": true,
+     "holdout": {
+      "top2_per_day": {
+       "selected": {
+        "cards_selected": 726,
+        "card_precision": 0.236915,
+        "card_pr_auc": 0.146748,
+        "event_events": 1676,
+        "event_capturable": 1584,
+        "event_captured": 222,
+        "event_recall": 0.132458,
+        "event_recall_capturable": 0.140152,
+        "lead_hours_p25": 9.541736,
+        "lead_hours_median": 11.716528,
+        "lead_hours_p75": 15.620556,
+        "event_recall_mass": 0.200717,
+        "event_recall_single_channel": 0.064362,
+        "event_recall_weekday": 0.120028,
+        "event_recall_weekend": 0.205761,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 9,
+          "precision": 0.333333
+         },
+         "Охранная подсистема": {
+          "cards": 4,
+          "precision": 0.5
+         },
+         "Пожарная охрана": {
+          "cards": 4,
+          "precision": 0.25
+         },
+         "Состояние фазы": {
+          "cards": 709,
+          "precision": 0.234133
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.342975,
+         "precision_failing": 0.257028,
+         "precision_not_failing": 0.226415
+        }
+       },
+       "persistence": {
+        "cards_selected": 726,
+        "card_precision": 0.169421,
+        "card_pr_auc": 0.128202,
+        "event_events": 1676,
+        "event_capturable": 1584,
+        "event_captured": 187,
+        "event_recall": 0.111575,
+        "event_recall_capturable": 0.118056,
+        "lead_hours_p25": 9.366111,
+        "lead_hours_median": 11.775556,
+        "lead_hours_p75": 15.507917,
+        "event_recall_mass": 0.111111,
+        "event_recall_single_channel": 0.112038,
+        "event_recall_weekday": 0.110258,
+        "event_recall_weekend": 0.119342,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 26,
+          "precision": 0.0
+         },
+         "Датчик затопления": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 66,
+          "precision": 0.015152
+         },
+         "Охранная подсистема": {
+          "cards": 41,
+          "precision": 0.0
+         },
+         "Пожарная охрана": {
+          "cards": 205,
+          "precision": 0.253659
+         },
+         "Состояние фазы": {
+          "cards": 378,
+          "precision": 0.18254
+         },
+         "Температурная подсистема": {
+          "cards": 8,
+          "precision": 0.125
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.201102,
+         "precision_failing": 0.335616,
+         "precision_not_failing": 0.127586
+        }
+       },
+       "ceiling": {
+        "cards_selected": 726,
+        "card_precision": 0.833333,
+        "event_recall": 0.601432
+       },
+       "card_base_rate": 0.017403,
+       "cards_evaluable": 67573
+      },
+      "top1_per_day": {
+       "selected": {
+        "cards_selected": 363,
+        "card_precision": 0.278237,
+        "card_pr_auc": 0.146748,
+        "event_events": 1676,
+        "event_capturable": 1584,
+        "event_captured": 127,
+        "event_recall": 0.075776,
+        "event_recall_capturable": 0.080177,
+        "lead_hours_p25": 9.178611,
+        "lead_hours_median": 11.069722,
+        "lead_hours_p75": 15.393056,
+        "event_recall_mass": 0.117085,
+        "event_recall_single_channel": 0.034565,
+        "event_recall_weekday": 0.072575,
+        "event_recall_weekend": 0.09465,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 4,
+          "precision": 0.25
+         },
+         "Охранная подсистема": {
+          "cards": 2,
+          "precision": 1.0
+         },
+         "Пожарная охрана": {
+          "cards": 2,
+          "precision": 0.5
+         },
+         "Состояние фазы": {
+          "cards": 355,
+          "precision": 0.273239
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.396694,
+         "precision_failing": 0.291667,
+         "precision_not_failing": 0.269406
+        }
+       },
+       "persistence": {
+        "cards_selected": 363,
+        "card_precision": 0.170799,
+        "card_pr_auc": 0.128202,
+        "event_events": 1676,
+        "event_capturable": 1584,
+        "event_captured": 99,
+        "event_recall": 0.059069,
+        "event_recall_capturable": 0.0625,
+        "lead_hours_p25": 9.124167,
+        "lead_hours_median": 11.976944,
+        "lead_hours_p75": 16.02375,
+        "event_recall_mass": 0.059737,
+        "event_recall_single_channel": 0.058403,
+        "event_recall_weekday": 0.057223,
+        "event_recall_weekend": 0.069959,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 12,
+          "precision": 0.0
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 23,
+          "precision": 0.043478
+         },
+         "Охранная подсистема": {
+          "cards": 24,
+          "precision": 0.0
+         },
+         "Пожарная охрана": {
+          "cards": 96,
+          "precision": 0.25
+         },
+         "Состояние фазы": {
+          "cards": 203,
+          "precision": 0.17734
+         },
+         "Температурная подсистема": {
+          "cards": 4,
+          "precision": 0.25
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.22865,
+         "precision_failing": 0.301205,
+         "precision_not_failing": 0.132143
+        }
+       },
+       "ceiling": {
+        "cards_selected": 363,
+        "card_precision": 0.900826,
+        "event_recall": 0.384845
+       },
+       "card_base_rate": 0.017403,
+       "cards_evaluable": 67573
+      },
+      "top3_per_day": {
+       "selected": {
+        "cards_selected": 1089,
+        "card_precision": 0.224059,
+        "card_pr_auc": 0.146748,
+        "event_events": 1676,
+        "event_capturable": 1584,
+        "event_captured": 310,
+        "event_recall": 0.184964,
+        "event_recall_capturable": 0.195707,
+        "lead_hours_p25": 9.566597,
+        "lead_hours_median": 11.935139,
+        "lead_hours_p75": 15.895556,
+        "event_recall_mass": 0.291517,
+        "event_recall_single_channel": 0.078665,
+        "event_recall_weekday": 0.166783,
+        "event_recall_weekend": 0.292181,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 18,
+          "precision": 0.166667
+         },
+         "Охранная подсистема": {
+          "cards": 4,
+          "precision": 0.5
+         },
+         "Пожарная охрана": {
+          "cards": 9,
+          "precision": 0.111111
+         },
+         "Состояние фазы": {
+          "cards": 1058,
+          "precision": 0.224953
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.315886,
+         "precision_failing": 0.241279,
+         "precision_not_failing": 0.216107
+        }
+       },
+       "persistence": {
+        "cards_selected": 1089,
+        "card_precision": 0.179982,
+        "card_pr_auc": 0.128202,
+        "event_events": 1676,
+        "event_capturable": 1584,
+        "event_captured": 291,
+        "event_recall": 0.173628,
+        "event_recall_capturable": 0.183712,
+        "lead_hours_p25": 9.356944,
+        "lead_hours_median": 11.852778,
+        "lead_hours_p75": 15.404444,
+        "event_recall_mass": 0.176822,
+        "event_recall_single_channel": 0.170441,
+        "event_recall_weekday": 0.168179,
+        "event_recall_weekend": 0.205761,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 39,
+          "precision": 0.025641
+         },
+         "Датчик затопления": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 99,
+          "precision": 0.010101
+         },
+         "Охранная подсистема": {
+          "cards": 67,
+          "precision": 0.074627
+         },
+         "Пожарная охрана": {
+          "cards": 304,
+          "precision": 0.259868
+         },
+         "Состояние фазы": {
+          "cards": 566,
+          "precision": 0.19258
+         },
+         "Температурная подсистема": {
+          "cards": 11,
+          "precision": 0.090909
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.199265,
+         "precision_failing": 0.368664,
+         "precision_not_failing": 0.133028
+        }
+       },
+       "ceiling": {
+        "cards_selected": 1089,
+        "card_precision": 0.746556,
+        "event_recall": 0.733294
+       },
+       "card_base_rate": 0.017403,
+       "cards_evaluable": 67573
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.204678,
+      "cards_selected": 463,
+      "card_precision": 0.24406,
+      "event_recall": 0.083532
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.067493,
+         "low": 0.034148,
+         "high": 0.095663,
+         "undefined_replicates": 0,
+         "share_positive": 1.0
+        },
+        "event_recall": {
+         "point": 0.020883,
+         "low": -0.00866,
+         "high": 0.049533,
+         "undefined_replicates": 0,
+         "share_positive": 0.92
+        },
+        "card_pr_auc": {
+         "point": 0.018546,
+         "low": -0.000705,
+         "high": 0.039339,
+         "undefined_replicates": 0,
+         "share_positive": 0.97
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.067493,
+         "low": -0.04127,
+         "high": 0.17178,
+         "undefined_replicates": 0,
+         "share_positive": 0.895
+        },
+        "event_recall": {
+         "point": 0.020883,
+         "low": -0.103683,
+         "high": 0.153212,
+         "undefined_replicates": 0,
+         "share_positive": 0.6225
+        },
+        "card_pr_auc": {
+         "point": 0.018546,
+         "low": -0.065922,
+         "high": 0.074147,
+         "undefined_replicates": 0,
+         "share_positive": 0.715
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "connection_loss_all_72h": {
+   "role": "declared variant, gt2s 72h selection",
+   "selection_from": "connection_loss_gt2s_72h",
+   "main_policy": "see selection_from",
+   "units": {
+    "A": {
+     "candidate": "F3_noproxy|c4|noisy_or|rank_mean_with_persistence",
+     "success": true,
+     "holdout": {
+      "rolling_max_open_6": {
+       "selected": {
+        "cards_selected": 720,
+        "card_precision": 0.413889,
+        "card_pr_auc": 0.305265,
+        "event_events": 1676,
+        "event_capturable": 1640,
+        "event_captured": 493,
+        "event_recall": 0.294153,
+        "event_recall_capturable": 0.30061,
+        "lead_hours_p25": 17.798056,
+        "lead_hours_median": 38.083333,
+        "lead_hours_p75": 58.814444,
+        "event_recall_mass": 0.384707,
+        "event_recall_single_channel": 0.203814,
+        "event_recall_weekday": 0.276343,
+        "event_recall_weekend": 0.399177,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "Датчик движения": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 179,
+          "precision": 0.307263
+         },
+         "КД АВ": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Ручной извещатель": {
+          "cards": 2,
+          "precision": 0.5
+         },
+         "Состояние фазы": {
+          "cards": 532,
+          "precision": 0.454887
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.2125,
+         "precision_failing": 0.503268,
+         "precision_not_failing": 0.389771
+        }
+       },
+       "persistence": {
+        "cards_selected": 720,
+        "card_precision": 0.345833,
+        "card_pr_auc": 0.24823,
+        "event_events": 1676,
+        "event_capturable": 1640,
+        "event_captured": 450,
+        "event_recall": 0.268496,
+        "event_recall_capturable": 0.27439,
+        "lead_hours_p25": 16.185486,
+        "lead_hours_median": 36.318194,
+        "lead_hours_p75": 58.672083,
+        "event_recall_mass": 0.293907,
+        "event_recall_single_channel": 0.243147,
+        "event_recall_weekday": 0.260293,
+        "event_recall_weekend": 0.316872,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 34,
+          "precision": 0.117647
+         },
+         "Датчик движения": {
+          "cards": 22,
+          "precision": 0.090909
+         },
+         "Датчик дыма": {
+          "cards": 187,
+          "precision": 0.320856
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 7,
+          "precision": 0.285714
+         },
+         "ИБП": {
+          "cards": 70,
+          "precision": 0.071429
+         },
+         "КД АВ": {
+          "cards": 17,
+          "precision": 0.176471
+         },
+         "КД Дверь": {
+          "cards": 10,
+          "precision": 0.1
+         },
+         "КД Люк": {
+          "cards": 1,
+          "precision": 1.0
+         },
+         "Ручной извещатель": {
+          "cards": 28,
+          "precision": 0.642857
+         },
+         "Состояние фазы": {
+          "cards": 342,
+          "precision": 0.447368
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.181944,
+         "precision_failing": 0.541985,
+         "precision_not_failing": 0.302207
+        }
+       },
+       "ceiling": {
+        "cards_selected": 720,
+        "card_precision": 0.916667,
+        "event_recall": 0.73031
+       },
+       "card_base_rate": 0.029051,
+       "cards_evaluable": 106089
+      },
+      "rolling_max_open_3": {
+       "selected": {
+        "cards_selected": 360,
+        "card_precision": 0.452778,
+        "card_pr_auc": 0.305265,
+        "event_events": 1676,
+        "event_capturable": 1640,
+        "event_captured": 282,
+        "event_recall": 0.168258,
+        "event_recall_capturable": 0.171951,
+        "lead_hours_p25": 15.871181,
+        "lead_hours_median": 36.581111,
+        "lead_hours_p75": 58.975903,
+        "event_recall_mass": 0.218638,
+        "event_recall_single_channel": 0.117998,
+        "event_recall_weekday": 0.158409,
+        "event_recall_weekend": 0.226337,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 78,
+          "precision": 0.358974
+         },
+         "Состояние фазы": {
+          "cards": 280,
+          "precision": 0.482143
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.216667,
+         "precision_failing": 0.576923,
+         "precision_not_failing": 0.41844
+        }
+       },
+       "persistence": {
+        "cards_selected": 360,
+        "card_precision": 0.380556,
+        "card_pr_auc": 0.24823,
+        "event_events": 1676,
+        "event_capturable": 1640,
+        "event_captured": 238,
+        "event_recall": 0.142005,
+        "event_recall_capturable": 0.145122,
+        "lead_hours_p25": 16.658125,
+        "lead_hours_median": 36.989306,
+        "lead_hours_p75": 59.243542,
+        "event_recall_mass": 0.154122,
+        "event_recall_single_channel": 0.129917,
+        "event_recall_weekday": 0.136078,
+        "event_recall_weekend": 0.176955,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 14,
+          "precision": 0.214286
+         },
+         "Датчик движения": {
+          "cards": 8,
+          "precision": 0.125
+         },
+         "Датчик дыма": {
+          "cards": 91,
+          "precision": 0.362637
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 3,
+          "precision": 0.666667
+         },
+         "ИБП": {
+          "cards": 34,
+          "precision": 0.088235
+         },
+         "КД АВ": {
+          "cards": 5,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 4,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 1,
+          "precision": 1.0
+         },
+         "Ручной извещатель": {
+          "cards": 13,
+          "precision": 0.692308
+         },
+         "Состояние фазы": {
+          "cards": 185,
+          "precision": 0.459459
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.194444,
+         "precision_failing": 0.571429,
+         "precision_not_failing": 0.334483
+        }
+       },
+       "ceiling": {
+        "cards_selected": 360,
+        "card_precision": 0.977778,
+        "event_recall": 0.51253
+       },
+       "card_base_rate": 0.029051,
+       "cards_evaluable": 106089
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.398268,
+      "cards_selected": 588,
+      "card_precision": 0.42517,
+      "event_recall": 0.260143
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.068056,
+         "low": 0.033613,
+         "high": 0.100007,
+         "undefined_replicates": 0,
+         "share_positive": 1.0
+        },
+        "event_recall": {
+         "point": 0.025656,
+         "low": -0.012326,
+         "high": 0.060984,
+         "undefined_replicates": 0,
+         "share_positive": 0.8825
+        },
+        "card_pr_auc": {
+         "point": 0.057035,
+         "low": 0.043932,
+         "high": 0.070095,
+         "undefined_replicates": 0,
+         "share_positive": 1.0
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.068056,
+         "low": 0.011746,
+         "high": 0.136387,
+         "undefined_replicates": 0,
+         "share_positive": 0.99
+        },
+        "event_recall": {
+         "point": 0.025656,
+         "low": -0.09085,
+         "high": 0.121935,
+         "undefined_replicates": 0,
+         "share_positive": 0.7075
+        },
+        "card_pr_auc": {
+         "point": 0.057035,
+         "low": 0.015078,
+         "high": 0.08664,
+         "undefined_replicates": 0,
+         "share_positive": 0.9925
+        }
+       }
+      }
+     }
+    },
+    "B": {
+     "candidate": "F3_noproxy|c2|mean_top2|rank_mean_with_persistence",
+     "success": false,
+     "holdout": {
+      "rolling_max_open_6": {
+       "selected": {
+        "cards_selected": 720,
+        "card_precision": 0.401389,
+        "card_pr_auc": 0.320033,
+        "event_events": 1676,
+        "event_capturable": 1640,
+        "event_captured": 430,
+        "event_recall": 0.256563,
+        "event_recall_capturable": 0.262195,
+        "lead_hours_p25": 17.09625,
+        "lead_hours_median": 37.686389,
+        "lead_hours_p75": 58.305694,
+        "event_recall_mass": 0.381123,
+        "event_recall_single_channel": 0.1323,
+        "event_recall_weekday": 0.239358,
+        "event_recall_weekend": 0.358025,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 4,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 41,
+          "precision": 0.146341
+         },
+         "Охранная подсистема": {
+          "cards": 12,
+          "precision": 0.333333
+         },
+         "Пожарная охрана": {
+          "cards": 23,
+          "precision": 0.391304
+         },
+         "Состояние фазы": {
+          "cards": 640,
+          "precision": 0.421875
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.186111,
+         "precision_failing": 0.477612,
+         "precision_not_failing": 0.383959
+        }
+       },
+       "persistence": {
+        "cards_selected": 720,
+        "card_precision": 0.354167,
+        "card_pr_auc": 0.267919,
+        "event_events": 1676,
+        "event_capturable": 1640,
+        "event_captured": 499,
+        "event_recall": 0.297733,
+        "event_recall_capturable": 0.304268,
+        "lead_hours_p25": 16.078472,
+        "lead_hours_median": 36.470556,
+        "lead_hours_p75": 58.473472,
+        "event_recall_mass": 0.315412,
+        "event_recall_single_channel": 0.280095,
+        "event_recall_weekday": 0.286811,
+        "event_recall_weekend": 0.36214,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 36,
+          "precision": 0.111111
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 73,
+          "precision": 0.082192
+         },
+         "Охранная подсистема": {
+          "cards": 41,
+          "precision": 0.170732
+         },
+         "Пожарная охрана": {
+          "cards": 206,
+          "precision": 0.364078
+         },
+         "Состояние фазы": {
+          "cards": 356,
+          "precision": 0.452247
+         },
+         "Температурная подсистема": {
+          "cards": 7,
+          "precision": 0.285714
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.166667,
+         "precision_failing": 0.583333,
+         "precision_not_failing": 0.308333
+        }
+       },
+       "ceiling": {
+        "cards_selected": 720,
+        "card_precision": 0.913889,
+        "event_recall": 0.75179
+       },
+       "card_base_rate": 0.043333,
+       "cards_evaluable": 66785
+      },
+      "rolling_max_open_3": {
+       "selected": {
+        "cards_selected": 360,
+        "card_precision": 0.463889,
+        "card_pr_auc": 0.320033,
+        "event_events": 1676,
+        "event_capturable": 1640,
+        "event_captured": 262,
+        "event_recall": 0.156325,
+        "event_recall_capturable": 0.159756,
+        "lead_hours_p25": 16.158611,
+        "lead_hours_median": 37.069306,
+        "lead_hours_p75": 57.120069,
+        "event_recall_mass": 0.242533,
+        "event_recall_single_channel": 0.070322,
+        "event_recall_weekday": 0.139567,
+        "event_recall_weekend": 0.255144,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 9,
+          "precision": 0.0
+         },
+         "Охранная подсистема": {
+          "cards": 2,
+          "precision": 0.5
+         },
+         "Пожарная охрана": {
+          "cards": 3,
+          "precision": 0.333333
+         },
+         "Состояние фазы": {
+          "cards": 346,
+          "precision": 0.476879
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.241667,
+         "precision_failing": 0.528736,
+         "precision_not_failing": 0.443223
+        }
+       },
+       "persistence": {
+        "cards_selected": 360,
+        "card_precision": 0.388889,
+        "card_pr_auc": 0.267919,
+        "event_events": 1676,
+        "event_capturable": 1640,
+        "event_captured": 274,
+        "event_recall": 0.163484,
+        "event_recall_capturable": 0.167073,
+        "lead_hours_p25": 16.359583,
+        "lead_hours_median": 36.043333,
+        "lead_hours_p75": 59.093125,
+        "event_recall_mass": 0.174432,
+        "event_recall_single_channel": 0.152563,
+        "event_recall_weekday": 0.158409,
+        "event_recall_weekend": 0.193416,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 14,
+          "precision": 0.214286
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 34,
+          "precision": 0.088235
+         },
+         "Охранная подсистема": {
+          "cards": 15,
+          "precision": 0.2
+         },
+         "Пожарная охрана": {
+          "cards": 105,
+          "precision": 0.409524
+         },
+         "Состояние фазы": {
+          "cards": 187,
+          "precision": 0.459893
+         },
+         "Температурная подсистема": {
+          "cards": 4,
+          "precision": 0.5
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.188889,
+         "precision_failing": 0.588235,
+         "precision_not_failing": 0.342466
+        }
+       },
+       "ceiling": {
+        "cards_selected": 360,
+        "card_precision": 0.975,
+        "event_recall": 0.536993
+       },
+       "card_base_rate": 0.043333,
+       "cards_evaluable": 66785
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.358974,
+      "cards_selected": 703,
+      "card_precision": 0.386913,
+      "event_recall": 0.245227
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.047222,
+         "low": 0.01272,
+         "high": 0.081939,
+         "undefined_replicates": 0,
+         "share_positive": 0.995
+        },
+        "event_recall": {
+         "point": -0.041169,
+         "low": -0.080527,
+         "high": -0.001192,
+         "undefined_replicates": 0,
+         "share_positive": 0.015
+        },
+        "card_pr_auc": {
+         "point": 0.052115,
+         "low": 0.036126,
+         "high": 0.066324,
+         "undefined_replicates": 0,
+         "share_positive": 1.0
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.047222,
+         "low": -0.029347,
+         "high": 0.125688,
+         "undefined_replicates": 0,
+         "share_positive": 0.88
+        },
+        "event_recall": {
+         "point": -0.041169,
+         "low": -0.21642,
+         "high": 0.106596,
+         "undefined_replicates": 0,
+         "share_positive": 0.405
+        },
+        "card_pr_auc": {
+         "point": 0.052115,
+         "low": -0.031039,
+         "high": 0.110184,
+         "undefined_replicates": 0,
+         "share_positive": 0.9025
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "connection_loss_1h_24h": {
+   "role": "declared variant, gt2s 24h selection",
+   "selection_from": "connection_loss_gt2s_24h",
+   "main_policy": "see selection_from",
+   "units": {
+    "A": {
+     "candidate": "F2|c1|mean_top2|model_only",
+     "success": false,
+     "holdout": {
+      "top2_per_day": {
+       "selected": {
+        "cards_selected": 726,
+        "card_precision": 0.060606,
+        "card_pr_auc": 0.038725,
+        "event_events": 398,
+        "event_capturable": 370,
+        "event_captured": 47,
+        "event_recall": 0.11809,
+        "event_recall_capturable": 0.127027,
+        "lead_hours_p25": 8.348611,
+        "lead_hours_median": 11.428333,
+        "lead_hours_p75": 14.955139,
+        "event_recall_mass": 0.176166,
+        "event_recall_single_channel": 0.063415,
+        "event_recall_weekday": 0.090909,
+        "event_recall_weekend": 0.280702,
+        "cards_by_sensor_type": {
+         "Датчик движения": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 22,
+          "precision": 0.090909
+         },
+         "ИБП": {
+          "cards": 32,
+          "precision": 0.09375
+         },
+         "Состояние фазы": {
+          "cards": 670,
+          "precision": 0.058209
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.210744,
+         "precision_failing": 0.058824,
+         "precision_not_failing": 0.061082
+        }
+       },
+       "persistence": {
+        "cards_selected": 726,
+        "card_precision": 0.045455,
+        "card_pr_auc": 0.032967,
+        "event_events": 398,
+        "event_capturable": 370,
+        "event_captured": 35,
+        "event_recall": 0.08794,
+        "event_recall_capturable": 0.094595,
+        "lead_hours_p25": 10.30875,
+        "lead_hours_median": 13.083333,
+        "lead_hours_p75": 15.737917,
+        "event_recall_mass": 0.098446,
+        "event_recall_single_channel": 0.078049,
+        "event_recall_weekday": 0.085044,
+        "event_recall_weekend": 0.105263,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 26,
+          "precision": 0.0
+         },
+         "Датчик движения": {
+          "cards": 24,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 186,
+          "precision": 0.032258
+         },
+         "Датчик затопления": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 7,
+          "precision": 0.0
+         },
+         "ИБП": {
+          "cards": 66,
+          "precision": 0.0
+         },
+         "КД АВ": {
+          "cards": 10,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 10,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Ручной извещатель": {
+          "cards": 23,
+          "precision": 0.217391
+         },
+         "Состояние УИР-Р": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 368,
+          "precision": 0.059783
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.205234,
+         "precision_failing": 0.060403,
+         "precision_not_failing": 0.041594
+        }
+       },
+       "ceiling": {
+        "cards_selected": 726,
+        "card_precision": 0.398072,
+        "event_recall": 0.824121
+       },
+       "card_base_rate": 0.003131,
+       "cards_evaluable": 107316
+      },
+      "top1_per_day": {
+       "selected": {
+        "cards_selected": 363,
+        "card_precision": 0.07989,
+        "card_pr_auc": 0.038725,
+        "event_events": 398,
+        "event_capturable": 370,
+        "event_captured": 32,
+        "event_recall": 0.080402,
+        "event_recall_capturable": 0.086486,
+        "lead_hours_p25": 7.823542,
+        "lead_hours_median": 11.23,
+        "lead_hours_p75": 15.326944,
+        "event_recall_mass": 0.124352,
+        "event_recall_single_channel": 0.039024,
+        "event_recall_weekday": 0.064516,
+        "event_recall_weekend": 0.175439,
+        "cards_by_sensor_type": {
+         "Датчик движения": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 5,
+          "precision": 0.2
+         },
+         "ИБП": {
+          "cards": 14,
+          "precision": 0.214286
+         },
+         "Состояние фазы": {
+          "cards": 343,
+          "precision": 0.072886
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.231405,
+         "precision_failing": 0.095238,
+         "precision_not_failing": 0.075269
+        }
+       },
+       "persistence": {
+        "cards_selected": 363,
+        "card_precision": 0.041322,
+        "card_pr_auc": 0.032967,
+        "event_events": 398,
+        "event_capturable": 370,
+        "event_captured": 17,
+        "event_recall": 0.042714,
+        "event_recall_capturable": 0.045946,
+        "lead_hours_p25": 11.563889,
+        "lead_hours_median": 13.388056,
+        "lead_hours_p75": 15.82,
+        "event_recall_mass": 0.051813,
+        "event_recall_single_channel": 0.034146,
+        "event_recall_weekday": 0.038123,
+        "event_recall_weekend": 0.070175,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 12,
+          "precision": 0.0
+         },
+         "Датчик движения": {
+          "cards": 14,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 89,
+          "precision": 0.022472
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 4,
+          "precision": 0.0
+         },
+         "ИБП": {
+          "cards": 23,
+          "precision": 0.0
+         },
+         "КД АВ": {
+          "cards": 6,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Ручной извещатель": {
+          "cards": 6,
+          "precision": 0.333333
+         },
+         "Состояние фазы": {
+          "cards": 203,
+          "precision": 0.054187
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.22865,
+         "precision_failing": 0.036145,
+         "precision_not_failing": 0.042857
+        }
+       },
+       "ceiling": {
+        "cards_selected": 363,
+        "card_precision": 0.528926,
+        "event_recall": 0.575377
+       },
+       "card_base_rate": 0.003131,
+       "cards_evaluable": 107316
+      },
+      "top3_per_day": {
+       "selected": {
+        "cards_selected": 1089,
+        "card_precision": 0.05326,
+        "card_pr_auc": 0.038725,
+        "event_events": 398,
+        "event_capturable": 370,
+        "event_captured": 62,
+        "event_recall": 0.155779,
+        "event_recall_capturable": 0.167568,
+        "lead_hours_p25": 7.994306,
+        "lead_hours_median": 11.345417,
+        "lead_hours_p75": 14.596111,
+        "event_recall_mass": 0.222798,
+        "event_recall_single_channel": 0.092683,
+        "event_recall_weekday": 0.1261,
+        "event_recall_weekend": 0.333333,
+        "cards_by_sensor_type": {
+         "Датчик движения": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 63,
+          "precision": 0.063492
+         },
+         "ИБП": {
+          "cards": 64,
+          "precision": 0.125
+         },
+         "Состояние фазы": {
+          "cards": 960,
+          "precision": 0.047917
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.196511,
+         "precision_failing": 0.046729,
+         "precision_not_failing": 0.054857
+        }
+       },
+       "persistence": {
+        "cards_selected": 1089,
+        "card_precision": 0.040404,
+        "card_pr_auc": 0.032967,
+        "event_events": 398,
+        "event_capturable": 370,
+        "event_captured": 47,
+        "event_recall": 0.11809,
+        "event_recall_capturable": 0.127027,
+        "lead_hours_p25": 10.108056,
+        "lead_hours_median": 12.861667,
+        "lead_hours_p75": 15.590278,
+        "event_recall_mass": 0.129534,
+        "event_recall_single_channel": 0.107317,
+        "event_recall_weekday": 0.117302,
+        "event_recall_weekend": 0.122807,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 38,
+          "precision": 0.0
+         },
+         "Датчик движения": {
+          "cards": 38,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 267,
+          "precision": 0.037453
+         },
+         "Датчик затопления": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 10,
+          "precision": 0.0
+         },
+         "ИБП": {
+          "cards": 96,
+          "precision": 0.0
+         },
+         "КД АВ": {
+          "cards": 23,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 14,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 4,
+          "precision": 0.0
+         },
+         "Ручной извещатель": {
+          "cards": 39,
+          "precision": 0.205128
+         },
+         "Состояние УИР-Р": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 555,
+          "precision": 0.046847
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.203857,
+         "precision_failing": 0.076577,
+         "precision_not_failing": 0.031142
+        }
+       },
+       "ceiling": {
+        "cards_selected": 1089,
+        "card_precision": 0.298439,
+        "event_recall": 0.904523
+       },
+       "card_base_rate": 0.003131,
+       "cards_evaluable": 107316
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.05848,
+      "cards_selected": 309,
+      "card_precision": 0.084142,
+      "event_recall": 0.072864
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.015152,
+         "low": -0.006815,
+         "high": 0.039333,
+         "undefined_replicates": 0,
+         "share_positive": 0.89
+        },
+        "event_recall": {
+         "point": 0.030151,
+         "low": -0.017992,
+         "high": 0.082608,
+         "undefined_replicates": 0,
+         "share_positive": 0.89
+        },
+        "card_pr_auc": {
+         "point": 0.005757,
+         "low": -0.005253,
+         "high": 0.017258,
+         "undefined_replicates": 0,
+         "share_positive": 0.8575
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.015152,
+         "low": -0.012793,
+         "high": 0.039453,
+         "undefined_replicates": 0,
+         "share_positive": 0.845
+        },
+        "event_recall": {
+         "point": 0.030151,
+         "low": -0.075966,
+         "high": 0.179598,
+         "undefined_replicates": 0,
+         "share_positive": 0.6375
+        },
+        "card_pr_auc": {
+         "point": 0.005757,
+         "low": -0.013557,
+         "high": 0.027592,
+         "undefined_replicates": 0,
+         "share_positive": 0.7225
+        }
+       }
+      }
+     }
+    },
+    "B": {
+     "candidate": "F2|c1|mean_top2|model_only",
+     "success": false,
+     "holdout": {
+      "top2_per_day": {
+       "selected": {
+        "cards_selected": 726,
+        "card_precision": 0.060606,
+        "card_pr_auc": 0.040701,
+        "event_events": 398,
+        "event_capturable": 370,
+        "event_captured": 47,
+        "event_recall": 0.11809,
+        "event_recall_capturable": 0.127027,
+        "lead_hours_p25": 8.348611,
+        "lead_hours_median": 11.428333,
+        "lead_hours_p75": 14.955139,
+        "event_recall_mass": 0.176166,
+        "event_recall_single_channel": 0.063415,
+        "event_recall_weekday": 0.090909,
+        "event_recall_weekend": 0.280702,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 32,
+          "precision": 0.09375
+         },
+         "Охранная подсистема": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Пожарная охрана": {
+          "cards": 22,
+          "precision": 0.090909
+         },
+         "Состояние фазы": {
+          "cards": 670,
+          "precision": 0.058209
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.210744,
+         "precision_failing": 0.058824,
+         "precision_not_failing": 0.061082
+        }
+       },
+       "persistence": {
+        "cards_selected": 726,
+        "card_precision": 0.055096,
+        "card_pr_auc": 0.039235,
+        "event_events": 398,
+        "event_capturable": 370,
+        "event_captured": 46,
+        "event_recall": 0.115578,
+        "event_recall_capturable": 0.124324,
+        "lead_hours_p25": 10.281458,
+        "lead_hours_median": 12.9725,
+        "lead_hours_p75": 15.787222,
+        "event_recall_mass": 0.124352,
+        "event_recall_single_channel": 0.107317,
+        "event_recall_weekday": 0.11437,
+        "event_recall_weekend": 0.122807,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 26,
+          "precision": 0.0
+         },
+         "Датчик затопления": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 66,
+          "precision": 0.0
+         },
+         "Охранная подсистема": {
+          "cards": 41,
+          "precision": 0.0
+         },
+         "Пожарная охрана": {
+          "cards": 205,
+          "precision": 0.082927
+         },
+         "Состояние фазы": {
+          "cards": 378,
+          "precision": 0.060847
+         },
+         "Температурная подсистема": {
+          "cards": 8,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.201102,
+         "precision_failing": 0.10274,
+         "precision_not_failing": 0.043103
+        }
+       },
+       "ceiling": {
+        "cards_selected": 726,
+        "card_precision": 0.395317,
+        "event_recall": 0.831658
+       },
+       "card_base_rate": 0.00481,
+       "cards_evaluable": 67573
+      },
+      "top1_per_day": {
+       "selected": {
+        "cards_selected": 363,
+        "card_precision": 0.07989,
+        "card_pr_auc": 0.040701,
+        "event_events": 398,
+        "event_capturable": 370,
+        "event_captured": 32,
+        "event_recall": 0.080402,
+        "event_recall_capturable": 0.086486,
+        "lead_hours_p25": 7.823542,
+        "lead_hours_median": 11.23,
+        "lead_hours_p75": 15.326944,
+        "event_recall_mass": 0.124352,
+        "event_recall_single_channel": 0.039024,
+        "event_recall_weekday": 0.064516,
+        "event_recall_weekend": 0.175439,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 14,
+          "precision": 0.214286
+         },
+         "Охранная подсистема": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Пожарная охрана": {
+          "cards": 5,
+          "precision": 0.2
+         },
+         "Состояние фазы": {
+          "cards": 343,
+          "precision": 0.072886
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.231405,
+         "precision_failing": 0.095238,
+         "precision_not_failing": 0.075269
+        }
+       },
+       "persistence": {
+        "cards_selected": 363,
+        "card_precision": 0.046832,
+        "card_pr_auc": 0.039235,
+        "event_events": 398,
+        "event_capturable": 370,
+        "event_captured": 21,
+        "event_recall": 0.052764,
+        "event_recall_capturable": 0.056757,
+        "lead_hours_p25": 11.563889,
+        "lead_hours_median": 13.388056,
+        "lead_hours_p75": 16.278333,
+        "event_recall_mass": 0.062176,
+        "event_recall_single_channel": 0.043902,
+        "event_recall_weekday": 0.049853,
+        "event_recall_weekend": 0.070175,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 12,
+          "precision": 0.0
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 23,
+          "precision": 0.0
+         },
+         "Охранная подсистема": {
+          "cards": 24,
+          "precision": 0.0
+         },
+         "Пожарная охрана": {
+          "cards": 96,
+          "precision": 0.0625
+         },
+         "Состояние фазы": {
+          "cards": 203,
+          "precision": 0.054187
+         },
+         "Температурная подсистема": {
+          "cards": 4,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.22865,
+         "precision_failing": 0.060241,
+         "precision_not_failing": 0.042857
+        }
+       },
+       "ceiling": {
+        "cards_selected": 363,
+        "card_precision": 0.528926,
+        "event_recall": 0.577889
+       },
+       "card_base_rate": 0.00481,
+       "cards_evaluable": 67573
+      },
+      "top3_per_day": {
+       "selected": {
+        "cards_selected": 1089,
+        "card_precision": 0.05326,
+        "card_pr_auc": 0.040701,
+        "event_events": 398,
+        "event_capturable": 370,
+        "event_captured": 62,
+        "event_recall": 0.155779,
+        "event_recall_capturable": 0.167568,
+        "lead_hours_p25": 7.994306,
+        "lead_hours_median": 11.345417,
+        "lead_hours_p75": 14.596111,
+        "event_recall_mass": 0.222798,
+        "event_recall_single_channel": 0.092683,
+        "event_recall_weekday": 0.1261,
+        "event_recall_weekend": 0.333333,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 64,
+          "precision": 0.125
+         },
+         "Охранная подсистема": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "Пожарная охрана": {
+          "cards": 63,
+          "precision": 0.063492
+         },
+         "Состояние фазы": {
+          "cards": 960,
+          "precision": 0.047917
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.196511,
+         "precision_failing": 0.046729,
+         "precision_not_failing": 0.054857
+        }
+       },
+       "persistence": {
+        "cards_selected": 1089,
+        "card_precision": 0.045914,
+        "card_pr_auc": 0.039235,
+        "event_events": 398,
+        "event_capturable": 370,
+        "event_captured": 59,
+        "event_recall": 0.148241,
+        "event_recall_capturable": 0.159459,
+        "lead_hours_p25": 9.838889,
+        "lead_hours_median": 12.196944,
+        "lead_hours_p75": 15.590278,
+        "event_recall_mass": 0.160622,
+        "event_recall_single_channel": 0.136585,
+        "event_recall_weekday": 0.14956,
+        "event_recall_weekend": 0.140351,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 39,
+          "precision": 0.0
+         },
+         "Датчик затопления": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 99,
+          "precision": 0.0
+         },
+         "Охранная подсистема": {
+          "cards": 67,
+          "precision": 0.014925
+         },
+         "Пожарная охрана": {
+          "cards": 304,
+          "precision": 0.075658
+         },
+         "Состояние фазы": {
+          "cards": 566,
+          "precision": 0.045936
+         },
+         "Температурная подсистема": {
+          "cards": 11,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.199265,
+         "precision_failing": 0.101382,
+         "precision_not_failing": 0.03211
+        }
+       },
+       "ceiling": {
+        "cards_selected": 1089,
+        "card_precision": 0.292011,
+        "event_recall": 0.91206
+       },
+       "card_base_rate": 0.00481,
+       "cards_evaluable": 67573
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.05848,
+      "cards_selected": 309,
+      "card_precision": 0.084142,
+      "event_recall": 0.072864
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.00551,
+         "low": -0.019731,
+         "high": 0.034268,
+         "undefined_replicates": 0,
+         "share_positive": 0.63
+        },
+        "event_recall": {
+         "point": 0.002513,
+         "low": -0.056838,
+         "high": 0.068507,
+         "undefined_replicates": 0,
+         "share_positive": 0.5225
+        },
+        "card_pr_auc": {
+         "point": 0.001466,
+         "low": -0.012521,
+         "high": 0.014206,
+         "undefined_replicates": 0,
+         "share_positive": 0.6325
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.00551,
+         "low": -0.031785,
+         "high": 0.037521,
+         "undefined_replicates": 0,
+         "share_positive": 0.5975
+        },
+        "event_recall": {
+         "point": 0.002513,
+         "low": -0.135678,
+         "high": 0.175726,
+         "undefined_replicates": 0,
+         "share_positive": 0.4975
+        },
+        "card_pr_auc": {
+         "point": 0.001466,
+         "low": -0.023886,
+         "high": 0.026027,
+         "undefined_replicates": 0,
+         "share_positive": 0.5775
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "connection_loss_1h_72h": {
+   "role": "declared variant, gt2s 72h selection",
+   "selection_from": "connection_loss_gt2s_72h",
+   "main_policy": "see selection_from",
+   "units": {
+    "A": {
+     "candidate": "F3_noproxy|c4|noisy_or|rank_mean_with_persistence",
+     "success": false,
+     "holdout": {
+      "rolling_max_open_6": {
+       "selected": {
+        "cards_selected": 720,
+        "card_precision": 0.108333,
+        "card_pr_auc": 0.09086,
+        "event_events": 398,
+        "event_capturable": 383,
+        "event_captured": 96,
+        "event_recall": 0.241206,
+        "event_recall_capturable": 0.250653,
+        "lead_hours_p25": 15.459653,
+        "lead_hours_median": 34.354444,
+        "lead_hours_p75": 56.171389,
+        "event_recall_mass": 0.326425,
+        "event_recall_single_channel": 0.160976,
+        "event_recall_weekday": 0.225806,
+        "event_recall_weekend": 0.333333,
+        "cards_by_sensor_type": {
+         "Датчик движения": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 72,
+          "precision": 0.069444
+         },
+         "ИБП": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "КД АВ": {
+          "cards": 2,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 640,
+          "precision": 0.114062
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.184722,
+         "precision_failing": 0.150376,
+         "precision_not_failing": 0.098807
+        }
+       },
+       "persistence": {
+        "cards_selected": 720,
+        "card_precision": 0.104167,
+        "card_pr_auc": 0.078109,
+        "event_events": 398,
+        "event_capturable": 383,
+        "event_captured": 98,
+        "event_recall": 0.246231,
+        "event_recall_capturable": 0.255875,
+        "lead_hours_p25": 16.872639,
+        "lead_hours_median": 35.0775,
+        "lead_hours_p75": 57.068056,
+        "event_recall_mass": 0.279793,
+        "event_recall_single_channel": 0.214634,
+        "event_recall_weekday": 0.243402,
+        "event_recall_weekend": 0.263158,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 34,
+          "precision": 0.0
+         },
+         "Датчик движения": {
+          "cards": 22,
+          "precision": 0.045455
+         },
+         "Датчик дыма": {
+          "cards": 187,
+          "precision": 0.101604
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 7,
+          "precision": 0.0
+         },
+         "ИБП": {
+          "cards": 70,
+          "precision": 0.057143
+         },
+         "КД АВ": {
+          "cards": 17,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 10,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Ручной извещатель": {
+          "cards": 28,
+          "precision": 0.392857
+         },
+         "Состояние фазы": {
+          "cards": 342,
+          "precision": 0.116959
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.181944,
+         "precision_failing": 0.183206,
+         "precision_not_failing": 0.086587
+        }
+       },
+       "ceiling": {
+        "cards_selected": 720,
+        "card_precision": 0.413889,
+        "event_recall": 0.917085
+       },
+       "card_base_rate": 0.008531,
+       "cards_evaluable": 106089
+      },
+      "rolling_max_open_3": {
+       "selected": {
+        "cards_selected": 360,
+        "card_precision": 0.130556,
+        "card_pr_auc": 0.09086,
+        "event_events": 398,
+        "event_capturable": 383,
+        "event_captured": 57,
+        "event_recall": 0.143216,
+        "event_recall_capturable": 0.148825,
+        "lead_hours_p25": 15.264444,
+        "lead_hours_median": 35.123333,
+        "lead_hours_p75": 56.453889,
+        "event_recall_mass": 0.196891,
+        "event_recall_single_channel": 0.092683,
+        "event_recall_weekday": 0.13783,
+        "event_recall_weekend": 0.175439,
+        "cards_by_sensor_type": {
+         "Датчик дыма": {
+          "cards": 23,
+          "precision": 0.130435
+         },
+         "КД Дверь": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 336,
+          "precision": 0.130952
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.186111,
+         "precision_failing": 0.179104,
+         "precision_not_failing": 0.119454
+        }
+       },
+       "persistence": {
+        "cards_selected": 360,
+        "card_precision": 0.097222,
+        "card_pr_auc": 0.078109,
+        "event_events": 398,
+        "event_capturable": 383,
+        "event_captured": 43,
+        "event_recall": 0.10804,
+        "event_recall_capturable": 0.112272,
+        "lead_hours_p25": 16.299583,
+        "lead_hours_median": 34.374444,
+        "lead_hours_p75": 53.217361,
+        "event_recall_mass": 0.11399,
+        "event_recall_single_channel": 0.102439,
+        "event_recall_weekday": 0.105572,
+        "event_recall_weekend": 0.122807,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 14,
+          "precision": 0.0
+         },
+         "Датчик движения": {
+          "cards": 8,
+          "precision": 0.0
+         },
+         "Датчик дыма": {
+          "cards": 91,
+          "precision": 0.098901
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 3,
+          "precision": 0.0
+         },
+         "ИБП": {
+          "cards": 34,
+          "precision": 0.088235
+         },
+         "КД АВ": {
+          "cards": 5,
+          "precision": 0.0
+         },
+         "КД Дверь": {
+          "cards": 4,
+          "precision": 0.0
+         },
+         "КД Люк": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Ручной извещатель": {
+          "cards": 13,
+          "precision": 0.538462
+         },
+         "Состояние фазы": {
+          "cards": 185,
+          "precision": 0.086486
+         },
+         "Тепловой датчик": {
+          "cards": 1,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.194444,
+         "precision_failing": 0.2,
+         "precision_not_failing": 0.072414
+        }
+       },
+       "ceiling": {
+        "cards_selected": 360,
+        "card_precision": 0.65,
+        "event_recall": 0.766332
+       },
+       "card_base_rate": 0.008531,
+       "cards_evaluable": 106089
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.0,
+      "cards_selected": 720,
+      "card_precision": 0.108333,
+      "event_recall": 0.241206
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.004167,
+         "low": -0.0205,
+         "high": 0.028029,
+         "undefined_replicates": 0,
+         "share_positive": 0.575
+        },
+        "event_recall": {
+         "point": -0.005025,
+         "low": -0.05798,
+         "high": 0.044856,
+         "undefined_replicates": 0,
+         "share_positive": 0.385
+        },
+        "card_pr_auc": {
+         "point": 0.012751,
+         "low": 0.001813,
+         "high": 0.024761,
+         "undefined_replicates": 0,
+         "share_positive": 0.985
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.004167,
+         "low": -0.032315,
+         "high": 0.04695,
+         "undefined_replicates": 0,
+         "share_positive": 0.62
+        },
+        "event_recall": {
+         "point": -0.005025,
+         "low": -0.122744,
+         "high": 0.1246,
+         "undefined_replicates": 0,
+         "share_positive": 0.5075
+        },
+        "card_pr_auc": {
+         "point": 0.012751,
+         "low": -0.012669,
+         "high": 0.043018,
+         "undefined_replicates": 0,
+         "share_positive": 0.8275
+        }
+       }
+      }
+     }
+    },
+    "B": {
+     "candidate": "F3_noproxy|c2|mean_top2|rank_mean_with_persistence",
+     "success": false,
+     "holdout": {
+      "rolling_max_open_6": {
+       "selected": {
+        "cards_selected": 720,
+        "card_precision": 0.116667,
+        "card_pr_auc": 0.093754,
+        "event_events": 398,
+        "event_capturable": 383,
+        "event_captured": 103,
+        "event_recall": 0.258794,
+        "event_recall_capturable": 0.26893,
+        "lead_hours_p25": 13.760833,
+        "lead_hours_median": 34.351389,
+        "lead_hours_p75": 53.217361,
+        "event_recall_mass": 0.357513,
+        "event_recall_single_channel": 0.165854,
+        "event_recall_weekday": 0.243402,
+        "event_recall_weekend": 0.350877,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 49,
+          "precision": 0.102041
+         },
+         "Охранная подсистема": {
+          "cards": 5,
+          "precision": 0.2
+         },
+         "Пожарная охрана": {
+          "cards": 23,
+          "precision": 0.173913
+         },
+         "Состояние фазы": {
+          "cards": 643,
+          "precision": 0.115086
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.181944,
+         "precision_failing": 0.167939,
+         "precision_not_failing": 0.105263
+        }
+       },
+       "persistence": {
+        "cards_selected": 720,
+        "card_precision": 0.116667,
+        "card_pr_auc": 0.09141,
+        "event_events": 398,
+        "event_capturable": 383,
+        "event_captured": 115,
+        "event_recall": 0.288945,
+        "event_recall_capturable": 0.300261,
+        "lead_hours_p25": 16.966111,
+        "lead_hours_median": 35.123333,
+        "lead_hours_p75": 56.031944,
+        "event_recall_mass": 0.316062,
+        "event_recall_single_channel": 0.263415,
+        "event_recall_weekday": 0.28739,
+        "event_recall_weekend": 0.298246,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 36,
+          "precision": 0.0
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 73,
+          "precision": 0.068493
+         },
+         "Охранная подсистема": {
+          "cards": 41,
+          "precision": 0.073171
+         },
+         "Пожарная охрана": {
+          "cards": 206,
+          "precision": 0.165049
+         },
+         "Состояние фазы": {
+          "cards": 356,
+          "precision": 0.117978
+         },
+         "Температурная подсистема": {
+          "cards": 7,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.166667,
+         "precision_failing": 0.233333,
+         "precision_not_failing": 0.093333
+        }
+       },
+       "ceiling": {
+        "cards_selected": 720,
+        "card_precision": 0.398611,
+        "event_recall": 0.917085
+       },
+       "card_base_rate": 0.013072,
+       "cards_evaluable": 66785
+      },
+      "rolling_max_open_3": {
+       "selected": {
+        "cards_selected": 360,
+        "card_precision": 0.127778,
+        "card_pr_auc": 0.093754,
+        "event_events": 398,
+        "event_capturable": 383,
+        "event_captured": 57,
+        "event_recall": 0.143216,
+        "event_recall_capturable": 0.148825,
+        "lead_hours_p25": 13.518333,
+        "lead_hours_median": 35.123333,
+        "lead_hours_p75": 55.986667,
+        "event_recall_mass": 0.207254,
+        "event_recall_single_channel": 0.082927,
+        "event_recall_weekday": 0.134897,
+        "event_recall_weekend": 0.192982,
+        "cards_by_sensor_type": {
+         "Диагностическая подсистема": {
+          "cards": 4,
+          "precision": 0.0
+         },
+         "Пожарная охрана": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Состояние фазы": {
+          "cards": 355,
+          "precision": 0.129577
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.202778,
+         "precision_failing": 0.164384,
+         "precision_not_failing": 0.118467
+        }
+       },
+       "persistence": {
+        "cards_selected": 360,
+        "card_precision": 0.105556,
+        "card_pr_auc": 0.09141,
+        "event_events": 398,
+        "event_capturable": 383,
+        "event_captured": 51,
+        "event_recall": 0.128141,
+        "event_recall_capturable": 0.133159,
+        "lead_hours_p25": 16.299583,
+        "lead_hours_median": 34.562222,
+        "lead_hours_p75": 53.217361,
+        "event_recall_mass": 0.139896,
+        "event_recall_single_channel": 0.117073,
+        "event_recall_weekday": 0.129032,
+        "event_recall_weekend": 0.122807,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 14,
+          "precision": 0.0
+         },
+         "Датчик затопления": {
+          "cards": 1,
+          "precision": 0.0
+         },
+         "Диагностическая подсистема": {
+          "cards": 34,
+          "precision": 0.088235
+         },
+         "Охранная подсистема": {
+          "cards": 15,
+          "precision": 0.066667
+         },
+         "Пожарная охрана": {
+          "cards": 105,
+          "precision": 0.171429
+         },
+         "Состояние фазы": {
+          "cards": 187,
+          "precision": 0.085561
+         },
+         "Температурная подсистема": {
+          "cards": 4,
+          "precision": 0.0
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.188889,
+         "precision_failing": 0.220588,
+         "precision_not_failing": 0.078767
+        }
+       },
+       "ceiling": {
+        "cards_selected": 360,
+        "card_precision": 0.644444,
+        "event_recall": 0.778894
+       },
+       "card_base_rate": 0.013072,
+       "cards_evaluable": 66785
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.095823,
+      "cards_selected": 464,
+      "card_precision": 0.114224,
+      "event_recall": 0.158291
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 78
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.0,
+         "low": -0.024016,
+         "high": 0.023614,
+         "undefined_replicates": 0,
+         "share_positive": 0.425
+        },
+        "event_recall": {
+         "point": -0.030151,
+         "low": -0.080223,
+         "high": 0.017476,
+         "undefined_replicates": 0,
+         "share_positive": 0.1075
+        },
+        "card_pr_auc": {
+         "point": 0.002343,
+         "low": -0.012718,
+         "high": 0.015429,
+         "undefined_replicates": 0,
+         "share_positive": 0.6175
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.0,
+         "low": -0.038404,
+         "high": 0.040366,
+         "undefined_replicates": 0,
+         "share_positive": 0.555
+        },
+        "event_recall": {
+         "point": -0.030151,
+         "low": -0.149198,
+         "high": 0.096314,
+         "undefined_replicates": 0,
+         "share_positive": 0.355
+        },
+        "card_pr_auc": {
+         "point": 0.002343,
+         "low": -0.043117,
+         "high": 0.040255,
+         "undefined_replicates": 0,
+         "share_positive": 0.5975
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "technical_value_24h": {
+   "role": "tuned",
+   "selection_from": "technical_value_24h",
+   "main_policy": {
+    "type": "topk",
+    "k": 2
+   },
+   "units": {
+    "A": {
+     "candidate": "persistence",
+     "success": false,
+     "holdout": {
+      "top2_per_day": {
+       "selected": {
+        "cards_selected": 726,
+        "card_precision": 0.034435,
+        "card_pr_auc": 0.037049,
+        "event_events": 90,
+        "event_capturable": 88,
+        "event_captured": 34,
+        "event_recall": 0.377778,
+        "event_recall_capturable": 0.386364,
+        "lead_hours_p25": 10.593125,
+        "lead_hours_median": 13.732083,
+        "lead_hours_p75": 16.086528,
+        "event_recall_mass": 0.433962,
+        "event_recall_single_channel": 0.297297,
+        "event_recall_weekday": 0.368421,
+        "event_recall_weekend": 0.428571,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 11,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 715,
+          "precision": 0.034965
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.020661,
+         "precision_failing": 0.066667,
+         "precision_not_failing": 0.033755
+        }
+       },
+       "persistence": {
+        "cards_selected": 726,
+        "card_precision": 0.034435,
+        "card_pr_auc": 0.037049,
+        "event_events": 90,
+        "event_capturable": 88,
+        "event_captured": 34,
+        "event_recall": 0.377778,
+        "event_recall_capturable": 0.386364,
+        "lead_hours_p25": 10.593125,
+        "lead_hours_median": 13.732083,
+        "lead_hours_p75": 16.086528,
+        "event_recall_mass": 0.433962,
+        "event_recall_single_channel": 0.297297,
+        "event_recall_weekday": 0.368421,
+        "event_recall_weekend": 0.428571,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 11,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 715,
+          "precision": 0.034965
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.020661,
+         "precision_failing": 0.066667,
+         "precision_not_failing": 0.033755
+        }
+       },
+       "ceiling": {
+        "cards_selected": 726,
+        "card_precision": 0.099174,
+        "event_recall": 0.955556
+       },
+       "card_base_rate": 0.002955,
+       "cards_evaluable": 25042
+      },
+      "top1_per_day": {
+       "selected": {
+        "cards_selected": 363,
+        "card_precision": 0.052342,
+        "card_pr_auc": 0.037049,
+        "event_events": 90,
+        "event_capturable": 88,
+        "event_captured": 27,
+        "event_recall": 0.3,
+        "event_recall_capturable": 0.306818,
+        "lead_hours_p25": 10.666806,
+        "lead_hours_median": 14.168889,
+        "lead_hours_p75": 16.960139,
+        "event_recall_mass": 0.320755,
+        "event_recall_single_channel": 0.27027,
+        "event_recall_weekday": 0.289474,
+        "event_recall_weekend": 0.357143,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 5,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 358,
+          "precision": 0.053073
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.035813,
+         "precision_failing": 0.076923,
+         "precision_not_failing": 0.051429
+        }
+       },
+       "persistence": {
+        "cards_selected": 363,
+        "card_precision": 0.052342,
+        "card_pr_auc": 0.037049,
+        "event_events": 90,
+        "event_capturable": 88,
+        "event_captured": 27,
+        "event_recall": 0.3,
+        "event_recall_capturable": 0.306818,
+        "lead_hours_p25": 10.666806,
+        "lead_hours_median": 14.168889,
+        "lead_hours_p75": 16.960139,
+        "event_recall_mass": 0.320755,
+        "event_recall_single_channel": 0.27027,
+        "event_recall_weekday": 0.289474,
+        "event_recall_weekend": 0.357143,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 5,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 358,
+          "precision": 0.053073
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.035813,
+         "precision_failing": 0.076923,
+         "precision_not_failing": 0.051429
+        }
+       },
+       "ceiling": {
+        "cards_selected": 363,
+        "card_precision": 0.162534,
+        "event_recall": 0.811111
+       },
+       "card_base_rate": 0.002955,
+       "cards_evaluable": 25042
+      },
+      "top3_per_day": {
+       "selected": {
+        "cards_selected": 1089,
+        "card_precision": 0.025712,
+        "card_pr_auc": 0.037049,
+        "event_events": 90,
+        "event_capturable": 88,
+        "event_captured": 37,
+        "event_recall": 0.411111,
+        "event_recall_capturable": 0.420455,
+        "lead_hours_p25": 10.519444,
+        "lead_hours_median": 13.6025,
+        "lead_hours_p75": 15.969444,
+        "event_recall_mass": 0.490566,
+        "event_recall_single_channel": 0.297297,
+        "event_recall_weekday": 0.407895,
+        "event_recall_weekend": 0.428571,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 33,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 1056,
+          "precision": 0.026515
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.016529,
+         "precision_failing": 0.055556,
+         "precision_not_failing": 0.02521
+        }
+       },
+       "persistence": {
+        "cards_selected": 1089,
+        "card_precision": 0.025712,
+        "card_pr_auc": 0.037049,
+        "event_events": 90,
+        "event_capturable": 88,
+        "event_captured": 37,
+        "event_recall": 0.411111,
+        "event_recall_capturable": 0.420455,
+        "lead_hours_p25": 10.519444,
+        "lead_hours_median": 13.6025,
+        "lead_hours_p75": 15.969444,
+        "event_recall_mass": 0.490566,
+        "event_recall_single_channel": 0.297297,
+        "event_recall_weekday": 0.407895,
+        "event_recall_weekend": 0.428571,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 33,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 1056,
+          "precision": 0.026515
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.016529,
+         "precision_failing": 0.055556,
+         "precision_not_failing": 0.02521
+        }
+       },
+       "ceiling": {
+        "cards_selected": 1089,
+        "card_precision": 0.067952,
+        "event_recall": 0.977778
+       },
+       "card_base_rate": 0.002955,
+       "cards_evaluable": 25042
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.00014,
+      "cards_selected": 726,
+      "card_precision": 0.034435,
+      "event_recall": 0.377778
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 66
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "event_recall": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "card_pr_auc": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "event_recall": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "card_pr_auc": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        }
+       }
+      }
+     },
+     "cv": {
+      "mean_selected": {
+       "precision": 0.041198,
+       "recall": 0.370706,
+       "pr_auc": 0.036984
+      },
+      "mean_persistence": {
+       "precision": 0.041198,
+       "recall": 0.370706,
+       "pr_auc": 0.036984
+      },
+      "candidates_meeting_recall_floor": 54,
+      "candidates_total": 163
+     }
+    },
+    "B": {
+     "candidate": "persistence",
+     "success": false,
+     "holdout": {
+      "top2_per_day": {
+       "selected": {
+        "cards_selected": 726,
+        "card_precision": 0.034435,
+        "card_pr_auc": 0.037049,
+        "event_events": 90,
+        "event_capturable": 88,
+        "event_captured": 34,
+        "event_recall": 0.377778,
+        "event_recall_capturable": 0.386364,
+        "lead_hours_p25": 10.593125,
+        "lead_hours_median": 13.732083,
+        "lead_hours_p75": 16.086528,
+        "event_recall_mass": 0.433962,
+        "event_recall_single_channel": 0.297297,
+        "event_recall_weekday": 0.368421,
+        "event_recall_weekend": 0.428571,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 11,
+          "precision": 0.0
+         },
+         "Температурная подсистема": {
+          "cards": 715,
+          "precision": 0.034965
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.020661,
+         "precision_failing": 0.066667,
+         "precision_not_failing": 0.033755
+        }
+       },
+       "persistence": {
+        "cards_selected": 726,
+        "card_precision": 0.034435,
+        "card_pr_auc": 0.037049,
+        "event_events": 90,
+        "event_capturable": 88,
+        "event_captured": 34,
+        "event_recall": 0.377778,
+        "event_recall_capturable": 0.386364,
+        "lead_hours_p25": 10.593125,
+        "lead_hours_median": 13.732083,
+        "lead_hours_p75": 16.086528,
+        "event_recall_mass": 0.433962,
+        "event_recall_single_channel": 0.297297,
+        "event_recall_weekday": 0.368421,
+        "event_recall_weekend": 0.428571,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 11,
+          "precision": 0.0
+         },
+         "Температурная подсистема": {
+          "cards": 715,
+          "precision": 0.034965
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.020661,
+         "precision_failing": 0.066667,
+         "precision_not_failing": 0.033755
+        }
+       },
+       "ceiling": {
+        "cards_selected": 726,
+        "card_precision": 0.099174,
+        "event_recall": 0.955556
+       },
+       "card_base_rate": 0.002955,
+       "cards_evaluable": 25042
+      },
+      "top1_per_day": {
+       "selected": {
+        "cards_selected": 363,
+        "card_precision": 0.052342,
+        "card_pr_auc": 0.037049,
+        "event_events": 90,
+        "event_capturable": 88,
+        "event_captured": 27,
+        "event_recall": 0.3,
+        "event_recall_capturable": 0.306818,
+        "lead_hours_p25": 10.666806,
+        "lead_hours_median": 14.168889,
+        "lead_hours_p75": 16.960139,
+        "event_recall_mass": 0.320755,
+        "event_recall_single_channel": 0.27027,
+        "event_recall_weekday": 0.289474,
+        "event_recall_weekend": 0.357143,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 5,
+          "precision": 0.0
+         },
+         "Температурная подсистема": {
+          "cards": 358,
+          "precision": 0.053073
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.035813,
+         "precision_failing": 0.076923,
+         "precision_not_failing": 0.051429
+        }
+       },
+       "persistence": {
+        "cards_selected": 363,
+        "card_precision": 0.052342,
+        "card_pr_auc": 0.037049,
+        "event_events": 90,
+        "event_capturable": 88,
+        "event_captured": 27,
+        "event_recall": 0.3,
+        "event_recall_capturable": 0.306818,
+        "lead_hours_p25": 10.666806,
+        "lead_hours_median": 14.168889,
+        "lead_hours_p75": 16.960139,
+        "event_recall_mass": 0.320755,
+        "event_recall_single_channel": 0.27027,
+        "event_recall_weekday": 0.289474,
+        "event_recall_weekend": 0.357143,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 5,
+          "precision": 0.0
+         },
+         "Температурная подсистема": {
+          "cards": 358,
+          "precision": 0.053073
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.035813,
+         "precision_failing": 0.076923,
+         "precision_not_failing": 0.051429
+        }
+       },
+       "ceiling": {
+        "cards_selected": 363,
+        "card_precision": 0.162534,
+        "event_recall": 0.811111
+       },
+       "card_base_rate": 0.002955,
+       "cards_evaluable": 25042
+      },
+      "top3_per_day": {
+       "selected": {
+        "cards_selected": 1089,
+        "card_precision": 0.025712,
+        "card_pr_auc": 0.037049,
+        "event_events": 90,
+        "event_capturable": 88,
+        "event_captured": 37,
+        "event_recall": 0.411111,
+        "event_recall_capturable": 0.420455,
+        "lead_hours_p25": 10.519444,
+        "lead_hours_median": 13.6025,
+        "lead_hours_p75": 15.969444,
+        "event_recall_mass": 0.490566,
+        "event_recall_single_channel": 0.297297,
+        "event_recall_weekday": 0.407895,
+        "event_recall_weekend": 0.428571,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 33,
+          "precision": 0.0
+         },
+         "Температурная подсистема": {
+          "cards": 1056,
+          "precision": 0.026515
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.016529,
+         "precision_failing": 0.055556,
+         "precision_not_failing": 0.02521
+        }
+       },
+       "persistence": {
+        "cards_selected": 1089,
+        "card_precision": 0.025712,
+        "card_pr_auc": 0.037049,
+        "event_events": 90,
+        "event_capturable": 88,
+        "event_captured": 37,
+        "event_recall": 0.411111,
+        "event_recall_capturable": 0.420455,
+        "lead_hours_p25": 10.519444,
+        "lead_hours_median": 13.6025,
+        "lead_hours_p75": 15.969444,
+        "event_recall_mass": 0.490566,
+        "event_recall_single_channel": 0.297297,
+        "event_recall_weekday": 0.407895,
+        "event_recall_weekend": 0.428571,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 33,
+          "precision": 0.0
+         },
+         "Температурная подсистема": {
+          "cards": 1056,
+          "precision": 0.026515
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.016529,
+         "precision_failing": 0.055556,
+         "precision_not_failing": 0.02521
+        }
+       },
+       "ceiling": {
+        "cards_selected": 1089,
+        "card_precision": 0.067952,
+        "event_recall": 0.977778
+       },
+       "card_base_rate": 0.002955,
+       "cards_evaluable": 25042
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.00014,
+      "cards_selected": 726,
+      "card_precision": 0.034435,
+      "event_recall": 0.377778
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 66
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "event_recall": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "card_pr_auc": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "event_recall": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "card_pr_auc": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        }
+       }
+      }
+     },
+     "cv": {
+      "mean_selected": {
+       "precision": 0.041198,
+       "recall": 0.370706,
+       "pr_auc": 0.036984
+      },
+      "mean_persistence": {
+       "precision": 0.041198,
+       "recall": 0.370706,
+       "pr_auc": 0.036984
+      },
+      "candidates_meeting_recall_floor": 54,
+      "candidates_total": 163
+     }
+    }
+   }
+  },
+  "technical_value_48h": {
+   "role": "report only, 24h selection",
+   "selection_from": "technical_value_24h",
+   "main_policy": "see selection_from",
+   "units": {
+    "A": {
+     "candidate": "persistence",
+     "success": false,
+     "holdout": {
+      "every_2_days_4_cards": {
+       "selected": {
+        "cards_selected": 720,
+        "card_precision": 0.041667,
+        "card_pr_auc": 0.044195,
+        "event_events": 90,
+        "event_capturable": 90,
+        "event_captured": 46,
+        "event_recall": 0.511111,
+        "event_recall_capturable": 0.511111,
+        "lead_hours_p25": 11.440486,
+        "lead_hours_median": 14.471806,
+        "lead_hours_p75": 36.395972,
+        "event_recall_mass": 0.584906,
+        "event_recall_single_channel": 0.405405,
+        "event_recall_weekday": 0.5,
+        "event_recall_weekend": 0.571429,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 16,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 704,
+          "precision": 0.042614
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.005556,
+         "precision_failing": 0.0,
+         "precision_not_failing": 0.041899
+        }
+       },
+       "persistence": {
+        "cards_selected": 720,
+        "card_precision": 0.041667,
+        "card_pr_auc": 0.044195,
+        "event_events": 90,
+        "event_capturable": 90,
+        "event_captured": 46,
+        "event_recall": 0.511111,
+        "event_recall_capturable": 0.511111,
+        "lead_hours_p25": 11.440486,
+        "lead_hours_median": 14.471806,
+        "lead_hours_p75": 36.395972,
+        "event_recall_mass": 0.584906,
+        "event_recall_single_channel": 0.405405,
+        "event_recall_weekday": 0.5,
+        "event_recall_weekend": 0.571429,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 16,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 704,
+          "precision": 0.042614
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.005556,
+         "precision_failing": 0.0,
+         "precision_not_failing": 0.041899
+        }
+       },
+       "ceiling": {
+        "cards_selected": 720,
+        "card_precision": 0.1,
+        "event_recall": 0.977778
+       },
+       "card_base_rate": 0.005747,
+       "cards_evaluable": 24884
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.006819,
+      "cards_selected": 604,
+      "card_precision": 0.048013,
+      "event_recall": 0.488889
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 66
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "event_recall": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "card_pr_auc": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "event_recall": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "card_pr_auc": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        }
+       }
+      }
+     }
+    },
+    "B": {
+     "candidate": "persistence",
+     "success": false,
+     "holdout": {
+      "every_2_days_4_cards": {
+       "selected": {
+        "cards_selected": 720,
+        "card_precision": 0.041667,
+        "card_pr_auc": 0.044195,
+        "event_events": 90,
+        "event_capturable": 90,
+        "event_captured": 46,
+        "event_recall": 0.511111,
+        "event_recall_capturable": 0.511111,
+        "lead_hours_p25": 11.440486,
+        "lead_hours_median": 14.471806,
+        "lead_hours_p75": 36.395972,
+        "event_recall_mass": 0.584906,
+        "event_recall_single_channel": 0.405405,
+        "event_recall_weekday": 0.5,
+        "event_recall_weekend": 0.571429,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 16,
+          "precision": 0.0
+         },
+         "Температурная подсистема": {
+          "cards": 704,
+          "precision": 0.042614
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.005556,
+         "precision_failing": 0.0,
+         "precision_not_failing": 0.041899
+        }
+       },
+       "persistence": {
+        "cards_selected": 720,
+        "card_precision": 0.041667,
+        "card_pr_auc": 0.044195,
+        "event_events": 90,
+        "event_capturable": 90,
+        "event_captured": 46,
+        "event_recall": 0.511111,
+        "event_recall_capturable": 0.511111,
+        "lead_hours_p25": 11.440486,
+        "lead_hours_median": 14.471806,
+        "lead_hours_p75": 36.395972,
+        "event_recall_mass": 0.584906,
+        "event_recall_single_channel": 0.405405,
+        "event_recall_weekday": 0.5,
+        "event_recall_weekend": 0.571429,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 16,
+          "precision": 0.0
+         },
+         "Температурная подсистема": {
+          "cards": 704,
+          "precision": 0.042614
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.005556,
+         "precision_failing": 0.0,
+         "precision_not_failing": 0.041899
+        }
+       },
+       "ceiling": {
+        "cards_selected": 720,
+        "card_precision": 0.1,
+        "event_recall": 0.977778
+       },
+       "card_base_rate": 0.005747,
+       "cards_evaluable": 24884
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.006819,
+      "cards_selected": 604,
+      "card_precision": 0.048013,
+      "event_recall": 0.488889
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 53,
+       "object_id": 66
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "event_recall": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "card_pr_auc": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "event_recall": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "card_pr_auc": {
+         "point": 0.0,
+         "low": 0.0,
+         "high": 0.0,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "technical_value_72h": {
+   "role": "tuned",
+   "selection_from": "technical_value_72h",
+   "main_policy": {
+    "type": "rolling",
+    "max_open": 6,
+    "window_days": 3
+   },
+   "units": {
+    "A": {
+     "candidate": "F2|c3|noisy_or|rank_mean_with_persistence",
+     "success": false,
+     "holdout": {
+      "rolling_max_open_6": {
+       "selected": {
+        "cards_selected": 720,
+        "card_precision": 0.034722,
+        "card_pr_auc": 0.062463,
+        "event_events": 90,
+        "event_capturable": 90,
+        "event_captured": 41,
+        "event_recall": 0.455556,
+        "event_recall_capturable": 0.455556,
+        "lead_hours_p25": 12.493056,
+        "lead_hours_median": 24.380278,
+        "lead_hours_p75": 58.060278,
+        "event_recall_mass": 0.471698,
+        "event_recall_single_channel": 0.432432,
+        "event_recall_weekday": 0.473684,
+        "event_recall_weekend": 0.357143,
+        "cards_by_sensor_type": {
+         "Датчик температуры": {
+          "cards": 720,
+          "precision": 0.034722
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.009722,
+         "precision_failing": 0.142857,
+         "precision_not_failing": 0.033661
+        }
+       },
+       "persistence": {
+        "cards_selected": 720,
+        "card_precision": 0.052778,
+        "card_pr_auc": 0.055757,
+        "event_events": 90,
+        "event_capturable": 90,
+        "event_captured": 54,
+        "event_recall": 0.6,
+        "event_recall_capturable": 0.6,
+        "lead_hours_p25": 13.485347,
+        "lead_hours_median": 22.524306,
+        "lead_hours_p75": 51.450625,
+        "event_recall_mass": 0.641509,
+        "event_recall_single_channel": 0.540541,
+        "event_recall_weekday": 0.592105,
+        "event_recall_weekend": 0.642857,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 12,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 708,
+          "precision": 0.053672
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.009722,
+         "precision_failing": 0.142857,
+         "precision_not_failing": 0.051893
+        }
+       },
+       "ceiling": {
+        "cards_selected": 720,
+        "card_precision": 0.095833,
+        "event_recall": 0.966667
+       },
+       "card_base_rate": 0.008331,
+       "cards_evaluable": 24726
+      },
+      "rolling_max_open_3": {
+       "selected": {
+        "cards_selected": 360,
+        "card_precision": 0.055556,
+        "card_pr_auc": 0.062463,
+        "event_events": 90,
+        "event_capturable": 90,
+        "event_captured": 35,
+        "event_recall": 0.388889,
+        "event_recall_capturable": 0.388889,
+        "lead_hours_p25": 12.530694,
+        "lead_hours_median": 24.380278,
+        "lead_hours_p75": 61.180694,
+        "event_recall_mass": 0.433962,
+        "event_recall_single_channel": 0.324324,
+        "event_recall_weekday": 0.407895,
+        "event_recall_weekend": 0.285714,
+        "cards_by_sensor_type": {
+         "Датчик температуры": {
+          "cards": 360,
+          "precision": 0.055556
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.019444,
+         "precision_failing": 0.142857,
+         "precision_not_failing": 0.053824
+        }
+       },
+       "persistence": {
+        "cards_selected": 360,
+        "card_precision": 0.063889,
+        "card_pr_auc": 0.055757,
+        "event_events": 90,
+        "event_capturable": 90,
+        "event_captured": 33,
+        "event_recall": 0.366667,
+        "event_recall_capturable": 0.366667,
+        "lead_hours_p25": 14.309722,
+        "lead_hours_median": 24.380278,
+        "lead_hours_p75": 38.168889,
+        "event_recall_mass": 0.471698,
+        "event_recall_single_channel": 0.216216,
+        "event_recall_weekday": 0.381579,
+        "event_recall_weekend": 0.285714,
+        "cards_by_sensor_type": {
+         "Газовый датчик": {
+          "cards": 11,
+          "precision": 0.0
+         },
+         "Датчик температуры": {
+          "cards": 349,
+          "precision": 0.065903
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.013889,
+         "precision_failing": 0.2,
+         "precision_not_failing": 0.061972
+        }
+       },
+       "ceiling": {
+        "cards_selected": 360,
+        "card_precision": 0.191667,
+        "event_recall": 0.966667
+       },
+       "card_base_rate": 0.008331,
+       "cards_evaluable": 24726
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.022472,
+      "cards_selected": 247,
+      "card_precision": 0.076923,
+      "event_recall": 0.377778
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 52,
+       "object_id": 66
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": -0.018056,
+         "low": -0.030819,
+         "high": -0.008065,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "event_recall": {
+         "point": -0.144444,
+         "low": -0.263454,
+         "high": -0.05102,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "card_pr_auc": {
+         "point": 0.006706,
+         "low": -0.025011,
+         "high": 0.036177,
+         "undefined_replicates": 0,
+         "share_positive": 0.6475
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": -0.018056,
+         "low": -0.036691,
+         "high": -0.003072,
+         "undefined_replicates": 0,
+         "share_positive": 0.0175
+        },
+        "event_recall": {
+         "point": -0.144444,
+         "low": -0.387859,
+         "high": -0.010249,
+         "undefined_replicates": 0,
+         "share_positive": 0.0175
+        },
+        "card_pr_auc": {
+         "point": 0.006706,
+         "low": -0.035639,
+         "high": 0.039342,
+         "undefined_replicates": 0,
+         "share_positive": 0.4975
+        }
+       }
+      }
+     },
+     "cv": {
+      "mean_selected": {
+       "precision": 0.066075,
+       "recall": 0.625335,
+       "pr_auc": 0.097878
+      },
+      "mean_persistence": {
+       "precision": 0.061908,
+       "recall": 0.575953,
+       "pr_auc": 0.089061
+      },
+      "candidates_meeting_recall_floor": 78,
+      "candidates_total": 163
+     }
+    },
+    "B": {
+     "candidate": "F2|c3|noisy_or|rank_mean_with_persistence",
+     "success": false,
+     "holdout": {
+      "rolling_max_open_6": {
+       "selected": {
+        "cards_selected": 720,
+        "card_precision": 0.034722,
+        "card_pr_auc": 0.062573,
+        "event_events": 90,
+        "event_capturable": 90,
+        "event_captured": 41,
+        "event_recall": 0.455556,
+        "event_recall_capturable": 0.455556,
+        "lead_hours_p25": 12.493056,
+        "lead_hours_median": 24.380278,
+        "lead_hours_p75": 58.060278,
+        "event_recall_mass": 0.471698,
+        "event_recall_single_channel": 0.432432,
+        "event_recall_weekday": 0.473684,
+        "event_recall_weekend": 0.357143,
+        "cards_by_sensor_type": {
+         "Температурная подсистема": {
+          "cards": 720,
+          "precision": 0.034722
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.009722,
+         "precision_failing": 0.142857,
+         "precision_not_failing": 0.033661
+        }
+       },
+       "persistence": {
+        "cards_selected": 720,
+        "card_precision": 0.052778,
+        "card_pr_auc": 0.055757,
+        "event_events": 90,
+        "event_capturable": 90,
+        "event_captured": 54,
+        "event_recall": 0.6,
+        "event_recall_capturable": 0.6,
+        "lead_hours_p25": 13.485347,
+        "lead_hours_median": 22.524306,
+        "lead_hours_p75": 51.450625,
+        "event_recall_mass": 0.641509,
+        "event_recall_single_channel": 0.540541,
+        "event_recall_weekday": 0.592105,
+        "event_recall_weekend": 0.642857,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 12,
+          "precision": 0.0
+         },
+         "Температурная подсистема": {
+          "cards": 708,
+          "precision": 0.053672
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.009722,
+         "precision_failing": 0.142857,
+         "precision_not_failing": 0.051893
+        }
+       },
+       "ceiling": {
+        "cards_selected": 720,
+        "card_precision": 0.095833,
+        "event_recall": 0.966667
+       },
+       "card_base_rate": 0.008331,
+       "cards_evaluable": 24726
+      },
+      "rolling_max_open_3": {
+       "selected": {
+        "cards_selected": 360,
+        "card_precision": 0.055556,
+        "card_pr_auc": 0.062573,
+        "event_events": 90,
+        "event_capturable": 90,
+        "event_captured": 35,
+        "event_recall": 0.388889,
+        "event_recall_capturable": 0.388889,
+        "lead_hours_p25": 12.530694,
+        "lead_hours_median": 24.380278,
+        "lead_hours_p75": 61.180694,
+        "event_recall_mass": 0.433962,
+        "event_recall_single_channel": 0.324324,
+        "event_recall_weekday": 0.407895,
+        "event_recall_weekend": 0.285714,
+        "cards_by_sensor_type": {
+         "Температурная подсистема": {
+          "cards": 360,
+          "precision": 0.055556
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.019444,
+         "precision_failing": 0.142857,
+         "precision_not_failing": 0.053824
+        }
+       },
+       "persistence": {
+        "cards_selected": 360,
+        "card_precision": 0.063889,
+        "card_pr_auc": 0.055757,
+        "event_events": 90,
+        "event_capturable": 90,
+        "event_captured": 33,
+        "event_recall": 0.366667,
+        "event_recall_capturable": 0.366667,
+        "lead_hours_p25": 14.309722,
+        "lead_hours_median": 24.380278,
+        "lead_hours_p75": 38.168889,
+        "event_recall_mass": 0.471698,
+        "event_recall_single_channel": 0.216216,
+        "event_recall_weekday": 0.381579,
+        "event_recall_weekend": 0.285714,
+        "cards_by_sensor_type": {
+         "Газовая охрана": {
+          "cards": 11,
+          "precision": 0.0
+         },
+         "Температурная подсистема": {
+          "cards": 349,
+          "precision": 0.065903
+         }
+        },
+        "already_failing_objects": {
+         "share_of_selected_cards": 0.013889,
+         "precision_failing": 0.2,
+         "precision_not_failing": 0.061972
+        }
+       },
+       "ceiling": {
+        "cards_selected": 360,
+        "card_precision": 0.191667,
+        "event_recall": 0.966667
+       },
+       "card_base_rate": 0.008331,
+       "cards_evaluable": 24726
+      }
+     },
+     "variable_budget": {
+      "risk_level": 0.022472,
+      "cards_selected": 247,
+      "card_precision": 0.076923,
+      "event_recall": 0.377778
+     },
+     "bootstrap": {
+      "replicates": 400,
+      "blocks": {
+       "iso_week": 52,
+       "object_id": 66
+      },
+      "selected_minus_persistence": {
+       "iso_week": {
+        "card_precision": {
+         "point": -0.018056,
+         "low": -0.030819,
+         "high": -0.008065,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "event_recall": {
+         "point": -0.144444,
+         "low": -0.263454,
+         "high": -0.05102,
+         "undefined_replicates": 0,
+         "share_positive": 0.0
+        },
+        "card_pr_auc": {
+         "point": 0.006816,
+         "low": -0.025008,
+         "high": 0.036395,
+         "undefined_replicates": 0,
+         "share_positive": 0.6525
+        }
+       },
+       "object_id": {
+        "card_precision": {
+         "point": -0.018056,
+         "low": -0.036717,
+         "high": -0.00271,
+         "undefined_replicates": 0,
+         "share_positive": 0.0175
+        },
+        "event_recall": {
+         "point": -0.144444,
+         "low": -0.387859,
+         "high": -0.010249,
+         "undefined_replicates": 0,
+         "share_positive": 0.0175
+        },
+        "card_pr_auc": {
+         "point": 0.006816,
+         "low": -0.035536,
+         "high": 0.039469,
+         "undefined_replicates": 0,
+         "share_positive": 0.5025
+        }
+       }
+      }
+     },
+     "cv": {
+      "mean_selected": {
+       "precision": 0.066075,
+       "recall": 0.625335,
+       "pr_auc": 0.097878
+      },
+      "mean_persistence": {
+       "precision": 0.061908,
+       "recall": 0.575953,
+       "pr_auc": 0.089061
+      },
+      "candidates_meeting_recall_floor": 78,
+      "candidates_total": 163
+     }
+    }
+   }
+  }
+ },
+ "provenance": {
+  "labels_summary_sha256": "5e649fc89e91b8f2dfb2553b9c9ad415e3d4529bc07eecde7b04a7618b031540",
+  "git_sha": "c838a7e1bbedf69419bd15661ef92d98708f9c5e",
+  "git_dirty": true,
+  "code_sha256": {
+   "tune_sensor_failure.py": "cf8065d8627d5baef2d2b8af430285e8b0979f8b600fa2e97e9c5d6e563eee7c",
+   "sensor_failure_tuning.py": "7f4fa8a004f416b1869603802addb224344b15b997bdda796ea0b63579147a7f",
+   "sensor_failure_evaluation.py": "fa48c303dd153dcebcf5a5c8e8379bb58a2673b4cb6bbdc89dbd4e06f8405cd3",
+   "sensor_failure_target.py": "90010b89b75a90c639122f4b0b3f9e0264ad10de36771809d032d1682e577a94"
+  },
+  "python": "3.12.11"
+ }
+}

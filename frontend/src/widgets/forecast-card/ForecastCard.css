@@ -1,0 +1,115 @@
+/* Широкая карточка C4: без drawer и затемнения; решение справа, на узком экране ниже. */
+.forecast-card { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+.forecast-card__toolbar { display: flex; align-items: center; gap: 16px; min-height: 44px; padding: 0 24px; border-bottom: 1px solid var(--line); }
+.forecast-card__back { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+.forecast-card__grid { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(360px, 1fr); }
+.forecast-card__main { min-width: 0; padding: 20px 24px 12px; }
+.forecast-card__aside { min-width: 0; padding: 20px 24px; border-left: 1px solid var(--line); }
+.forecast-card__heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
+.forecast-card__heading h2 { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 24px; font-weight: 650; line-height: 1.3; }
+.forecast-card__subline { margin: 4px 0 0; color: var(--muted); }
+.forecast-card__chips { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; padding-top: 4px; }
+
+/* «Факторы для проверки»: три колонки с крупным значением, как в C4 */
+.card-factors { padding: 12px 0 10px; border-bottom: 1px solid var(--line); }
+.card-factors h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 17px; font-weight: 650; }
+.card-factors__icon { color: var(--accent-text); }
+.card-factors__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card-factor { display: grid; gap: 2px; align-content: start; padding: 0 16px; border-left: 1px solid var(--line); }
+.card-factor:first-child { padding-left: 0; border-left: 0; }
+.card-factor__label { color: var(--muted); font-size: 13px; }
+.card-factor__value { font-size: 20px; font-weight: 700; line-height: 1.3; }
+.card-factor__note { color: var(--muted); font-size: 12px; }
+.card-factors__foot { margin: 8px 0 0; color: var(--muted); font-size: 12px; }
+.card-rows.card-rows--after { border-top: 0; }
+
+.forecast-card__banner { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; padding: 10px 14px; background: var(--surface-soft); border: 1px dashed var(--neutral-fill); border-radius: 4px; }
+
+.card-rows { margin: 0; border-top: 1px solid var(--line); }
+.card-row { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.card-row dt { color: var(--muted); font-weight: 600; }
+.card-row dd { margin: 0; display: grid; gap: 2px; }
+.card-row__line { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.card-row__note { color: var(--muted); font-size: 12px; }
+
+.forecast-card__recommendation { display: flex; gap: 12px; margin: 14px 0 6px; padding: 12px 14px; background: var(--selected-surface); border: 1px solid var(--line); border-radius: 4px; }
+.forecast-card__recommendation-icon { flex: none; color: var(--accent-text); margin-top: 2px; }
+.forecast-card__recommendation-head { display: flex; align-items: center; gap: 8px; }
+.forecast-card__recommendation p { margin: 4px 0 0; }
+.forecast-card__recommendation-details { margin: 6px 0 0; padding-left: 18px; }
+
+.forecast-card__overlay { margin: 10px 0; padding: 10px 14px; border: 1px solid var(--line); border-radius: 4px; }
+.forecast-card__overlay ul { margin: 6px 0 0; padding-left: 18px; }
+
+.forecast-card__details.ant-collapse > .ant-collapse-item > .ant-collapse-header { padding-left: 0; padding-right: 0; color: var(--accent-text); font-weight: 600; }
+.forecast-card__details .ant-collapse-content > .ant-collapse-content-box { padding: 4px 0 8px; }
+.card-details { display: grid; gap: 18px; }
+.card-details h3 { margin: 0 0 6px; font-size: 14px; font-weight: 650; }
+.card-details p { margin: 4px 0; }
+.card-details__facts { margin: 0; padding-left: 18px; }
+.plain-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.plain-table th, .plain-table td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.plain-table th { color: var(--muted); font-weight: 600; background: var(--surface-soft); }
+.kv { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 4px 12px; margin: 0; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+
+/* Решение */
+.decision-panel { display: grid; gap: 12px; }
+.decision-panel h2 { margin: 0; font-size: 17px; font-weight: 650; }
+.decision-panel__current { display: grid; gap: 4px; padding: 10px 12px; background: var(--surface-soft); border: 1px solid var(--line); border-radius: 4px; }
+.decision-panel__saved { display: grid; gap: 6px; padding: 10px 12px; border: 1px solid var(--line); border-left: 3px solid var(--success-text); border-radius: 4px; }
+.decision-form { display: grid; gap: 12px; }
+.decision-form fieldset { margin: 0; padding: 0; border: 0; display: grid; gap: 6px; }
+.decision-form legend, .decision-form__field > span:first-child { margin-bottom: 4px; font-weight: 600; }
+.decision-form__field { display: grid; gap: 4px; }
+.decision-form__codes { display: flex; flex-wrap: wrap; gap: 6px; }
+.decision-form__codes.ant-radio-group .ant-radio-button-wrapper { border-radius: 4px; border-inline-start-width: 1px; }
+.decision-form__codes.ant-radio-group .ant-radio-button-wrapper::before { display: none; }
+.decision-form__other { width: 100%; }
+.decision-form__methods { width: 100%; }
+.decision-form__notify { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 8px; }
+.decision-form__problems { margin: 0; color: var(--foreground); font-weight: 600; }
+
+.decision-summary { display: grid; gap: 4px; }
+.decision-summary__head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.decision-summary__fields { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 2px 10px; margin: 0; font-size: 13px; }
+.decision-summary__fields dt { color: var(--muted); }
+.decision-summary__fields dd { margin: 0; }
+.decision-summary__draft { display: grid; gap: 4px; justify-items: start; }
+.decision-summary__draft-text { margin: 0; padding: 6px 10px; border-left: 3px dashed var(--line); background: var(--surface-soft); white-space: pre-wrap; overflow-wrap: anywhere; justify-self: stretch; }
+.decision-panel__saved-head { display: grid; gap: 2px; }
+.decision-panel__edit { justify-self: start; }
+.decision-form__draft-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 8px; }
+.decision-form__actions { display: flex; gap: 8px; }
+.decision-form__actions > .ant-btn-primary { flex: 1; }
+
+@media (max-width: 1100px) {
+  .forecast-card__grid { grid-template-columns: 1fr; }
+  .forecast-card__aside { border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 680px) {
+  .card-row { grid-template-columns: 1fr; gap: 2px; }
+  .forecast-card__heading { flex-direction: column; }
+  .card-factors__grid { grid-template-columns: 1fr; gap: 8px; }
+  .card-factor { padding: 0; border-left: 0; }
+  .forecast-card__main, .forecast-card__aside { padding: 16px; }
+  .decision-form__notify, .kv { grid-template-columns: 1fr; }
+}
+
+.card-row__big { font-size: 20px; font-weight: 700; line-height: 1.2; }
+/* «Сейчас на объекте»: текущие тревоги источника по линиям объекта */
+.card-now { display: grid; gap: 4px; margin-bottom: 12px; padding: 10px 14px; border: 1px solid var(--attention-fill); border-radius: 4px; }
+.card-now h3 { margin: 0; font-size: 14px; font-weight: 700; }
+.card-now ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
+.card-now li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.card-now__value { color: var(--attention-text); font-weight: 600; }
+.card-now__note { margin: 2px 0 0; font-weight: 600; }
+.card-now--none { border-color: var(--line); color: var(--muted); padding: 6px 14px; }
+/* F-01: все записи группы уже сменились «Нормой» — без красного. */
+.card-now__past .card-now__value { color: var(--foreground); }
+.card-now__note-muted { margin: 2px 0 0; color: var(--muted); }
+.check-result-panel { padding-top: 12px; border-top: 1px solid var(--line); }
+.check-result-panel__actions { display: flex; gap: 8px; }
+.check-result-panel__hint { margin: -4px 0 0; }
+.decision-form__sublabel { font-weight: 400; color: var(--muted); }

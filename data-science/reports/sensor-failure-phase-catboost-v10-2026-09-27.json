@@ -1,0 +1,278 @@
+{
+ "stage": "v10: compact CatBoost on the phase vs the static list (development folds)",
+ "note": "holdout exhausted (five uses) and not read; a pass is only a candidate for a live check on data after 06.2026; criterion fixed in the script header before the fit",
+ "features": [
+  "events_7d",
+  "events_30d",
+  "events_90d",
+  "events_365d",
+  "days_since_last",
+  "daily_std_30d",
+  "daily_std_90d",
+  "lag_1",
+  "lag_2",
+  "lag_3",
+  "lag_4",
+  "lag_5",
+  "lag_6",
+  "lag_7",
+  "feeder_share_90d",
+  "deenergized_rows_30d",
+  "day_of_week",
+  "object",
+  "feeder_kind",
+  "month"
+ ],
+ "cat_features": [
+  "object",
+  "feeder_kind",
+  "month"
+ ],
+ "n_features": 20,
+ "model": {
+  "library": "catboost",
+  "depth": 6,
+  "random_seed": 17,
+  "other": "defaults"
+ },
+ "criterion": {
+  "delta_precision": 0.03,
+  "delta_recall_incident": 0.0
+ },
+ "results": {
+  "2023->2024": {
+   "train_cards": 6336,
+   "train_positive_share": 0.39299242424242425,
+   "K10": {
+    "static_list": {
+     "card_precision": 0.7587628865979381,
+     "R_incident": 0.6833667334669339,
+     "R_incident_fresh": 0.8205128205128205,
+     "R_strict": 0.6136724960254372,
+     "cards_issued": 509,
+     "pairs_issued": 11
+    },
+    "catboost_all": {
+     "card_precision": 0.758130081300813,
+     "R_incident": 0.7074148296593187,
+     "R_incident_fresh": 0.8846153846153846,
+     "R_strict": 0.6248012718600954,
+     "cards_issued": 517,
+     "pairs_issued": 11,
+     "delta_precision": -0.0006328052971250608,
+     "delta_recall_incident": 0.024048096192384794,
+     "delta_recall_fresh": 0.0641025641025641
+    },
+    "catboost_top10": {
+     "card_precision": 0.7468619246861925,
+     "R_incident": 0.685370741482966,
+     "R_incident_fresh": 0.8974358974358975,
+     "R_strict": 0.604133545310016,
+     "cards_issued": 505,
+     "pairs_issued": 11,
+     "delta_precision": -0.011900961911745611,
+     "delta_recall_incident": 0.002004008016032066,
+     "delta_recall_fresh": 0.07692307692307698
+    }
+   },
+   "K7": {
+    "static_list": {
+     "card_precision": 0.8224543080939948,
+     "R_incident": 0.5811623246492986,
+     "R_incident_fresh": 0.5,
+     "R_strict": 0.5294117647058824,
+     "cards_issued": 404,
+     "pairs_issued": 8
+    },
+    "catboost_all": {
+     "card_precision": 0.7657142857142857,
+     "R_incident": 0.5350701402805611,
+     "R_incident_fresh": 0.7051282051282052,
+     "R_strict": 0.4562798092209857,
+     "cards_issued": 372,
+     "pairs_issued": 11,
+     "delta_precision": -0.0567400223797091,
+     "delta_recall_incident": -0.04609218436873752,
+     "delta_recall_fresh": 0.20512820512820518
+    },
+    "catboost_top10": {
+     "card_precision": 0.7780898876404494,
+     "R_incident": 0.5450901803607214,
+     "R_incident_fresh": 0.7435897435897436,
+     "R_strict": 0.465818759936407,
+     "cards_issued": 376,
+     "pairs_issued": 11,
+     "delta_precision": -0.04436442045354538,
+     "delta_recall_incident": -0.03607214428857719,
+     "delta_recall_fresh": 0.2435897435897436
+    }
+   }
+  },
+  "2024->2023": {
+   "train_cards": 5814,
+   "train_positive_share": 0.45751633986928103,
+   "K10": {
+    "static_list": {
+     "card_precision": 0.6552511415525114,
+     "R_incident": 0.6920980926430518,
+     "R_incident_fresh": 0.9382716049382716,
+     "R_strict": 0.6054852320675106,
+     "cards_issued": 438,
+     "pairs_issued": 11
+    },
+    "catboost_all": {
+     "card_precision": 0.6666666666666666,
+     "R_incident": 0.7002724795640327,
+     "R_incident_fresh": 0.9506172839506173,
+     "R_strict": 0.6075949367088608,
+     "cards_issued": 432,
+     "pairs_issued": 11,
+     "delta_precision": 0.011415525114155223,
+     "delta_recall_incident": 0.008174386920980936,
+     "delta_recall_fresh": 0.012345679012345734
+    },
+    "catboost_top10": {
+     "card_precision": 0.6551724137931034,
+     "R_incident": 0.6893732970027248,
+     "R_incident_fresh": 0.9382716049382716,
+     "R_strict": 0.6012658227848101,
+     "cards_issued": 435,
+     "pairs_issued": 11,
+     "delta_precision": -7.87277594079816e-05,
+     "delta_recall_incident": -0.0027247956403270157,
+     "delta_recall_fresh": 0.0
+    }
+   },
+   "K7": {
+    "static_list": {
+     "card_precision": 0.7186544342507645,
+     "R_incident": 0.5613079019073569,
+     "R_incident_fresh": 0.6172839506172839,
+     "R_strict": 0.4957805907172996,
+     "cards_issued": 327,
+     "pairs_issued": 9
+    },
+    "catboost_all": {
+     "card_precision": 0.7049689440993789,
+     "R_incident": 0.5831062670299727,
+     "R_incident_fresh": 0.7407407407407407,
+     "R_strict": 0.47890295358649787,
+     "cards_issued": 322,
+     "pairs_issued": 11,
+     "delta_precision": -0.013685490151385538,
+     "delta_recall_incident": 0.021798365122615793,
+     "delta_recall_fresh": 0.12345679012345678
+    },
+    "catboost_top10": {
+     "card_precision": 0.6962025316455697,
+     "R_incident": 0.5613079019073569,
+     "R_incident_fresh": 0.7530864197530864,
+     "R_strict": 0.4641350210970464,
+     "cards_issued": 316,
+     "pairs_issued": 11,
+     "delta_precision": -0.022451902605194807,
+     "delta_recall_incident": 0.0,
+     "delta_recall_fresh": 0.13580246913580252
+    }
+   }
+  }
+ },
+ "importances": {
+  "2023->2024": {
+   "all": {
+    "deenergized_rows_30d": 17.150855576677536,
+    "days_since_last": 15.204548252848747,
+    "events_365d": 13.445012164543735,
+    "month": 9.836785631159273,
+    "object": 9.81798522350607,
+    "daily_std_90d": 8.328733732578867,
+    "feeder_share_90d": 6.379131384476511,
+    "events_90d": 5.74721744650576,
+    "daily_std_30d": 4.95404401256866,
+    "events_30d": 3.3616108180516133,
+    "events_7d": 2.1853006888576636,
+    "lag_1": 1.3009531302329413,
+    "day_of_week": 1.295223411316862,
+    "lag_7": 0.35643387440019564,
+    "lag_2": 0.1904869078011422,
+    "lag_6": 0.15277444653392006,
+    "lag_5": 0.10381999526101379,
+    "lag_3": 0.10336509246486882,
+    "lag_4": 0.08571821021464654,
+    "feeder_kind": 0.0
+   },
+   "top10": [
+    "deenergized_rows_30d",
+    "days_since_last",
+    "events_365d",
+    "month",
+    "object",
+    "daily_std_90d",
+    "feeder_share_90d",
+    "events_90d",
+    "daily_std_30d",
+    "events_30d"
+   ]
+  },
+  "2024->2023": {
+   "all": {
+    "days_since_last": 16.526020030767437,
+    "events_90d": 13.37192300795476,
+    "deenergized_rows_30d": 11.240719768985628,
+    "daily_std_90d": 11.192780918939224,
+    "month": 9.945242982966612,
+    "object": 9.808494401352267,
+    "events_365d": 8.720543979700631,
+    "feeder_share_90d": 8.036066548859818,
+    "daily_std_30d": 3.5636068141530295,
+    "events_30d": 2.7918805827463546,
+    "events_7d": 2.22350407934341,
+    "lag_1": 1.5806646345278408,
+    "day_of_week": 0.4683778991129264,
+    "lag_6": 0.15285912532946022,
+    "lag_2": 0.13457903355938305,
+    "lag_7": 0.07123748836043033,
+    "lag_5": 0.06925694831578119,
+    "lag_3": 0.06297976696338282,
+    "lag_4": 0.03926198806156356,
+    "feeder_kind": 0.0
+   },
+   "top10": [
+    "days_since_last",
+    "events_90d",
+    "deenergized_rows_30d",
+    "daily_std_90d",
+    "month",
+    "object",
+    "events_365d",
+    "feeder_share_90d",
+    "daily_std_30d",
+    "events_30d"
+   ]
+  }
+ },
+ "verdict": {
+  "catboost_all": {
+   "per_k": {
+    "K10": false,
+    "K7": false
+   },
+   "pass": false
+  },
+  "catboost_top10": {
+   "per_k": {
+    "K10": false,
+    "K7": false
+   },
+   "pass": false
+  }
+ },
+ "seconds": 12.8,
+ "git_sha": "b1ebb2087d7579476c58f93d98786ccc2ab51106",
+ "git_dirty": true,
+ "labels": {
+  "7d": "data-science/artifacts/sensor-failure-v1/model_labels_v5",
+  "14d, 21d, events": "data-science/artifacts/next-2026-09-27/ds-exploration5/labels",
+  "exploration5_labels_summary_sha256": "a44a4ab3815786e9c027332bdd686c62d6c8f6888ce93810b0296c27d5b47073"
+ }
+}

@@ -1,0 +1,31 @@
+{
+  "version": "sensor-failure-model-v5-exploration5",
+  "status": "labels for the v5 exploration 5 (user decision 27.09.2026, no training): horizons 14..21 days; same protocol as sensor-failure-model-v5 (Q 24 h, W 10 min, daily 00:00 cutoffs, same exclusions and Q shadow); development months only",
+  "labels_config": "configs/sensor_failure_v1.json",
+  "pre_registration": "none: exploration on the development folds; written outside the repository (artifacts/next-2026-09-27/ds-exploration5)",
+  "episode": {"q_hours": 24, "cluster_window_minutes": 10},
+  "targets": {
+    "connection_loss_all": {"label": "connection_loss", "episode_filter": null, "role": "all 'Неисправен' episodes, no duration filter (primary by the user's decision)"},
+    "connection_loss_ge2s": {"label": "connection_loss", "episode_filter": {"op": ">=", "seconds": 2}, "role": "comparison"}
+  },
+  "episode_filter_rule": "an episode qualifies if the filter is null, it is open at data end, or date_diff('second', start_at, end_at) satisfies the filter",
+  "horizons": {
+    "336h": {"cadence": "daily 00:00 labels; window 14 days"},
+    "360h": {"cadence": "daily 00:00 labels; window 15 days"},
+    "384h": {"cadence": "daily 00:00 labels; window 16 days"},
+    "408h": {"cadence": "daily 00:00 labels; window 17 days"},
+    "432h": {"cadence": "daily 00:00 labels; window 18 days"},
+    "456h": {"cadence": "daily 00:00 labels; window 19 days"},
+    "480h": {"cadence": "daily 00:00 labels; window 20 days"},
+    "504h": {"cadence": "daily 00:00 labels; window 21 days"}
+  },
+  "weekly_horizons": [],
+  "periods": {
+    "development": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2025-01-01"]],
+    "calibration_and_threshold": [["2025-01-01", "2025-07-01"]],
+    "holdout": [["2025-07-01", "2026-07-01"]],
+    "excluded": "2021 and cutoffs whose 30-day lookback touches 2021 or starts before 2019-01-01"
+  },
+  "built_for": "development months only (2019-01..2020-12, 2022-01..2024-12); calibration and holdout months are not labelled",
+  "card_units": {"A": "object_id x sensor_type"}
+}

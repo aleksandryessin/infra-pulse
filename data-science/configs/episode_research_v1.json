@@ -1,0 +1,23 @@
+{
+  "version": "registered-episodes-v1",
+  "snapshot": "data-science/artifacts/curated-all-sensors-exclude-2021-q2",
+  "overlay": "data-science/artifacts/alarm-spike-exclusions-v1/manifest.json",
+  "history_days": 90,
+  "horizons_days": [14, 1],
+  "targets": ["A", "B", "phase"],
+  "masks": ["none", "structural_unknown"],
+  "models": ["catboost", "tcn", "transformer"],
+  "seeds": [17, 43, 91],
+  "k": 10,
+  "bootstrap_replicates": 2000,
+  "max_tensor_bytes": 2147483648,
+  "folds": [
+    {"name": "dev2024", "train_start": "2023-01-01", "validation_start": "2024-01-01", "test_start": "2024-07-01", "test_end": "2025-01-01"},
+    {"name": "viewed2025_2026", "train_start": "2023-01-01", "validation_start": "2025-01-01", "test_start": "2025-07-01", "test_end": "2026-07-01"}
+  ],
+  "training": {"device": "cpu", "threads": 2, "hidden": 16, "batch_size": 256, "epochs": 12, "patience": 3, "learning_rate": 0.001, "catboost_iterations": 200},
+  "acceptance": {"recall_gain": 0.02, "precision_loss": 0.01, "absolute_precision": 0.7, "absolute_recall": 0.5},
+  "availability": "simulated_source_time",
+  "schedule_use": "diagnostic_only",
+  "reference": "current_snapshot_without_validity_dates"
+}

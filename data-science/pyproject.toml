@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "infra-pulse-research"
+version = "0.1.0"
+description = "Local data audit and offline ML research for InfraPulse"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "infra-pulse-core[features]",
+  "duckdb>=1.4,<2",
+  "numpy>=2,<3",
+  "pyarrow>=20,<24",
+  "scikit-learn>=1.6,<2",
+  "catboost>=1.2.8,<2",
+  "mlflow>=3.7,<4",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/infra_pulse_research"]
+
+[tool.uv.sources]
+infra-pulse-core = { workspace = true }

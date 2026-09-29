@@ -1,0 +1,6455 @@
+{
+ "stage": "final check of M1-M3 against the static list on the holdout",
+ "holdout_use": "четвёртое использование отложенного периода 2025-07-01..2026-07-01",
+ "status": "frozen_before_holdout_2026-09-27_head_ds",
+ "config": "data-science/configs/sensor_failure_final_models_v8.json",
+ "note": "aggregates only; candidates chosen on folds 2023/2024 (v6, v7); nothing tuned on the holdout",
+ "features": {
+  "builder": "sensor_failure_fe_v7.PairFeatures (as build_sensor_failure_v7_features.build)",
+  "labels": "data-science/artifacts/sensor-failure-v1/model_labels_v5_holdout",
+  "data_end": "2026-07-01",
+  "rows": 561491,
+  "timings_seconds": {
+   "inputs": 27.1,
+   "H": 1.6,
+   "S": 0.6,
+   "C": 0.3,
+   "X": 0.7,
+   "K": 0.0
+  },
+  "seconds": 31.0,
+  "development_check": {
+   "rows_old": 453455,
+   "rows_new": 453455,
+   "only_old": 0,
+   "only_new": 0,
+   "differing_cells": {
+    "cat__sensor_type": 0,
+    "cat__system_type": 0,
+    "p7h__events_7d": 0,
+    "p7h__events_14d": 0,
+    "p7h__events_30d": 0,
+    "p7h__events_35d": 0,
+    "p7h__events_90d": 0,
+    "p7h__events_180d": 0,
+    "p7h__events_365d": 0,
+    "p7h__decay_30d": 0,
+    "p7h__decay_90d": 0,
+    "p7h__days_since_last": 0,
+    "p7h__interval_median_d": 0,
+    "p7h__interval_cv": 0,
+    "p7s__episodes_365d": 0,
+    "p7s__dur_median_s_365d": 0,
+    "p7s__dur_max_h_365d": 0,
+    "p7s__share_ge1h_365d": 0,
+    "p7s__share_lt2s_365d": 0,
+    "p7s__mass_share_365d": 0,
+    "p7s__channels_per_event_365d": 0,
+    "p7s__last_open": 242,
+    "p7s__last_duration_h": 5136,
+    "p7s__hours_since_last_end": 5136,
+    "p7c__known_channels": 0,
+    "p7c__candidate_channels": 0,
+    "p7c__active_channels": 0,
+    "p7c__share_channels_with_history_365d": 0,
+    "p7c__pair_age_days": 0,
+    "p7x__obj_other_events_7d": 0,
+    "p7x__obj_other_events_30d": 0,
+    "p7x__type_rate_net_365d": 0,
+    "p7x__type_rate_net_30d": 0,
+    "p7x__type_rate_area_365d": 0,
+    "p7x__pumpfan_deenergized_n_1d": 0,
+    "p7x__pumpfan_deenergized_1d": 0,
+    "p7x__health_flag_1d": 0,
+    "p7k__workdays_7d": 0,
+    "p7k__holidays_7d": 0,
+    "p7k__workdays_14d": 0,
+    "p7k__holidays_14d": 0,
+    "p7k__season_sin": 0,
+    "p7k__season_cos": 0,
+    "month": 0
+   },
+   "max_abs_diff": {
+    "p7h__events_7d": 0.0,
+    "p7h__events_14d": 0.0,
+    "p7h__events_30d": 0.0,
+    "p7h__events_35d": 0.0,
+    "p7h__events_90d": 0.0,
+    "p7h__events_180d": 0.0,
+    "p7h__events_365d": 0.0,
+    "p7h__decay_30d": 1.5631940186722204e-13,
+    "p7h__decay_90d": 9.947598300641403e-14,
+    "p7h__days_since_last": 0.0,
+    "p7h__interval_median_d": 0.0,
+    "p7h__interval_cv": 0.0,
+    "p7s__episodes_365d": 0.0,
+    "p7s__dur_median_s_365d": 0.0,
+    "p7s__dur_max_h_365d": 0.0,
+    "p7s__share_ge1h_365d": 0.0,
+    "p7s__share_lt2s_365d": 0.0,
+    "p7s__mass_share_365d": 0.0,
+    "p7s__channels_per_event_365d": 0.0,
+    "p7s__last_open": 1.0,
+    "p7s__last_duration_h": 1370.346388888889,
+    "p7s__hours_since_last_end": 1370.3463888888887,
+    "p7c__known_channels": 0.0,
+    "p7c__candidate_channels": 0.0,
+    "p7c__active_channels": 0.0,
+    "p7c__share_channels_with_history_365d": 0.0,
+    "p7c__pair_age_days": 0.0,
+    "p7x__obj_other_events_7d": 0.0,
+    "p7x__obj_other_events_30d": 0.0,
+    "p7x__type_rate_net_365d": 0.0,
+    "p7x__type_rate_net_30d": 0.0,
+    "p7x__type_rate_area_365d": 0.0,
+    "p7x__pumpfan_deenergized_n_1d": 0.0,
+    "p7x__pumpfan_deenergized_1d": 0.0,
+    "p7x__health_flag_1d": 0.0,
+    "p7k__workdays_7d": 0.0,
+    "p7k__holidays_7d": 0.0,
+    "p7k__workdays_14d": 0.0,
+    "p7k__holidays_14d": 0.0,
+    "p7k__season_sin": 0.0,
+    "p7k__season_cos": 0.0
+   },
+   "rtol": 1e-09,
+   "p1_columns": [
+    "cat__sensor_type",
+    "cat__system_type",
+    "p7h__days_since_last",
+    "p7h__decay_30d",
+    "p7h__decay_90d",
+    "p7h__events_14d",
+    "p7h__events_180d",
+    "p7h__events_30d",
+    "p7h__events_35d",
+    "p7h__events_365d",
+    "p7h__events_7d",
+    "p7h__events_90d",
+    "p7h__interval_cv",
+    "p7h__interval_median_d"
+   ],
+   "p1_identical": true
+  }
+ },
+ "fit": {
+  "m1": {
+   "set": "P1",
+   "columns": [
+    "cat__sensor_type",
+    "cat__system_type",
+    "p7h__days_since_last",
+    "p7h__decay_30d",
+    "p7h__decay_90d",
+    "p7h__events_14d",
+    "p7h__events_180d",
+    "p7h__events_30d",
+    "p7h__events_35d",
+    "p7h__events_365d",
+    "p7h__events_7d",
+    "p7h__events_90d",
+    "p7h__interval_cv",
+    "p7h__interval_median_d"
+   ],
+   "catboost": {
+    "depth": 6,
+    "iterations": 1000,
+    "learning_rate": 0.03,
+    "loss_function": "Logloss",
+    "l2_leaf_reg": 5,
+    "auto_class_weights": "Balanced",
+    "task_type": "CPU",
+    "thread_count": 6
+   },
+   "fit_rows": 421847,
+   "fit_positive": 14518,
+   "fit_first_cutoff": "2019-01-31",
+   "fit_last_cutoff": "2024-12-24",
+   "fits": [
+    {
+     "seed": 17,
+     "seconds": 52.3,
+     "top_features": [
+      [
+       "p7h__days_since_last",
+       19.352
+      ],
+      [
+       "p7h__interval_median_d",
+       17.413
+      ],
+      [
+       "p7h__decay_90d",
+       13.463
+      ],
+      [
+       "p7h__interval_cv",
+       11.503
+      ],
+      [
+       "cat__sensor_type",
+       10.529
+      ],
+      [
+       "p7h__decay_30d",
+       9.948
+      ],
+      [
+       "cat__system_type",
+       8.928
+      ],
+      [
+       "p7h__events_365d",
+       4.165
+      ],
+      [
+       "p7h__events_180d",
+       2.294
+      ],
+      [
+       "p7h__events_90d",
+       1.228
+      ]
+     ]
+    },
+    {
+     "seed": 18,
+     "seconds": 52.8,
+     "top_features": [
+      [
+       "p7h__days_since_last",
+       20.587
+      ],
+      [
+       "p7h__interval_median_d",
+       17.073
+      ],
+      [
+       "p7h__decay_90d",
+       12.475
+      ],
+      [
+       "cat__sensor_type",
+       10.884
+      ],
+      [
+       "p7h__decay_30d",
+       10.493
+      ],
+      [
+       "p7h__interval_cv",
+       10.291
+      ],
+      [
+       "cat__system_type",
+       8.988
+      ],
+      [
+       "p7h__events_365d",
+       4.387
+      ],
+      [
+       "p7h__events_180d",
+       2.223
+      ],
+      [
+       "p7h__events_90d",
+       1.354
+      ]
+     ]
+    },
+    {
+     "seed": 19,
+     "seconds": 52.7,
+     "top_features": [
+      [
+       "p7h__days_since_last",
+       20.976
+      ],
+      [
+       "p7h__interval_median_d",
+       16.655
+      ],
+      [
+       "p7h__decay_90d",
+       13.905
+      ],
+      [
+       "cat__sensor_type",
+       11.757
+      ],
+      [
+       "p7h__interval_cv",
+       10.638
+      ],
+      [
+       "cat__system_type",
+       9.326
+      ],
+      [
+       "p7h__decay_30d",
+       8.434
+      ],
+      [
+       "p7h__events_365d",
+       3.873
+      ],
+      [
+       "p7h__events_180d",
+       2.117
+      ],
+      [
+       "p7h__events_90d",
+       1.329
+      ]
+     ]
+    }
+   ]
+  },
+  "stats": {
+   "fit_end": "2025-01-01",
+   "pairs": 286,
+   "pair_events_observed": 4086,
+   "pair_events_before_fit_end_holdout_labels": 4100,
+   "pair_events_before_fit_end_development_labels": 4100,
+   "seconds": 0.3,
+   "bayes": {
+    "_pooled": {
+     "alpha": 0.10016216091285887,
+     "beta": 11.115769132829273,
+     "source": "pooled"
+    },
+    "Газовый датчик": {
+     "alpha": 0.42151674812556816,
+     "beta": 87.01946106550022,
+     "source": "type",
+     "pairs": 18,
+     "events": 142,
+     "exposure_days": 29315.0
+    },
+    "Датчик движения": {
+     "alpha": 0.08346504140261372,
+     "beta": 43.93259436546314,
+     "source": "type",
+     "pairs": 34,
+     "events": 103,
+     "exposure_days": 54215.0
+    },
+    "Датчик дыма": {
+     "alpha": 0.7384940828593252,
+     "beta": 19.765129079996033,
+     "source": "type",
+     "pairs": 29,
+     "events": 1649,
+     "exposure_days": 44134.0
+    },
+    "Датчик затопления": {
+     "alpha": 0.12059323255568223,
+     "beta": 662.5392196609182,
+     "source": "type",
+     "pairs": 8,
+     "events": 2,
+     "exposure_days": 10988.0
+    },
+    "Датчик температуры": {
+     "alpha": 0.11982136241919977,
+     "beta": 157.26715738279998,
+     "source": "type",
+     "pairs": 29,
+     "events": 37,
+     "exposure_days": 48563.0
+    },
+    "ИБП": {
+     "alpha": 1.5473605450931993,
+     "beta": 209.67458451688125,
+     "source": "type",
+     "pairs": 19,
+     "events": 214,
+     "exposure_days": 28998.0
+    },
+    "КД АВ": {
+     "alpha": 0.0584419221386595,
+     "beta": 14.141275388351636,
+     "source": "type",
+     "pairs": 21,
+     "events": 140,
+     "exposure_days": 33876.0
+    },
+    "КД Дверь": {
+     "alpha": 0.050729705174909656,
+     "beta": 46.54150435412518,
+     "source": "type",
+     "pairs": 53,
+     "events": 93,
+     "exposure_days": 85322.0
+    },
+    "КД Люк": {
+     "alpha": 0.0456865576240028,
+     "beta": 45.96285252010987,
+     "source": "type",
+     "pairs": 13,
+     "events": 21,
+     "exposure_days": 21127.0
+    },
+    "Ручной извещатель": {
+     "alpha": 0.15902918453062947,
+     "beta": 573.0881713202118,
+     "source": "type",
+     "pairs": 13,
+     "events": 6,
+     "exposure_days": 21622.0
+    },
+    "Состояние УИР-Р": {
+     "alpha": 0.7908371468614929,
+     "beta": 840.2644685403362,
+     "source": "type",
+     "pairs": 20,
+     "events": 28,
+     "exposure_days": 29750.0
+    },
+    "Состояние фазы": {
+     "alpha": 0.6580684209965482,
+     "beta": 11.736951953110871,
+     "source": "type",
+     "pairs": 18,
+     "events": 1647,
+     "exposure_days": 29375.0
+    },
+    "Стекло": {
+     "alpha": 0.10016216091285887,
+     "beta": 11.115769132829273,
+     "source": "pooled",
+     "pairs": 8,
+     "events": 0,
+     "exposure_days": 11585.0
+    },
+    "Тепловой датчик": {
+     "alpha": 0.14842358857819551,
+     "beta": 170.1305384077566,
+     "source": "type",
+     "pairs": 3,
+     "events": 4,
+     "exposure_days": 4585.0
+    },
+    "_half_life": 90.0
+   },
+   "hawkes": {
+    "_pooled": {
+     "mu": 0.0008991860030692556,
+     "alpha": 0.03095250005397244,
+     "tau": 29.755538949312694,
+     "branching": 0.9210083209345802,
+     "loglik": -15353.194477990415,
+     "converged": true,
+     "at_bound": [
+      false,
+      false,
+      false
+     ],
+     "events": 4086,
+     "pairs": 286,
+     "exposure_days": 453455.0,
+     "source": "pooled"
+    },
+    "Газовый датчик": {
+     "mu": 0.0021752209692137907,
+     "alpha": 0.11648617844117759,
+     "tau": 4.720869019438449,
+     "branching": 0.5499159909957342,
+     "loglik": -707.7903665182492,
+     "converged": true,
+     "at_bound": [
+      false,
+      false,
+      false
+     ],
+     "events": 142,
+     "pairs": 18,
+     "exposure_days": 29315.0,
+     "source": "type"
+    },
+    "Датчик движения": {
+     "mu": 0.00035500467659682763,
+     "alpha": 0.008698426875283594,
+     "tau": 96.84387378221157,
+     "branching": 0.8423893544137614,
+     "loglik": -598.5805736441458,
+     "converged": true,
+     "at_bound": [
+      false,
+      false,
+      false
+     ],
+     "events": 103,
+     "pairs": 34,
+     "exposure_days": 54215.0,
+     "source": "type"
+    },
+    "Датчик дыма": {
+     "mu": 0.020722309584766067,
+     "alpha": 8.907716298526378,
+     "tau": 0.05000000000000001,
+     "branching": 0.44538581492631896,
+     "loglik": -3821.1292753630523,
+     "converged": true,
+     "at_bound": [
+      false,
+      false,
+      true
+     ],
+     "events": 1649,
+     "pairs": 29,
+     "exposure_days": 44134.0,
+     "source": "type"
+    },
+    "Датчик затопления": {
+     "mu": 0.0008991860030692556,
+     "alpha": 0.03095250005397244,
+     "tau": 29.755538949312694,
+     "branching": 0.9210083209345802,
+     "source": "pooled",
+     "events": 2,
+     "pairs": 8
+    },
+    "Датчик температуры": {
+     "mu": 0.00020908122706419325,
+     "alpha": 0.0014657030788446242,
+     "tau": 2280.738118329514,
+     "branching": 3.3428848820738635,
+     "loglik": -266.78842554060213,
+     "converged": true,
+     "at_bound": [
+      false,
+      false,
+      false
+     ],
+     "events": 37,
+     "pairs": 29,
+     "exposure_days": 48563.0,
+     "source": "type"
+    },
+    "ИБП": {
+     "mu": 0.0031179517021842937,
+     "alpha": 0.014960662958990265,
+     "tau": 40.66482116854335,
+     "branching": 0.6083726837901897,
+     "loglik": -1167.944625469224,
+     "converged": true,
+     "at_bound": [
+      false,
+      false,
+      false
+     ],
+     "events": 214,
+     "pairs": 19,
+     "exposure_days": 28998.0,
+     "source": "type"
+    },
+    "КД АВ": {
+     "mu": 0.0006620575169147362,
+     "alpha": 0.025244695522488484,
+     "tau": 33.97991753202372,
+     "branching": 0.8578126719752072,
+     "loglik": -634.9988476448376,
+     "converged": true,
+     "at_bound": [
+      false,
+      false,
+      false
+     ],
+     "events": 140,
+     "pairs": 21,
+     "exposure_days": 33876.0,
+     "source": "type"
+    },
+    "КД Дверь": {
+     "mu": 0.0001925618543393096,
+     "alpha": 0.006226649445357535,
+     "tau": 144.96978122943062,
+     "branching": 0.9026760078858374,
+     "loglik": -562.54684735637,
+     "converged": true,
+     "at_bound": [
+      false,
+      false,
+      false
+     ],
+     "events": 93,
+     "pairs": 53,
+     "exposure_days": 85322.0,
+     "source": "type"
+    },
+    "КД Люк": {
+     "mu": 0.0008991860030692556,
+     "alpha": 0.03095250005397244,
+     "tau": 29.755538949312694,
+     "branching": 0.9210083209345802,
+     "source": "pooled",
+     "events": 21,
+     "pairs": 13
+    },
+    "Ручной извещатель": {
+     "mu": 0.0008991860030692556,
+     "alpha": 0.03095250005397244,
+     "tau": 29.755538949312694,
+     "branching": 0.9210083209345802,
+     "source": "pooled",
+     "events": 6,
+     "pairs": 13
+    },
+    "Состояние УИР-Р": {
+     "mu": 0.0008991860030692556,
+     "alpha": 0.03095250005397244,
+     "tau": 29.755538949312694,
+     "branching": 0.9210083209345802,
+     "source": "pooled",
+     "events": 28,
+     "pairs": 20
+    },
+    "Состояние фазы": {
+     "mu": 0.0011888905184167038,
+     "alpha": 0.0313515191223236,
+     "tau": 32.22535176133222,
+     "branching": 1.0103137319690114,
+     "loglik": -4849.366933593754,
+     "converged": true,
+     "at_bound": [
+      false,
+      false,
+      false
+     ],
+     "events": 1647,
+     "pairs": 18,
+     "exposure_days": 29375.0,
+     "source": "type"
+    },
+    "Стекло": {
+     "mu": 0.0008991860030692556,
+     "alpha": 0.03095250005397244,
+     "tau": 29.755538949312694,
+     "branching": 0.9210083209345802,
+     "source": "pooled",
+     "events": 0,
+     "pairs": 8
+    },
+    "Тепловой датчик": {
+     "mu": 0.0008991860030692556,
+     "alpha": 0.03095250005397244,
+     "tau": 29.755538949312694,
+     "branching": 0.9210083209345802,
+     "source": "pooled",
+     "events": 4,
+     "pairs": 3
+    }
+   }
+  },
+  "seconds": 159.7,
+  "versions": {
+   "catboost": "1.2.10",
+   "numpy": "2.5.3",
+   "pandas": "2.3.3",
+   "scipy": "1.18.1",
+   "duckdb": "1.5.5"
+  }
+ },
+ "evaluation": {
+  "modes": {
+   "i": {
+    "spec": {
+     "k": 7,
+     "slice": "все пары",
+     "candidates": [
+      "M1",
+      "M2",
+      "M3"
+     ]
+    },
+    "fresh_lookback_days": null,
+    "recall_events": "all evaluable events",
+    "points": {
+     "static_list_365": {
+      "cards_issued": 571,
+      "cards_known": 557,
+      "cards_unknown_outcome": 14,
+      "card_precision": 0.6409335727109515,
+      "card_precision_lower_bound": 0.6252189141856392,
+      "new_cards_per_day": 1.5905292479108635,
+      "chronic_share_issued": 0.7565674255691769,
+      "events": 1641,
+      "event_recall_open": 0.3004265691651432,
+      "event_recall_without_repeats": 0.22242535039609995,
+      "event_recall_protocol": 0.34064594759293115,
+      "lead_hours_median_open": 45.003055555555555,
+      "lead_share_le_24h": 0.3306288032454361,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.4
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.46
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.3392857142857143
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.2653061224489796
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.24242424242424243
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.08936170212765958
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.24817518248175183
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.2815533980582524
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.25
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.33783783783783783
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.41420118343195267
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.40441176470588236
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 53,
+        "value": 0.7169811320754716
+       },
+       "2025-08": {
+        "n": 50,
+        "value": 0.64
+       },
+       "2025-09": {
+        "n": 43,
+        "value": 0.5581395348837209
+       },
+       "2025-10": {
+        "n": 45,
+        "value": 0.5333333333333333
+       },
+       "2025-11": {
+        "n": 37,
+        "value": 0.43243243243243246
+       },
+       "2025-12": {
+        "n": 37,
+        "value": 0.35135135135135137
+       },
+       "2026-01": {
+        "n": 47,
+        "value": 0.7021276595744681
+       },
+       "2026-02": {
+        "n": 34,
+        "value": 0.47058823529411764
+       },
+       "2026-03": {
+        "n": 51,
+        "value": 0.7254901960784313
+       },
+       "2026-04": {
+        "n": 66,
+        "value": 0.7575757575757576
+       },
+       "2026-05": {
+        "n": 53,
+        "value": 0.8113207547169812
+       },
+       "2026-06": {
+        "n": 41,
+        "value": 0.7560975609756098
+       }
+      },
+      "all_events": null
+     },
+     "persistence": {
+      "cards_issued": 518,
+      "cards_known": 504,
+      "cards_unknown_outcome": 14,
+      "card_precision": 0.5317460317460317,
+      "card_precision_lower_bound": 0.5173745173745173,
+      "new_cards_per_day": 1.4428969359331476,
+      "chronic_share_issued": 0.9768339768339769,
+      "events": 1641,
+      "event_recall_open": 0.21328458257160268,
+      "event_recall_without_repeats": 0.1687995124923827,
+      "event_recall_protocol": 0.30834856794637416,
+      "lead_hours_median_open": 45.096944444444446,
+      "lead_share_le_24h": 0.3057142857142857,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.1826086956521739
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.21
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.11607142857142858
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.11224489795918367
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.15151515151515152
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.14893617021276595
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.2773722627737226
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.22330097087378642
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.20945945945945946
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.18468468468468469
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.3905325443786982
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.29411764705882354
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 42,
+        "value": 0.4523809523809524
+       },
+       "2025-08": {
+        "n": 43,
+        "value": 0.46511627906976744
+       },
+       "2025-09": {
+        "n": 34,
+        "value": 0.29411764705882354
+       },
+       "2025-10": {
+        "n": 37,
+        "value": 0.2972972972972973
+       },
+       "2025-11": {
+        "n": 36,
+        "value": 0.25
+       },
+       "2025-12": {
+        "n": 41,
+        "value": 0.4878048780487805
+       },
+       "2026-01": {
+        "n": 51,
+        "value": 0.6470588235294118
+       },
+       "2026-02": {
+        "n": 38,
+        "value": 0.5789473684210527
+       },
+       "2026-03": {
+        "n": 49,
+        "value": 0.6122448979591837
+       },
+       "2026-04": {
+        "n": 47,
+        "value": 0.6382978723404256
+       },
+       "2026-05": {
+        "n": 48,
+        "value": 0.7708333333333334
+       },
+       "2026-06": {
+        "n": 38,
+        "value": 0.7105263157894737
+       }
+      },
+      "all_events": null
+     },
+     "M1": {
+      "cards_issued": 573,
+      "cards_known": 560,
+      "cards_unknown_outcome": 13,
+      "card_precision": 0.6553571428571429,
+      "card_precision_lower_bound": 0.6404886561954625,
+      "new_cards_per_day": 1.5961002785515321,
+      "chronic_share_issued": 0.787085514834206,
+      "events": 1641,
+      "event_recall_open": 0.27787934186471663,
+      "event_recall_without_repeats": 0.22851919561243145,
+      "event_recall_protocol": 0.32480195003046924,
+      "lead_hours_median_open": 41.164722222222224,
+      "lead_share_le_24h": 0.31359649122807015,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.3826086956521739
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.37
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.26785714285714285
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.20408163265306123
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.25757575757575757
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.20425531914893616
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.29927007299270075
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.21359223300970873
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.2702702702702703
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.3153153153153153
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.2958579881656805
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.27205882352941174
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 56,
+        "value": 0.7321428571428571
+       },
+       "2025-08": {
+        "n": 52,
+        "value": 0.6153846153846154
+       },
+       "2025-09": {
+        "n": 41,
+        "value": 0.6097560975609756
+       },
+       "2025-10": {
+        "n": 44,
+        "value": 0.45454545454545453
+       },
+       "2025-11": {
+        "n": 38,
+        "value": 0.4473684210526316
+       },
+       "2025-12": {
+        "n": 44,
+        "value": 0.5454545454545454
+       },
+       "2026-01": {
+        "n": 51,
+        "value": 0.7647058823529411
+       },
+       "2026-02": {
+        "n": 39,
+        "value": 0.5641025641025641
+       },
+       "2026-03": {
+        "n": 50,
+        "value": 0.68
+       },
+       "2026-04": {
+        "n": 62,
+        "value": 0.7741935483870968
+       },
+       "2026-05": {
+        "n": 47,
+        "value": 0.7659574468085106
+       },
+       "2026-06": {
+        "n": 36,
+        "value": 0.8055555555555556
+       }
+      },
+      "all_events": null
+     },
+     "M2": {
+      "cards_issued": 570,
+      "cards_known": 559,
+      "cards_unknown_outcome": 11,
+      "card_precision": 0.6583184257602862,
+      "card_precision_lower_bound": 0.6456140350877193,
+      "new_cards_per_day": 1.5877437325905293,
+      "chronic_share_issued": 0.7824561403508772,
+      "events": 1641,
+      "event_recall_open": 0.2797074954296161,
+      "event_recall_without_repeats": 0.2279098110907983,
+      "event_recall_protocol": 0.3180987202925046,
+      "lead_hours_median_open": 41.825833333333335,
+      "lead_share_le_24h": 0.30718954248366015,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.3826086956521739
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.34
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.25892857142857145
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.19387755102040816
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.2727272727272727
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.23829787234042554
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.23357664233576642
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.2912621359223301
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.2905405405405405
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.31981981981981983
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.28994082840236685
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.25
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 56,
+        "value": 0.7321428571428571
+       },
+       "2025-08": {
+        "n": 49,
+        "value": 0.5918367346938775
+       },
+       "2025-09": {
+        "n": 42,
+        "value": 0.5714285714285714
+       },
+       "2025-10": {
+        "n": 43,
+        "value": 0.46511627906976744
+       },
+       "2025-11": {
+        "n": 37,
+        "value": 0.40540540540540543
+       },
+       "2025-12": {
+        "n": 48,
+        "value": 0.5833333333333334
+       },
+       "2026-01": {
+        "n": 46,
+        "value": 0.7391304347826086
+       },
+       "2026-02": {
+        "n": 43,
+        "value": 0.627906976744186
+       },
+       "2026-03": {
+        "n": 51,
+        "value": 0.7450980392156863
+       },
+       "2026-04": {
+        "n": 61,
+        "value": 0.7868852459016393
+       },
+       "2026-05": {
+        "n": 49,
+        "value": 0.7755102040816326
+       },
+       "2026-06": {
+        "n": 34,
+        "value": 0.7647058823529411
+       }
+      },
+      "all_events": null
+     },
+     "M3": {
+      "cards_issued": 578,
+      "cards_known": 563,
+      "cards_unknown_outcome": 15,
+      "card_precision": 0.6518650088809946,
+      "card_precision_lower_bound": 0.6349480968858131,
+      "new_cards_per_day": 1.6100278551532032,
+      "chronic_share_issued": 0.7664359861591695,
+      "events": 1641,
+      "event_recall_open": 0.3223644119439366,
+      "event_recall_without_repeats": 0.2303473491773309,
+      "event_recall_protocol": 0.37233394271785497,
+      "lead_hours_median_open": 41.80916666666667,
+      "lead_share_le_24h": 0.332703213610586,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.3826086956521739
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.45
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.30357142857142855
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.24489795918367346
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.25757575757575757
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.25957446808510637
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.25547445255474455
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.30097087378640774
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.27702702702702703
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.2927927927927928
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.4378698224852071
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.4264705882352941
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 54,
+        "value": 0.7222222222222222
+       },
+       "2025-08": {
+        "n": 50,
+        "value": 0.6
+       },
+       "2025-09": {
+        "n": 42,
+        "value": 0.5476190476190477
+       },
+       "2025-10": {
+        "n": 44,
+        "value": 0.5
+       },
+       "2025-11": {
+        "n": 37,
+        "value": 0.4594594594594595
+       },
+       "2025-12": {
+        "n": 48,
+        "value": 0.6041666666666666
+       },
+       "2026-01": {
+        "n": 48,
+        "value": 0.7083333333333334
+       },
+       "2026-02": {
+        "n": 37,
+        "value": 0.4864864864864865
+       },
+       "2026-03": {
+        "n": 48,
+        "value": 0.7291666666666666
+       },
+       "2026-04": {
+        "n": 58,
+        "value": 0.7068965517241379
+       },
+       "2026-05": {
+        "n": 55,
+        "value": 0.8363636363636363
+       },
+       "2026-06": {
+        "n": 42,
+        "value": 0.7857142857142857
+       }
+      },
+      "all_events": null
+     },
+     "M1 s17": {
+      "cards_issued": 575,
+      "cards_known": 562,
+      "cards_unknown_outcome": 13,
+      "card_precision": 0.6601423487544484,
+      "card_precision_lower_bound": 0.6452173913043479,
+      "new_cards_per_day": 1.6016713091922006,
+      "chronic_share_issued": 0.7878260869565218,
+      "events": 1641,
+      "event_recall_open": 0.2784887263863498,
+      "event_recall_without_repeats": 0.23095673369896405,
+      "event_recall_protocol": 0.327848872638635,
+      "lead_hours_median_open": 41.825833333333335,
+      "lead_share_le_24h": 0.3085339168490153,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.3826086956521739
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.37
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.26785714285714285
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.21428571428571427
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.25757575757575757
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.18723404255319148
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.32116788321167883
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.21359223300970873
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.27702702702702703
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.3153153153153153
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.2958579881656805
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.27205882352941174
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 56,
+        "value": 0.7321428571428571
+       },
+       "2025-08": {
+        "n": 52,
+        "value": 0.6153846153846154
+       },
+       "2025-09": {
+        "n": 41,
+        "value": 0.6097560975609756
+       },
+       "2025-10": {
+        "n": 44,
+        "value": 0.4772727272727273
+       },
+       "2025-11": {
+        "n": 38,
+        "value": 0.4473684210526316
+       },
+       "2025-12": {
+        "n": 43,
+        "value": 0.5348837209302325
+       },
+       "2026-01": {
+        "n": 53,
+        "value": 0.7924528301886793
+       },
+       "2026-02": {
+        "n": 39,
+        "value": 0.5641025641025641
+       },
+       "2026-03": {
+        "n": 50,
+        "value": 0.7
+       },
+       "2026-04": {
+        "n": 62,
+        "value": 0.7741935483870968
+       },
+       "2026-05": {
+        "n": 48,
+        "value": 0.75
+       },
+       "2026-06": {
+        "n": 36,
+        "value": 0.8055555555555556
+       }
+      },
+      "all_events": null
+     },
+     "M1 s18": {
+      "cards_issued": 572,
+      "cards_known": 558,
+      "cards_unknown_outcome": 14,
+      "card_precision": 0.6523297491039427,
+      "card_precision_lower_bound": 0.6363636363636364,
+      "new_cards_per_day": 1.5933147632311977,
+      "chronic_share_issued": 0.7972027972027972,
+      "events": 1641,
+      "event_recall_open": 0.2736136502132846,
+      "event_recall_without_repeats": 0.2279098110907983,
+      "event_recall_protocol": 0.32541133455210236,
+      "lead_hours_median_open": 45.528333333333336,
+      "lead_share_le_24h": 0.30066815144766146,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.3739130434782609
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.36
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.30357142857142855
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.20408163265306123
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.25757575757575757
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.20425531914893616
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.29927007299270075
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.20388349514563106
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.25675675675675674
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.28378378378378377
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.30177514792899407
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.27205882352941174
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 56,
+        "value": 0.7142857142857143
+       },
+       "2025-08": {
+        "n": 51,
+        "value": 0.6078431372549019
+       },
+       "2025-09": {
+        "n": 41,
+        "value": 0.6097560975609756
+       },
+       "2025-10": {
+        "n": 44,
+        "value": 0.45454545454545453
+       },
+       "2025-11": {
+        "n": 38,
+        "value": 0.4473684210526316
+       },
+       "2025-12": {
+        "n": 44,
+        "value": 0.5454545454545454
+       },
+       "2026-01": {
+        "n": 51,
+        "value": 0.7647058823529411
+       },
+       "2026-02": {
+        "n": 38,
+        "value": 0.5263157894736842
+       },
+       "2026-03": {
+        "n": 50,
+        "value": 0.66
+       },
+       "2026-04": {
+        "n": 63,
+        "value": 0.7936507936507936
+       },
+       "2026-05": {
+        "n": 47,
+        "value": 0.7872340425531915
+       },
+       "2026-06": {
+        "n": 35,
+        "value": 0.8
+       }
+      },
+      "all_events": null
+     },
+     "M1 s19": {
+      "cards_issued": 569,
+      "cards_known": 556,
+      "cards_unknown_outcome": 13,
+      "card_precision": 0.6438848920863309,
+      "card_precision_lower_bound": 0.6291739894551845,
+      "new_cards_per_day": 1.584958217270195,
+      "chronic_share_issued": 0.7768014059753954,
+      "events": 1641,
+      "event_recall_open": 0.27117611212675197,
+      "event_recall_without_repeats": 0.2230347349177331,
+      "event_recall_protocol": 0.3174893357708714,
+      "lead_hours_median_open": 40.617777777777775,
+      "lead_share_le_24h": 0.32808988764044944,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.3826086956521739
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.36
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.26785714285714285
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.20408163265306123
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.24242424242424243
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.225531914893617
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.2846715328467153
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.20388349514563106
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.25675675675675674
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.2747747747747748
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.2958579881656805
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.27205882352941174
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 56,
+        "value": 0.7321428571428571
+       },
+       "2025-08": {
+        "n": 51,
+        "value": 0.6078431372549019
+       },
+       "2025-09": {
+        "n": 42,
+        "value": 0.5952380952380952
+       },
+       "2025-10": {
+        "n": 44,
+        "value": 0.45454545454545453
+       },
+       "2025-11": {
+        "n": 37,
+        "value": 0.43243243243243246
+       },
+       "2025-12": {
+        "n": 46,
+        "value": 0.5652173913043478
+       },
+       "2026-01": {
+        "n": 50,
+        "value": 0.74
+       },
+       "2026-02": {
+        "n": 38,
+        "value": 0.5263157894736842
+       },
+       "2026-03": {
+        "n": 50,
+        "value": 0.66
+       },
+       "2026-04": {
+        "n": 59,
+        "value": 0.7457627118644068
+       },
+       "2026-05": {
+        "n": 47,
+        "value": 0.7659574468085106
+       },
+       "2026-06": {
+        "n": 36,
+        "value": 0.8055555555555556
+       }
+      },
+      "all_events": null
+     }
+    },
+    "bootstrap_week": {
+     "scheme": "iso_week",
+     "replicates": 400,
+     "seed": 17,
+     "blocks": 53,
+     "bonferroni": {
+      "comparisons": 7,
+      "level": 0.9928571428571429
+     },
+     "scores": {
+      "static_list_365": {
+       "card_precision": {
+        "point": 0.6409335727109515,
+        "low": 0.5925766283524904,
+        "high": 0.6927306672905424,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5823470086981509,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.3004265691651432,
+        "low": 0.24876113297431648,
+        "high": 0.35011731723287653,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.23803199305370024,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.22242535039609995,
+        "low": 0.1890431415301105,
+        "high": 0.25575981805477355,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.1747524125359177,
+        "share_positive": 1.0
+       }
+      },
+      "persistence": {
+       "card_precision": {
+        "point": 0.5317460317460317,
+        "low": 0.4737667757628581,
+        "high": 0.5964074351030872,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.4542802591591681,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.21328458257160268,
+        "low": 0.1757288867668939,
+        "high": 0.2543882911422265,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.15832078073837336,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.1687995124923827,
+        "low": 0.13898584905660377,
+        "high": 0.20277920140873756,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.12735541734561628,
+        "share_positive": 1.0
+       }
+      },
+      "M1": {
+       "card_precision": {
+        "point": 0.6553571428571429,
+        "low": 0.6111083824492469,
+        "high": 0.7001820223743747,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.593994197964076,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.27787934186471663,
+        "low": 0.2517053922431497,
+        "high": 0.31072818936752555,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.24093128390596744,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.22851919561243145,
+        "low": 0.20059477095587197,
+        "high": 0.2577855843239812,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.1906432617769827,
+        "share_positive": 1.0
+       }
+      },
+      "M2": {
+       "card_precision": {
+        "point": 0.6583184257602862,
+        "low": 0.6130154951308128,
+        "high": 0.7031515760141859,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5972192032771809,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.2797074954296161,
+        "low": 0.24803276178812003,
+        "high": 0.31168471929628755,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.24055111434108528,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.2279098110907983,
+        "low": 0.20346274494490976,
+        "high": 0.2521950678154688,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.19675391737891737,
+        "share_positive": 1.0
+       }
+      },
+      "M3": {
+       "card_precision": {
+        "point": 0.6518650088809946,
+        "low": 0.599980732177264,
+        "high": 0.704738744139851,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5825617410567772,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.3223644119439366,
+        "low": 0.2876236308051557,
+        "high": 0.3583722738210693,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.2787766472868217,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.2303473491773309,
+        "low": 0.20323973364007436,
+        "high": 0.25491023553243036,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.19637037724710543,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s17": {
+       "card_precision": {
+        "point": 0.6601423487544484,
+        "low": 0.6173005456263962,
+        "high": 0.7036687741677408,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5960978105283637,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.2784887263863498,
+        "low": 0.25143134107454995,
+        "high": 0.3138879399521884,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.2415020118184675,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.23095673369896405,
+        "low": 0.20034842732643482,
+        "high": 0.2597817289222571,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.19186643221443633,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s18": {
+       "card_precision": {
+        "point": 0.6523297491039427,
+        "low": 0.601046511627907,
+        "high": 0.698305790960452,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.586831846494419,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.2736136502132846,
+        "low": 0.25066923691975185,
+        "high": 0.3004880118779926,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.23698562103625395,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.2279098110907983,
+        "low": 0.1983415165838155,
+        "high": 0.25571292960395803,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.18935548236213537,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s19": {
+       "card_precision": {
+        "point": 0.6438848920863309,
+        "low": 0.5973705601514591,
+        "high": 0.6894838309704282,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5826918579789935,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.27117611212675197,
+        "low": 0.2457635429377817,
+        "high": 0.3028319244836964,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.23495479204339964,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.2230347349177331,
+        "low": 0.1960686448674509,
+        "high": 0.24872263458375804,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.1883488253076575,
+        "share_positive": 1.0
+       }
+      }
+     },
+     "deltas": {
+      "M1 - static_list_365": {
+       "card_precision": {
+        "point": 0.014423570146191333,
+        "low": -0.013741197940313926,
+        "high": 0.042783943039790814,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.01922306292711194,
+        "share_positive": 0.8575
+       },
+       "event_recall_open": {
+        "point": -0.022547227300426576,
+        "low": -0.06268343815513629,
+        "high": 0.01902051487899453,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.08164202926654632,
+        "share_positive": 0.1375
+       },
+       "event_recall_without_repeats": {
+        "point": 0.006093845216331495,
+        "low": -0.011964159926461411,
+        "high": 0.02248055658202954,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.019866763719222726,
+        "share_positive": 0.7775
+       }
+      },
+      "M2 - static_list_365": {
+       "card_precision": {
+        "point": 0.01738485304933468,
+        "low": -0.012727187271050187,
+        "high": 0.04925919365977264,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.023028390077780982,
+        "share_positive": 0.85
+       },
+       "event_recall_open": {
+        "point": -0.020719073735527116,
+        "low": -0.06802081317891595,
+        "high": 0.035805230869754595,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.08086552254098359,
+        "share_positive": 0.2075
+       },
+       "event_recall_without_repeats": {
+        "point": 0.005484460694698351,
+        "low": -0.017816059861514393,
+        "high": 0.025403853072432956,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.025672341597319903,
+        "share_positive": 0.72
+       }
+      },
+      "M3 - static_list_365": {
+       "card_precision": {
+        "point": 0.010931436170043107,
+        "low": -0.0144258439758774,
+        "high": 0.03990692587980766,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.02303855895167159,
+        "share_positive": 0.7575
+       },
+       "event_recall_open": {
+        "point": 0.021937842778793404,
+        "low": -0.010533610903526542,
+        "high": 0.05911571283910266,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.016071158649942918,
+        "share_positive": 0.88
+       },
+       "event_recall_without_repeats": {
+        "point": 0.007921998781230954,
+        "low": -0.008105092829160271,
+        "high": 0.02376602349986584,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.010073773693644476,
+        "share_positive": 0.8
+       }
+      },
+      "M1 - persistence": {
+       "card_precision": {
+        "point": 0.12361111111111112,
+        "low": 0.06722219752962867,
+        "high": 0.18184036406021342,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.049423294311653064,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.06459475929311395,
+        "low": 0.022290749620438408,
+        "high": 0.10589209335692468,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.011976398713670514,
+        "share_positive": 0.9975
+       },
+       "event_recall_without_repeats": {
+        "point": 0.059719683120048744,
+        "low": 0.0371781899437893,
+        "high": 0.08302278529140185,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.03184597766533936,
+        "share_positive": 1.0
+       }
+      },
+      "M2 - persistence": {
+       "card_precision": {
+        "point": 0.12657239401425446,
+        "low": 0.07471192592892188,
+        "high": 0.1790744404256274,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.04846900330006713,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.06642291285801341,
+        "low": 0.015503787384092967,
+        "high": 0.11949064025649825,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.00018633281649481836,
+        "share_positive": 0.995
+       },
+       "event_recall_without_repeats": {
+        "point": 0.0591102985984156,
+        "low": 0.032301895095313685,
+        "high": 0.08499286665959226,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.023864394755142782,
+        "share_positive": 1.0
+       }
+      },
+      "M3 - persistence": {
+       "card_precision": {
+        "point": 0.12011897713496289,
+        "low": 0.06868102387694078,
+        "high": 0.1756452786878889,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.053078543301233044,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.10907982937233393,
+        "low": 0.05785336101228072,
+        "high": 0.15714302061107935,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.04830560598475707,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.061547836684948204,
+        "low": 0.03417371890645432,
+        "high": 0.08563982895166557,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.025756259926782304,
+        "share_positive": 1.0
+       }
+      },
+      "persistence - static_list_365": {
+       "card_precision": {
+        "point": -0.10918754096491978,
+        "low": -0.16795964665259888,
+        "high": -0.05327524313211657,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.18862406022097225,
+        "share_positive": 0.0
+       },
+       "event_recall_open": {
+        "point": -0.08714198659354053,
+        "low": -0.13711973559614976,
+        "high": -0.04101145711284747,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.15193555716221466,
+        "share_positive": 0.0
+       },
+       "event_recall_without_repeats": {
+        "point": -0.05362583790371725,
+        "low": -0.08035009487666034,
+        "high": -0.029601872425616616,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.08866435057719478,
+        "share_positive": 0.0
+       }
+      },
+      "M1 s17 - static_list_365": {
+       "card_precision": {
+        "point": 0.01920877604349691,
+        "low": -0.00913460147081303,
+        "high": 0.04841797779297911,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.014944469736134938,
+        "share_positive": 0.92
+       },
+       "event_recall_open": {
+        "point": -0.021937842778793404,
+        "low": -0.060399465362969036,
+        "high": 0.01706329353401157,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.08022257566491145,
+        "share_positive": 0.14
+       },
+       "event_recall_without_repeats": {
+        "point": 0.008531383302864098,
+        "low": -0.011589382578922405,
+        "high": 0.026382799953375127,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.018604529055348717,
+        "share_positive": 0.8175
+       }
+      },
+      "M1 s18 - static_list_365": {
+       "card_precision": {
+        "point": 0.011396176392991175,
+        "low": -0.01751717899793666,
+        "high": 0.039631281098669494,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.027317250994145056,
+        "share_positive": 0.7875
+       },
+       "event_recall_open": {
+        "point": -0.02681291895185861,
+        "low": -0.06394454835834099,
+        "high": 0.015267474992786306,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.08465898581422752,
+        "share_positive": 0.0975
+       },
+       "event_recall_without_repeats": {
+        "point": 0.005484460694698351,
+        "low": -0.012355508374616653,
+        "high": 0.022219489982861752,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.018342523284383738,
+        "share_positive": 0.7375
+       }
+      },
+      "M1 s19 - static_list_365": {
+       "card_precision": {
+        "point": 0.002951319375379402,
+        "low": -0.02497272261505008,
+        "high": 0.0319655553287594,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.03579979431330664,
+        "share_positive": 0.6075
+       },
+       "event_recall_open": {
+        "point": -0.029250457038391242,
+        "low": -0.06681180886656048,
+        "high": 0.020239810072556534,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.08797934784230074,
+        "share_positive": 0.105
+       },
+       "event_recall_without_repeats": {
+        "point": 0.0006093845216331439,
+        "low": -0.01917572751929844,
+        "high": 0.018812990071596786,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.025991360212671687,
+        "share_positive": 0.56
+       }
+      }
+     }
+    },
+    "bootstrap_object": {
+     "scheme": "object",
+     "replicates": 400,
+     "seed": 18,
+     "blocks": 78,
+     "bonferroni": {
+      "comparisons": 7,
+      "level": 0.9928571428571429
+     },
+     "scores": {
+      "static_list_365": {
+       "card_precision": {
+        "point": 0.6409335727109515,
+        "low": 0.5218560517984582,
+        "high": 0.7424901643734034,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.4998648406731113,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.3004265691651432,
+        "low": 0.16462154000391235,
+        "high": 0.40704023313876786,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.11275510204081633,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.22242535039609995,
+        "low": 0.1304593012812837,
+        "high": 0.30948071714030784,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.08496932282987427,
+        "share_positive": 1.0
+       }
+      },
+      "persistence": {
+       "card_precision": {
+        "point": 0.5317460317460317,
+        "low": 0.3945270270270271,
+        "high": 0.6284854503325208,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.3474065613062692,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.21328458257160268,
+        "low": 0.14600477985461,
+        "high": 0.2651283513688121,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.12955069124423962,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.1687995124923827,
+        "low": 0.12073587650686998,
+        "high": 0.21027714680622148,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.10901360544217686,
+        "share_positive": 1.0
+       }
+      },
+      "M1": {
+       "card_precision": {
+        "point": 0.6553571428571429,
+        "low": 0.5834262777561026,
+        "high": 0.7371257306776358,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5636189412902493,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.27787934186471663,
+        "low": 0.14871125196858098,
+        "high": 0.39974030192621957,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.12540088003940625,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.22851919561243145,
+        "low": 0.11803026163699518,
+        "high": 0.35051850464379714,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.09462139104818601,
+        "share_positive": 1.0
+       }
+      },
+      "M2": {
+       "card_precision": {
+        "point": 0.6583184257602862,
+        "low": 0.5555280528052805,
+        "high": 0.7288596491228069,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5431438554096808,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.2797074954296161,
+        "low": 0.15758612571305067,
+        "high": 0.3771431003157363,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.13421814671814672,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.2279098110907983,
+        "low": 0.1287446663987068,
+        "high": 0.3159475862161174,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.1101829268292683,
+        "share_positive": 1.0
+       }
+      },
+      "M3": {
+       "card_precision": {
+        "point": 0.6518650088809946,
+        "low": 0.5363677106400928,
+        "high": 0.75210651299626,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5018241373152984,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.3223644119439366,
+        "low": 0.1656998886078998,
+        "high": 0.4317564440818806,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.11409963379014527,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.2303473491773309,
+        "low": 0.13447007461564633,
+        "high": 0.3123445649651263,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.09441640786749482,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s17": {
+       "card_precision": {
+        "point": 0.6601423487544484,
+        "low": 0.587218401511548,
+        "high": 0.7369527400328505,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5697204349344107,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.2784887263863498,
+        "low": 0.1557567869624246,
+        "high": 0.39924945713695265,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.12827820232757328,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.23095673369896405,
+        "low": 0.12176011971857245,
+        "high": 0.35066694810810073,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.09843774592147736,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s18": {
+       "card_precision": {
+        "point": 0.6523297491039427,
+        "low": 0.5755591083008497,
+        "high": 0.7333574879227053,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5586984558465921,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.2736136502132846,
+        "low": 0.14397261327102148,
+        "high": 0.39458050141240314,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.12249377426206695,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.2279098110907983,
+        "low": 0.11742375279172143,
+        "high": 0.34078718527614155,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.09855103788221514,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s19": {
+       "card_precision": {
+        "point": 0.6438848920863309,
+        "low": 0.5663311726062439,
+        "high": 0.7242479398351868,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5509398496240602,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.27117611212675197,
+        "low": 0.13816026847073906,
+        "high": 0.39707345123011056,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.11354193510498238,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.2230347349177331,
+        "low": 0.11295592327053937,
+        "high": 0.34305311194968285,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.08597917034856602,
+        "share_positive": 1.0
+       }
+      }
+     },
+     "deltas": {
+      "M1 - static_list_365": {
+       "card_precision": {
+        "point": 0.014423570146191333,
+        "low": -0.0673951066499799,
+        "high": 0.09200599205900872,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.10833814477885653,
+        "share_positive": 0.695
+       },
+       "event_recall_open": {
+        "point": -0.022547227300426576,
+        "low": -0.16739374928976794,
+        "high": 0.12397772366522362,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.18823881311318497,
+        "share_positive": 0.3925
+       },
+       "event_recall_without_repeats": {
+        "point": 0.006093845216331495,
+        "low": -0.07014403015210659,
+        "high": 0.09894633312149939,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.09662699367248102,
+        "share_positive": 0.5875
+       }
+      },
+      "M2 - static_list_365": {
+       "card_precision": {
+        "point": 0.01738485304933468,
+        "low": -0.05312902126992454,
+        "high": 0.08436255538657911,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.08667041337020231,
+        "share_positive": 0.7125
+       },
+       "event_recall_open": {
+        "point": -0.020719073735527116,
+        "low": -0.1321529863108515,
+        "high": 0.09630681086418338,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.1729357969974094,
+        "share_positive": 0.385
+       },
+       "event_recall_without_repeats": {
+        "point": 0.005484460694698351,
+        "low": -0.04857949832053518,
+        "high": 0.06536145374449338,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.07086328369759615,
+        "share_positive": 0.57
+       }
+      },
+      "M3 - static_list_365": {
+       "card_precision": {
+        "point": 0.010931436170043107,
+        "low": -0.02310440156891314,
+        "high": 0.03962899303234215,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.030080199316806285,
+        "share_positive": 0.765
+       },
+       "event_recall_open": {
+        "point": 0.021937842778793404,
+        "low": -0.03519297792958275,
+        "high": 0.07250438222140707,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.038329786896651515,
+        "share_positive": 0.7625
+       },
+       "event_recall_without_repeats": {
+        "point": 0.007921998781230954,
+        "low": -0.025780862719397734,
+        "high": 0.03196958025928611,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.030555884759104063,
+        "share_positive": 0.675
+       }
+      },
+      "M1 - persistence": {
+       "card_precision": {
+        "point": 0.12361111111111112,
+        "low": 0.030409846369213216,
+        "high": 0.2597248480284826,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.006951105512266234,
+        "share_positive": 0.9975
+       },
+       "event_recall_open": {
+        "point": 0.06459475929311395,
+        "low": -0.04367571350392454,
+        "high": 0.17345282898343964,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.07080343683706523,
+        "share_positive": 0.855
+       },
+       "event_recall_without_repeats": {
+        "point": 0.059719683120048744,
+        "low": -0.022031775509371042,
+        "high": 0.14751380390491223,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.049170345634291755,
+        "share_positive": 0.9
+       }
+      },
+      "M2 - persistence": {
+       "card_precision": {
+        "point": 0.12657239401425446,
+        "low": 0.0441597459993686,
+        "high": 0.2398136231771101,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.030863957365736664,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.06642291285801341,
+        "low": -0.00811786928857442,
+        "high": 0.14478694896262972,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.02335639767158775,
+        "share_positive": 0.9425
+       },
+       "event_recall_without_repeats": {
+        "point": 0.0591102985984156,
+        "low": -2.022653721682709e-05,
+        "high": 0.12414843746782478,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.01385732859201188,
+        "share_positive": 0.97
+       }
+      },
+      "M3 - persistence": {
+       "card_precision": {
+        "point": 0.12011897713496289,
+        "low": 0.03234274408272261,
+        "high": 0.23892072016071228,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.018558371596827983,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.10907982937233393,
+        "low": -0.01230624988943727,
+        "high": 0.20711855134119103,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.04618370613639101,
+        "share_positive": 0.9675
+       },
+       "event_recall_without_repeats": {
+        "point": 0.061547836684948204,
+        "low": -0.012457710230399353,
+        "high": 0.121452545096413,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.03786147066344556,
+        "share_positive": 0.9575
+       }
+      },
+      "persistence - static_list_365": {
+       "card_precision": {
+        "point": -0.10918754096491978,
+        "low": -0.23192335389620328,
+        "high": -0.029843710431856945,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.2759776586332668,
+        "share_positive": 0.005
+       },
+       "event_recall_open": {
+        "point": -0.08714198659354053,
+        "low": -0.18607715180121015,
+        "high": 0.013574230699577482,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.2043948769439126,
+        "share_positive": 0.045
+       },
+       "event_recall_without_repeats": {
+        "point": -0.05362583790371725,
+        "low": -0.11353013611567184,
+        "high": 0.014241322399298548,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.13102291219905401,
+        "share_positive": 0.0675
+       }
+      },
+      "M1 s17 - static_list_365": {
+       "card_precision": {
+        "point": 0.01920877604349691,
+        "low": -0.05375536515631329,
+        "high": 0.09337145482219789,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.09331308359905478,
+        "share_positive": 0.7425
+       },
+       "event_recall_open": {
+        "point": -0.021937842778793404,
+        "low": -0.16319914279925954,
+        "high": 0.1191336702527333,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.18605780756238421,
+        "share_positive": 0.3925
+       },
+       "event_recall_without_repeats": {
+        "point": 0.008531383302864098,
+        "low": -0.06822654462242561,
+        "high": 0.10186666534883831,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.09109195537250371,
+        "share_positive": 0.605
+       }
+      },
+      "M1 s18 - static_list_365": {
+       "card_precision": {
+        "point": 0.011396176392991175,
+        "low": -0.07450870692618396,
+        "high": 0.09005192314414893,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.11105901959029614,
+        "share_positive": 0.6675
+       },
+       "event_recall_open": {
+        "point": -0.02681291895185861,
+        "low": -0.16977622385190047,
+        "high": 0.11931252958930051,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.19300570750299634,
+        "share_positive": 0.385
+       },
+       "event_recall_without_repeats": {
+        "point": 0.005484460694698351,
+        "low": -0.0699342758843991,
+        "high": 0.08976823324216479,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.08997610151724776,
+        "share_positive": 0.59
+       }
+      },
+      "M1 s19 - static_list_365": {
+       "card_precision": {
+        "point": 0.002951319375379402,
+        "low": -0.08975292222263108,
+        "high": 0.08699529080879749,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.14217901650118078,
+        "share_positive": 0.5675
+       },
+       "event_recall_open": {
+        "point": -0.029250457038391242,
+        "low": -0.17824572133949199,
+        "high": 0.12190855927698033,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.1991387521854354,
+        "share_positive": 0.3775
+       },
+       "event_recall_without_repeats": {
+        "point": 0.0006093845216331439,
+        "low": -0.08006751660036192,
+        "high": 0.09533824037151474,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.10552747270369708,
+        "share_positive": 0.5475
+       }
+      }
+     }
+    },
+    "lead": {
+     "stats": {
+      "static_list_365": {
+       "captured": 493,
+       "median": 45.003055555555555,
+       "share_le_24h": 0.3306288032454361,
+       "share_le_72h": 0.6348884381338742
+      },
+      "M1": {
+       "captured": 456,
+       "median": 40.9125,
+       "share_le_24h": 0.31359649122807015,
+       "share_le_72h": 0.6776315789473685
+      },
+      "M2": {
+       "captured": 459,
+       "median": 41.825833333333335,
+       "share_le_24h": 0.30718954248366015,
+       "share_le_72h": 0.6535947712418301
+      },
+      "M3": {
+       "captured": 529,
+       "median": 41.80916666666667,
+       "share_le_24h": 0.332703213610586,
+       "share_le_72h": 0.6597353497164461
+      }
+     },
+     "deltas_week": {
+      "M1 - static_list_365": {
+       "point": -4.090555555555554,
+       "low": -16.784006944444446,
+       "high": 7.281361111111099,
+       "undefined_replicates": 0
+      },
+      "M2 - static_list_365": {
+       "point": -3.1772222222222197,
+       "low": -17.158243055555552,
+       "high": 11.033354166666655,
+       "undefined_replicates": 0
+      },
+      "M3 - static_list_365": {
+       "point": -3.1938888888888854,
+       "low": -16.024624999999993,
+       "high": 5.877034722222221,
+       "undefined_replicates": 0
+      }
+     },
+     "blocks": 52
+    },
+    "calibration_issued": {
+     "M2": {
+      "cards": 559,
+      "bins": [
+       {
+        "bin": [
+         0.3,
+         0.5
+        ],
+        "n": 25,
+        "mean_score": 0.4298579308463158,
+        "share_with_event": 0.36,
+        "wilson_low": 0.20247656431735636,
+        "wilson_high": 0.5548184539895337,
+        "score_inside_wilson": true,
+        "k": 9
+       },
+       {
+        "bin": [
+         0.5,
+         0.7
+        ],
+        "n": 163,
+        "mean_score": 0.6178218046333388,
+        "share_with_event": 0.5521472392638037,
+        "wilson_low": 0.4754800705128267,
+        "wilson_high": 0.6264129825386905,
+        "score_inside_wilson": true,
+        "k": 90
+       },
+       {
+        "bin": [
+         0.7,
+         1.0
+        ],
+        "n": 371,
+        "mean_score": 0.854197963028856,
+        "share_with_event": 0.7250673854447439,
+        "wilson_low": 0.6775023531922392,
+        "wilson_high": 0.7680191684318282,
+        "score_inside_wilson": false,
+        "k": 269
+       }
+      ],
+      "ece": 0.10797646996439658,
+      "brier": 0.22407739875640528,
+      "mean_score": 0.7662948957246828,
+      "share_with_event": 0.6583184257602862
+     },
+     "M3": {
+      "cards": 563,
+      "bins": [
+       {
+        "bin": [
+         0.5,
+         0.7
+        ],
+        "n": 103,
+        "mean_score": 0.6476962672710537,
+        "share_with_event": 0.49514563106796117,
+        "wilson_low": 0.40051410341890453,
+        "wilson_high": 0.5901262464073804,
+        "score_inside_wilson": false,
+        "k": 51
+       },
+       {
+        "bin": [
+         0.7,
+         1.0
+        ],
+        "n": 460,
+        "mean_score": 0.8354620673714961,
+        "share_with_event": 0.6869565217391305,
+        "wilson_low": 0.6431772263862593,
+        "wilson_high": 0.7276390177798527,
+        "score_inside_wilson": false,
+        "k": 316
+       }
+      ],
+      "ece": 0.14924558884512737,
+      "brier": 0.2346732248259818,
+      "mean_score": 0.8011105977261221,
+      "share_with_event": 0.6518650088809946
+     }
+    },
+    "unknown_reasons": {
+     "static_list_365": {
+      "source_coverage": 14
+     },
+     "M1": {
+      "source_coverage": 13
+     },
+     "M2": {
+      "source_coverage": 11
+     },
+     "M3": {
+      "source_coverage": 15
+     }
+    }
+   },
+   "ii": {
+    "spec": {
+     "k": 3,
+     "slice": "все пары",
+     "candidates": [
+      "M1",
+      "M2",
+      "M3"
+     ]
+    },
+    "fresh_lookback_days": null,
+    "recall_events": "all evaluable events",
+    "points": {
+     "static_list_365": {
+      "cards_issued": 271,
+      "cards_known": 262,
+      "cards_unknown_outcome": 9,
+      "card_precision": 0.7061068702290076,
+      "card_precision_lower_bound": 0.6826568265682657,
+      "new_cards_per_day": 0.754874651810585,
+      "chronic_share_issued": 0.8191881918819188,
+      "events": 1641,
+      "event_recall_open": 0.16270566727605118,
+      "event_recall_without_repeats": 0.11639244363193176,
+      "event_recall_protocol": 0.1882998171846435,
+      "lead_hours_median_open": 38.260555555555555,
+      "lead_share_le_24h": 0.3707865168539326,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.19130434782608696
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.19
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.16964285714285715
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.16326530612244897
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.13636363636363635
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.059574468085106386
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.12408759124087591
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.18446601941747573
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.10810810810810811
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.12612612612612611
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.3136094674556213
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.25735294117647056
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 26,
+        "value": 0.8461538461538461
+       },
+       "2025-08": {
+        "n": 23,
+        "value": 0.7391304347826086
+       },
+       "2025-09": {
+        "n": 21,
+        "value": 0.6190476190476191
+       },
+       "2025-10": {
+        "n": 22,
+        "value": 0.5909090909090909
+       },
+       "2025-11": {
+        "n": 16,
+        "value": 0.5
+       },
+       "2025-12": {
+        "n": 16,
+        "value": 0.4375
+       },
+       "2026-01": {
+        "n": 23,
+        "value": 0.782608695652174
+       },
+       "2026-02": {
+        "n": 15,
+        "value": 0.4
+       },
+       "2026-03": {
+        "n": 21,
+        "value": 0.7619047619047619
+       },
+       "2026-04": {
+        "n": 24,
+        "value": 0.625
+       },
+       "2026-05": {
+        "n": 31,
+        "value": 0.9354838709677419
+       },
+       "2026-06": {
+        "n": 24,
+        "value": 0.875
+       }
+      },
+      "all_events": null
+     },
+     "persistence": {
+      "cards_issued": 231,
+      "cards_known": 224,
+      "cards_unknown_outcome": 7,
+      "card_precision": 0.5491071428571429,
+      "card_precision_lower_bound": 0.5324675324675324,
+      "new_cards_per_day": 0.6434540389972145,
+      "chronic_share_issued": 0.974025974025974,
+      "events": 1641,
+      "event_recall_open": 0.10298598415600244,
+      "event_recall_without_repeats": 0.07861060329067641,
+      "event_recall_protocol": 0.1834247410115783,
+      "lead_hours_median_open": 43.78388888888889,
+      "lead_share_le_24h": 0.33136094674556216,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.08695652173913043
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.05
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.08928571428571429
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.04081632653061224
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.06060606060606061
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.07659574468085106
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.12408759124087591
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.0970873786407767
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.08108108108108109
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.1036036036036036
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.23076923076923078
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.125
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 19,
+        "value": 0.47368421052631576
+       },
+       "2025-08": {
+        "n": 16,
+        "value": 0.3125
+       },
+       "2025-09": {
+        "n": 15,
+        "value": 0.4666666666666667
+       },
+       "2025-10": {
+        "n": 16,
+        "value": 0.25
+       },
+       "2025-11": {
+        "n": 15,
+        "value": 0.26666666666666666
+       },
+       "2025-12": {
+        "n": 19,
+        "value": 0.5263157894736842
+       },
+       "2026-01": {
+        "n": 22,
+        "value": 0.6818181818181818
+       },
+       "2026-02": {
+        "n": 18,
+        "value": 0.6111111111111112
+       },
+       "2026-03": {
+        "n": 21,
+        "value": 0.6190476190476191
+       },
+       "2026-04": {
+        "n": 22,
+        "value": 0.6818181818181818
+       },
+       "2026-05": {
+        "n": 24,
+        "value": 0.7916666666666666
+       },
+       "2026-06": {
+        "n": 17,
+        "value": 0.6470588235294118
+       }
+      },
+      "all_events": null
+     },
+     "M1": {
+      "cards_issued": 260,
+      "cards_known": 252,
+      "cards_unknown_outcome": 8,
+      "card_precision": 0.7301587301587301,
+      "card_precision_lower_bound": 0.7076923076923077,
+      "new_cards_per_day": 0.724233983286908,
+      "chronic_share_issued": 0.9076923076923077,
+      "events": 1641,
+      "event_recall_open": 0.1365021328458257,
+      "event_recall_without_repeats": 0.1157830591102986,
+      "event_recall_protocol": 0.17184643510054845,
+      "lead_hours_median_open": 45.615972222222226,
+      "lead_share_le_24h": 0.22321428571428573,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.20869565217391303
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.19
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.11607142857142858
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.11224489795918367
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.19696969696969696
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.1148936170212766
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.145985401459854
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.0970873786407767
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.14864864864864866
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.0990990990990991
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.1834319526627219
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.08823529411764706
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 26,
+        "value": 0.8846153846153846
+       },
+       "2025-08": {
+        "n": 24,
+        "value": 0.7083333333333334
+       },
+       "2025-09": {
+        "n": 17,
+        "value": 0.6470588235294118
+       },
+       "2025-10": {
+        "n": 20,
+        "value": 0.55
+       },
+       "2025-11": {
+        "n": 20,
+        "value": 0.6
+       },
+       "2025-12": {
+        "n": 20,
+        "value": 0.75
+       },
+       "2026-01": {
+        "n": 25,
+        "value": 0.76
+       },
+       "2026-02": {
+        "n": 16,
+        "value": 0.5625
+       },
+       "2026-03": {
+        "n": 20,
+        "value": 0.8
+       },
+       "2026-04": {
+        "n": 27,
+        "value": 0.7407407407407407
+       },
+       "2026-05": {
+        "n": 23,
+        "value": 0.9130434782608695
+       },
+       "2026-06": {
+        "n": 14,
+        "value": 0.7142857142857143
+       }
+      },
+      "all_events": null
+     },
+     "M2": {
+      "cards_issued": 269,
+      "cards_known": 262,
+      "cards_unknown_outcome": 7,
+      "card_precision": 0.7404580152671756,
+      "card_precision_lower_bound": 0.7211895910780669,
+      "new_cards_per_day": 0.7493036211699164,
+      "chronic_share_issued": 0.8847583643122676,
+      "events": 1641,
+      "event_recall_open": 0.15112736136502133,
+      "event_recall_without_repeats": 0.1218769043266301,
+      "event_recall_protocol": 0.17306520414381474,
+      "lead_hours_median_open": 40.14152777777778,
+      "lead_share_le_24h": 0.2862903225806452,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.20869565217391303
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.17
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.16071428571428573
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.12244897959183673
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.16666666666666666
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.1702127659574468
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.12408759124087591
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.1650485436893204
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.11486486486486487
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.14864864864864866
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.13609467455621302
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.13970588235294118
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 26,
+        "value": 0.8846153846153846
+       },
+       "2025-08": {
+        "n": 23,
+        "value": 0.6956521739130435
+       },
+       "2025-09": {
+        "n": 19,
+        "value": 0.631578947368421
+       },
+       "2025-10": {
+        "n": 22,
+        "value": 0.5909090909090909
+       },
+       "2025-11": {
+        "n": 19,
+        "value": 0.5263157894736842
+       },
+       "2025-12": {
+        "n": 26,
+        "value": 0.7307692307692307
+       },
+       "2026-01": {
+        "n": 22,
+        "value": 0.8181818181818182
+       },
+       "2026-02": {
+        "n": 21,
+        "value": 0.7619047619047619
+       },
+       "2026-03": {
+        "n": 21,
+        "value": 0.8095238095238095
+       },
+       "2026-04": {
+        "n": 26,
+        "value": 0.8076923076923077
+       },
+       "2026-05": {
+        "n": 22,
+        "value": 0.7727272727272727
+       },
+       "2026-06": {
+        "n": 15,
+        "value": 0.8
+       }
+      },
+      "all_events": null
+     },
+     "M3": {
+      "cards_issued": 292,
+      "cards_known": 283,
+      "cards_unknown_outcome": 9,
+      "card_precision": 0.773851590106007,
+      "card_precision_lower_bound": 0.75,
+      "new_cards_per_day": 0.8133704735376045,
+      "chronic_share_issued": 0.8664383561643836,
+      "events": 1641,
+      "event_recall_open": 0.19865935405240706,
+      "event_recall_without_repeats": 0.13833028641072517,
+      "event_recall_protocol": 0.24192565508836075,
+      "lead_hours_median_open": 35.10777777777778,
+      "lead_share_le_24h": 0.401840490797546,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.17391304347826086
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.17
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.16964285714285715
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.16326530612244897
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.13636363636363635
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.22127659574468084
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.15328467153284672
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.0970873786407767
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.14864864864864866
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.21171171171171171
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.33136094674556216
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.27205882352941174
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 25,
+        "value": 0.8
+       },
+       "2025-08": {
+        "n": 22,
+        "value": 0.7272727272727273
+       },
+       "2025-09": {
+        "n": 21,
+        "value": 0.6190476190476191
+       },
+       "2025-10": {
+        "n": 22,
+        "value": 0.5909090909090909
+       },
+       "2025-11": {
+        "n": 16,
+        "value": 0.5
+       },
+       "2025-12": {
+        "n": 28,
+        "value": 0.7857142857142857
+       },
+       "2026-01": {
+        "n": 25,
+        "value": 0.84
+       },
+       "2026-02": {
+        "n": 17,
+        "value": 0.5882352941176471
+       },
+       "2026-03": {
+        "n": 19,
+        "value": 0.8421052631578947
+       },
+       "2026-04": {
+        "n": 32,
+        "value": 0.875
+       },
+       "2026-05": {
+        "n": 32,
+        "value": 0.96875
+       },
+       "2026-06": {
+        "n": 24,
+        "value": 0.875
+       }
+      },
+      "all_events": null
+     },
+     "M1 s17": {
+      "cards_issued": 257,
+      "cards_known": 249,
+      "cards_unknown_outcome": 8,
+      "card_precision": 0.7188755020080321,
+      "card_precision_lower_bound": 0.6964980544747081,
+      "new_cards_per_day": 0.7158774373259053,
+      "chronic_share_issued": 0.9105058365758755,
+      "events": 1641,
+      "event_recall_open": 0.13284582571602682,
+      "event_recall_without_repeats": 0.11273613650213285,
+      "event_recall_protocol": 0.16087751371115175,
+      "lead_hours_median_open": 48.655,
+      "lead_share_le_24h": 0.24770642201834864,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.20869565217391303
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.19
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.11607142857142858
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.12244897959183673
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.19696969696969696
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.10212765957446808
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.145985401459854
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.0970873786407767
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.12837837837837837
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.10810810810810811
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.14792899408284024
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.11029411764705882
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 26,
+        "value": 0.8846153846153846
+       },
+       "2025-08": {
+        "n": 24,
+        "value": 0.7083333333333334
+       },
+       "2025-09": {
+        "n": 17,
+        "value": 0.6470588235294118
+       },
+       "2025-10": {
+        "n": 21,
+        "value": 0.5714285714285714
+       },
+       "2025-11": {
+        "n": 20,
+        "value": 0.6
+       },
+       "2025-12": {
+        "n": 19,
+        "value": 0.7368421052631579
+       },
+       "2026-01": {
+        "n": 25,
+        "value": 0.76
+       },
+       "2026-02": {
+        "n": 16,
+        "value": 0.5625
+       },
+       "2026-03": {
+        "n": 18,
+        "value": 0.7222222222222222
+       },
+       "2026-04": {
+        "n": 28,
+        "value": 0.7857142857142857
+       },
+       "2026-05": {
+        "n": 20,
+        "value": 0.8
+       },
+       "2026-06": {
+        "n": 15,
+        "value": 0.7333333333333333
+       }
+      },
+      "all_events": null
+     },
+     "M1 s18": {
+      "cards_issued": 260,
+      "cards_known": 254,
+      "cards_unknown_outcome": 6,
+      "card_precision": 0.7204724409448819,
+      "card_precision_lower_bound": 0.7038461538461539,
+      "new_cards_per_day": 0.724233983286908,
+      "chronic_share_issued": 0.9038461538461539,
+      "events": 1641,
+      "event_recall_open": 0.13589274832419257,
+      "event_recall_without_repeats": 0.11395490554539915,
+      "event_recall_protocol": 0.1736745886654479,
+      "lead_hours_median_open": 45.003055555555555,
+      "lead_share_le_24h": 0.273542600896861,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.22608695652173913
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.18
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.11607142857142858
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.11224489795918367
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.19696969696969696
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.1148936170212766
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.145985401459854
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.10679611650485436
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.13513513513513514
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.0990990990990991
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.15976331360946747
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.11029411764705882
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 28,
+        "value": 0.8214285714285714
+       },
+       "2025-08": {
+        "n": 23,
+        "value": 0.6956521739130435
+       },
+       "2025-09": {
+        "n": 17,
+        "value": 0.6470588235294118
+       },
+       "2025-10": {
+        "n": 20,
+        "value": 0.55
+       },
+       "2025-11": {
+        "n": 20,
+        "value": 0.6
+       },
+       "2025-12": {
+        "n": 20,
+        "value": 0.75
+       },
+       "2026-01": {
+        "n": 24,
+        "value": 0.7916666666666666
+       },
+       "2026-02": {
+        "n": 17,
+        "value": 0.5882352941176471
+       },
+       "2026-03": {
+        "n": 20,
+        "value": 0.7
+       },
+       "2026-04": {
+        "n": 27,
+        "value": 0.7407407407407407
+       },
+       "2026-05": {
+        "n": 24,
+        "value": 0.875
+       },
+       "2026-06": {
+        "n": 14,
+        "value": 0.7857142857142857
+       }
+      },
+      "all_events": null
+     },
+     "M1 s19": {
+      "cards_issued": 265,
+      "cards_known": 257,
+      "cards_unknown_outcome": 8,
+      "card_precision": 0.7276264591439688,
+      "card_precision_lower_bound": 0.7056603773584905,
+      "new_cards_per_day": 0.7381615598885793,
+      "chronic_share_issued": 0.9132075471698113,
+      "events": 1641,
+      "event_recall_open": 0.14442413162705667,
+      "event_recall_without_repeats": 0.11761121267519806,
+      "event_recall_protocol": 0.1724558196221816,
+      "lead_hours_median_open": 40.35,
+      "lead_share_le_24h": 0.3037974683544304,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 115,
+        "value": 0.21739130434782608
+       },
+       "2025-08": {
+        "n": 100,
+        "value": 0.19
+       },
+       "2025-09": {
+        "n": 112,
+        "value": 0.11607142857142858
+       },
+       "2025-10": {
+        "n": 98,
+        "value": 0.11224489795918367
+       },
+       "2025-11": {
+        "n": 66,
+        "value": 0.19696969696969696
+       },
+       "2025-12": {
+        "n": 235,
+        "value": 0.12340425531914893
+       },
+       "2026-01": {
+        "n": 137,
+        "value": 0.145985401459854
+       },
+       "2026-02": {
+        "n": 103,
+        "value": 0.0970873786407767
+       },
+       "2026-03": {
+        "n": 148,
+        "value": 0.13513513513513514
+       },
+       "2026-04": {
+        "n": 222,
+        "value": 0.13963963963963963
+       },
+       "2026-05": {
+        "n": 169,
+        "value": 0.17159763313609466
+       },
+       "2026-06": {
+        "n": 136,
+        "value": 0.125
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 27,
+        "value": 0.8888888888888888
+       },
+       "2025-08": {
+        "n": 24,
+        "value": 0.7083333333333334
+       },
+       "2025-09": {
+        "n": 17,
+        "value": 0.6470588235294118
+       },
+       "2025-10": {
+        "n": 20,
+        "value": 0.55
+       },
+       "2025-11": {
+        "n": 20,
+        "value": 0.6
+       },
+       "2025-12": {
+        "n": 20,
+        "value": 0.75
+       },
+       "2026-01": {
+        "n": 25,
+        "value": 0.76
+       },
+       "2026-02": {
+        "n": 16,
+        "value": 0.5625
+       },
+       "2026-03": {
+        "n": 20,
+        "value": 0.7
+       },
+       "2026-04": {
+        "n": 30,
+        "value": 0.8
+       },
+       "2026-05": {
+        "n": 23,
+        "value": 0.8695652173913043
+       },
+       "2026-06": {
+        "n": 15,
+        "value": 0.7333333333333333
+       }
+      },
+      "all_events": null
+     }
+    },
+    "bootstrap_week": {
+     "scheme": "iso_week",
+     "replicates": 400,
+     "seed": 17,
+     "blocks": 53,
+     "bonferroni": {
+      "comparisons": 7,
+      "level": 0.9928571428571429
+     },
+     "scores": {
+      "static_list_365": {
+       "card_precision": {
+        "point": 0.7061068702290076,
+        "low": 0.6436225699383594,
+        "high": 0.7693462897526501,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.6207221635472756,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.16270566727605118,
+        "low": 0.12900675003686402,
+        "high": 0.19535278059214226,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.11799187691611801,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.11639244363193176,
+        "low": 0.0932729880499154,
+        "high": 0.13998113975546564,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.08912884994548474,
+        "share_positive": 1.0
+       }
+      },
+      "persistence": {
+       "card_precision": {
+        "point": 0.5491071428571429,
+        "low": 0.4770126146788991,
+        "high": 0.6179878048780487,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.4560750329091707,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.10298598415600244,
+        "low": 0.07916328860803847,
+        "high": 0.12783294134984854,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.07433711057072094,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.07861060329067641,
+        "low": 0.06153321976149915,
+        "high": 0.09506611708368577,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.05786252358806337,
+        "share_positive": 1.0
+       }
+      },
+      "M1": {
+       "card_precision": {
+        "point": 0.7301587301587301,
+        "low": 0.6828536585365854,
+        "high": 0.7769866920152091,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.66337438859096,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.1365021328458257,
+        "low": 0.11814307698794166,
+        "high": 0.15659288426828671,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.11297926760444083,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.1157830591102986,
+        "low": 0.09940103505134276,
+        "high": 0.13189102634267366,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.09609051183715614,
+        "share_positive": 1.0
+       }
+      },
+      "M2": {
+       "card_precision": {
+        "point": 0.7404580152671756,
+        "low": 0.6819706071285959,
+        "high": 0.7904298774557479,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.6560545475750155,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.15112736136502133,
+        "low": 0.12889632201690893,
+        "high": 0.17576107354802095,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.12566418168382915,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.1218769043266301,
+        "low": 0.10796573823044854,
+        "high": 0.13768061787132785,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.10160452255546788,
+        "share_positive": 1.0
+       }
+      },
+      "M3": {
+       "card_precision": {
+        "point": 0.773851590106007,
+        "low": 0.713753917924047,
+        "high": 0.8252783171521035,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.7035369431468611,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.19865935405240706,
+        "low": 0.1720273249862194,
+        "high": 0.22581934690314642,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.15931162043076427,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.13833028641072517,
+        "low": 0.12230383441159039,
+        "high": 0.15675079589274504,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.11774027332621083,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s17": {
+       "card_precision": {
+        "point": 0.7188755020080321,
+        "low": 0.6742349503581752,
+        "high": 0.7705152224824355,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.6502177700348433,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.13284582571602682,
+        "low": 0.11430525112130349,
+        "high": 0.15072118777723562,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.1099127454681041,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.11273613650213285,
+        "low": 0.09619353956083354,
+        "high": 0.12964850303152647,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.09332638040971374,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s18": {
+       "card_precision": {
+        "point": 0.7204724409448819,
+        "low": 0.672043979812545,
+        "high": 0.7672035002792775,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.6502295750686309,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.13589274832419257,
+        "low": 0.11705627487530859,
+        "high": 0.1538500336247478,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.11254995944044018,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.11395490554539915,
+        "low": 0.09751061434291831,
+        "high": 0.13069874317042518,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.09442367077078484,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s19": {
+       "card_precision": {
+        "point": 0.7276264591439688,
+        "low": 0.672886993429376,
+        "high": 0.779144048722362,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.656708621774701,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.14442413162705667,
+        "low": 0.12446333090032591,
+        "high": 0.1644349198835319,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.11883837391987431,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.11761121267519806,
+        "low": 0.10107035187022345,
+        "high": 0.1337520911507192,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.0989304888475369,
+        "share_positive": 1.0
+       }
+      }
+     },
+     "deltas": {
+      "M1 - static_list_365": {
+       "card_precision": {
+        "point": 0.024051859929722474,
+        "low": -0.02745755022439084,
+        "high": 0.07830063925090601,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.041150605140758044,
+        "share_positive": 0.84
+       },
+       "event_recall_open": {
+        "point": -0.026203534430225467,
+        "low": -0.059926715754376206,
+        "high": 0.009844864098230035,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.06840908406061313,
+        "share_positive": 0.0975
+       },
+       "event_recall_without_repeats": {
+        "point": -0.0006093845216331578,
+        "low": -0.018237643998513558,
+        "high": 0.017280383973188606,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.023972716846333085,
+        "share_positive": 0.4875
+       }
+      },
+      "M2 - static_list_365": {
+       "card_precision": {
+        "point": 0.03435114503816794,
+        "low": -0.023597366700731304,
+        "high": 0.09592730827191043,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.03588241893704911,
+        "share_positive": 0.87
+       },
+       "event_recall_open": {
+        "point": -0.011578305911029846,
+        "low": -0.048422656429999496,
+        "high": 0.0340975920396602,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.05662692396204194,
+        "share_positive": 0.3075
+       },
+       "event_recall_without_repeats": {
+        "point": 0.005484460694698351,
+        "low": -0.010616411348356693,
+        "high": 0.023392435696936404,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.016694834581772785,
+        "share_positive": 0.7475
+       }
+      },
+      "M3 - static_list_365": {
+       "card_precision": {
+        "point": 0.06774471987699937,
+        "low": 0.018772994709638006,
+        "high": 0.1155452199336197,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.002923513149194084,
+        "share_positive": 0.995
+       },
+       "event_recall_open": {
+        "point": 0.03595368677635588,
+        "low": 0.0011871634023926,
+        "high": 0.07605727119264323,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.004110421401060786,
+        "share_positive": 0.9825
+       },
+       "event_recall_without_repeats": {
+        "point": 0.021937842778793418,
+        "low": 0.009196066610749985,
+        "high": 0.03493511575422247,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.006279130957750711,
+        "share_positive": 1.0
+       }
+      },
+      "M1 - persistence": {
+       "card_precision": {
+        "point": 0.1810515873015872,
+        "low": 0.11175859282791842,
+        "high": 0.2622508508273436,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.09094287499371245,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.03351614868982328,
+        "low": 0.007798975669273071,
+        "high": 0.06574060968949383,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.004397767041825221,
+        "share_positive": 0.99
+       },
+       "event_recall_without_repeats": {
+        "point": 0.03717245581962218,
+        "low": 0.02326837622793396,
+        "high": 0.05350384038965905,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.01749497314512429,
+        "share_positive": 1.0
+       }
+      },
+      "M2 - persistence": {
+       "card_precision": {
+        "point": 0.19135087241003268,
+        "low": 0.1186663684346959,
+        "high": 0.26598700902628725,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.07405725992241628,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.0481413772090189,
+        "low": 0.01079022843067787,
+        "high": 0.0889580770941826,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.00042693913029468985,
+        "share_positive": 0.995
+       },
+       "event_recall_without_repeats": {
+        "point": 0.04326630103595369,
+        "low": 0.0261583506403795,
+        "high": 0.060366402607931906,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.01993769680358389,
+        "share_positive": 1.0
+       }
+      },
+      "M3 - persistence": {
+       "card_precision": {
+        "point": 0.2247444472488641,
+        "low": 0.15609656687490597,
+        "high": 0.2960627442917781,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.13737806093300856,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.09567336989640463,
+        "low": 0.05971127276419523,
+        "high": 0.13259235932826982,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.050024644493594006,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.05971968312004876,
+        "low": 0.0421140153207555,
+        "high": 0.07832622270841878,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.035673892662086926,
+        "share_positive": 1.0
+       }
+      },
+      "persistence - static_list_365": {
+       "card_precision": {
+        "point": -0.15699972737186474,
+        "low": -0.24184249515037995,
+        "high": -0.07693758523661266,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.26290441176470586,
+        "share_positive": 0.0
+       },
+       "event_recall_open": {
+        "point": -0.059719683120048744,
+        "low": -0.08916148775894538,
+        "high": -0.031643413276913716,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.10007063882063881,
+        "share_positive": 0.0
+       },
+       "event_recall_without_repeats": {
+        "point": -0.03778184034125534,
+        "low": -0.05651132357654098,
+        "high": -0.02111653264765927,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.06557135109729202,
+        "share_positive": 0.0
+       }
+      },
+      "M1 s17 - static_list_365": {
+       "card_precision": {
+        "point": 0.01276863177902443,
+        "low": -0.04312432274735344,
+        "high": 0.0701737991287703,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.06165299384041851,
+        "share_positive": 0.675
+       },
+       "event_recall_open": {
+        "point": -0.02985984156002436,
+        "low": -0.06361077818045592,
+        "high": 0.006479496375924198,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.07013724124203823,
+        "share_positive": 0.0625
+       },
+       "event_recall_without_repeats": {
+        "point": -0.0036563071297989053,
+        "low": -0.019525692264538947,
+        "high": 0.014171747211895897,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.027809636112555824,
+        "share_positive": 0.3275
+       }
+      },
+      "M1 s18 - static_list_365": {
+       "card_precision": {
+        "point": 0.014365570715874298,
+        "low": -0.03741426727869008,
+        "high": 0.06335246162665634,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.04654072506407107,
+        "share_positive": 0.7075
+       },
+       "event_recall_open": {
+        "point": -0.02681291895185861,
+        "low": -0.0609009012603282,
+        "high": 0.011632143375885598,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.07316305956816907,
+        "share_positive": 0.08
+       },
+       "event_recall_without_repeats": {
+        "point": -0.0024375380865326035,
+        "low": -0.020120796083649698,
+        "high": 0.014843684521551865,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.024297762552940725,
+        "share_positive": 0.41
+       }
+      },
+      "M1 s19 - static_list_365": {
+       "card_precision": {
+        "point": 0.021519588914961196,
+        "low": -0.033035793085150915,
+        "high": 0.07547625587886049,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.04890677472323738,
+        "share_positive": 0.7925
+       },
+       "event_recall_open": {
+        "point": -0.018281535648994512,
+        "low": -0.05520097468409022,
+        "high": 0.020413667466453386,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.06425921474358977,
+        "share_positive": 0.21
+       },
+       "event_recall_without_repeats": {
+        "point": 0.0012187690432663018,
+        "low": -0.017546375584505558,
+        "high": 0.019999021806416935,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.024321491065033504,
+        "share_positive": 0.57
+       }
+      }
+     }
+    },
+    "bootstrap_object": {
+     "scheme": "object",
+     "replicates": 400,
+     "seed": 18,
+     "blocks": 78,
+     "bonferroni": {
+      "comparisons": 7,
+      "level": 0.9928571428571429
+     },
+     "scores": {
+      "static_list_365": {
+       "card_precision": {
+        "point": 0.7061068702290076,
+        "low": 0.4787435137138621,
+        "high": 0.8689805097451274,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.45193181818181816,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.16270566727605118,
+        "low": 0.040779355220349006,
+        "high": 0.27218111209467205,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.007772147290169084,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.11639244363193176,
+        "low": 0.025929209525056517,
+        "high": 0.21636676641380695,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.006228325055360248,
+        "share_positive": 1.0
+       }
+      },
+      "persistence": {
+       "card_precision": {
+        "point": 0.5491071428571429,
+        "low": 0.38656031888326825,
+        "high": 0.652792994687915,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.33512082204155375,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.10298598415600244,
+        "low": 0.06379229223772197,
+        "high": 0.1303511095694963,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.054513526340768864,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.07861060329067641,
+        "low": 0.05121947410916957,
+        "high": 0.10280340096621757,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.043767384324174964,
+        "share_positive": 1.0
+       }
+      },
+      "M1": {
+       "card_precision": {
+        "point": 0.7301587301587301,
+        "low": 0.6249778368794326,
+        "high": 0.8125721153846153,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.601931216931217,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.1365021328458257,
+        "low": 0.048965240473392645,
+        "high": 0.24346631970169919,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.033328941596349256,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.1157830591102986,
+        "low": 0.035655703441994556,
+        "high": 0.21138496323796413,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.023025695876503258,
+        "share_positive": 1.0
+       }
+      },
+      "M2": {
+       "card_precision": {
+        "point": 0.7404580152671756,
+        "low": 0.5565835051546392,
+        "high": 0.8397092345207803,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5286954087346024,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.15112736136502133,
+        "low": 0.04985524968877581,
+        "high": 0.2251876028698516,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.030450581395348838,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.1218769043266301,
+        "low": 0.03889096770479535,
+        "high": 0.1958830592016177,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.025884154831523253,
+        "share_positive": 1.0
+       }
+      },
+      "M3": {
+       "card_precision": {
+        "point": 0.773851590106007,
+        "low": 0.5629495807590468,
+        "high": 0.8674663402692778,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.4749151583710407,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.19865935405240706,
+        "low": 0.033012422360248456,
+        "high": 0.30232432481295934,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.011759018037983134,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.13833028641072517,
+        "low": 0.026553746686725412,
+        "high": 0.22195448903070034,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.007398249475211283,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s17": {
+       "card_precision": {
+        "point": 0.7188755020080321,
+        "low": 0.604871632996633,
+        "high": 0.8122650793650793,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.5909090909090909,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.13284582571602682,
+        "low": 0.04312751754158004,
+        "high": 0.24037344715411646,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.02918497958899863,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.11273613650213285,
+        "low": 0.03482347995471497,
+        "high": 0.21324764312917524,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.019329498114076842,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s18": {
+       "card_precision": {
+        "point": 0.7204724409448819,
+        "low": 0.6183066108638628,
+        "high": 0.8095864661654135,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.6092393410852712,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.13589274832419257,
+        "low": 0.05305156309062559,
+        "high": 0.22945545609548165,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.03602399178621124,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.11395490554539915,
+        "low": 0.040810066951960246,
+        "high": 0.20089025511301772,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.0254329662170417,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s19": {
+       "card_precision": {
+        "point": 0.7276264591439688,
+        "low": 0.6173418367346939,
+        "high": 0.8168008750698195,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.6028651685393258,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.14442413162705667,
+        "low": 0.05261185443308458,
+        "high": 0.24838462075221546,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.037563826041024734,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.11761121267519806,
+        "low": 0.03947245744889662,
+        "high": 0.21729880751701314,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.023748015395892302,
+        "share_positive": 1.0
+       }
+      }
+     },
+     "deltas": {
+      "M1 - static_list_365": {
+       "card_precision": {
+        "point": 0.024051859929722474,
+        "low": -0.18509886119578137,
+        "high": 0.17582517219479468,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.3103965954939027,
+        "share_positive": 0.6275
+       },
+       "event_recall_open": {
+        "point": -0.026203534430225467,
+        "low": -0.12005632646247404,
+        "high": 0.0856308748459778,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.15222823804667346,
+        "share_positive": 0.355
+       },
+       "event_recall_without_repeats": {
+        "point": -0.0006093845216331578,
+        "low": -0.05727808236523375,
+        "high": 0.06714202763693909,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.07085816189572583,
+        "share_positive": 0.495
+       }
+      },
+      "M2 - static_list_365": {
+       "card_precision": {
+        "point": 0.03435114503816794,
+        "low": -0.14667925824175826,
+        "high": 0.15886239883484213,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.23404234855010053,
+        "share_positive": 0.695
+       },
+       "event_recall_open": {
+        "point": -0.011578305911029846,
+        "low": -0.09467114381836673,
+        "high": 0.057713660834454894,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.11064693162085122,
+        "share_positive": 0.405
+       },
+       "event_recall_without_repeats": {
+        "point": 0.005484460694698351,
+        "low": -0.04556427285822808,
+        "high": 0.04370938053381164,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.05529859819333503,
+        "share_positive": 0.625
+       }
+      },
+      "M3 - static_list_365": {
+       "card_precision": {
+        "point": 0.06774471987699937,
+        "low": -0.05472278410779333,
+        "high": 0.13760604013895256,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.11998860398860398,
+        "share_positive": 0.8925
+       },
+       "event_recall_open": {
+        "point": 0.03595368677635588,
+        "low": -0.0532251179931614,
+        "high": 0.12070444732774276,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.07200833513846641,
+        "share_positive": 0.7425
+       },
+       "event_recall_without_repeats": {
+        "point": 0.021937842778793418,
+        "low": -0.0322260689954885,
+        "high": 0.06978711582387578,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.041633315224364656,
+        "share_positive": 0.76
+       }
+      },
+      "M1 - persistence": {
+       "card_precision": {
+        "point": 0.1810515873015872,
+        "low": 0.05707980537757431,
+        "high": 0.3430450398795196,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.03438508728579319,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.03351614868982328,
+        "low": -0.040169055115436295,
+        "high": 0.1286057015778828,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.0656028849768945,
+        "share_positive": 0.765
+       },
+       "event_recall_without_repeats": {
+        "point": 0.03717245581962218,
+        "low": -0.025706198882568743,
+        "high": 0.11744295583001883,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.03718536285889693,
+        "share_positive": 0.825
+       }
+      },
+      "M2 - persistence": {
+       "card_precision": {
+        "point": 0.19135087241003268,
+        "low": 0.04954740953000224,
+        "high": 0.3491555249655755,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.0024895065333235874,
+        "share_positive": 0.995
+       },
+       "event_recall_open": {
+        "point": 0.0481413772090189,
+        "low": -0.021770918362408572,
+        "high": 0.10531841965966973,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.03470467032967033,
+        "share_positive": 0.9025
+       },
+       "event_recall_without_repeats": {
+        "point": 0.04326630103595369,
+        "low": -0.021654143858303405,
+        "high": 0.10006461127263502,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.033115590843472875,
+        "share_positive": 0.8775
+       }
+      },
+      "M3 - persistence": {
+       "card_precision": {
+        "point": 0.2247444472488641,
+        "low": 0.08621709314432978,
+        "high": 0.37959834782759494,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.033479849303427865,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.09567336989640463,
+        "low": -0.043295031049906944,
+        "high": 0.18179866013265825,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.057140607633089244,
+        "share_positive": 0.905
+       },
+       "event_recall_without_repeats": {
+        "point": 0.05971968312004876,
+        "low": -0.04090266421368221,
+        "high": 0.12973449873086798,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.05764814955929792,
+        "share_positive": 0.86
+       }
+      },
+      "persistence - static_list_365": {
+       "card_precision": {
+        "point": -0.15699972737186474,
+        "low": -0.35945922791932244,
+        "high": -0.010288965631100218,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.45806305407801423,
+        "share_positive": 0.02
+       },
+       "event_recall_open": {
+        "point": -0.059719683120048744,
+        "low": -0.154647446965577,
+        "high": 0.04225130181480715,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.1862517452129082,
+        "share_positive": 0.1475
+       },
+       "event_recall_without_repeats": {
+        "point": -0.03778184034125534,
+        "low": -0.12360213406391378,
+        "high": 0.0433039427871395,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.15370249615975423,
+        "share_positive": 0.2175
+       }
+      },
+      "M1 s17 - static_list_365": {
+       "card_precision": {
+        "point": 0.01276863177902443,
+        "low": -0.1830762815468905,
+        "high": 0.15011503144430166,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.3043811880360457,
+        "share_positive": 0.5725
+       },
+       "event_recall_open": {
+        "point": -0.02985984156002436,
+        "low": -0.12490129794599068,
+        "high": 0.07980113353470307,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.15651594589114504,
+        "share_positive": 0.325
+       },
+       "event_recall_without_repeats": {
+        "point": -0.0036563071297989053,
+        "low": -0.05707485373820037,
+        "high": 0.05954423813928903,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.07224936998522724,
+        "share_positive": 0.4675
+       }
+      },
+      "M1 s18 - static_list_365": {
+       "card_precision": {
+        "point": 0.014365570715874298,
+        "low": -0.16669314216170483,
+        "high": 0.17168610582155813,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.3068361018826135,
+        "share_positive": 0.6
+       },
+       "event_recall_open": {
+        "point": -0.02681291895185861,
+        "low": -0.12609898725984303,
+        "high": 0.09182686385689139,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.15909813747356835,
+        "share_positive": 0.355
+       },
+       "event_recall_without_repeats": {
+        "point": -0.0024375380865326035,
+        "low": -0.0640266697874609,
+        "high": 0.07370324380141452,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.07779298285627399,
+        "share_positive": 0.4725
+       }
+      },
+      "M1 s19 - static_list_365": {
+       "card_precision": {
+        "point": 0.021519588914961196,
+        "low": -0.17192194917485615,
+        "high": 0.1654670381773457,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.31177150120478186,
+        "share_positive": 0.625
+       },
+       "event_recall_open": {
+        "point": -0.018281535648994512,
+        "low": -0.11857402527256428,
+        "high": 0.09777982853452587,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.1439093290097281,
+        "share_positive": 0.405
+       },
+       "event_recall_without_repeats": {
+        "point": 0.0012187690432663018,
+        "low": -0.05467026039984208,
+        "high": 0.06808077150608922,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.06724951481620949,
+        "share_positive": 0.535
+       }
+      }
+     }
+    },
+    "lead": {
+     "stats": {
+      "static_list_365": {
+       "captured": 267,
+       "median": 38.260555555555555,
+       "share_le_24h": 0.3707865168539326,
+       "share_le_72h": 0.700374531835206
+      },
+      "M1": {
+       "captured": 224,
+       "median": 45.528333333333336,
+       "share_le_24h": 0.22321428571428573,
+       "share_le_72h": 0.6294642857142857
+      },
+      "M2": {
+       "captured": 248,
+       "median": 40.0625,
+       "share_le_24h": 0.2862903225806452,
+       "share_le_72h": 0.6854838709677419
+      },
+      "M3": {
+       "captured": 326,
+       "median": 35.10111111111111,
+       "share_le_24h": 0.401840490797546,
+       "share_le_72h": 0.7116564417177914
+      }
+     },
+     "deltas_week": {
+      "M1 - static_list_365": {
+       "point": 7.267777777777781,
+       "low": -2.858666666666666,
+       "high": 24.62981944444444,
+       "undefined_replicates": 0
+      },
+      "M2 - static_list_365": {
+       "point": 1.8019444444444446,
+       "low": -9.142652777777776,
+       "high": 20.143965277777767,
+       "undefined_replicates": 0
+      },
+      "M3 - static_list_365": {
+       "point": -3.1594444444444463,
+       "low": -14.899624999999997,
+       "high": 4.422874999999997,
+       "undefined_replicates": 0
+      }
+     },
+     "blocks": 52
+    },
+    "calibration_issued": {
+     "M2": {
+      "cards": 262,
+      "bins": [
+       {
+        "bin": [
+         0.5,
+         0.7
+        ],
+        "n": 17,
+        "mean_score": 0.6728269062477673,
+        "share_with_event": 0.5882352941176471,
+        "wilson_low": 0.36005074385515545,
+        "wilson_high": 0.7838921396086862,
+        "score_inside_wilson": true,
+        "k": 10
+       },
+       {
+        "bin": [
+         0.7,
+         1.0
+        ],
+        "n": 245,
+        "mean_score": 0.882445904249529,
+        "share_with_event": 0.7510204081632653,
+        "wilson_low": 0.6932773952139099,
+        "wilson_high": 0.8010129485228287,
+        "score_inside_wilson": false,
+        "k": 184
+       }
+      ],
+      "ece": 0.12838665628758258,
+      "brier": 0.20369111077520846,
+      "mean_score": 0.8688446715547582,
+      "share_with_event": 0.7404580152671756
+     },
+     "M3": {
+      "cards": 283,
+      "bins": [
+       {
+        "bin": [
+         0.7,
+         1.0
+        ],
+        "n": 283,
+        "mean_score": 0.8913957212030703,
+        "share_with_event": 0.773851590106007,
+        "wilson_low": 0.7216323902637131,
+        "wilson_high": 0.8187355340540986,
+        "score_inside_wilson": false,
+        "k": 219
+       }
+      ],
+      "ece": 0.11754413109706331,
+      "brier": 0.1856766327732337,
+      "mean_score": 0.8913957212030703,
+      "share_with_event": 0.773851590106007
+     }
+    },
+    "unknown_reasons": {
+     "static_list_365": {
+      "source_coverage": 9
+     },
+     "M1": {
+      "source_coverage": 8
+     },
+     "M2": {
+      "source_coverage": 7
+     },
+     "M3": {
+      "source_coverage": 9
+     }
+    }
+   },
+   "iii": {
+    "spec": {
+     "k": 3,
+     "slice": "свежие пары: без события за 14 сут до cutoff (L = 14)",
+     "candidates": [
+      "M1"
+     ]
+    },
+    "fresh_lookback_days": 14,
+    "recall_events": "fresh events (no pair event in [start - 14 d, start))",
+    "points": {
+     "static_list_365": {
+      "cards_issued": 189,
+      "cards_known": 186,
+      "cards_unknown_outcome": 3,
+      "card_precision": 0.3709677419354839,
+      "card_precision_lower_bound": 0.36507936507936506,
+      "new_cards_per_day": 0.5264623955431755,
+      "chronic_share_issued": 0.0,
+      "events": 349,
+      "event_recall_open": 0.1977077363896848,
+      "event_recall_without_repeats": 0.1977077363896848,
+      "event_recall_protocol": 0.1977077363896848,
+      "lead_hours_median_open": 59.963055555555556,
+      "lead_share_le_24h": 0.18840579710144928,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 34,
+        "value": 0.17647058823529413
+       },
+       "2025-08": {
+        "n": 19,
+        "value": 0.21052631578947367
+       },
+       "2025-09": {
+        "n": 41,
+        "value": 0.1951219512195122
+       },
+       "2025-10": {
+        "n": 33,
+        "value": 0.12121212121212122
+       },
+       "2025-11": {
+        "n": 26,
+        "value": 0.19230769230769232
+       },
+       "2025-12": {
+        "n": 43,
+        "value": 0.23255813953488372
+       },
+       "2026-01": {
+        "n": 31,
+        "value": 0.12903225806451613
+       },
+       "2026-02": {
+        "n": 22,
+        "value": 0.09090909090909091
+       },
+       "2026-03": {
+        "n": 36,
+        "value": 0.2777777777777778
+       },
+       "2026-04": {
+        "n": 26,
+        "value": 0.2692307692307692
+       },
+       "2026-05": {
+        "n": 19,
+        "value": 0.2631578947368421
+       },
+       "2026-06": {
+        "n": 19,
+        "value": 0.21052631578947367
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 17,
+        "value": 0.35294117647058826
+       },
+       "2025-08": {
+        "n": 15,
+        "value": 0.26666666666666666
+       },
+       "2025-09": {
+        "n": 15,
+        "value": 0.5333333333333333
+       },
+       "2025-10": {
+        "n": 17,
+        "value": 0.29411764705882354
+       },
+       "2025-11": {
+        "n": 15,
+        "value": 0.26666666666666666
+       },
+       "2025-12": {
+        "n": 21,
+        "value": 0.47619047619047616
+       },
+       "2026-01": {
+        "n": 16,
+        "value": 0.3125
+       },
+       "2026-02": {
+        "n": 13,
+        "value": 0.15384615384615385
+       },
+       "2026-03": {
+        "n": 18,
+        "value": 0.5
+       },
+       "2026-04": {
+        "n": 16,
+        "value": 0.5
+       },
+       "2026-05": {
+        "n": 12,
+        "value": 0.3333333333333333
+       },
+       "2026-06": {
+        "n": 11,
+        "value": 0.36363636363636365
+       }
+      },
+      "all_events": {
+       "events": 1641,
+       "event_recall_open": 0.061547836684948204,
+       "event_recall_without_repeats": 0.04204753199268738,
+       "lead_hours_median_open": 62.363055555555555
+      }
+     },
+     "persistence": {
+      "cards_issued": 170,
+      "cards_known": 167,
+      "cards_unknown_outcome": 3,
+      "card_precision": 0.20359281437125748,
+      "card_precision_lower_bound": 0.2,
+      "new_cards_per_day": 0.4735376044568245,
+      "chronic_share_issued": 0.0,
+      "events": 349,
+      "event_recall_open": 0.09742120343839542,
+      "event_recall_without_repeats": 0.09742120343839542,
+      "event_recall_protocol": 0.09742120343839542,
+      "lead_hours_median_open": 78.42722222222223,
+      "lead_share_le_24h": 0.08823529411764706,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 34,
+        "value": 0.23529411764705882
+       },
+       "2025-08": {
+        "n": 19,
+        "value": 0.10526315789473684
+       },
+       "2025-09": {
+        "n": 41,
+        "value": 0.024390243902439025
+       },
+       "2025-10": {
+        "n": 33,
+        "value": 0.09090909090909091
+       },
+       "2025-11": {
+        "n": 26,
+        "value": 0.0
+       },
+       "2025-12": {
+        "n": 43,
+        "value": 0.06976744186046512
+       },
+       "2026-01": {
+        "n": 31,
+        "value": 0.1935483870967742
+       },
+       "2026-02": {
+        "n": 22,
+        "value": 0.045454545454545456
+       },
+       "2026-03": {
+        "n": 36,
+        "value": 0.05555555555555555
+       },
+       "2026-04": {
+        "n": 26,
+        "value": 0.11538461538461539
+       },
+       "2026-05": {
+        "n": 19,
+        "value": 0.15789473684210525
+       },
+       "2026-06": {
+        "n": 19,
+        "value": 0.10526315789473684
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 19,
+        "value": 0.42105263157894735
+       },
+       "2025-08": {
+        "n": 13,
+        "value": 0.15384615384615385
+       },
+       "2025-09": {
+        "n": 13,
+        "value": 0.07692307692307693
+       },
+       "2025-10": {
+        "n": 15,
+        "value": 0.2
+       },
+       "2025-11": {
+        "n": 14,
+        "value": 0.14285714285714285
+       },
+       "2025-12": {
+        "n": 14,
+        "value": 0.07142857142857142
+       },
+       "2026-01": {
+        "n": 17,
+        "value": 0.35294117647058826
+       },
+       "2026-02": {
+        "n": 12,
+        "value": 0.08333333333333333
+       },
+       "2026-03": {
+        "n": 13,
+        "value": 0.15384615384615385
+       },
+       "2026-04": {
+        "n": 14,
+        "value": 0.21428571428571427
+       },
+       "2026-05": {
+        "n": 13,
+        "value": 0.23076923076923078
+       },
+       "2026-06": {
+        "n": 10,
+        "value": 0.2
+       }
+      },
+      "all_events": {
+       "events": 1641,
+       "event_recall_open": 0.02254722730042657,
+       "event_recall_without_repeats": 0.020719073735527116,
+       "lead_hours_median_open": 81.65
+      }
+     },
+     "M1": {
+      "cards_issued": 186,
+      "cards_known": 183,
+      "cards_unknown_outcome": 3,
+      "card_precision": 0.366120218579235,
+      "card_precision_lower_bound": 0.3602150537634409,
+      "new_cards_per_day": 0.5181058495821727,
+      "chronic_share_issued": 0.0,
+      "events": 349,
+      "event_recall_open": 0.19197707736389685,
+      "event_recall_without_repeats": 0.19197707736389685,
+      "event_recall_protocol": 0.19197707736389685,
+      "lead_hours_median_open": 75.20444444444445,
+      "lead_share_le_24h": 0.16417910447761194,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 34,
+        "value": 0.20588235294117646
+       },
+       "2025-08": {
+        "n": 19,
+        "value": 0.2631578947368421
+       },
+       "2025-09": {
+        "n": 41,
+        "value": 0.14634146341463414
+       },
+       "2025-10": {
+        "n": 33,
+        "value": 0.15151515151515152
+       },
+       "2025-11": {
+        "n": 26,
+        "value": 0.15384615384615385
+       },
+       "2025-12": {
+        "n": 43,
+        "value": 0.23255813953488372
+       },
+       "2026-01": {
+        "n": 31,
+        "value": 0.16129032258064516
+       },
+       "2026-02": {
+        "n": 22,
+        "value": 0.18181818181818182
+       },
+       "2026-03": {
+        "n": 36,
+        "value": 0.1388888888888889
+       },
+       "2026-04": {
+        "n": 26,
+        "value": 0.3076923076923077
+       },
+       "2026-05": {
+        "n": 19,
+        "value": 0.3157894736842105
+       },
+       "2026-06": {
+        "n": 19,
+        "value": 0.10526315789473684
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 18,
+        "value": 0.4444444444444444
+       },
+       "2025-08": {
+        "n": 15,
+        "value": 0.26666666666666666
+       },
+       "2025-09": {
+        "n": 16,
+        "value": 0.375
+       },
+       "2025-10": {
+        "n": 17,
+        "value": 0.35294117647058826
+       },
+       "2025-11": {
+        "n": 15,
+        "value": 0.3333333333333333
+       },
+       "2025-12": {
+        "n": 19,
+        "value": 0.42105263157894735
+       },
+       "2026-01": {
+        "n": 14,
+        "value": 0.5
+       },
+       "2026-02": {
+        "n": 13,
+        "value": 0.15384615384615385
+       },
+       "2026-03": {
+        "n": 16,
+        "value": 0.375
+       },
+       "2026-04": {
+        "n": 15,
+        "value": 0.4666666666666667
+       },
+       "2026-05": {
+        "n": 14,
+        "value": 0.42857142857142855
+       },
+       "2026-06": {
+        "n": 11,
+        "value": 0.18181818181818182
+       }
+      },
+      "all_events": {
+       "events": 1641,
+       "event_recall_open": 0.05728214503351615,
+       "event_recall_without_repeats": 0.04082876294942109,
+       "lead_hours_median_open": 82.85888888888888
+      }
+     },
+     "M1 s17": {
+      "cards_issued": 187,
+      "cards_known": 184,
+      "cards_unknown_outcome": 3,
+      "card_precision": 0.375,
+      "card_precision_lower_bound": 0.3689839572192513,
+      "new_cards_per_day": 0.520891364902507,
+      "chronic_share_issued": 0.0,
+      "events": 349,
+      "event_recall_open": 0.1977077363896848,
+      "event_recall_without_repeats": 0.1977077363896848,
+      "event_recall_protocol": 0.1977077363896848,
+      "lead_hours_median_open": 69.77222222222223,
+      "lead_share_le_24h": 0.18840579710144928,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 34,
+        "value": 0.20588235294117646
+       },
+       "2025-08": {
+        "n": 19,
+        "value": 0.2631578947368421
+       },
+       "2025-09": {
+        "n": 41,
+        "value": 0.14634146341463414
+       },
+       "2025-10": {
+        "n": 33,
+        "value": 0.18181818181818182
+       },
+       "2025-11": {
+        "n": 26,
+        "value": 0.15384615384615385
+       },
+       "2025-12": {
+        "n": 43,
+        "value": 0.2558139534883721
+       },
+       "2026-01": {
+        "n": 31,
+        "value": 0.16129032258064516
+       },
+       "2026-02": {
+        "n": 22,
+        "value": 0.09090909090909091
+       },
+       "2026-03": {
+        "n": 36,
+        "value": 0.16666666666666666
+       },
+       "2026-04": {
+        "n": 26,
+        "value": 0.3076923076923077
+       },
+       "2026-05": {
+        "n": 19,
+        "value": 0.3157894736842105
+       },
+       "2026-06": {
+        "n": 19,
+        "value": 0.15789473684210525
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 18,
+        "value": 0.4444444444444444
+       },
+       "2025-08": {
+        "n": 15,
+        "value": 0.26666666666666666
+       },
+       "2025-09": {
+        "n": 16,
+        "value": 0.375
+       },
+       "2025-10": {
+        "n": 17,
+        "value": 0.4117647058823529
+       },
+       "2025-11": {
+        "n": 15,
+        "value": 0.4
+       },
+       "2025-12": {
+        "n": 19,
+        "value": 0.42105263157894735
+       },
+       "2026-01": {
+        "n": 14,
+        "value": 0.42857142857142855
+       },
+       "2026-02": {
+        "n": 13,
+        "value": 0.07692307692307693
+       },
+       "2026-03": {
+        "n": 17,
+        "value": 0.4117647058823529
+       },
+       "2026-04": {
+        "n": 15,
+        "value": 0.4666666666666667
+       },
+       "2026-05": {
+        "n": 14,
+        "value": 0.42857142857142855
+       },
+       "2026-06": {
+        "n": 11,
+        "value": 0.2727272727272727
+       }
+      },
+      "all_events": {
+       "events": 1641,
+       "event_recall_open": 0.056063375990249846,
+       "event_recall_without_repeats": 0.04204753199268738,
+       "lead_hours_median_open": 75.37055555555555
+      }
+     },
+     "M1 s18": {
+      "cards_issued": 187,
+      "cards_known": 184,
+      "cards_unknown_outcome": 3,
+      "card_precision": 0.3641304347826087,
+      "card_precision_lower_bound": 0.3582887700534759,
+      "new_cards_per_day": 0.520891364902507,
+      "chronic_share_issued": 0.0,
+      "events": 349,
+      "event_recall_open": 0.19197707736389685,
+      "event_recall_without_repeats": 0.19197707736389685,
+      "event_recall_protocol": 0.19197707736389685,
+      "lead_hours_median_open": 62.4575,
+      "lead_share_le_24h": 0.16417910447761194,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 34,
+        "value": 0.20588235294117646
+       },
+       "2025-08": {
+        "n": 19,
+        "value": 0.21052631578947367
+       },
+       "2025-09": {
+        "n": 41,
+        "value": 0.14634146341463414
+       },
+       "2025-10": {
+        "n": 33,
+        "value": 0.15151515151515152
+       },
+       "2025-11": {
+        "n": 26,
+        "value": 0.15384615384615385
+       },
+       "2025-12": {
+        "n": 43,
+        "value": 0.27906976744186046
+       },
+       "2026-01": {
+        "n": 31,
+        "value": 0.22580645161290322
+       },
+       "2026-02": {
+        "n": 22,
+        "value": 0.13636363636363635
+       },
+       "2026-03": {
+        "n": 36,
+        "value": 0.1388888888888889
+       },
+       "2026-04": {
+        "n": 26,
+        "value": 0.2692307692307692
+       },
+       "2026-05": {
+        "n": 19,
+        "value": 0.2631578947368421
+       },
+       "2026-06": {
+        "n": 19,
+        "value": 0.10526315789473684
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 18,
+        "value": 0.4444444444444444
+       },
+       "2025-08": {
+        "n": 15,
+        "value": 0.26666666666666666
+       },
+       "2025-09": {
+        "n": 16,
+        "value": 0.375
+       },
+       "2025-10": {
+        "n": 16,
+        "value": 0.3125
+       },
+       "2025-11": {
+        "n": 15,
+        "value": 0.3333333333333333
+       },
+       "2025-12": {
+        "n": 21,
+        "value": 0.5238095238095238
+       },
+       "2026-01": {
+        "n": 14,
+        "value": 0.5714285714285714
+       },
+       "2026-02": {
+        "n": 13,
+        "value": 0.07692307692307693
+       },
+       "2026-03": {
+        "n": 16,
+        "value": 0.375
+       },
+       "2026-04": {
+        "n": 15,
+        "value": 0.4
+       },
+       "2026-05": {
+        "n": 14,
+        "value": 0.35714285714285715
+       },
+       "2026-06": {
+        "n": 11,
+        "value": 0.18181818181818182
+       }
+      },
+      "all_events": {
+       "events": 1641,
+       "event_recall_open": 0.0578915295551493,
+       "event_recall_without_repeats": 0.04082876294942109,
+       "lead_hours_median_open": 77.965
+      }
+     },
+     "M1 s19": {
+      "cards_issued": 185,
+      "cards_known": 182,
+      "cards_unknown_outcome": 3,
+      "card_precision": 0.36813186813186816,
+      "card_precision_lower_bound": 0.3621621621621622,
+      "new_cards_per_day": 0.5153203342618384,
+      "chronic_share_issued": 0.0,
+      "events": 349,
+      "event_recall_open": 0.19197707736389685,
+      "event_recall_without_repeats": 0.19197707736389685,
+      "event_recall_protocol": 0.19197707736389685,
+      "lead_hours_median_open": 75.53666666666666,
+      "lead_share_le_24h": 0.14925373134328357,
+      "monthly_recall_open": {
+       "2025-07": {
+        "n": 34,
+        "value": 0.20588235294117646
+       },
+       "2025-08": {
+        "n": 19,
+        "value": 0.2631578947368421
+       },
+       "2025-09": {
+        "n": 41,
+        "value": 0.12195121951219512
+       },
+       "2025-10": {
+        "n": 33,
+        "value": 0.15151515151515152
+       },
+       "2025-11": {
+        "n": 26,
+        "value": 0.15384615384615385
+       },
+       "2025-12": {
+        "n": 43,
+        "value": 0.23255813953488372
+       },
+       "2026-01": {
+        "n": 31,
+        "value": 0.1935483870967742
+       },
+       "2026-02": {
+        "n": 22,
+        "value": 0.13636363636363635
+       },
+       "2026-03": {
+        "n": 36,
+        "value": 0.16666666666666666
+       },
+       "2026-04": {
+        "n": 26,
+        "value": 0.3076923076923077
+       },
+       "2026-05": {
+        "n": 19,
+        "value": 0.3157894736842105
+       },
+       "2026-06": {
+        "n": 19,
+        "value": 0.10526315789473684
+       }
+      },
+      "monthly_precision": {
+       "2025-07": {
+        "n": 18,
+        "value": 0.3888888888888889
+       },
+       "2025-08": {
+        "n": 16,
+        "value": 0.3125
+       },
+       "2025-09": {
+        "n": 15,
+        "value": 0.3333333333333333
+       },
+       "2025-10": {
+        "n": 17,
+        "value": 0.35294117647058826
+       },
+       "2025-11": {
+        "n": 15,
+        "value": 0.3333333333333333
+       },
+       "2025-12": {
+        "n": 18,
+        "value": 0.5
+       },
+       "2026-01": {
+        "n": 14,
+        "value": 0.42857142857142855
+       },
+       "2026-02": {
+        "n": 13,
+        "value": 0.23076923076923078
+       },
+       "2026-03": {
+        "n": 16,
+        "value": 0.375
+       },
+       "2026-04": {
+        "n": 15,
+        "value": 0.4666666666666667
+       },
+       "2026-05": {
+        "n": 14,
+        "value": 0.42857142857142855
+       },
+       "2026-06": {
+        "n": 11,
+        "value": 0.18181818181818182
+       }
+      },
+      "all_events": {
+       "events": 1641,
+       "event_recall_open": 0.054844606946983544,
+       "event_recall_without_repeats": 0.04082876294942109,
+       "lead_hours_median_open": 75.37055555555555
+      }
+     }
+    },
+    "bootstrap_week": {
+     "scheme": "iso_week",
+     "replicates": 400,
+     "seed": 17,
+     "blocks": 53,
+     "bonferroni": {
+      "comparisons": 7,
+      "level": 0.9928571428571429
+     },
+     "scores": {
+      "static_list_365": {
+       "card_precision": {
+        "point": 0.3709677419354839,
+        "low": 0.29945143571262495,
+        "high": 0.4428275290215588,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.2862795444071367,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.1977077363896848,
+        "low": 0.1595495076774771,
+        "high": 0.23863955566905007,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.1462036278657359,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.1977077363896848,
+        "low": 0.1595495076774771,
+        "high": 0.23863955566905007,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.1462036278657359,
+        "share_positive": 1.0
+       }
+      },
+      "persistence": {
+       "card_precision": {
+        "point": 0.20359281437125748,
+        "low": 0.12723462166575938,
+        "high": 0.29081659619450306,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.09918005354752342,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.09742120343839542,
+        "low": 0.06459064137542765,
+        "high": 0.13298242869376192,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.048877773502629215,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.09742120343839542,
+        "low": 0.06459064137542765,
+        "high": 0.13298242869376192,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.048877773502629215,
+        "share_positive": 1.0
+       }
+      },
+      "M1": {
+       "card_precision": {
+        "point": 0.366120218579235,
+        "low": 0.2943867041198502,
+        "high": 0.43162280701754385,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.2600820602807597,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.19197707736389685,
+        "low": 0.15702928211586903,
+        "high": 0.23138618560580146,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.14423174872665534,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.19197707736389685,
+        "low": 0.15702928211586903,
+        "high": 0.23138618560580146,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.14423174872665534,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s17": {
+       "card_precision": {
+        "point": 0.375,
+        "low": 0.2920799813842165,
+        "high": 0.44389172335600907,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.27755486280440755,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.1977077363896848,
+        "low": 0.16268390079865488,
+        "high": 0.2339212392683837,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.14519958551090287,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.1977077363896848,
+        "low": 0.16268390079865488,
+        "high": 0.2339212392683837,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.14519958551090287,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s18": {
+       "card_precision": {
+        "point": 0.3641304347826087,
+        "low": 0.2873152709359606,
+        "high": 0.42785346097201765,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.2678901734104046,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.19197707736389685,
+        "low": 0.15407273994887288,
+        "high": 0.22793650793650794,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.1436069562083258,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.19197707736389685,
+        "low": 0.15407273994887288,
+        "high": 0.22793650793650794,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.1436069562083258,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s19": {
+       "card_precision": {
+        "point": 0.36813186813186816,
+        "low": 0.293715810241234,
+        "high": 0.4334116022099447,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.26376937984496124,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.19197707736389685,
+        "low": 0.16179924835577825,
+        "high": 0.2258128860672615,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.15015302072839393,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.19197707736389685,
+        "low": 0.16179924835577825,
+        "high": 0.2258128860672615,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.15015302072839393,
+        "share_positive": 1.0
+       }
+      }
+     },
+     "deltas": {
+      "M1 - static_list_365": {
+       "card_precision": {
+        "point": -0.004847523356248884,
+        "low": -0.07729797889483749,
+        "high": 0.06925137208634874,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.09553811874848331,
+        "share_positive": 0.42
+       },
+       "event_recall_open": {
+        "point": -0.005730659025787954,
+        "low": -0.04571938775510206,
+        "high": 0.03377298976837606,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.05315005437086459,
+        "share_positive": 0.3775
+       },
+       "event_recall_without_repeats": {
+        "point": -0.005730659025787954,
+        "low": -0.04571938775510206,
+        "high": 0.03377298976837606,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.05315005437086459,
+        "share_positive": 0.3775
+       }
+      },
+      "M1 - persistence": {
+       "card_precision": {
+        "point": 0.1625274042079775,
+        "low": 0.07142180735930735,
+        "high": 0.24650654566464353,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.031697164551766605,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.09455587392550144,
+        "low": 0.05413277804997549,
+        "high": 0.13910479841989074,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.031849460577846746,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.09455587392550144,
+        "low": 0.05413277804997549,
+        "high": 0.13910479841989074,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.031849460577846746,
+        "share_positive": 1.0
+       }
+      },
+      "persistence - static_list_365": {
+       "card_precision": {
+        "point": -0.1673749275642264,
+        "low": -0.26801039159803797,
+        "high": -0.06334001854520321,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.28832205749059303,
+        "share_positive": 0.0
+       },
+       "event_recall_open": {
+        "point": -0.10028653295128939,
+        "low": -0.14286933203315455,
+        "high": -0.051349618849618854,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.157265780730897,
+        "share_positive": 0.0
+       },
+       "event_recall_without_repeats": {
+        "point": -0.10028653295128939,
+        "low": -0.14286933203315455,
+        "high": -0.051349618849618854,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.157265780730897,
+        "share_positive": 0.0
+       }
+      },
+      "M1 s17 - static_list_365": {
+       "card_precision": {
+        "point": 0.0040322580645161255,
+        "low": -0.08000890140300067,
+        "high": 0.07657419429019596,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.10317705745293328,
+        "share_positive": 0.54
+       },
+       "event_recall_open": {
+        "point": 0.0,
+        "low": -0.041188725490196094,
+        "high": 0.04199593294081483,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.05150020965036771,
+        "share_positive": 0.5025
+       },
+       "event_recall_without_repeats": {
+        "point": 0.0,
+        "low": -0.041188725490196094,
+        "high": 0.04199593294081483,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.05150020965036771,
+        "share_positive": 0.5025
+       }
+      },
+      "M1 s18 - static_list_365": {
+       "card_precision": {
+        "point": -0.006837307152875172,
+        "low": -0.06760398128495242,
+        "high": 0.07037144957553365,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.09660406959516342,
+        "share_positive": 0.3825
+       },
+       "event_recall_open": {
+        "point": -0.005730659025787954,
+        "low": -0.04190829333543159,
+        "high": 0.030737137385854697,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.05706997084548105,
+        "share_positive": 0.3675
+       },
+       "event_recall_without_repeats": {
+        "point": -0.005730659025787954,
+        "low": -0.04190829333543159,
+        "high": 0.030737137385854697,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.05706997084548105,
+        "share_positive": 0.3675
+       }
+      },
+      "M1 s19 - static_list_365": {
+       "card_precision": {
+        "point": -0.0028358738036157183,
+        "low": -0.07183393719806763,
+        "high": 0.06882358777378522,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.09570809328401467,
+        "share_positive": 0.4625
+       },
+       "event_recall_open": {
+        "point": -0.005730659025787954,
+        "low": -0.04342276440490725,
+        "high": 0.03140694874440996,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.05391458245019077,
+        "share_positive": 0.3675
+       },
+       "event_recall_without_repeats": {
+        "point": -0.005730659025787954,
+        "low": -0.04342276440490725,
+        "high": 0.03140694874440996,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.05391458245019077,
+        "share_positive": 0.3675
+       }
+      }
+     }
+    },
+    "bootstrap_object": {
+     "scheme": "object",
+     "replicates": 400,
+     "seed": 18,
+     "blocks": 78,
+     "bonferroni": {
+      "comparisons": 7,
+      "level": 0.9928571428571429
+     },
+     "scores": {
+      "static_list_365": {
+       "card_precision": {
+        "point": 0.3709677419354839,
+        "low": 0.2874144088504605,
+        "high": 0.48866003787878787,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.253760162601626,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.1977077363896848,
+        "low": 0.12274854264979973,
+        "high": 0.27114745840481985,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.09030172413793103,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.1977077363896848,
+        "low": 0.12274854264979973,
+        "high": 0.27114745840481985,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.09030172413793103,
+        "share_positive": 1.0
+       }
+      },
+      "persistence": {
+       "card_precision": {
+        "point": 0.20359281437125748,
+        "low": 0.13793103448275862,
+        "high": 0.2896718576195773,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.12090670789084554,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.09742120343839542,
+        "low": 0.0654499299719888,
+        "high": 0.1379422886467993,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.05458586626139818,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.09742120343839542,
+        "low": 0.0654499299719888,
+        "high": 0.1379422886467993,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.05458586626139818,
+        "share_positive": 1.0
+       }
+      },
+      "M1": {
+       "card_precision": {
+        "point": 0.366120218579235,
+        "low": 0.28067962337035246,
+        "high": 0.46610645591315936,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.25816188538801177,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.19197707736389685,
+        "low": 0.12718362282878412,
+        "high": 0.26634046859242677,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.1092830098122867,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.19197707736389685,
+        "low": 0.12718362282878412,
+        "high": 0.26634046859242677,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.1092830098122867,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s17": {
+       "card_precision": {
+        "point": 0.375,
+        "low": 0.30342020850040097,
+        "high": 0.46068327739676057,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.2636428571428571,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.1977077363896848,
+        "low": 0.12884269479192217,
+        "high": 0.27781424025457435,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.10872306034482758,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.1977077363896848,
+        "low": 0.12884269479192217,
+        "high": 0.27781424025457435,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.10872306034482758,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s18": {
+       "card_precision": {
+        "point": 0.3641304347826087,
+        "low": 0.28250488210617675,
+        "high": 0.4560694864823269,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.2557352043929225,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.19197707736389685,
+        "low": 0.12462730383389066,
+        "high": 0.26952537241854735,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.10400935828877005,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.19197707736389685,
+        "low": 0.12462730383389066,
+        "high": 0.26952537241854735,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.10400935828877005,
+        "share_positive": 1.0
+       }
+      },
+      "M1 s19": {
+       "card_precision": {
+        "point": 0.36813186813186816,
+        "low": 0.28738237810094097,
+        "high": 0.4668497109826588,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.25558050905131346,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.19197707736389685,
+        "low": 0.12381843819896918,
+        "high": 0.27418350620995274,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.10246587030716724,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.19197707736389685,
+        "low": 0.12381843819896918,
+        "high": 0.27418350620995274,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.10246587030716724,
+        "share_positive": 1.0
+       }
+      }
+     },
+     "deltas": {
+      "M1 - static_list_365": {
+       "card_precision": {
+        "point": -0.004847523356248884,
+        "low": -0.08631291205037944,
+        "high": 0.05125188230150829,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.11836992125898138,
+        "share_positive": 0.4325
+       },
+       "event_recall_open": {
+        "point": -0.005730659025787954,
+        "low": -0.07418710021321963,
+        "high": 0.058191810497904665,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.10417063282213995,
+        "share_positive": 0.445
+       },
+       "event_recall_without_repeats": {
+        "point": -0.005730659025787954,
+        "low": -0.07418710021321963,
+        "high": 0.058191810497904665,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.10417063282213995,
+        "share_positive": 0.445
+       }
+      },
+      "M1 - persistence": {
+       "card_precision": {
+        "point": 0.1625274042079775,
+        "low": 0.06725289468980476,
+        "high": 0.2581916554284975,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.043393705270651284,
+        "share_positive": 1.0
+       },
+       "event_recall_open": {
+        "point": 0.09455587392550144,
+        "low": 0.02171187636270362,
+        "high": 0.1614321789321789,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.009373632624485866,
+        "share_positive": 1.0
+       },
+       "event_recall_without_repeats": {
+        "point": 0.09455587392550144,
+        "low": 0.02171187636270362,
+        "high": 0.1614321789321789,
+        "undefined_replicates": 0,
+        "low_bonferroni": 0.009373632624485866,
+        "share_positive": 1.0
+       }
+      },
+      "persistence - static_list_365": {
+       "card_precision": {
+        "point": -0.1673749275642264,
+        "low": -0.28768837403750236,
+        "high": -0.06294060339266905,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.3615884205752859,
+        "share_positive": 0.0
+       },
+       "event_recall_open": {
+        "point": -0.10028653295128939,
+        "low": -0.17112753957372556,
+        "high": -0.025059313393869544,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.18662966132228428,
+        "share_positive": 0.0075
+       },
+       "event_recall_without_repeats": {
+        "point": -0.10028653295128939,
+        "low": -0.17112753957372556,
+        "high": -0.025059313393869544,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.18662966132228428,
+        "share_positive": 0.0075
+       }
+      },
+      "M1 s17 - static_list_365": {
+       "card_precision": {
+        "point": 0.0040322580645161255,
+        "low": -0.07392747931316716,
+        "high": 0.05769918391108623,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.10128711262947242,
+        "share_positive": 0.5275
+       },
+       "event_recall_open": {
+        "point": 0.0,
+        "low": -0.07445728087533462,
+        "high": 0.07266465527244995,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.10198905467753018,
+        "share_positive": 0.4925
+       },
+       "event_recall_without_repeats": {
+        "point": 0.0,
+        "low": -0.07445728087533462,
+        "high": 0.07266465527244995,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.10198905467753018,
+        "share_positive": 0.4925
+       }
+      },
+      "M1 s18 - static_list_365": {
+       "card_precision": {
+        "point": -0.006837307152875172,
+        "low": -0.08299185653642904,
+        "high": 0.05472039815026395,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.1358848385941276,
+        "share_positive": 0.39
+       },
+       "event_recall_open": {
+        "point": -0.005730659025787954,
+        "low": -0.0706769143413368,
+        "high": 0.05918891080043661,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.10027050732737207,
+        "share_positive": 0.445
+       },
+       "event_recall_without_repeats": {
+        "point": -0.005730659025787954,
+        "low": -0.0706769143413368,
+        "high": 0.05918891080043661,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.10027050732737207,
+        "share_positive": 0.445
+       }
+      },
+      "M1 s19 - static_list_365": {
+       "card_precision": {
+        "point": -0.0028358738036157183,
+        "low": -0.0949353999839171,
+        "high": 0.055660060147726176,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.12559458489038705,
+        "share_positive": 0.465
+       },
+       "event_recall_open": {
+        "point": -0.005730659025787954,
+        "low": -0.0806417486431479,
+        "high": 0.06483568075117366,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.11438348316587342,
+        "share_positive": 0.4675
+       },
+       "event_recall_without_repeats": {
+        "point": -0.005730659025787954,
+        "low": -0.0806417486431479,
+        "high": 0.06483568075117366,
+        "undefined_replicates": 0,
+        "low_bonferroni": -0.11438348316587342,
+        "share_positive": 0.4675
+       }
+      }
+     }
+    },
+    "lead": {
+     "stats": {
+      "static_list_365": {
+       "captured": 69,
+       "median": 59.963055555555556,
+       "share_le_24h": 0.18840579710144928,
+       "share_le_72h": 0.5797101449275363
+      },
+      "M1": {
+       "captured": 67,
+       "median": 75.20444444444445,
+       "share_le_24h": 0.16417910447761194,
+       "share_le_72h": 0.4925373134328358
+      }
+     },
+     "deltas_week": {
+      "M1 - static_list_365": {
+       "point": 15.241388888888892,
+       "low": -15.050493055555549,
+       "high": 31.980243055555558,
+       "undefined_replicates": 0
+      }
+     },
+     "blocks": 45
+    },
+    "calibration_issued": {},
+    "unknown_reasons": {
+     "static_list_365": {
+      "source_coverage": 3
+     },
+     "M1": {
+      "source_coverage": 3
+     }
+    }
+   }
+  },
+  "comparisons": {
+   "M1 mode i": {
+    "precision_minus_list_week": {
+     "point": 0.014423570146191333,
+     "low": -0.013741197940313926,
+     "high": 0.042783943039790814,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.01922306292711194,
+     "share_positive": 0.8575
+    },
+    "precision_minus_list_object": {
+     "point": 0.014423570146191333,
+     "low": -0.0673951066499799,
+     "high": 0.09200599205900872,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.10833814477885653,
+     "share_positive": 0.695
+    },
+    "recall_open": 0.27787934186471663,
+    "recall_open_list": 0.3004265691651432,
+    "recall_minus_list_week": {
+     "point": -0.022547227300426576,
+     "low": -0.06268343815513629,
+     "high": 0.01902051487899453,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.08164202926654632,
+     "share_positive": 0.1375
+    },
+    "checks": {
+     "week_ci_low_above_0": false,
+     "recall_not_below_list_minus_0.02": false
+    },
+    "pass": false,
+    "pass_bonferroni": false
+   },
+   "M2 mode i": {
+    "precision_minus_list_week": {
+     "point": 0.01738485304933468,
+     "low": -0.012727187271050187,
+     "high": 0.04925919365977264,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.023028390077780982,
+     "share_positive": 0.85
+    },
+    "precision_minus_list_object": {
+     "point": 0.01738485304933468,
+     "low": -0.05312902126992454,
+     "high": 0.08436255538657911,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.08667041337020231,
+     "share_positive": 0.7125
+    },
+    "recall_open": 0.2797074954296161,
+    "recall_open_list": 0.3004265691651432,
+    "recall_minus_list_week": {
+     "point": -0.020719073735527116,
+     "low": -0.06802081317891595,
+     "high": 0.035805230869754595,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.08086552254098359,
+     "share_positive": 0.2075
+    },
+    "checks": {
+     "week_ci_low_above_0": false,
+     "recall_not_below_list_minus_0.02": false
+    },
+    "pass": false,
+    "pass_bonferroni": false
+   },
+   "M3 mode i": {
+    "precision_minus_list_week": {
+     "point": 0.010931436170043107,
+     "low": -0.0144258439758774,
+     "high": 0.03990692587980766,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.02303855895167159,
+     "share_positive": 0.7575
+    },
+    "precision_minus_list_object": {
+     "point": 0.010931436170043107,
+     "low": -0.02310440156891314,
+     "high": 0.03962899303234215,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.030080199316806285,
+     "share_positive": 0.765
+    },
+    "recall_open": 0.3223644119439366,
+    "recall_open_list": 0.3004265691651432,
+    "recall_minus_list_week": {
+     "point": 0.021937842778793404,
+     "low": -0.010533610903526542,
+     "high": 0.05911571283910266,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.016071158649942918,
+     "share_positive": 0.88
+    },
+    "checks": {
+     "week_ci_low_above_0": false,
+     "recall_not_below_list_minus_0.02": true
+    },
+    "pass": false,
+    "pass_bonferroni": false
+   },
+   "M1 mode ii": {
+    "precision_minus_list_week": {
+     "point": 0.024051859929722474,
+     "low": -0.02745755022439084,
+     "high": 0.07830063925090601,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.041150605140758044,
+     "share_positive": 0.84
+    },
+    "precision_minus_list_object": {
+     "point": 0.024051859929722474,
+     "low": -0.18509886119578137,
+     "high": 0.17582517219479468,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.3103965954939027,
+     "share_positive": 0.6275
+    },
+    "recall_open": 0.1365021328458257,
+    "recall_open_list": 0.16270566727605118,
+    "recall_minus_list_week": {
+     "point": -0.026203534430225467,
+     "low": -0.059926715754376206,
+     "high": 0.009844864098230035,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.06840908406061313,
+     "share_positive": 0.0975
+    },
+    "checks": {
+     "week_ci_low_above_0": false,
+     "recall_not_below_list_minus_0.02": false
+    },
+    "pass": false,
+    "pass_bonferroni": false
+   },
+   "M2 mode ii": {
+    "precision_minus_list_week": {
+     "point": 0.03435114503816794,
+     "low": -0.023597366700731304,
+     "high": 0.09592730827191043,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.03588241893704911,
+     "share_positive": 0.87
+    },
+    "precision_minus_list_object": {
+     "point": 0.03435114503816794,
+     "low": -0.14667925824175826,
+     "high": 0.15886239883484213,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.23404234855010053,
+     "share_positive": 0.695
+    },
+    "recall_open": 0.15112736136502133,
+    "recall_open_list": 0.16270566727605118,
+    "recall_minus_list_week": {
+     "point": -0.011578305911029846,
+     "low": -0.048422656429999496,
+     "high": 0.0340975920396602,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.05662692396204194,
+     "share_positive": 0.3075
+    },
+    "checks": {
+     "week_ci_low_above_0": false,
+     "recall_not_below_list_minus_0.02": true
+    },
+    "pass": false,
+    "pass_bonferroni": false
+   },
+   "M3 mode ii": {
+    "precision_minus_list_week": {
+     "point": 0.06774471987699937,
+     "low": 0.018772994709638006,
+     "high": 0.1155452199336197,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.002923513149194084,
+     "share_positive": 0.995
+    },
+    "precision_minus_list_object": {
+     "point": 0.06774471987699937,
+     "low": -0.05472278410779333,
+     "high": 0.13760604013895256,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.11998860398860398,
+     "share_positive": 0.8925
+    },
+    "recall_open": 0.19865935405240706,
+    "recall_open_list": 0.16270566727605118,
+    "recall_minus_list_week": {
+     "point": 0.03595368677635588,
+     "low": 0.0011871634023926,
+     "high": 0.07605727119264323,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.004110421401060786,
+     "share_positive": 0.9825
+    },
+    "checks": {
+     "week_ci_low_above_0": true,
+     "recall_not_below_list_minus_0.02": true
+    },
+    "pass": true,
+    "pass_bonferroni": false
+   },
+   "M1 mode iii": {
+    "precision_minus_list_week": {
+     "point": -0.004847523356248884,
+     "low": -0.07729797889483749,
+     "high": 0.06925137208634874,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.09553811874848331,
+     "share_positive": 0.42
+    },
+    "precision_minus_list_object": {
+     "point": -0.004847523356248884,
+     "low": -0.08631291205037944,
+     "high": 0.05125188230150829,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.11836992125898138,
+     "share_positive": 0.4325
+    },
+    "recall_open": 0.19197707736389685,
+    "recall_open_list": 0.1977077363896848,
+    "recall_minus_list_week": {
+     "point": -0.005730659025787954,
+     "low": -0.04571938775510206,
+     "high": 0.03377298976837606,
+     "undefined_replicates": 0,
+     "low_bonferroni": -0.05315005437086459,
+     "share_positive": 0.3775
+    },
+    "checks": {
+     "week_ci_low_above_0": false,
+     "recall_not_below_list_minus_0.02": true
+    },
+    "pass": false,
+    "pass_bonferroni": false
+   }
+  },
+  "excluded_cutoffs": [
+   "2026-06-25",
+   "2026-06-26",
+   "2026-06-27",
+   "2026-06-28",
+   "2026-06-29",
+   "2026-06-30"
+  ],
+  "fresh_share": {
+   "cards": 0.9144992300206902,
+   "events": 0.21267519804996954
+  },
+  "check_list_mode_i": {
+   "reference": "reports/sensor-failure-holdout-list-v5-2026-09-27.json, configuration A",
+   "ours": {
+    "card_precision": 0.6409335727109515,
+    "event_recall_open": 0.3004265691651432,
+    "event_recall_without_repeats": 0.22242535039609995,
+    "cards_issued": 571
+   },
+   "theirs": {
+    "card_precision": 0.6409335727109515,
+    "event_recall_open": 0.3004265691651432,
+    "event_recall_without_repeats": 0.22242535039609995,
+    "cards_issued": 571
+   },
+   "max_abs_diff": 0.0,
+   "equal": true
+  },
+  "claim_ml_beats_statistics": {
+   "rule": "M1 проходит per_comparison в режиме iii или i",
+   "mode_iii": false,
+   "mode_i": false,
+   "holds": false
+  },
+  "seconds": 3.2
+ },
+ "config_sha256": "80c8ae9f1e3636b7983e7de40a5ef21426cca4be41e1eae0e4b430a5c7cb4d1a",
+ "holdout_labels_summary_sha256": "10dec7265c2698b2d019e8793d735670127da362b9011a07bd103c21beb2e30e",
+ "versions": {
+  "catboost": "1.2.10",
+  "numpy": "2.5.3",
+  "pandas": "2.3.3",
+  "scipy": "1.18.1",
+  "duckdb": "1.5.5"
+ },
+ "git_sha": "80970f12c1effc187e45920099259bc4cd00814d",
+ "git_dirty": true
+}

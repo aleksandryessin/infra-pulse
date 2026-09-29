@@ -1,0 +1,7 @@
+# Local research only. Paths are relative to this config, independent of cwd.
+[server]
+host = "127.0.0.1"
+port = 5000
+
+[storage]
+directory = "store"

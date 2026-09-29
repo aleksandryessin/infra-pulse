@@ -1,0 +1,122 @@
+{
+  "version": "sensor-failure-models-v6",
+  "status": "frozen_before_fit_2026-09-27_head_ds",
+  "pre_registration": "written by Head DS on 2026-09-27 (the user made Head DS responsible for modelling and allowed fits without a confirmation); candidate 7 (Hawkes-like intensity) and the fresh-pair slice were added by Head DS on 2026-09-27 before the first fit; the executor's choices marked 'executor' were fixed before the first fit",
+  "question": "do other model families beat the statistical model (the static list of last year) at 7 and 14 days",
+  "document": "experiments/sensor-failure/TUNING_V6.md",
+  "interpretation": "registered loss of connection ('Неисправен', organizer: loss of connection with the device); not a confirmed breakdown; alarm is not a confirmed failure",
+  "target": "connection_loss_ge2s",
+  "labels": {"config": "configs/sensor_failure_model_v5.json", "dir": "artifacts/sensor-failure-v1/model_labels_v5", "months": "development only"},
+  "horizons": {
+    "168h": {"days": 7, "budgets": [3, 7]},
+    "336h": {"days": 14, "budgets": [10, 12, 14]}
+  },
+  "policy": "rolling list with release (sensor_failure_nodes.select_rolling_release): at most K open cards, window D days, a card leaves the list the day after its first event and frees its place; new cards by score for pairs without an open card; daily issue at 00:00",
+  "recall": "honest (event_recall_open, user decision of 27.09.2026 in EVALUATION.md): an evaluable event counts only if a selected card of its pair is open when the event starts; the protocol recall (own window, also after release) is reported beside it and marked inflated",
+  "folds": [
+    {"fit": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2023-01-01"]], "evaluate": [["2023-01-01", "2024-01-01"]]},
+    {"fit": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2024-01-01"]], "evaluate": [["2024-01-01", "2025-01-01"]]}
+  ],
+  "fold_note": "as v5: embargo = horizon (fit cutoffs whose window crosses the fit/evaluate boundary are dropped); calibration (2025-01..2025-06) and holdout (2025-07..2026-06) are not read",
+  "fit_rows": "as v5: candidate channel rows with a known label of the horizon, all positives plus the deterministic 10% hash sample of negatives (sensor_failure_modeling.negative_sample_mask); rows ordered by (issued_at, channel_id) so that day groups are contiguous for ranking and a fit is reproducible for a seed and thread count",
+  "features": {
+    "set": "F2 of v5 (prefixes hist__, cal__, cat__, ctx__; 72 columns, no value_numeric)",
+    "prefixes": ["hist__", "cal__", "cat__", "ctx__"],
+    "trees": "numeric columns as float, cat__ columns as categories of the fit sample",
+    "mlp": "numeric F2 columns as the within-day percentile rank (average ties) among all candidate channels of the same issue day; executor: a rank that is NaN (value missing) becomes 0 with a missing indicator for every column that has a missing value in the fit sample; cat__ columns one-hot with the categories of the fit sample; cal__ columns become constant within a day and carry no information",
+    "card": "card score = mean of the two highest candidate channel scores of the object x sensor type (mean_top2, as v5)"
+  },
+  "seeds": [17, 18, 19],
+  "threads": 6,
+  "parallel_processes": 2,
+  "candidates": {
+    "1": {
+      "family": "LightGBM",
+      "params": {"objective": "binary", "num_leaves": 31, "learning_rate": 0.05, "n_estimators": 500, "n_jobs": 6},
+      "executor": {"deterministic": true, "force_row_wise": true, "verbose": -1, "note": "no subsampling: the seed changes only the row sample of bin construction (subsample_for_bin 200000 < fit rows)"},
+      "weights": "sensor_failure_modeling.fit_weights, as v5 (undo the 10% negative sample, then balanced classes)"
+    },
+    "2": {
+      "family": "XGBoost",
+      "params": {"objective": "binary:logistic", "tree_method": "hist", "max_depth": 6, "learning_rate": 0.05, "n_estimators": 500, "n_jobs": 6},
+      "executor": {"enable_categorical": true, "note": "no subsampling: the three seeds are expected to give the same model; the runs check this"},
+      "weights": "fit_weights, as v5"
+    },
+    "3": {
+      "family": "CatBoost YetiRank",
+      "params": {"config": "c3", "loss_function": "YetiRank", "depth": 6, "iterations": 1000, "learning_rate": 0.03, "l2_leaf_reg": 5, "task_type": "CPU", "thread_count": 6},
+      "group_id": "issue day (issued_at)",
+      "executor": {"choice": "YetiRank rather than PairLogit: PairLogit generates every positive x negative pair of a day group, YetiRank samples them", "weights": "none: a ranking loss compares rows inside one day; auto_class_weights of c3 does not apply to ranking"},
+      "score": "raw ranking value"
+    },
+    "4": {
+      "family": "MLP",
+      "params": {"estimator": "sklearn.neural_network.MLPClassifier", "hidden_layer_sizes": [64, 32], "early_stopping": true, "other": "sklearn defaults (relu, adam, alpha 1e-4, batch 200, learning rate 1e-3, max_iter 200, validation_fraction 0.1, n_iter_no_change 10)"},
+      "inputs": "features.mlp",
+      "executor": {"weights": "fit_weights, as v5 (the early-stopping validation accuracy is then weighted, i.e. balanced)", "threads": "BLAS limited to 6 threads (threadpoolctl)"}
+    },
+    "5": {
+      "family": "Bayes Poisson-gamma",
+      "kind": "smart statistics without gradient training",
+      "model": "events of the pair object x sensor type as a Poisson process with a gamma prior per sensor type; posterior with decayed counts: a = alpha_type + sum 2^(-age/h), b = beta_type + decayed observed exposure (days); card score = P(at least one event in the next D days) = 1 - (b / (b + D))^a",
+      "half_life_days": 90,
+      "executor": {
+        "half_life": "90 days inherited from v5 exploration 2, where a 90-day decay was the best list variant on the same folds (a selection: optimistic for this candidate)",
+        "prior": "method of moments per sensor type on the fit years of the fold (pairs with >= 30 observed days): m = sum n / sum E, v = var(n/E) - m * mean(1/E), alpha = m^2 / v, beta = m / v; fewer than 3 pairs or v <= 0 -> pooled over all types; pooled v <= 0 -> alpha = 1, beta = 1/m",
+        "history": "events counted as the static list (the later of the pair's first member start and the moment the event is known to last >= 2 s), strictly before the cutoff; 2021 excluded (outside the project's training data) from events and exposure; a pair is observed from its first card"
+      }
+    },
+    "6": {
+      "family": "Stacking",
+      "model": "mean of the within-day ranks of the best ML candidate and the static list, per seed of that candidate",
+      "executor": {"best_ml": "per horizon, among candidates 1-4, the family with the highest mean over its seeds and the horizon's K of the pooled 2023-2024 card precision under the policy; ties in the order LightGBM, XGBoost, CatBoost YetiRank, MLP; a selection on the same folds"}
+    },
+    "7": {
+      "family": "Hawkes",
+      "added": "by Head DS on 2026-09-27 before the first fit",
+      "model": "intensity of the pair lambda(t) = mu_type + sum over past event starts of the pair alpha_type * exp(-(t - t_i) / tau_type); mu, alpha, tau per sensor type by maximum likelihood on the fit years of the fold only; card score = 1 - exp(-integral of lambda over [t, t + D)) with the events known before t (exact probability of at least one event in the window); no CatBoost",
+      "executor": {
+        "events": "as candidate 5 (counted as the static list, 2021 excluded; the likelihood covers the observed time of each pair from its first card to the fold boundary, without 2021)",
+        "fallback": "sensor types with fewer than 30 pair events in the fit years use the parameters fitted on all types pooled",
+        "optimizer": "scipy L-BFGS-B on log parameters, starts tau in {0.5, 5, 50, 500} days, best likelihood kept; bounds mu in [1e-7, 10] and alpha in [1e-7, 100] per day, tau in [0.05, 3650] days"
+      },
+      "k2": "median honest lead against the list with a week bootstrap CI and the calibration (score against the share of cards with an event, fixed bins, per year): the only candidate that may know the timing (technologist criterion K2)"
+    }
+  },
+  "abort_rule": "a candidate with seeds that is clearly failing on fold 2023 (seed 17 card precision below persistence at every K of the horizon) is not fitted with seeds 18 and 19 on either fold; this is reported",
+  "references": {
+    "static_list": "static list (правило): events of the pair in the past 365 days",
+    "persistence": "persistence (правило): recency of the last candidate of the label on the card's channels",
+    "F2 CatBoost v5": "saved card scores of v5 (7 days: seeds 17/18/19 of exploration 3; 14 days: seed 17 of stage 1); not refitted",
+    "ceiling": "ORACLE ceiling (не модель): greedy oracle under the same policy"
+  },
+  "criterion": {
+    "better_than_statistics": "per horizon and K, all of: (1) the mean over seeds of the pooled 2023-2024 card precision is above the list; (2) the paired week-block bootstrap 95% CI of (mean over seeds of precision) - list, 2023 and 2024 together, is above 0; (3) in each fold the mean over seeds of precision minus the list is above 0; (4) the mean over seeds of the pooled honest recall is >= the list's honest recall - 0.02; otherwise 'not better than statistics'",
+    "secondary": "object-block CI of the same difference; differences with persistence and F2 CatBoost v5; honest lead",
+    "winner": "a candidate that meets the criterion needs a separate final check (own pre-registration); nothing here is a final result"
+  },
+  "multiplicity": "7 candidates x 5 (horizon, K) = 35 comparisons with the list for the criterion; stacking selects its ML member on the same folds; the report prints the count and the Bonferroni reading (all 400 replicates above 0)",
+  "bootstrap": {"replicates": 400, "seed": 17, "schemes": ["iso_week", "object_id"], "blocks": "cards by the ISO week of the cutoff (or object), events by the week of their start (or object); pooled 2023-2024; the same replicate weights for every score (paired)"},
+  "fresh_slice": {
+    "added": "by Head DS on 2026-09-27 before the first fit",
+    "horizon": "168h",
+    "budgets": [2, 3],
+    "fresh_card": "the pair had no event counted as the static list in [t - L, t)",
+    "fresh_event": "none of the event's pairs had an event counted in [start - L, start)",
+    "lookback_days": {"primary": 14, "secondary": 7},
+    "lookback_note": "14 days by Head DS; 7 days = D, the definition of DS-B (docs/reviews/team-brainstorm-2026-09-27/ds-b-formulation.md) for comparison",
+    "mode": "fresh-only list (DS-B mode b): the rolling list with release over fresh cards only; P of its cards, honest recall over fresh evaluable events; paired week/object bootstrap against the list in the same mode",
+    "scores": "static list, persistence, F2 CatBoost v5 and its rank mean with the list (3 seeds), every candidate 1-7 and the rank mean of each of candidates 1-5 and 7 with the list",
+    "status": "exploration slice, not part of the criterion"
+  },
+  "mlflow": {
+    "tracking_uri": "http://127.0.0.1:5059",
+    "experiment": "sensor-failure-models-v6",
+    "created_before_fits": true,
+    "fit_run_name": "fit {family} ge2s {horizon} fold{fold} s{seed}",
+    "reference_run_names": ["static list (правило)", "persistence (правило)", "F2 CatBoost v5 (сохранённые оценки)", "ORACLE ceiling (не модель)"],
+    "never_delete": true
+  },
+  "report": "reports/sensor-failure-models-v6-2026-09-27.json",
+  "runner": "scripts/tune_sensor_failure_v6.py (stages stats, fit, report)"
+}

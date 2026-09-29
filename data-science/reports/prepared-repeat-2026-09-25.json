@@ -1,0 +1,36 @@
+{
+  "all_output_hashes_identical": true,
+  "differing_output_paths": [],
+  "first_code_sha256": "a799af6f74ffb4f0ce1eac8ed5708919d2e79dcb1d269252be748776400bf27c",
+  "first_etl_version": "journal-curated-v4",
+  "first_recovered_after_auxiliary_oom": true,
+  "first_runtime": {
+    "generation_peak_rss_mb": null,
+    "generation_peak_rss_reason": "first process exited on auxiliary global-ID OOM",
+    "recovery_elapsed_seconds": 8.816,
+    "recovery_peak_rss_mb": 319.4
+  },
+  "hashes_compared": 453,
+  "interpretation": "Bytewise output comparison across two ETL executions. Metadata and code hashes differ because the first execution was finalized after an auxiliary global-ID OOM; no model was trained.",
+  "same_coverage": true,
+  "same_policy": true,
+  "same_reference": true,
+  "same_source_years": true,
+  "same_totals": true,
+  "second_code_sha256": "a01e888af1c32ff866d467dc6502b8ded46dadd849e917341989903135d3f056",
+  "second_etl_version": "journal-curated-v4",
+  "second_runtime": {
+    "elapsed_seconds": 1869.301,
+    "peak_rss_mb": 10765.5
+  },
+  "source_sha256_identical_by_year": {
+    "2019": true,
+    "2020": true,
+    "2021": true,
+    "2022": true,
+    "2023": true,
+    "2024": true,
+    "2025": true,
+    "2026": true
+  }
+}

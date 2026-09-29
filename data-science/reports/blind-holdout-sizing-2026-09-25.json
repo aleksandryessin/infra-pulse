@@ -1,0 +1,36 @@
+{
+  "audit_sha256": "3249f39527737a954deff75e2f03775fcd20bfd487ccd1bcf7bf13620f2e090a",
+  "base_manifest_sha256": "e9a225c09f3de5f797f5dd3a044dabb862a7922fd685eda2bab37aa7578ac9a4",
+  "historical_july_august_analogs": [
+    {
+      "alarm_true_event_rows": 20730,
+      "event_rows": 7943538,
+      "gas_alarm_calendar_days": 11,
+      "gas_alarm_true_event_rows": 194,
+      "gas_positive_channel_days": 62,
+      "gas_positive_channels": 61,
+      "positive_channel_days_all_types": 4941,
+      "year": 2024
+    },
+    {
+      "alarm_true_event_rows": 45247,
+      "event_rows": 10901322,
+      "gas_alarm_calendar_days": 17,
+      "gas_alarm_true_event_rows": 421,
+      "gas_positive_channel_days": 67,
+      "gas_positive_channels": 61,
+      "positive_channel_days_all_types": 5802,
+      "year": 2025
+    }
+  ],
+  "interpretation": [
+    "These are historical event-level analogs, not observed July-August 2026 counts or future daily targets.",
+    "A two-month final test may be underpowered for gas: repeated messages collapse to 62/67 positive channel-days in the observed analogs.",
+    "No blind period is reserved. The local source ends on 2026-06-30; adequacy of any future unseen sample depends on target unit, eligibility, episode independence, and predeclared metric precision."
+  ],
+  "local_data_last_day": "2026-06-30",
+  "method": "Event counts from prepared-quality-audit.json monthly_by_sensor for July/August; distinct positive channel-days/channels/calendar days from curated month Parquet with WHERE alarm AND optional sensor_type=Газовый датчик, grouped by channel_id and CAST(substr(event_ts_local_raw,1,10) AS DATE). Existing alarm-spike-exclusions-v1 has no rule in July/August 2024/2025.",
+  "policy_manifest_sha256": "fc2189d1272964dfb078e92f38b69137fe324ca48f23116ebedec786b9d2fbd2",
+  "status": "diagnostic_sizing_only_no_holdout_data",
+  "blind_period_reserved": false
+}

@@ -1,0 +1,709 @@
+{
+  "imports": {
+    "items": [
+      {
+        "id": "synthetic-import-001",
+        "format": "journal_csv",
+        "file_name": "synthetic-journal-2026-09-23.csv",
+        "sha256": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+        "size_bytes": 9700000,
+        "uploaded_by": "synthetic-admin-01",
+        "uploaded_at": "2026-09-23T23:50:00+03:00",
+        "status": "published",
+        "finished_at": "2026-09-23T23:50:11+03:00",
+        "rows_total": 170000,
+        "rows_accepted": 169870,
+        "rows_duplicate": 120,
+        "rows_quarantined": 10,
+        "unknown_channels": 3,
+        "event_from": "2026-09-23T00:00:01+03:00",
+        "event_to": "2026-09-23T23:59:58+03:00",
+        "reference_version": "synthetic-reference-v1",
+        "duplicate_of": null,
+        "forecast_generation": 9,
+        "error_code": null,
+        "timings": [
+          {
+            "stage": "store",
+            "seconds": 0.4
+          },
+          {
+            "stage": "parse",
+            "seconds": 2.1
+          },
+          {
+            "stage": "load",
+            "seconds": 3.8
+          },
+          {
+            "stage": "detect",
+            "seconds": 1.2
+          },
+          {
+            "stage": "score",
+            "seconds": 0.1
+          },
+          {
+            "stage": "publish",
+            "seconds": 0.3
+          }
+        ],
+        "quarantine_reasons": {
+          "bad_date": 6,
+          "bad_bool": 4
+        },
+        "quarantine_sample": [
+          {
+            "line_no": 1042,
+            "reason": "bad_date",
+            "raw_excerpt": "synthetic,…,2026-13-01"
+          },
+          {
+            "line_no": 88311,
+            "reason": "bad_bool",
+            "raw_excerpt": "synthetic,…,maybe"
+          }
+        ],
+        "new_card_ids": [
+          "synthetic-feeders-14d-019",
+          "synthetic-feeders-14d-020"
+        ],
+        "released_card_ids": [
+          "synthetic-feeders-14d-021"
+        ],
+        "source_layout": null,
+        "source_container": null,
+        "alarm_not_provided": null,
+        "notes": [],
+        "simulated": true
+      },
+      {
+        "id": "synthetic-import-002",
+        "format": "journal_csv",
+        "file_name": "synthetic-journal-2026-09-23-copy.csv",
+        "sha256": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+        "size_bytes": 9700000,
+        "uploaded_by": "synthetic-admin-01",
+        "uploaded_at": "2026-09-23T23:52:00+03:00",
+        "status": "duplicate",
+        "finished_at": "2026-09-23T23:52:01+03:00",
+        "rows_total": 0,
+        "rows_accepted": 0,
+        "rows_duplicate": 0,
+        "rows_quarantined": 0,
+        "unknown_channels": null,
+        "event_from": null,
+        "event_to": null,
+        "reference_version": null,
+        "duplicate_of": "synthetic-import-001",
+        "forecast_generation": null,
+        "error_code": null,
+        "timings": [],
+        "quarantine_reasons": {},
+        "quarantine_sample": [],
+        "new_card_ids": [],
+        "released_card_ids": [],
+        "source_layout": null,
+        "source_container": null,
+        "alarm_not_provided": null,
+        "notes": [],
+        "simulated": true
+      },
+      {
+        "id": "synthetic-import-003",
+        "format": "journal_csv",
+        "file_name": "synthetic-not-a-journal.csv",
+        "sha256": "b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
+        "size_bytes": 2048,
+        "uploaded_by": "synthetic-admin-01",
+        "uploaded_at": "2026-09-23T22:50:00+03:00",
+        "status": "failed",
+        "finished_at": "2026-09-23T22:50:01+03:00",
+        "rows_total": null,
+        "rows_accepted": null,
+        "rows_duplicate": null,
+        "rows_quarantined": null,
+        "unknown_channels": null,
+        "event_from": null,
+        "event_to": null,
+        "reference_version": null,
+        "duplicate_of": null,
+        "forecast_generation": null,
+        "error_code": "bad_header",
+        "timings": [],
+        "quarantine_reasons": {},
+        "quarantine_sample": [],
+        "new_card_ids": [],
+        "released_card_ids": [],
+        "source_layout": null,
+        "source_container": null,
+        "alarm_not_provided": null,
+        "notes": [],
+        "simulated": true
+      },
+      {
+        "id": "synthetic-import-004",
+        "format": "reference_channels_csv",
+        "file_name": "synthetic-channels.csv",
+        "sha256": "c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
+        "size_bytes": 1300000,
+        "uploaded_by": "synthetic-admin-01",
+        "uploaded_at": "2026-09-22T23:50:00+03:00",
+        "status": "published",
+        "finished_at": "2026-09-22T23:50:02+03:00",
+        "rows_total": 11500,
+        "rows_accepted": 11500,
+        "rows_duplicate": 0,
+        "rows_quarantined": 0,
+        "unknown_channels": null,
+        "event_from": null,
+        "event_to": null,
+        "reference_version": "synthetic-reference-v1",
+        "duplicate_of": null,
+        "forecast_generation": null,
+        "error_code": null,
+        "timings": [],
+        "quarantine_reasons": {},
+        "quarantine_sample": [],
+        "new_card_ids": [],
+        "released_card_ids": [],
+        "source_layout": null,
+        "source_container": null,
+        "alarm_not_provided": null,
+        "notes": [],
+        "simulated": true
+      }
+    ],
+    "total": 4,
+    "limit": 100,
+    "next_cursor": null
+  },
+  "research_summary": {
+    "version": "synthetic-research-summary-v0",
+    "synthetic": true,
+    "source_reports": [],
+    "scopes": [
+      {
+        "scope_id": "phase_feeders",
+        "title": "Обесточивание электрооборудования объекта",
+        "sensor_types": [
+          "Состояние фазы"
+        ],
+        "status": "in_product",
+        "horizon_days": 14,
+        "budget_k": 10,
+        "policy": "скользящий список с освобождением",
+        "evaluation_period": "синтетика",
+        "period_use_count": 1,
+        "events_per_year": null,
+        "ladder": [
+          {
+            "step": "static_list",
+            "label": "статичный список",
+            "metrics": [
+              {
+                "name": "precision",
+                "value": 0.7,
+                "ci_low": 0.65,
+                "ci_high": 0.75,
+                "numerator": null,
+                "denominator": null
+              },
+              {
+                "name": "recall",
+                "value": 0.6,
+                "ci_low": null,
+                "ci_high": null,
+                "numerator": null,
+                "denominator": null
+              }
+            ]
+          },
+          {
+            "step": "persistence",
+            "label": "persistence",
+            "metrics": [
+              {
+                "name": "precision",
+                "value": 0.68,
+                "ci_low": 0.6,
+                "ci_high": 0.75,
+                "numerator": null,
+                "denominator": null
+              },
+              {
+                "name": "recall",
+                "value": 0.5,
+                "ci_low": null,
+                "ci_high": null,
+                "numerator": null,
+                "denominator": null
+              }
+            ]
+          },
+          {
+            "step": "random_list",
+            "label": "случайный список",
+            "metrics": [
+              {
+                "name": "precision",
+                "value": 0.5,
+                "ci_low": 0.45,
+                "ci_high": 0.55,
+                "numerator": null,
+                "denominator": null
+              },
+              {
+                "name": "recall",
+                "value": 0.4,
+                "ci_low": null,
+                "ci_high": null,
+                "numerator": null,
+                "denominator": null
+              }
+            ]
+          }
+        ],
+        "note": null
+      },
+      {
+        "scope_id": "s4_sensors",
+        "title": "Датчики ТЗ",
+        "sensor_types": [
+          "Датчик дыма",
+          "Тепловой датчик",
+          "Газовый датчик"
+        ],
+        "status": "research_only",
+        "horizon_days": 14,
+        "budget_k": null,
+        "policy": null,
+        "evaluation_period": "синтетика",
+        "period_use_count": null,
+        "events_per_year": null,
+        "ladder": [
+          {
+            "step": "static_list",
+            "label": "статичный список",
+            "metrics": [
+              {
+                "name": "precision",
+                "value": 0.5,
+                "ci_low": 0.4,
+                "ci_high": 0.6,
+                "numerator": null,
+                "denominator": null
+              },
+              {
+                "name": "recall",
+                "value": 0.4,
+                "ci_low": null,
+                "ci_high": null,
+                "numerator": null,
+                "denominator": null
+              }
+            ]
+          }
+        ],
+        "note": null
+      },
+      {
+        "scope_id": "gas_layer",
+        "title": "Газовые датчики",
+        "sensor_types": [
+          "Газовый датчик"
+        ],
+        "status": "needs_more_data",
+        "horizon_days": null,
+        "budget_k": null,
+        "policy": null,
+        "evaluation_period": "синтетика",
+        "period_use_count": null,
+        "events_per_year": 20,
+        "ladder": [],
+        "note": "Событий слишком мало для оценки."
+      }
+    ],
+    "blocks": [
+      {
+        "block_id": "synthetic_registry",
+        "title": "Синтетический реестр: каналы для проверки при ТО",
+        "caption": "Пример формы блока; состав реестров утверждает технолог.",
+        "status": "research_only",
+        "columns": [
+          {
+            "key": "object",
+            "label": "Объект",
+            "unit": null
+          },
+          {
+            "key": "sensor_type",
+            "label": "Тип датчика",
+            "unit": null
+          },
+          {
+            "key": "events_90d",
+            "label": "Срабатываний за 90 сут",
+            "unit": null
+          }
+        ],
+        "rows": [
+          {
+            "object": "synthetic-object-21",
+            "sensor_type": "Датчик дыма",
+            "events_90d": 14
+          },
+          {
+            "object": "synthetic-object-22",
+            "sensor_type": "Тепловой датчик",
+            "events_90d": 9
+          }
+        ]
+      }
+    ],
+    "caveats": [
+      "Синтетические числа для проверки интерфейса, не результат исследования."
+    ]
+  },
+  "me_dev_stub": {
+    "subject_id": "local-operator",
+    "display_name": "Демонстрационный пользователь",
+    "roles": [
+      "dispatcher",
+      "analyst",
+      "admin"
+    ],
+    "auth_source": "dev_stub",
+    "session_expires_at": null
+  },
+  "observation_batch": {
+    "id": "synthetic-batch-001",
+    "format": "journal_json",
+    "file_name": "synthetic-batch-001",
+    "sha256": "d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4",
+    "size_bytes": 48000,
+    "uploaded_by": "integration:synthetic-scada",
+    "uploaded_at": "2026-09-24T09:55:00+03:00",
+    "status": "published",
+    "finished_at": "2026-09-24T09:55:06+03:00",
+    "rows_total": 400,
+    "rows_accepted": 398,
+    "rows_duplicate": 2,
+    "rows_quarantined": 0,
+    "unknown_channels": 0,
+    "event_from": "2026-09-24T09:54:00+03:00",
+    "event_to": "2026-09-24T09:54:55+03:00",
+    "reference_version": "synthetic-reference-v1",
+    "duplicate_of": null,
+    "forecast_generation": 9,
+    "error_code": null,
+    "timings": [
+      {
+        "stage": "store",
+        "seconds": 0.02
+      },
+      {
+        "stage": "parse",
+        "seconds": 0.05
+      },
+      {
+        "stage": "load",
+        "seconds": 0.2
+      },
+      {
+        "stage": "detect",
+        "seconds": 0.1
+      },
+      {
+        "stage": "score",
+        "seconds": 0.05
+      },
+      {
+        "stage": "publish",
+        "seconds": 0.1
+      }
+    ],
+    "quarantine_reasons": {},
+    "quarantine_sample": [],
+    "new_card_ids": [],
+    "released_card_ids": [],
+    "source_layout": null,
+    "source_container": null,
+    "alarm_not_provided": null,
+    "notes": [],
+    "simulated": true
+  },
+  "notifications": {
+    "mode": "fixture",
+    "since": "2026-09-24T00:00:00+03:00",
+    "as_of": "2026-09-24T10:00:00+03:00",
+    "checked_at": "2026-09-24T10:00:00+03:00",
+    "new_cards": 2,
+    "critical_alarms": 3,
+    "items": [
+      {
+        "kind": "critical_alarm",
+        "ref_id": "synthetic-row-1502",
+        "object_id": "synthetic-object-15",
+        "object_name": "Синтетический объект 15",
+        "title": "Газовый датчик: «Обнаружен газ»",
+        "at": "2026-09-24T02:10:00+03:00",
+        "target_spec_id": null,
+        "rule_id": "gas_detected",
+        "rule_text": "газовый датчик: «Обнаружен газ», независимо от отметки «тревожное», вне серии проверки",
+        "priority": 0,
+        "row_kind": "single",
+        "collapsed_count": 1,
+        "channels_count": 1,
+        "first_at": "2026-09-24T02:10:00+03:00",
+        "members": [
+          {
+            "row_uid": "synthetic-row-1502",
+            "channel_id": "synthetic-channel-1500",
+            "channel_name": "Синт. датчик 1500",
+            "event_at": "2026-09-24T02:10:00+03:00",
+            "value_raw": "Обнаружен газ"
+          }
+        ]
+      },
+      {
+        "kind": "critical_alarm",
+        "ref_id": "synthetic-row-1690-6",
+        "object_id": "synthetic-object-16",
+        "object_name": "Синтетический объект 16",
+        "title": "Похоже на ППР или ТО: 6 извещателей — сверить с графиком",
+        "at": "2026-09-24T09:05:00+03:00",
+        "target_spec_id": null,
+        "rule_id": "fire_test_series",
+        "rule_text": "серия дыма, тепловых и ручных извещателей объекта: 6 записей, 09:00–09:06 МСК, будни 07–19; раскрывается в список записей",
+        "priority": 1,
+        "row_kind": "test_series",
+        "collapsed_count": 6,
+        "channels_count": 6,
+        "first_at": "2026-09-24T09:00:00+03:00",
+        "members": [
+          {
+            "row_uid": "synthetic-row-1690-1",
+            "channel_id": "synthetic-channel-1601",
+            "channel_name": "Синт. датчик 1601",
+            "event_at": "2026-09-24T09:00:00+03:00",
+            "value_raw": "Обнаружен дым"
+          },
+          {
+            "row_uid": "synthetic-row-1690-2",
+            "channel_id": "synthetic-channel-1602",
+            "channel_name": "Синт. датчик 1602",
+            "event_at": "2026-09-24T09:01:00+03:00",
+            "value_raw": "Обнаружен дым"
+          },
+          {
+            "row_uid": "synthetic-row-1690-3",
+            "channel_id": "synthetic-channel-1603",
+            "channel_name": "Синт. датчик 1603",
+            "event_at": "2026-09-24T09:02:00+03:00",
+            "value_raw": "Обнаружен дым"
+          },
+          {
+            "row_uid": "synthetic-row-1690-4",
+            "channel_id": "synthetic-channel-1604",
+            "channel_name": "Синт. датчик 1604",
+            "event_at": "2026-09-24T09:03:00+03:00",
+            "value_raw": "Обнаружен дым"
+          },
+          {
+            "row_uid": "synthetic-row-1690-5",
+            "channel_id": "synthetic-channel-1605",
+            "channel_name": "Синт. датчик 1605",
+            "event_at": "2026-09-24T09:04:00+03:00",
+            "value_raw": "Обнаружен дым"
+          },
+          {
+            "row_uid": "synthetic-row-1690-6",
+            "channel_id": "synthetic-channel-1600",
+            "channel_name": "Синт. датчик 1600",
+            "event_at": "2026-09-24T09:05:00+03:00",
+            "value_raw": "Обнаружен дым"
+          }
+        ]
+      },
+      {
+        "kind": "critical_alarm",
+        "ref_id": "synthetic-row-1207",
+        "object_id": "synthetic-object-12",
+        "object_name": "Синтетический объект 12",
+        "title": "Датчик дыма: «Обнаружен дым»",
+        "at": "2026-09-24T07:15:00+03:00",
+        "target_spec_id": null,
+        "rule_id": "fire_smoke",
+        "rule_text": "дымовой извещатель: «Обнаружен дым», независимо от отметки «тревожное»",
+        "priority": 1,
+        "row_kind": "single",
+        "collapsed_count": 1,
+        "channels_count": 1,
+        "first_at": "2026-09-24T07:15:00+03:00",
+        "members": [
+          {
+            "row_uid": "synthetic-row-1207",
+            "channel_id": "synthetic-channel-1200",
+            "channel_name": "Синт. датчик 1200",
+            "event_at": "2026-09-24T07:15:00+03:00",
+            "value_raw": "Обнаружен дым"
+          }
+        ]
+      },
+      {
+        "kind": "new_card",
+        "ref_id": "synthetic-feeders-14d-019",
+        "object_id": "synthetic-object-19",
+        "object_name": "Синтетический объект 19",
+        "title": "Новая карточка: обесточивание электрооборудования объекта",
+        "at": "2026-09-24T00:04:00+03:00",
+        "target_spec_id": "phase-feeders/phase_loss_all",
+        "rule_id": null,
+        "rule_text": null,
+        "priority": 1,
+        "row_kind": null,
+        "collapsed_count": null,
+        "channels_count": null,
+        "first_at": null,
+        "members": []
+      },
+      {
+        "kind": "new_card",
+        "ref_id": "synthetic-feeders-14d-020",
+        "object_id": "synthetic-object-20",
+        "object_name": "Синтетический объект 20",
+        "title": "Новая карточка: обесточивание электрооборудования объекта",
+        "at": "2026-09-24T00:04:00+03:00",
+        "target_spec_id": "phase-feeders/phase_loss_all",
+        "rule_id": null,
+        "rule_text": null,
+        "priority": 1,
+        "row_kind": null,
+        "collapsed_count": null,
+        "channels_count": null,
+        "first_at": null,
+        "members": []
+      }
+    ],
+    "truncated": false,
+    "policy_version": "synthetic-critical-alarm-policy-v0",
+    "policy_confirmed": false,
+    "maintenance_check": "not_applied",
+    "policy_caption": "Синтетика. Колокольчик — сообщения источника, которые по тексту могут означать аварию, то есть угрозу жизни людей (классификация заказчика, 28.09). Сейчас в списке пожар, газ и затопление; охранные сработки и аномальная температура пока не входят. Каждое сообщение проверяют диспетчер и дежурный инженер: это не подтверждённая авария. Серии, похожие на ППР или ТО, и повторы одного датчика за час показываются одной строкой и не скрываются. Правило отбора с заказчиком пока не согласовано."
+  },
+  "monthly_report": {
+    "mode": "fixture",
+    "month": "2026-09",
+    "period_start": "2026-09-01",
+    "period_end": "2026-10-01",
+    "generated_at": "2026-09-24T10:00:00+03:00",
+    "data_as_of": "2026-09-24T10:00:00+03:00",
+    "basis": "automatic_registered_event",
+    "cards": [
+      {
+        "target_spec_id": "phase-feeders/phase_loss_all",
+        "issued": 13,
+        "released": 1,
+        "no_event": 1,
+        "unknown": 1,
+        "open": 10
+      }
+    ],
+    "decisions": [
+      {
+        "decision_code": "R1",
+        "count": 1
+      },
+      {
+        "decision_code": "R3",
+        "count": 2
+      }
+    ],
+    "top_objects": [
+      {
+        "object_id": "synthetic-object-21",
+        "object_name": "Синтетический объект 21",
+        "cards": 1,
+        "released": 1,
+        "source_alarms": 0
+      },
+      {
+        "object_id": "synthetic-object-11",
+        "object_name": "Синтетический объект 11",
+        "cards": 1,
+        "released": 0,
+        "source_alarms": 0
+      },
+      {
+        "object_id": "synthetic-object-12",
+        "object_name": "Синтетический объект 12",
+        "cards": 1,
+        "released": 0,
+        "source_alarms": 0
+      },
+      {
+        "object_id": "synthetic-object-13",
+        "object_name": "Синтетический объект 13",
+        "cards": 1,
+        "released": 0,
+        "source_alarms": 0
+      },
+      {
+        "object_id": "synthetic-object-14",
+        "object_name": "Синтетический объект 14",
+        "cards": 1,
+        "released": 0,
+        "source_alarms": 0
+      },
+      {
+        "object_id": "synthetic-object-15",
+        "object_name": "Синтетический объект 15",
+        "cards": 1,
+        "released": 0,
+        "source_alarms": 0
+      },
+      {
+        "object_id": "synthetic-object-16",
+        "object_name": "Синтетический объект 16",
+        "cards": 1,
+        "released": 0,
+        "source_alarms": 0
+      },
+      {
+        "object_id": "synthetic-object-17",
+        "object_name": "Синтетический объект 17",
+        "cards": 1,
+        "released": 0,
+        "source_alarms": 0
+      },
+      {
+        "object_id": "synthetic-object-18",
+        "object_name": "Синтетический объект 18",
+        "cards": 1,
+        "released": 0,
+        "source_alarms": 0
+      },
+      {
+        "object_id": "synthetic-object-19",
+        "object_name": "Синтетический объект 19",
+        "cards": 1,
+        "released": 0,
+        "source_alarms": 0
+      }
+    ],
+    "alarms_by_type": [
+      {
+        "sensor_type": "Датчик дыма",
+        "source_alarms": 14
+      },
+      {
+        "sensor_type": "Состояние фазы",
+        "source_alarms": 9
+      }
+    ],
+    "notes": [
+      "Синтетические данные; счётчики — зарегистрированные события, не метрика качества."
+    ]
+  }
+}

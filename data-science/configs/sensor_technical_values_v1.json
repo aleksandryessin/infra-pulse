@@ -1,0 +1,92 @@
+{
+  "version": "sensor-technical-values-v1",
+  "status": "draft_chosen_on_development_2019_2020_2022_2024_2026-09-26",
+  "interpretation": "registered technical value of a channel (manufacturer code, technical text/epoch value, or numeric reading outside the permissible range); not a confirmed device failure",
+  "value": "value_numeric, else value_raw parsed as a number (comma accepted as decimal separator)",
+  "code_tolerance": 1e-06,
+  "range_rule": "technical if value < min or value > max; bounds themselves are valid",
+  "alarm_rule": "technical status does not depend on alarm; per organizer answer a technical value is excluded from measurements only when the record is not alarm-flagged (measurement_exclusion_sql)",
+  "common_codes": [
+    -100,
+    255,
+    -127,
+    -3276,
+    -255
+  ],
+  "common_codes_source": "organizer answers (manufacturer technical values -100, 255, -127, -3276; error sent as a number instead of -255)",
+  "sensor_types": {
+    "Датчик температуры": {
+      "unit": "degC (assumed)",
+      "codes": [],
+      "range": [
+        -40,
+        85
+      ],
+      "range_basis": "proxy: common industrial electronics operating range -40..+85 degC combined with development data (p0.1 = -51, p99.9 = 102 incl. faulty channels; readings above 85 jump by a median 55 degC from the previous reading); device model and datasheet not received",
+      "sensitivity_range": [
+        -55,
+        125
+      ],
+      "sensitivity_range_basis": "open datasheet of 1-Wire digital thermometers (Maxim DS18B20: -55..+125 degC); applicability to customer sensors unconfirmed",
+      "text_values": [
+        "Не определено"
+      ],
+      "text_values_basis": "development: every 'Не определено' temperature row shares its timestamp with a numeric reading; 96.9% of those readings are -127 (5,225), below -40 (1,173) or above 85 (231); 212 are within range; the text row carries alarm=true in 86% of rows",
+      "text_prefixes": []
+    },
+    "Газовый датчик": {
+      "unit": "% vol methane (customer answer)",
+      "codes": [
+        2.55,
+        -2.56,
+        327.68
+      ],
+      "codes_basis": "hypothesis by data: values are integer counts x 0.01; 2.55/-2.56/327.68 correspond to 255/-256/32768 and appear as isolated spikes between readings near 0 (96-100% of occurrences)",
+      "range": [
+        0,
+        100
+      ],
+      "range_basis": "physical: volume fraction cannot be negative or exceed 100%; no negative readings before 2020-10 on development; methane LEL 4.4% vol (IEC/GOST 60079-20-1) is an alarm-relevant level, not a validity bound",
+      "zero_is_technical": false,
+      "zero_basis": "development: 0.0 alternates with 0.01 at the resolution step (97% of zeros preceded by a 0.01 step in 2023), isolated zero spikes 0.03-0.07% of zeros",
+      "text_values": [],
+      "text_prefixes": []
+    },
+    "ИБП": {
+      "unit": "unknown",
+      "codes": [],
+      "range": [
+        0,
+        100
+      ],
+      "range_basis": "proxy by data only (development min 0, max 100); meaning of the value not confirmed",
+      "text_values": [],
+      "text_prefixes": []
+    },
+    "Состояние охраны": {
+      "unit": "date-time text of the guard state (meaning unconfirmed)",
+      "codes": [],
+      "range": null,
+      "range_basis": "not numeric; only the epoch placeholder value is technical",
+      "text_values": [],
+      "text_prefixes": [
+        "01.01.1970 03:00"
+      ],
+      "text_prefixes_basis": "organizer lists the epoch date '01.01.1970 03:00' among technical values; on development it occurs as a sensor VALUE (46,055 rows, 29 of 46 channels, never alarm), not as a timestamp; is_epoch_placeholder marks exactly these rows while their event timestamps parse normally"
+    }
+  },
+  "not_in_rule": {
+    "epoch_placeholder": "rows with an epoch placeholder in the timestamp itself would be unplaceable; on development none exist: the epoch occurs only as a value of 'Состояние охраны' (in the rule) and of rows without sensor type (out of scope)",
+    "temperature_zero": "0.0 is flagged sentinel_candidate but is a plausible reading; isolated zero spikes are a sensitivity candidate only",
+    "stuck_value": "the source reports on change (identical consecutive values are rare), so an unchanged value for N hours is indistinguishable from silence; sensitivity only"
+  },
+  "sources": [
+    "organizer Q&A (manufacturer technical values, permissible range, external heating, alarm-flag rule)",
+    "customer answer on gas unit: % vol methane, alarm setpoint 1% (docs/ML_TASK_SPEC_V3.md, B3)",
+    "IEC 60079-20-1 / GOST 31610.20-1: methane lower explosive limit 4.4% vol",
+    "Maxim Integrated DS18B20 datasheet: measurement range -55..+125 degC, power-on reset value +85 degC",
+    "DallasTemperature open library convention: -127 = device disconnected",
+    "development data profile: data-science/experiments/sensor-failure/TECHNICAL_VALUES.md"
+  ],
+  "text_rule": "value_raw equal to a configured text value ('text_code') or starting with a configured prefix ('epoch_value') is technical regardless of value_numeric; checked before codes and ranges"
+}

@@ -1,0 +1,38 @@
+{
+  "version": "phase-sequence-v1",
+  "snapshot": "data-science/artifacts/curated-all-sensors-exclude-2021-q2",
+  "overlay": "data-science/artifacts/alarm-spike-exclusions-v1/manifest.json",
+  "max_steps": 128,
+  "history_days": 90,
+  "max_rows_per_object": 1000000,
+  "max_prepared_rows": 50000,
+  "max_tensor_bytes": 536870912,
+  "models": ["gru", "lstm", "tcn", "transformer", "catboost"],
+  "seeds": [17, 43, 91],
+  "folds": [
+    {
+      "name": "dev2024",
+      "train_start": "2023-01-01",
+      "validation_start": "2024-01-01",
+      "test_start": "2024-07-01",
+      "test_end": "2025-01-01"
+    },
+    {
+      "name": "viewed2025_2026",
+      "train_start": "2023-01-01",
+      "validation_start": "2025-01-01",
+      "test_start": "2025-07-01",
+      "test_end": "2026-07-01"
+    }
+  ],
+  "training": {
+    "device": "cpu",
+    "threads": 2,
+    "hidden": 32,
+    "batch_size": 128,
+    "epochs": 20,
+    "patience": 4,
+    "learning_rate": 0.001,
+    "catboost_iterations": 200
+  }
+}

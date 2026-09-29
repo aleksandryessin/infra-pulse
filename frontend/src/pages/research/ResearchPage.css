@@ -1,0 +1,10 @@
+.research-page { display: grid; gap: 12px; }
+.research-table td { font-variant-numeric: tabular-nums; }
+.ci-chart { margin: 0; max-width: 640px; }
+.ci-chart svg { width: 100%; height: auto; }
+.ci-chart__grid { stroke: var(--line); stroke-width: 1; }
+.ci-chart__axis { fill: var(--muted); font-size: 11px; }
+.ci-chart__label { fill: var(--foreground); font-size: 13px; font-weight: 600; }
+.ci-chart__target { stroke: var(--foreground); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.ci-chart__ci { stroke: var(--accent-text); stroke-width: 3; }
+.ci-chart__point { fill: var(--surface); stroke: var(--accent-text); stroke-width: 2.5; }

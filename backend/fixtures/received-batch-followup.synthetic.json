@@ -1,0 +1,25 @@
+{
+  "batch_id": "synthetic-dispatch-demo-002",
+  "records": [
+    {
+      "source_record_id": "ups-1",
+      "object_id": "synthetic-object-B",
+      "channel_id": "synthetic-ups-channel",
+      "sensor_type": "Состояние ИБП",
+      "system_type": "Электроснабжение",
+      "value_raw": "Обесточен",
+      "alarm": true,
+      "event_at": "2026-09-24T10:05:00+03:00"
+    },
+    {
+      "source_record_id": "ups-2",
+      "object_id": "synthetic-object-B",
+      "channel_id": "synthetic-ups-channel",
+      "sensor_type": "Состояние ИБП",
+      "system_type": "Электроснабжение",
+      "value_raw": "Норма",
+      "alarm": false,
+      "event_at": "2026-09-24T10:05:20+03:00"
+    }
+  ]
+}

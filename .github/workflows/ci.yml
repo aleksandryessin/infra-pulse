@@ -1,0 +1,87 @@
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  backend:
+    name: Backend (Ubuntu)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_DB: infra_pulse_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d infra_pulse_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.8.4"
+          enable-cache: true
+      - run: uv sync --locked --group platform --group train --group research
+      - name: Role dependency imports
+        run: uv run --locked python -c "import catboost, duckdb, pyarrow, sklearn, mlflow, sqlalchemy, psycopg, jupyterlab; print('Role imports OK')"
+      - name: Local MLflow launcher configuration
+        run: uv run --locked python data-science/mlflow/server.py --print-command
+      - run: uv run --locked ruff check .
+      - run: uv run --locked ruff format --check .
+      - name: Python and PostgreSQL integration tests
+        env:
+          INFRA_TEST_RECEIVED_DSN: postgresql://postgres:postgres@127.0.0.1:5432/infra_pulse_test
+          INFRA_TEST_REPLAY_DSN: postgresql://postgres:postgres@127.0.0.1:5432/infra_pulse_test
+          # Shared runners load 170k rows in ~15 s (4-8 s locally); OPS-01 limit is 300 s.
+          INFRA_TEST_CSV_170K_BUDGET_SECONDS: "60"
+        run: uv run --locked pytest
+      - run: uv run --locked python tools/export_contracts.py
+      - run: git diff --exit-code -- contracts
+  api-isolation:
+    name: API without research (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.8.4"
+          enable-cache: true
+      - run: uv sync --locked
+      - name: Research and ML dependencies are not installed
+        run: uv run --locked python -c "import importlib.util; names = ('infra_pulse_research', 'mlflow', 'pandas', 'numpy', 'catboost', 'sklearn'); assert all(importlib.util.find_spec(name) is None for name in names)"
+      - run: uv run --locked pytest backend/tests tests
+  deploy-scripts:
+    name: Deploy scripts (shellcheck)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      # Same shellcheck as the "Lint deployment scripts" step of deploy.yml, so a
+      # warning fails here and not only at deploy time.
+      - run: shellcheck --version && shellcheck deploy/*.sh deploy/lldap/*.sh deploy/grafana/*.sh
+  frontend:
+    name: Frontend (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+        working-directory: frontend
+      - run: npm run generate:api
+        working-directory: frontend
+      - run: npm run build
+        working-directory: frontend
+      - name: Forbidden words outside «Исследование»
+        run: npm run check:words
+        working-directory: frontend
+      - run: npm test
+        working-directory: frontend
+      - run: git diff --exit-code -- frontend/src/api/schema.d.ts

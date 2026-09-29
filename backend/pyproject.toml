@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "infra-pulse-backend"
+version = "0.1.0"
+description = "InfraPulse HTTP API and operational persistence"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "infra-pulse-core==0.1.0",
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "pydantic-settings>=2.8,<3",
+  "psycopg[binary]>=3.2,<4",
+  # C0 (27.09): multipart upload of source CSV files (POST /api/v1/imports).
+  "python-multipart>=0.0.20,<1",
+  # C0 (27.09): LDAP bind for the directory login (B3); pure Python, no system libs.
+  "ldap3>=2.9,<3",
+  # C0.2 (27.09): XLSX management reports (R1); pure Python.
+  "openpyxl>=3.1,<4",
+  # 28.09: XML observation batches (POST /api/v1/observations); no DTD, no entities.
+  "defusedxml>=0.7.1,<1",
+  # 28.09: Swagger UI files served by the API at /api/docs (no CDN). Only its resources are
+  # used: swagger-ui-dist 5.33.0 byte for byte (hashes in backend/tests/test_api_docs.py).
+  # Pinned exactly; an upgrade re-checks the files against the npm package.
+  "fastapi-swagger==0.4.60",
+]
+
+[project.optional-dependencies]
+# Ingestion worker (B1/B2): causal episode detector and static list from core[features].
+# Not installed in the HTTP API image.
+worker = ["infra-pulse-core[features]"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/infra_pulse_backend"]

@@ -1,0 +1,73 @@
+{
+  "version": "sensor-failure-holdout-list-v5",
+  "status": "frozen_before_holdout_2026-09-27_head_ds",
+  "frozen_at": "2026-09-27T00:21:08+03:00",
+  "frozen_before": "any read of labels, cards, links or channel labels of the holdout months; no holdout labels existed at the freeze",
+  "holdout_use": "THIRD use of the holdout period 2025-07-01..2026-07-01 (user instruction relayed by Head DS)",
+  "instruction": "user: check on the holdout the best statistical model (static list) for combinations of horizon and K; no ML models",
+  "document": "experiments/sensor-failure/TUNING_V5.md#финальная-проверка-статистического-списка-третье-использование",
+  "basis": "explorations 1-4 on development folds 2023/2024 (TUNING_V5.md); configurations chosen there, i.e. by selection on the folds",
+  "interpretation": "registered loss of connection ('Неисправен', organizer: loss of connection with the device); not a confirmed breakdown; alarm is not a confirmed failure",
+  "target": {"primary": "connection_loss_ge2s", "secondary_report_only": "connection_loss_all"},
+  "issue": "daily at 00:00 local; unit A card = object_id x sensor_type; the list uses only history before the cutoff (point in time)",
+  "periods": {
+    "holdout": ["2025-07-01", "2026-07-01"],
+    "folds_for_comparison": {"2023": ["2023-01-01", "2024-01-01"], "2024": ["2024-01-01", "2025-01-01"]},
+    "history": "events before each cutoff, including the calibration period 2025 H1 as history only; 2021 events excluded from the decayed history (as in explorations 2-4)",
+    "calibration_period": "not evaluated"
+  },
+  "labels": {
+    "config": "configs/sensor_failure_model_v5_holdout.json",
+    "dir": "artifacts/sensor-failure-v1/model_labels_v5_holdout",
+    "protocol": "same as sensor-failure-model-v5 (Q 24 h, W 10 min, daily 00:00 cutoffs, same exclusions); horizons 168 h, 336 h, 504 h; built after this freeze"
+  },
+  "configurations": {
+    "A": {"label": "прогноз на неделю", "days": 7, "score": "static_list_365", "policy": "release", "k": 7},
+    "B": {"label": "план на 2 недели", "days": 14, "score": "static_list_365", "policy": "release", "k": 12},
+    "C": {"label": "лучшая точка разведки 4 с целью в каждом фолде", "days": 21, "score": "static_list_365", "policy": "keep", "k": 13},
+    "D": {"label": "единственная точка release с целью в каждом фолде (разведка 4)", "days": 21, "score": "decay_90", "policy": "release", "k": 18}
+  },
+  "scores": {
+    "static_list_365": "number of target events of the pair (object x sensor type) counted in [t - 365 d, t) (sensor_failure_evaluation.static_list_scores)",
+    "decay_90": "sum over past events of the pair of 2^(-age / 90 d), events before t, 2021 excluded",
+    "persistence": "max over candidate channels of 1 / (1 + hours_since_last_candidate) plus 1e-6 * min(candidate_past_7d, 1e5) / 1e5, from the channel labels (point in time); on development 2024 it ranks and selects identically to the F2-based persistence of stage 1 (overlap 1.0 at K 7/12/14)"
+  },
+  "policies": {
+    "release": "a card is open D days; it closes on the day after the first qualifying event of the pair observed in its window (from the event journal, whatever the coverage status of the card); the place is free from the next cutoff; new cards by score for pairs without an open card up to K open; nothing displaced",
+    "keep": "a card is open D days whatever happens; the place is free when the window ends"
+  },
+  "causal_selection": {
+    "rule": "the selector does not know future coverage: a card is eligible if its exclusion reason is empty or one of the future-dependent reasons",
+    "future_dependent_reasons": ["source_coverage", "policy_day"],
+    "not_eligible_point_in_time_reasons": "all other reasons, known at the cutoff (lookback_coverage, no_prior_history, active_episode, q_shadow, no_candidate_channels, insufficient_lookback, excluded_2021_and_lookback, not_weekly_cutoff)",
+    "excluded_cutoffs": "cutoffs whose window [t, t + D) ends after the period end (holdout 2026-07-01; fold 2024: 2025-01-01) or whose cards carry data_end / split_boundary: not issued and listed in the report",
+    "unknown_outcome": "issued cards with a future-dependent reason: outcome unknown, reported separately, not in P; a lower bound of P counts them as misses"
+  },
+  "metrics": {
+    "precision": "share of issued cards with a known outcome whose window has a qualifying event on a candidate channel of the card",
+    "precision_lower_bound": "positives / (known + unknown) issued cards",
+    "recall_honest": "event_recall_open: share of evaluable qualifying events (protocol) that start while an issued card of the pair is open (release: before the day after its first event; keep: to its window end)",
+    "recall_without_repeats": "share of evaluable events captured as the first event of the capturing card (the earliest open issued card)",
+    "also": ["new cards per day", "median honest lead", "share of chronic cards among issued (event of the pair in [t - D, t))", "monthly precision (by issue month) and honest recall (by event month)", "number of issued cards, unknown outcomes, events"],
+    "bootstrap": "paired week blocks (ISO week of the issue for cards, of the event start for events), 400 replicates, seed 17: P, honest R, R without repeats; configuration minus persistence at the same policy and K",
+    "persistence_comparison": "persistence score with the same policy and K"
+  },
+  "criteria": {
+    "tz_for_C_and_D": "lower bound of the 95% week-block interval of P >= 0.70 AND lower bound of the 95% week-block interval of the honest recall >= 0.50 (holdout, target >= 2 s); point values reported beside",
+    "A_and_B": "report only, no criterion",
+    "calibration": {
+      "table": "for each of A-D: bins of consecutive flat 365-day counts built on the issued cards (known outcome) of the configuration on 2023 and 2024 together (the same causal selection), each bin n >= 30, Wilson 95% interval",
+      "check": "the same bins on the holdout issued cards; a bin is evaluated if its holdout n >= 30; a hit if the holdout share lies inside the build Wilson interval",
+      "pass": "hits >= 80% of the evaluated bins; if no bin is evaluated: not evaluable"
+    },
+    "secondary": "A-D on the 'all episodes' target: report only, no criterion"
+  },
+  "comparison_with_folds": "the same code on folds 2023 and 2024 (causal selection) and the previous non-causal selection (eligible = known outcome) for the effect of the causal rule",
+  "mlflow": {
+    "tracking_uri": "http://127.0.0.1:5059",
+    "experiment": "sensor-failure-tuning-v5",
+    "run_names": "HOLDOUT list A..D (третье использование); secondary: HOLDOUT list A..D all (третье использование)"
+  },
+  "report": "reports/sensor-failure-holdout-list-v5-2026-09-27.json (aggregates only, no IDs)",
+  "runner": "data-science/scripts/holdout_sensor_failure_list_v5.py"
+}

@@ -1,0 +1,34 @@
+{
+  "version": "sensor-failure-model-v4-120h",
+  "status": "labels for the 120 h secondary horizon of configs/sensor_failure_tuning_v4.json (draft); same protocol as sensor-failure-model-v2",
+  "labels_config": "configs/sensor_failure_v1.json",
+  "pre_registration": "configs/sensor_failure_tuning_v4.json",
+  "episode": {"q_hours": 24, "cluster_window_minutes": 10},
+  "targets": {
+    "connection_loss_gt2s": {
+      "label": "connection_loss",
+      "episode_filter": {"op": ">", "seconds": 2},
+      "role": "main",
+      "note": "duration > 2 s or open; timestamps have 1 s resolution, so > 2 s means >= 3 s"
+    }
+  },
+  "episode_filter_rule": "an episode qualifies if the filter is null, it is open at data end, or date_diff('second', start_at, end_at) satisfies the filter",
+  "horizons": {
+    "120h": {
+      "cadence": "daily 00:00 labels; rolling issue",
+      "policies": [
+        {"type": "rolling", "max_open": 3, "window_days": 5},
+        {"type": "rolling", "max_open": 5, "window_days": 5}
+      ]
+    }
+  },
+  "weekly_horizons": [],
+  "periods": {
+    "development": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2025-01-01"]],
+    "calibration_and_threshold": [["2025-01-01", "2025-07-01"]],
+    "holdout": [["2025-07-01", "2026-07-01"]],
+    "excluded": "2021 and cutoffs whose 30-day lookback touches 2021 or starts before 2019-01-01"
+  },
+  "built_for": "development months only (2019-01..2020-12, 2022-01..2024-12); calibration and holdout months are not labelled",
+  "card_units": {"A": "object_id x sensor_type"}
+}

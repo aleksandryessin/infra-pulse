@@ -1,0 +1,3705 @@
+{
+  "code_sha256": "3ad90fa817f2d59299bd6a6ac7d27a4c8673621d4aba386e75439d62dbad89e6",
+  "detailed": [
+    {
+      "alarm": false,
+      "distinct_channel_days": 3,
+      "distinct_channels": 3,
+      "distinct_objects": 1,
+      "records": 4,
+      "sensor_type": "9-секционный люк",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 9,
+      "distinct_channels": 9,
+      "distinct_objects": 1,
+      "records": 15,
+      "sensor_type": "9-секционный люк",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 9,
+      "distinct_channels": 9,
+      "distinct_objects": 1,
+      "records": 9,
+      "sensor_type": "9-секционный люк",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 90,
+      "distinct_channels": 9,
+      "distinct_objects": 1,
+      "records": 100,
+      "sensor_type": "9-секционный люк",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 420,
+      "distinct_channels": 402,
+      "distinct_objects": 17,
+      "records": 436,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 8,
+      "distinct_channels": 5,
+      "distinct_objects": 3,
+      "records": 1691,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 290,
+      "distinct_channels": 151,
+      "distinct_objects": 9,
+      "records": 33835,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 6317,
+      "distinct_channels": 428,
+      "distinct_objects": 18,
+      "records": 40861,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 556,
+      "distinct_channels": 384,
+      "distinct_objects": 17,
+      "records": 1152,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Обнаружен газ"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 705,
+      "distinct_channels": 479,
+      "distinct_objects": 19,
+      "records": 1560,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Обнаружен газ"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 2,
+      "distinct_channels": 2,
+      "distinct_objects": 2,
+      "records": 6,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 13,
+      "distinct_channels": 13,
+      "distinct_objects": 7,
+      "records": 14,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 44,
+      "distinct_channels": 42,
+      "distinct_objects": 20,
+      "records": 57,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 38,
+      "distinct_channels": 31,
+      "distinct_objects": 9,
+      "records": 89,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 34,
+      "distinct_channels": 16,
+      "distinct_objects": 5,
+      "records": 53,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 6519,
+      "distinct_channels": 748,
+      "distinct_objects": 35,
+      "records": 15948,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 45068,
+      "distinct_channels": 777,
+      "distinct_objects": 35,
+      "records": 3432014,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Обнаружено движение"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 2102,
+      "distinct_channels": 461,
+      "distinct_objects": 35,
+      "records": 22366,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Обнаружено движение"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 13,
+      "distinct_channels": 13,
+      "distinct_objects": 7,
+      "records": 124,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 14,
+      "distinct_channels": 12,
+      "distinct_objects": 8,
+      "records": 60,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 427,
+      "distinct_channels": 317,
+      "distinct_objects": 16,
+      "records": 525,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 5,
+      "distinct_channels": 1,
+      "distinct_objects": 1,
+      "records": 129,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 2,
+      "distinct_channels": 1,
+      "distinct_objects": 1,
+      "records": 12,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 1804,
+      "distinct_channels": 841,
+      "distinct_objects": 24,
+      "records": 5075,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 1176,
+      "distinct_channels": 784,
+      "distinct_objects": 30,
+      "records": 4898,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 63439,
+      "distinct_channels": 4326,
+      "distinct_objects": 30,
+      "records": 131891,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 10895,
+      "distinct_channels": 3747,
+      "distinct_objects": 29,
+      "records": 19713,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Обнаружен дым"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 4847,
+      "distinct_channels": 3548,
+      "distinct_objects": 30,
+      "records": 8590,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Обнаружен дым"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 9,
+      "distinct_channels": 9,
+      "distinct_objects": 3,
+      "records": 13,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 185,
+      "distinct_channels": 136,
+      "distinct_objects": 12,
+      "records": 222,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 2,
+      "distinct_channels": 2,
+      "distinct_objects": 2,
+      "records": 2,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 100,
+      "distinct_channels": 25,
+      "distinct_objects": 9,
+      "records": 530,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 2,
+      "distinct_channels": 1,
+      "distinct_objects": 1,
+      "records": 4,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 270,
+      "distinct_channels": 25,
+      "distinct_objects": 9,
+      "records": 592,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 1,
+      "distinct_channels": 1,
+      "distinct_objects": 1,
+      "records": 1,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 22,
+      "distinct_channels": 20,
+      "distinct_objects": 10,
+      "records": 30,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 1,
+      "distinct_channels": 1,
+      "distinct_objects": 1,
+      "records": 1,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 78,
+      "distinct_channels": 39,
+      "distinct_objects": 1,
+      "records": 125,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Не определено"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 599,
+      "distinct_channels": 301,
+      "distinct_objects": 19,
+      "records": 1145,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Не определено"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 41,
+      "distinct_channels": 12,
+      "distinct_objects": 6,
+      "records": 22205,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 5371,
+      "distinct_channels": 579,
+      "distinct_objects": 30,
+      "records": 14368,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 19,
+      "distinct_channels": 19,
+      "distinct_objects": 9,
+      "records": 24,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 9,
+      "distinct_channels": 9,
+      "distinct_objects": 1,
+      "records": 10,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Температура выше 40ºC"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 34,
+      "distinct_channels": 28,
+      "distinct_objects": 9,
+      "records": 357,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Температура выше 40ºC"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 89,
+      "distinct_channels": 60,
+      "distinct_objects": 6,
+      "records": 131,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Температура ниже 3ºC"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 801,
+      "distinct_channels": 187,
+      "distinct_objects": 21,
+      "records": 1482,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Температура ниже 3ºC"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 72,
+      "distinct_channels": 15,
+      "distinct_objects": 10,
+      "records": 613,
+      "sensor_type": "ИБП",
+      "value_raw": "Батарея неисправна"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 1,
+      "distinct_channels": 1,
+      "distinct_objects": 1,
+      "records": 2,
+      "sensor_type": "ИБП",
+      "value_raw": "Батарея разряжена"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 18,
+      "distinct_channels": 8,
+      "distinct_objects": 7,
+      "records": 26,
+      "sensor_type": "ИБП",
+      "value_raw": "Батарея разряжена"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 10,
+      "distinct_channels": 8,
+      "distinct_objects": 7,
+      "records": 12,
+      "sensor_type": "ИБП",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 9,
+      "distinct_channels": 8,
+      "distinct_objects": 4,
+      "records": 11,
+      "sensor_type": "ИБП",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 138,
+      "distinct_channels": 31,
+      "distinct_objects": 15,
+      "records": 254,
+      "sensor_type": "ИБП",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 943,
+      "distinct_channels": 78,
+      "distinct_objects": 20,
+      "records": 2145,
+      "sensor_type": "ИБП",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 4,
+      "distinct_channels": 3,
+      "distinct_objects": 3,
+      "records": 4,
+      "sensor_type": "ИБП",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 148,
+      "distinct_channels": 60,
+      "distinct_objects": 18,
+      "records": 181,
+      "sensor_type": "ИБП",
+      "value_raw": "Питание от батарей"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 1169,
+      "distinct_channels": 76,
+      "distinct_objects": 21,
+      "records": 3278,
+      "sensor_type": "ИБП",
+      "value_raw": "Питание от батарей"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 61,
+      "distinct_channels": 39,
+      "distinct_objects": 14,
+      "records": 65,
+      "sensor_type": "КД АВ",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 9129,
+      "distinct_channels": 397,
+      "distinct_objects": 22,
+      "records": 62637,
+      "sensor_type": "КД АВ",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 66,
+      "distinct_channels": 37,
+      "distinct_objects": 8,
+      "records": 160,
+      "sensor_type": "КД АВ",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 3035,
+      "distinct_channels": 362,
+      "distinct_objects": 22,
+      "records": 6755,
+      "sensor_type": "КД АВ",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 49,
+      "distinct_channels": 28,
+      "distinct_objects": 8,
+      "records": 85,
+      "sensor_type": "КД АВ",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 31,
+      "distinct_channels": 31,
+      "distinct_objects": 15,
+      "records": 32,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 50152,
+      "distinct_channels": 867,
+      "distinct_objects": 54,
+      "records": 291652,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 2471,
+      "distinct_channels": 430,
+      "distinct_objects": 51,
+      "records": 6792,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 27,
+      "distinct_channels": 21,
+      "distinct_objects": 8,
+      "records": 47,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 3,
+      "distinct_channels": 2,
+      "distinct_objects": 2,
+      "records": 9,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 8351,
+      "distinct_channels": 859,
+      "distinct_objects": 55,
+      "records": 21071,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 500,
+      "distinct_channels": 2,
+      "distinct_objects": 1,
+      "records": 22943,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Обнаружено движение"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 6,
+      "distinct_channels": 2,
+      "distinct_objects": 1,
+      "records": 12,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Обнаружено движение"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 21,
+      "distinct_channels": 20,
+      "distinct_objects": 9,
+      "records": 24,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 6,
+      "distinct_channels": 6,
+      "distinct_objects": 5,
+      "records": 6,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 1,
+      "distinct_channels": 1,
+      "distinct_objects": 1,
+      "records": 1,
+      "sensor_type": "КД Люк",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 311,
+      "distinct_channels": 55,
+      "distinct_objects": 13,
+      "records": 506,
+      "sensor_type": "КД Люк",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 8,
+      "distinct_channels": 4,
+      "distinct_objects": 1,
+      "records": 15,
+      "sensor_type": "КД Люк",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 511,
+      "distinct_channels": 55,
+      "distinct_objects": 13,
+      "records": 912,
+      "sensor_type": "КД Люк",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 4,
+      "distinct_channels": 4,
+      "distinct_objects": 3,
+      "records": 4,
+      "sensor_type": "КД Люк",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 73009,
+      "distinct_channels": 778,
+      "distinct_objects": 19,
+      "records": 101110,
+      "sensor_type": "Переключатель",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 3700,
+      "distinct_channels": 672,
+      "distinct_objects": 19,
+      "records": 8974,
+      "sensor_type": "Переключатель",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 3,
+      "distinct_channels": 3,
+      "distinct_objects": 2,
+      "records": 3,
+      "sensor_type": "Переключатель",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 176,
+      "distinct_channels": 39,
+      "distinct_objects": 13,
+      "records": 213,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 248,
+      "distinct_channels": 129,
+      "distinct_objects": 13,
+      "records": 366,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 4,
+      "distinct_channels": 3,
+      "distinct_objects": 2,
+      "records": 9,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 185,
+      "distinct_channels": 72,
+      "distinct_objects": 2,
+      "records": 903,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 1350,
+      "distinct_channels": 130,
+      "distinct_objects": 14,
+      "records": 2156,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 3,
+      "distinct_channels": 3,
+      "distinct_objects": 2,
+      "records": 3,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 1182,
+      "distinct_channels": 557,
+      "distinct_objects": 18,
+      "records": 9888,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Вызов"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 114,
+      "distinct_channels": 85,
+      "distinct_objects": 10,
+      "records": 132,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 162,
+      "distinct_channels": 33,
+      "distinct_objects": 1,
+      "records": 181,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 34,
+      "distinct_channels": 33,
+      "distinct_objects": 1,
+      "records": 36,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 1,
+      "distinct_channels": 1,
+      "distinct_objects": 1,
+      "records": 1,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 11,
+      "distinct_channels": 10,
+      "distinct_objects": 1,
+      "records": 13,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 9987,
+      "distinct_channels": 751,
+      "distinct_objects": 20,
+      "records": 143818,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 5,
+      "distinct_channels": 5,
+      "distinct_objects": 1,
+      "records": 5,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 19,
+      "distinct_channels": 18,
+      "distinct_objects": 6,
+      "records": 23,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 2601,
+      "distinct_channels": 729,
+      "distinct_objects": 19,
+      "records": 4095,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Рычаг сдернут"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 640,
+      "distinct_channels": 554,
+      "distinct_objects": 16,
+      "records": 1023,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Рычаг сдернут"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 48613,
+      "distinct_channels": 353,
+      "distinct_objects": 18,
+      "records": 72276,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 79,
+      "distinct_channels": 69,
+      "distinct_objects": 5,
+      "records": 146,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 4988,
+      "distinct_channels": 234,
+      "distinct_objects": 12,
+      "records": 12532,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 1703,
+      "distinct_channels": 296,
+      "distinct_objects": 18,
+      "records": 3798,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 79,
+      "distinct_channels": 69,
+      "distinct_objects": 5,
+      "records": 146,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Обесточен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 4981,
+      "distinct_channels": 234,
+      "distinct_objects": 12,
+      "records": 12433,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Обесточен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 7,
+      "distinct_channels": 7,
+      "distinct_objects": 3,
+      "records": 10,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 13106,
+      "distinct_channels": 180,
+      "distinct_objects": 18,
+      "records": 96795,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 94,
+      "distinct_channels": 71,
+      "distinct_objects": 8,
+      "records": 370,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Затоплен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 1420,
+      "distinct_channels": 156,
+      "distinct_objects": 17,
+      "records": 5686,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Затоплен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 134,
+      "distinct_channels": 97,
+      "distinct_objects": 10,
+      "records": 585,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 3845,
+      "distinct_channels": 180,
+      "distinct_objects": 18,
+      "records": 13847,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 1095,
+      "distinct_channels": 154,
+      "distinct_objects": 18,
+      "records": 2536,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 133,
+      "distinct_channels": 96,
+      "distinct_objects": 10,
+      "records": 532,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Обесточен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 3679,
+      "distinct_channels": 180,
+      "distinct_objects": 18,
+      "records": 13223,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Обесточен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 101,
+      "distinct_channels": 6,
+      "distinct_objects": 2,
+      "records": 117,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 9,
+      "distinct_channels": 7,
+      "distinct_objects": 4,
+      "records": 18,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Работают все насосы в АНС"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 1148,
+      "distinct_channels": 45,
+      "distinct_objects": 11,
+      "records": 12565,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Работают все насосы в АНС"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 17,
+      "distinct_channels": 9,
+      "distinct_objects": 9,
+      "records": 18,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 5,
+      "distinct_channels": 5,
+      "distinct_objects": 5,
+      "records": 16,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Много неисправных устройств"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 840,
+      "distinct_channels": 47,
+      "distinct_objects": 47,
+      "records": 1962,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Много неисправных устройств"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 840,
+      "distinct_channels": 47,
+      "distinct_objects": 47,
+      "records": 1954,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 21,
+      "distinct_channels": 18,
+      "distinct_objects": 10,
+      "records": 22,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 14,
+      "distinct_channels": 11,
+      "distinct_objects": 3,
+      "records": 30,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 2770,
+      "distinct_channels": 281,
+      "distinct_objects": 12,
+      "records": 5883,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 6098,
+      "distinct_channels": 786,
+      "distinct_objects": 19,
+      "records": 31039,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 60117,
+      "distinct_channels": 916,
+      "distinct_objects": 19,
+      "records": 89396,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Обесточен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 8,
+      "distinct_channels": 8,
+      "distinct_objects": 6,
+      "records": 10,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 845,
+      "distinct_channels": 29,
+      "distinct_objects": 8,
+      "records": 1393,
+      "sensor_type": "Стекло",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 503,
+      "distinct_channels": 29,
+      "distinct_objects": 8,
+      "records": 865,
+      "sensor_type": "Стекло",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 26,
+      "distinct_channels": 24,
+      "distinct_objects": 2,
+      "records": 27,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 82,
+      "distinct_channels": 71,
+      "distinct_objects": 2,
+      "records": 187,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 305,
+      "distinct_channels": 158,
+      "distinct_objects": 2,
+      "records": 884,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 1,
+      "distinct_channels": 1,
+      "distinct_objects": 1,
+      "records": 5,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 5622,
+      "distinct_channels": 472,
+      "distinct_objects": 3,
+      "records": 48507,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 4,
+      "distinct_channels": 4,
+      "distinct_objects": 2,
+      "records": 4,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 3,
+      "distinct_channels": 1,
+      "distinct_objects": 0,
+      "records": 4,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Батарея неисправна"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 2,
+      "distinct_channels": 1,
+      "distinct_objects": 0,
+      "records": 2,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Батарея разряжена"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 1,
+      "distinct_channels": 1,
+      "distinct_objects": 0,
+      "records": 1,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Выключен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 4,
+      "distinct_channels": 1,
+      "distinct_objects": 0,
+      "records": 5,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 13,
+      "distinct_channels": 6,
+      "distinct_objects": 0,
+      "records": 19,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Не замкнут"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 7,
+      "distinct_channels": 2,
+      "distinct_objects": 0,
+      "records": 9,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Неисправен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 75,
+      "distinct_channels": 11,
+      "distinct_objects": 0,
+      "records": 129,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Неопределен"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 1,
+      "distinct_channels": 1,
+      "distinct_objects": 0,
+      "records": 1,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 1,
+      "distinct_channels": 1,
+      "distinct_objects": 0,
+      "records": 1,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Отключено устройство"
+    },
+    {
+      "alarm": false,
+      "distinct_channel_days": 6,
+      "distinct_channels": 2,
+      "distinct_objects": 0,
+      "records": 7,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Питание от батарей"
+    },
+    {
+      "alarm": true,
+      "distinct_channel_days": 50,
+      "distinct_channels": 4,
+      "distinct_objects": 0,
+      "records": 90,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Питание от батарей"
+    }
+  ],
+  "lexeme_summary": [
+    {
+      "records": 14,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Батарея неисправна",
+      "year": 2023
+    },
+    {
+      "records": 21,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Батарея разряжена",
+      "year": 2023
+    },
+    {
+      "records": 1203,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 132,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Затоплен",
+      "year": 2023
+    },
+    {
+      "records": 3,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Много неисправных устройств",
+      "year": 2023
+    },
+    {
+      "records": 3179,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Не замкнут",
+      "year": 2023
+    },
+    {
+      "records": 6,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Не определено",
+      "year": 2023
+    },
+    {
+      "records": 317,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 1485,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 1793,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Обесточен",
+      "year": 2023
+    },
+    {
+      "records": 361,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Обнаружен дым",
+      "year": 2023
+    },
+    {
+      "records": 872,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Обнаружено движение",
+      "year": 2023
+    },
+    {
+      "records": 12,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Отключено устройство",
+      "year": 2023
+    },
+    {
+      "records": 237,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Питание от батарей",
+      "year": 2023
+    },
+    {
+      "records": 1001,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Работают все насосы в АНС",
+      "year": 2023
+    },
+    {
+      "records": 3,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Температура ниже 3ºC",
+      "year": 2023
+    },
+    {
+      "records": 786,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 105,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 84390,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 2410,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Обнаружен газ",
+      "year": 2023
+    },
+    {
+      "records": 3,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Отключено устройство",
+      "year": 2023
+    },
+    {
+      "records": 42,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 157,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 9484,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 2,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Обесточен",
+      "year": 2023
+    },
+    {
+      "records": 3198484,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Обнаружено движение",
+      "year": 2023
+    },
+    {
+      "records": 3,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Отключено устройство",
+      "year": 2023
+    },
+    {
+      "records": 650,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 22,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Не замкнут",
+      "year": 2023
+    },
+    {
+      "records": 4642,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 68404,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 35971,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Обнаружен дым",
+      "year": 2023
+    },
+    {
+      "records": 84,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Отключено устройство",
+      "year": 2023
+    },
+    {
+      "records": 1,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 930,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Не замкнут",
+      "year": 2023
+    },
+    {
+      "records": 243,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 53,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 2011,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Не определено",
+      "year": 2023
+    },
+    {
+      "records": 196,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 6793,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 6,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Отключено устройство",
+      "year": 2023
+    },
+    {
+      "records": 441,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Температура выше 40ºC",
+      "year": 2023
+    },
+    {
+      "records": 1824,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Температура ниже 3ºC",
+      "year": 2023
+    },
+    {
+      "records": 1090,
+      "sensor_type": "ИБП",
+      "value_raw": "Батарея неисправна",
+      "year": 2023
+    },
+    {
+      "records": 20,
+      "sensor_type": "ИБП",
+      "value_raw": "Батарея разряжена",
+      "year": 2023
+    },
+    {
+      "records": 28,
+      "sensor_type": "ИБП",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 504,
+      "sensor_type": "ИБП",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 2191,
+      "sensor_type": "ИБП",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 2,
+      "sensor_type": "ИБП",
+      "value_raw": "Отключено устройство",
+      "year": 2023
+    },
+    {
+      "records": 2374,
+      "sensor_type": "ИБП",
+      "value_raw": "Питание от батарей",
+      "year": 2023
+    },
+    {
+      "records": 40,
+      "sensor_type": "КД АВ",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 27366,
+      "sensor_type": "КД АВ",
+      "value_raw": "Не замкнут",
+      "year": 2023
+    },
+    {
+      "records": 315,
+      "sensor_type": "КД АВ",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 5015,
+      "sensor_type": "КД АВ",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 4,
+      "sensor_type": "КД АВ",
+      "value_raw": "Обесточен",
+      "year": 2023
+    },
+    {
+      "records": 1,
+      "sensor_type": "КД АВ",
+      "value_raw": "Отключено устройство",
+      "year": 2023
+    },
+    {
+      "records": 42,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 280516,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Не замкнут",
+      "year": 2023
+    },
+    {
+      "records": 91,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 17773,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 27849,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Обнаружено движение",
+      "year": 2023
+    },
+    {
+      "records": 3,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Отключено устройство",
+      "year": 2023
+    },
+    {
+      "records": 1,
+      "sensor_type": "КД Люк",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 463,
+      "sensor_type": "КД Люк",
+      "value_raw": "Не замкнут",
+      "year": 2023
+    },
+    {
+      "records": 19,
+      "sensor_type": "КД Люк",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 812,
+      "sensor_type": "КД Люк",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 96023,
+      "sensor_type": "Переключатель",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 8230,
+      "sensor_type": "Переключатель",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 3,
+      "sensor_type": "Переключатель",
+      "value_raw": "Отключено устройство",
+      "year": 2023
+    },
+    {
+      "records": 265,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Не замкнут",
+      "year": 2023
+    },
+    {
+      "records": 577,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 11804,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Вызов",
+      "year": 2023
+    },
+    {
+      "records": 98,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 264,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Не замкнут",
+      "year": 2023
+    },
+    {
+      "records": 17,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 73640,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 7002,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Рычаг сдернут",
+      "year": 2023
+    },
+    {
+      "records": 70349,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 7953,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 3680,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 7914,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Обесточен",
+      "year": 2023
+    },
+    {
+      "records": 2,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Отключено устройство",
+      "year": 2023
+    },
+    {
+      "records": 77546,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 5820,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Затоплен",
+      "year": 2023
+    },
+    {
+      "records": 12750,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 3007,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 12021,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Обесточен",
+      "year": 2023
+    },
+    {
+      "records": 1,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Отключено устройство",
+      "year": 2023
+    },
+    {
+      "records": 8596,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Работают все насосы в АНС",
+      "year": 2023
+    },
+    {
+      "records": 4,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 925,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Много неисправных устройств",
+      "year": 2023
+    },
+    {
+      "records": 925,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 39,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 3709,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Неисправен",
+      "year": 2023
+    },
+    {
+      "records": 31235,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 88501,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Обесточен",
+      "year": 2023
+    },
+    {
+      "records": 1,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Отключено устройство",
+      "year": 2023
+    },
+    {
+      "records": 2,
+      "sensor_type": "Стекло",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 1343,
+      "sensor_type": "Стекло",
+      "value_raw": "Не замкнут",
+      "year": 2023
+    },
+    {
+      "records": 1165,
+      "sensor_type": "Стекло",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 15,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Выключен",
+      "year": 2023
+    },
+    {
+      "records": 215,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Не замкнут",
+      "year": 2023
+    },
+    {
+      "records": 8047,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Неопределен",
+      "year": 2023
+    },
+    {
+      "records": 556,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Батарея неисправна",
+      "year": 2024
+    },
+    {
+      "records": 5,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Батарея разряжена",
+      "year": 2024
+    },
+    {
+      "records": 2,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 1095,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Не замкнут",
+      "year": 2024
+    },
+    {
+      "records": 6,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 478,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 1,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Обесточен",
+      "year": 2024
+    },
+    {
+      "records": 10,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 484,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Питание от батарей",
+      "year": 2024
+    },
+    {
+      "records": 590,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 147,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 38882,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 2298,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Обнаружен газ",
+      "year": 2024
+    },
+    {
+      "records": 8,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 87,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 117,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 16318,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 3456062,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Обнаружено движение",
+      "year": 2024
+    },
+    {
+      "records": 472,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 498,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 19,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Не замкнут",
+      "year": 2024
+    },
+    {
+      "records": 5078,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 43905,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 30374,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Обнаружен дым",
+      "year": 2024
+    },
+    {
+      "records": 172,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 4,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 1115,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Не замкнут",
+      "year": 2024
+    },
+    {
+      "records": 4,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 146,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 2,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 36,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 1494,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Не определено",
+      "year": 2024
+    },
+    {
+      "records": 101,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 14547,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 3,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 214,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Температура выше 40ºC",
+      "year": 2024
+    },
+    {
+      "records": 2212,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Температура ниже 3ºC",
+      "year": 2024
+    },
+    {
+      "records": 49,
+      "sensor_type": "ИБП",
+      "value_raw": "Батарея неисправна",
+      "year": 2024
+    },
+    {
+      "records": 35,
+      "sensor_type": "ИБП",
+      "value_raw": "Батарея разряжена",
+      "year": 2024
+    },
+    {
+      "records": 36,
+      "sensor_type": "ИБП",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 67,
+      "sensor_type": "ИБП",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 2228,
+      "sensor_type": "ИБП",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 1,
+      "sensor_type": "ИБП",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 2596,
+      "sensor_type": "ИБП",
+      "value_raw": "Питание от батарей",
+      "year": 2024
+    },
+    {
+      "records": 47,
+      "sensor_type": "КД АВ",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 24761,
+      "sensor_type": "КД АВ",
+      "value_raw": "Не замкнут",
+      "year": 2024
+    },
+    {
+      "records": 142,
+      "sensor_type": "КД АВ",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 8232,
+      "sensor_type": "КД АВ",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 43,
+      "sensor_type": "КД АВ",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 75,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 318458,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Не замкнут",
+      "year": 2024
+    },
+    {
+      "records": 86,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 22219,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 1,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Обесточен",
+      "year": 2024
+    },
+    {
+      "records": 26912,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Обнаружено движение",
+      "year": 2024
+    },
+    {
+      "records": 8,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 12,
+      "sensor_type": "КД Люк",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 482,
+      "sensor_type": "КД Люк",
+      "value_raw": "Не замкнут",
+      "year": 2024
+    },
+    {
+      "records": 57,
+      "sensor_type": "КД Люк",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 453,
+      "sensor_type": "КД Люк",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 23,
+      "sensor_type": "КД Люк",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 89140,
+      "sensor_type": "Переключатель",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 3985,
+      "sensor_type": "Переключатель",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 4,
+      "sensor_type": "Переключатель",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 293,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Не замкнут",
+      "year": 2024
+    },
+    {
+      "records": 6,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 751,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 6924,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Вызов",
+      "year": 2024
+    },
+    {
+      "records": 747,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 222,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Не замкнут",
+      "year": 2024
+    },
+    {
+      "records": 4,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 448398,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 79,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 6149,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Рычаг сдернут",
+      "year": 2024
+    },
+    {
+      "records": 60253,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 9179,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 2043,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 9151,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Обесточен",
+      "year": 2024
+    },
+    {
+      "records": 100638,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 6322,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Затоплен",
+      "year": 2024
+    },
+    {
+      "records": 14133,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 1295,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 13688,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Обесточен",
+      "year": 2024
+    },
+    {
+      "records": 4,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Отключено устройство",
+      "year": 2024
+    },
+    {
+      "records": 11051,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Работают все насосы в АНС",
+      "year": 2024
+    },
+    {
+      "records": 2,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 1249,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Много неисправных устройств",
+      "year": 2024
+    },
+    {
+      "records": 1250,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 37,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 5620,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 26461,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 89660,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Обесточен",
+      "year": 2024
+    },
+    {
+      "records": 1,
+      "sensor_type": "Стекло",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 1225,
+      "sensor_type": "Стекло",
+      "value_raw": "Не замкнут",
+      "year": 2024
+    },
+    {
+      "records": 513,
+      "sensor_type": "Стекло",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 16,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Выключен",
+      "year": 2024
+    },
+    {
+      "records": 797,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Не замкнут",
+      "year": 2024
+    },
+    {
+      "records": 2,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Неисправен",
+      "year": 2024
+    },
+    {
+      "records": 34462,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Неопределен",
+      "year": 2024
+    },
+    {
+      "records": 4,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Батарея неисправна",
+      "year": 2025
+    },
+    {
+      "records": 2,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Батарея разряжена",
+      "year": 2025
+    },
+    {
+      "records": 1,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 24,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Не замкнут",
+      "year": 2025
+    },
+    {
+      "records": 9,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 129,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 2,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 97,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Питание от батарей",
+      "year": 2025
+    },
+    {
+      "records": 4,
+      "sensor_type": "9-секционный люк",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 15,
+      "sensor_type": "9-секционный люк",
+      "value_raw": "Не замкнут",
+      "year": 2025
+    },
+    {
+      "records": 9,
+      "sensor_type": "9-секционный люк",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 100,
+      "sensor_type": "9-секционный люк",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 436,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 35526,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 40861,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 2712,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Обнаружен газ",
+      "year": 2025
+    },
+    {
+      "records": 20,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 57,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 142,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 15948,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 3454380,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Обнаружено движение",
+      "year": 2025
+    },
+    {
+      "records": 184,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 525,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 141,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Не замкнут",
+      "year": 2025
+    },
+    {
+      "records": 9973,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 131891,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 28303,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Обнаружен дым",
+      "year": 2025
+    },
+    {
+      "records": 235,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 2,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 530,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Не замкнут",
+      "year": 2025
+    },
+    {
+      "records": 4,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 592,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 1,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 30,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 1,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Не замкнут",
+      "year": 2025
+    },
+    {
+      "records": 1270,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Не определено",
+      "year": 2025
+    },
+    {
+      "records": 22205,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 14368,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 24,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 367,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Температура выше 40ºC",
+      "year": 2025
+    },
+    {
+      "records": 1613,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Температура ниже 3ºC",
+      "year": 2025
+    },
+    {
+      "records": 613,
+      "sensor_type": "ИБП",
+      "value_raw": "Батарея неисправна",
+      "year": 2025
+    },
+    {
+      "records": 28,
+      "sensor_type": "ИБП",
+      "value_raw": "Батарея разряжена",
+      "year": 2025
+    },
+    {
+      "records": 12,
+      "sensor_type": "ИБП",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 265,
+      "sensor_type": "ИБП",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 2145,
+      "sensor_type": "ИБП",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 4,
+      "sensor_type": "ИБП",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 3459,
+      "sensor_type": "ИБП",
+      "value_raw": "Питание от батарей",
+      "year": 2025
+    },
+    {
+      "records": 65,
+      "sensor_type": "КД АВ",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 62637,
+      "sensor_type": "КД АВ",
+      "value_raw": "Не замкнут",
+      "year": 2025
+    },
+    {
+      "records": 160,
+      "sensor_type": "КД АВ",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 6755,
+      "sensor_type": "КД АВ",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 85,
+      "sensor_type": "КД АВ",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 32,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 298444,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Не замкнут",
+      "year": 2025
+    },
+    {
+      "records": 56,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 21071,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 22955,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Обнаружено движение",
+      "year": 2025
+    },
+    {
+      "records": 30,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 1,
+      "sensor_type": "КД Люк",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 506,
+      "sensor_type": "КД Люк",
+      "value_raw": "Не замкнут",
+      "year": 2025
+    },
+    {
+      "records": 15,
+      "sensor_type": "КД Люк",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 912,
+      "sensor_type": "КД Люк",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 4,
+      "sensor_type": "КД Люк",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 101110,
+      "sensor_type": "Переключатель",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 8974,
+      "sensor_type": "Переключатель",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 3,
+      "sensor_type": "Переключатель",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 579,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Не замкнут",
+      "year": 2025
+    },
+    {
+      "records": 912,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 2156,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 3,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 9888,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Вызов",
+      "year": 2025
+    },
+    {
+      "records": 132,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 217,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Не замкнут",
+      "year": 2025
+    },
+    {
+      "records": 14,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 143818,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 28,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 5118,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Рычаг сдернут",
+      "year": 2025
+    },
+    {
+      "records": 72276,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 12678,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 3798,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 12579,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Обесточен",
+      "year": 2025
+    },
+    {
+      "records": 10,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 96795,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 6056,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Затоплен",
+      "year": 2025
+    },
+    {
+      "records": 14432,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 2536,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 13755,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Обесточен",
+      "year": 2025
+    },
+    {
+      "records": 117,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 12583,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Работают все насосы в АНС",
+      "year": 2025
+    },
+    {
+      "records": 18,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 1978,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Много неисправных устройств",
+      "year": 2025
+    },
+    {
+      "records": 1954,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 22,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 5913,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 31039,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 89396,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Обесточен",
+      "year": 2025
+    },
+    {
+      "records": 10,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 1393,
+      "sensor_type": "Стекло",
+      "value_raw": "Не замкнут",
+      "year": 2025
+    },
+    {
+      "records": 865,
+      "sensor_type": "Стекло",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 27,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Выключен",
+      "year": 2025
+    },
+    {
+      "records": 1071,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Не замкнут",
+      "year": 2025
+    },
+    {
+      "records": 5,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Неисправен",
+      "year": 2025
+    },
+    {
+      "records": 48507,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Неопределен",
+      "year": 2025
+    },
+    {
+      "records": 4,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Отключено устройство",
+      "year": 2025
+    },
+    {
+      "records": 1,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Батарея неисправна",
+      "year": 2026
+    },
+    {
+      "records": 2,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 48,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 7,
+      "sensor_type": "<unmatched channel>",
+      "value_raw": "Питание от батарей",
+      "year": 2026
+    },
+    {
+      "records": 58,
+      "sensor_type": "9-секционный люк",
+      "value_raw": "Не замкнут",
+      "year": 2026
+    },
+    {
+      "records": 5,
+      "sensor_type": "9-секционный люк",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 57,
+      "sensor_type": "9-секционный люк",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 257,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 38651,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 1342,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Обнаружен газ",
+      "year": 2026
+    },
+    {
+      "records": 43,
+      "sensor_type": "Газовый датчик",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 50,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 14338,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 1686282,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Обнаружено движение",
+      "year": 2026
+    },
+    {
+      "records": 208,
+      "sensor_type": "Датчик движения",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 2,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Выключен",
+      "year": 2026
+    },
+    {
+      "records": 10,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Не замкнут",
+      "year": 2026
+    },
+    {
+      "records": 59852,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 100618,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 15931,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Обнаружен дым",
+      "year": 2026
+    },
+    {
+      "records": 2101,
+      "sensor_type": "Датчик дыма",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 133,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Не замкнут",
+      "year": 2026
+    },
+    {
+      "records": 275,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 2,
+      "sensor_type": "Датчик затопления",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 929,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Не определено",
+      "year": 2026
+    },
+    {
+      "records": 17819,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 12891,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 1,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Обнаружено движение",
+      "year": 2026
+    },
+    {
+      "records": 99,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 20,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Температура выше 40ºC",
+      "year": 2026
+    },
+    {
+      "records": 474,
+      "sensor_type": "Датчик температуры",
+      "value_raw": "Температура ниже 3ºC",
+      "year": 2026
+    },
+    {
+      "records": 16,
+      "sensor_type": "ИБП",
+      "value_raw": "Батарея неисправна",
+      "year": 2026
+    },
+    {
+      "records": 7,
+      "sensor_type": "ИБП",
+      "value_raw": "Батарея разряжена",
+      "year": 2026
+    },
+    {
+      "records": 42,
+      "sensor_type": "ИБП",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 1640,
+      "sensor_type": "ИБП",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 1,
+      "sensor_type": "ИБП",
+      "value_raw": "Обнаружено движение",
+      "year": 2026
+    },
+    {
+      "records": 15,
+      "sensor_type": "ИБП",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 1425,
+      "sensor_type": "ИБП",
+      "value_raw": "Питание от батарей",
+      "year": 2026
+    },
+    {
+      "records": 13574,
+      "sensor_type": "КД АВ",
+      "value_raw": "Не замкнут",
+      "year": 2026
+    },
+    {
+      "records": 68,
+      "sensor_type": "КД АВ",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 4371,
+      "sensor_type": "КД АВ",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 1,
+      "sensor_type": "КД АВ",
+      "value_raw": "Обнаружено движение",
+      "year": 2026
+    },
+    {
+      "records": 206,
+      "sensor_type": "КД АВ",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 128732,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Не замкнут",
+      "year": 2026
+    },
+    {
+      "records": 8,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 10914,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 13772,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Обнаружено движение",
+      "year": 2026
+    },
+    {
+      "records": 164,
+      "sensor_type": "КД Дверь",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 300,
+      "sensor_type": "КД Люк",
+      "value_raw": "Не замкнут",
+      "year": 2026
+    },
+    {
+      "records": 13,
+      "sensor_type": "КД Люк",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 1786,
+      "sensor_type": "КД Люк",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 6,
+      "sensor_type": "КД Люк",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 47982,
+      "sensor_type": "Переключатель",
+      "value_raw": "Выключен",
+      "year": 2026
+    },
+    {
+      "records": 109728,
+      "sensor_type": "Переключатель",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 454,
+      "sensor_type": "Переключатель",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 353,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Не замкнут",
+      "year": 2026
+    },
+    {
+      "records": 8353,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 2725,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 228,
+      "sensor_type": "Ручной извещатель",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 3717,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Вызов",
+      "year": 2026
+    },
+    {
+      "records": 5,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Выключен",
+      "year": 2026
+    },
+    {
+      "records": 101,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Не замкнут",
+      "year": 2026
+    },
+    {
+      "records": 216983,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 8,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Обнаружено движение",
+      "year": 2026
+    },
+    {
+      "records": 275,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 2215,
+      "sensor_type": "Состояние УИР-Р",
+      "value_raw": "Рычаг сдернут",
+      "year": 2026
+    },
+    {
+      "records": 38638,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Выключен",
+      "year": 2026
+    },
+    {
+      "records": 9196,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 58152,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 9151,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Обесточен",
+      "year": 2026
+    },
+    {
+      "records": 225,
+      "sensor_type": "Состояние вентилятора",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 118611,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Выключен",
+      "year": 2026
+    },
+    {
+      "records": 4203,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Затоплен",
+      "year": 2026
+    },
+    {
+      "records": 13387,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 6399,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 12399,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Обесточен",
+      "year": 2026
+    },
+    {
+      "records": 604,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 476,
+      "sensor_type": "Состояние насоса",
+      "value_raw": "Работают все насосы в АНС",
+      "year": 2026
+    },
+    {
+      "records": 3,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Выключен",
+      "year": 2026
+    },
+    {
+      "records": 446,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Много неисправных устройств",
+      "year": 2026
+    },
+    {
+      "records": 446,
+      "sensor_type": "Состояние охраны",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 2996,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 139519,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 47469,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Обесточен",
+      "year": 2026
+    },
+    {
+      "records": 668,
+      "sensor_type": "Состояние фазы",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 558,
+      "sensor_type": "Стекло",
+      "value_raw": "Не замкнут",
+      "year": 2026
+    },
+    {
+      "records": 479,
+      "sensor_type": "Стекло",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 1,
+      "sensor_type": "Стекло",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    },
+    {
+      "records": 377,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Не замкнут",
+      "year": 2026
+    },
+    {
+      "records": 5,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Неисправен",
+      "year": 2026
+    },
+    {
+      "records": 22462,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Неопределен",
+      "year": 2026
+    },
+    {
+      "records": 19,
+      "sensor_type": "Тепловой датчик",
+      "value_raw": "Отключено устройство",
+      "year": 2026
+    }
+  ],
+  "models_fitted": 0,
+  "months_detailed": 12,
+  "scope": "exact_raw_lexemes; counts_are_records_not_incidents_or_episodes",
+  "snapshot_etl_version": "journal-curated-v3",
+  "snapshot_manifest_sha256": "36a304d20f97fd6572e3dbf902ad8f1015a7bd094ab1ad529b1193efd3f01b72",
+  "snapshot_mapping_version": "raw-dot-strict-monthly-rare10-epoch-payload-v3",
+  "snapshot_timezone_assumption": "Europe/Moscow (assumed; UTC=local-03:00 for 2019-2026)",
+  "status": "descriptive_inventory_not_policy_or_model_gate",
+  "unknown_semantics": "raw text and alarm do not establish cause, physical fault, or current duration",
+  "version": "dispatch-signal-inventory-v1",
+  "year_detailed": 2025,
+  "years_lexeme_summary": [
+    2023,
+    2024,
+    2025,
+    2026
+  ]
+}

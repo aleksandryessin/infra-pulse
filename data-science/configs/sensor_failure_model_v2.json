@@ -1,0 +1,39 @@
+{
+  "version": "sensor-failure-model-v2",
+  "status": "labels for configs/sensor_failure_tuning_v2.json (frozen, user confirmed 2026-09-26)",
+  "labels_config": "configs/sensor_failure_v1.json",
+  "pre_registration": "configs/sensor_failure_tuning_v2.json",
+  "episode": {"q_hours": 24, "cluster_window_minutes": 10},
+  "targets": {
+    "connection_loss_gt2s": {
+      "label": "connection_loss",
+      "episode_filter": {"op": ">", "seconds": 2},
+      "role": "main",
+      "note": "duration > 2 s or open; timestamps have 1 s resolution, so > 2 s means >= 3 s"
+    },
+    "connection_loss_all": {"label": "connection_loss", "episode_filter": null, "role": "declared variant"},
+    "connection_loss_1h": {
+      "label": "connection_loss",
+      "episode_filter": {"op": ">=", "seconds": 3600},
+      "role": "declared variant"
+    },
+    "technical_value": {"label": "technical_value", "episode_filter": null, "role": "second target"}
+  },
+  "episode_filter_rule": "an episode qualifies if the filter is null, it is open at data end, or date_diff('second', start_at, end_at) satisfies the filter",
+  "horizons": {
+    "24h": {"cadence": "daily 00:00", "policies": [{"type": "topk", "k": 1}, {"type": "topk", "k": 2}, {"type": "topk", "k": 3}]},
+    "48h": {"cadence": "daily 00:00 labels; issue every 2 days", "policies": [{"type": "cadence", "every_days": 2, "k": 4}]},
+    "72h": {"cadence": "daily 00:00 labels; rolling issue", "policies": [{"type": "rolling", "max_open": 3, "window_days": 3}, {"type": "rolling", "max_open": 6, "window_days": 3}]}
+  },
+  "weekly_horizons": [],
+  "periods": {
+    "development": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2025-01-01"]],
+    "calibration_and_threshold": [["2025-01-01", "2025-07-01"]],
+    "holdout": [["2025-07-01", "2026-07-01"]],
+    "excluded": "2021 and cutoffs whose 30-day lookback touches 2021 or starts before 2019-01-01"
+  },
+  "card_units": {
+    "A": "object_id x sensor_type",
+    "B": "object_id x system_type, except system_type 'Диспетчерский контроль' which stays object_id x sensor_type"
+  }
+}

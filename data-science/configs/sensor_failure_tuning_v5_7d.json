@@ -1,0 +1,40 @@
+{
+  "version": "sensor-failure-tuning-v5-exploration3-7d",
+  "status": "exploration on the development folds (user decision 26.09.2026, relayed by Head DS); not a pre-registration: a final check needs its own",
+  "document": "experiments/sensor-failure/TUNING_V5.md",
+  "interpretation": "registered loss of connection ('Неисправен', organizer: loss of connection with the device); not a confirmed breakdown; alarm is not a confirmed failure",
+  "target": "connection_loss_ge2s",
+  "horizon": "168h",
+  "labels": {"config": "configs/sensor_failure_model_v5.json", "dir": "artifacts/sensor-failure-v1/model_labels_v5"},
+  "fits": [
+    {"set": "F2", "seeds": [17, 18, 19]},
+    {"set": "F2+sel", "seeds": [17]}
+  ],
+  "fit_count": 8,
+  "folds": [
+    {"fit": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2023-01-01"]], "evaluate": [["2023-01-01", "2024-01-01"]]},
+    {"fit": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2024-01-01"]], "evaluate": [["2024-01-01", "2025-01-01"]]}
+  ],
+  "fold_note": "as v5: embargo = horizon; calibration and holdout are not read",
+  "fit_rows": "as v5: candidate rows with a known 168 h label, all positives plus the deterministic 10% hash sample of negatives; rows ordered by (channel_id, issued_at)",
+  "feature_sets": {
+    "F2": ["hist__", "cal__", "cat__", "ctx__"],
+    "F2+sel": ["hist__", "cal__", "cat__", "ctx__", "w4__", "k4__", "s4__", "t4__", "n4__"]
+  },
+  "catboost": {"config": "c3", "depth": 6, "iterations": 1000, "learning_rate": 0.03, "loss_function": "Logloss", "l2_leaf_reg": 5, "auto_class_weights": "Balanced", "task_type": "CPU", "thread_count": 6},
+  "card_aggregation": "mean_top2, model only",
+  "evaluation": {
+    "policy": "rolling list with release, at most K open, window 7 days",
+    "budgets": [1, 2, 3, 5, 7, 10],
+    "scores": "static list, persistence, rank mean of list and persistence, F2 per seed (mean and spread), F2+sel, rank mean of F2 and the list per seed, ceiling",
+    "bootstrap": "paired week and object blocks, 400 replicates, seed 17, against the static list",
+    "lead": "median lead of captured events (event start minus first capturing issue), model minus list, week-block bootstrap; technologist criterion K2: does the model know the timing"
+  },
+  "grid": {
+    "horizons_days": [5, 7, 10, 14, 15, 21, 30],
+    "budgets": "{1, 2, 3, 5, 7, 8, 10, 12, 14, D}, K <= max(D, 14)",
+    "scores": "rules everywhere; models where saved scores exist (7, 10, 14 days)",
+    "best_point": "per horizon, the point nearest to P >= 0.7 and R >= 0.5 by the worse of the two folds"
+  },
+  "mlflow": {"tracking_uri": "http://127.0.0.1:5059", "experiment": "sensor-failure-tuning-v5", "run_name": "fit ge2s 168h fold{i} {set} s{seed} (разведка 3)"}
+}

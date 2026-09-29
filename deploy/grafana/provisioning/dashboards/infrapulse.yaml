@@ -1,0 +1,17 @@
+# OPS-G (OPS-06): the two dashboards come only from files in Git
+# (deploy/grafana/dashboards, mounted read-only). Changes in the UI are not saved;
+# a dashboard is edited as JSON in the repository and redeployed.
+apiVersion: 1
+
+providers:
+  - name: infrapulse
+    orgId: 1
+    folder: InfraPulse
+    folderUid: infrapulse
+    type: file
+    disableDeletion: true
+    allowUiUpdates: false
+    updateIntervalSeconds: 60
+    options:
+      path: /etc/grafana/dashboards
+      foldersFromFilesStructure: false

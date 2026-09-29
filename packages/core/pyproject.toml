@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "infra-pulse-core"
+version = "0.1.0"
+description = "InfraPulse canonical contracts and shared causal feature functions"
+requires-python = ">=3.12,<3.13"
+dependencies = ["pydantic>=2.10,<3"]
+
+[project.optional-dependencies]
+features = ["numpy>=2,<3", "pandas>=2.2,<3"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/infra_pulse_core"]

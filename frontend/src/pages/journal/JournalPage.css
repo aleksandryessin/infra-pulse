@@ -1,0 +1,41 @@
+.journal-page { display: grid; gap: 12px; }
+.journal-counters { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin: 0; padding: 10px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+.journal-counters strong { font-size: 17px; margin-left: 4px; }
+.journal-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.journal-filters label { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
+.journal-filters__dates { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.journal-filters__date { display: inline-flex; align-items: center; gap: 8px; }
+.journal-filters__group { display: inline-flex; align-items: center; gap: 8px; }
+.journal-filters__label { color: var(--muted); }
+.journal-filters .ru-date .ant-input-affix-wrapper { width: 150px; }
+.journal-table { width: 100%; border-collapse: collapse; }
+.journal-table th, .journal-table td { padding: 8px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.journal-table th { color: var(--muted); font-weight: 600; font-size: 13px; background: var(--surface-soft); }
+.journal-table tbody tr { cursor: pointer; }
+.journal-table tbody tr:hover { background: var(--selected-surface); }
+.snapshot-aside { display: grid; gap: 12px; }
+.snapshot-aside h2 { margin: 0; font-size: 17px; font-weight: 650; }
+.snapshot-aside__block { display: grid; gap: 4px; padding: 10px 12px; background: var(--surface-soft); border: 1px solid var(--line); border-radius: 4px; }
+.snapshot-aside ul { margin: 0; padding-left: 18px; }
+.outcome-cell { display: grid; gap: 2px; }
+.journal-table td { font-size: 13px; }
+.journal-table td > .cell-main, .journal-table td > .cell-sub, .journal-table td > .status-chip { display: block; }
+.journal-table .cell-main { font-weight: 600; font-size: 14px; color: var(--foreground); }
+.journal-table .cell-main.muted { color: var(--muted); font-weight: 400; }
+.journal-table .cell-sub { color: var(--muted); font-size: 12px; }
+/* QA 29.09, D1: nowrap на всю ячейку давал наложение «№ … · дата» на «Объект» при 1366 px;
+   переносится целиком номер или время, название объекта — по словам. */
+.journal-issued__part { white-space: nowrap; }
+.status-chip { display: inline-flex !important; align-items: center; gap: 6px; width: fit-content; margin-bottom: 2px; padding: 0 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface-soft); font-size: 12px; font-weight: 600; line-height: 22px; color: var(--foreground); white-space: nowrap; }
+.status-chip--open { border-color: var(--forecast-fill); color: var(--forecast-text); background: var(--forecast-soft); }
+.status-chip--released { border-style: dashed; border-color: var(--neutral-fill); }
+.journal-view { display: inline-flex; align-items: center; gap: 2px; font-weight: 600; white-space: nowrap; }
+.journal-table { table-layout: fixed; }
+.journal-col--issued { width: 180px; }
+.journal-col--object { width: 190px; }
+.journal-col--wide { width: 24%; }
+.journal-col--check { width: 150px; }
+.journal-col--lead { width: 110px; }
+.journal-col--view { width: 100px; }
+.journal-table td { overflow-wrap: anywhere; }
+.journal-abstained { border-top: 1px solid var(--line); }

@@ -1,0 +1,221 @@
+{
+  "created_at": "2026-09-15T20:14:12.146347+00:00",
+  "scope": "full reference CSVs and example; archive content only when requested",
+  "sources": [
+    {
+      "name": "<архив 1>",
+      "bytes": 141465610,
+      "sha256": "262d5fb712feee3d4b92ae4cf09ce8e02c52eef25d9539f3a5769bae3d05a39c"
+    },
+    {
+      "name": "<архив 2>",
+      "bytes": 176467481,
+      "sha256": "632deca3a179b6e4114c0e619324738b508ea68aaf85b350462bff9b27db0edc"
+    },
+    {
+      "name": "<архив 3>",
+      "bytes": 284299144,
+      "sha256": "2970bdce42bcbb7a93358a19145d5cd45f0596e4c2633c1e9507d244b28e10f5"
+    },
+    {
+      "name": "<архив 4>",
+      "bytes": 238723816,
+      "sha256": "ca58b2a4931d738b38a596e279d2effa490700bb2ebe8d3db971283a6eef446d"
+    },
+    {
+      "name": "<архив 5>",
+      "bytes": 185893242,
+      "sha256": "6737008e77a0ce1610bb1205652a842311ab319cf7eac8edc951670a28a3ab40"
+    },
+    {
+      "name": "<архив 6>",
+      "bytes": 264372460,
+      "sha256": "d39ce19910e0761f7435eb4a6ebb3004b6df383e18d57c3cad8865deea1bbea9"
+    },
+    {
+      "name": "<архив 7>",
+      "bytes": 290680118,
+      "sha256": "605232bc0bcffd585e7a11cd87f239896b9dab1c58efebd256c4ec8478c6cd56"
+    },
+    {
+      "name": "<архив 8>",
+      "bytes": 165304211,
+      "sha256": "bdc0a6ebcdedf145d390abe8e2c9c3272f6a17d39d47e488acea7142ca7dec29"
+    },
+    {
+      "name": "<архив 9>",
+      "bytes": 9707502,
+      "sha256": "3a06fe5d4fc3d8350c2e8fb6d74887ecf9545b4f72638953dc16d78ff3130f5c"
+    },
+    {
+      "name": "<архив 10>",
+      "bytes": 1260877,
+      "sha256": "fa550d4c23c23c2ea29f47bd7dceca78f52d96bd12667a6f8c5f0e515784c5a5"
+    },
+    {
+      "name": "<архив 11>",
+      "bytes": 5266,
+      "sha256": "219b4dbe34a78581640d839837649d3ef481c62c089fef18db1b364cff007084"
+    }
+  ],
+  "channels": {
+    "rows": 11485,
+    "distinct_ids": 11485,
+    "duplicate_ids": 0,
+    "null_cells": 0,
+    "systems": {
+      "Охранная подсистема": 2211,
+      "Пожарная охрана": 5701,
+      "Температурная подсистема": 600,
+      "Диспетчерский контроль": 2364,
+      "Газовая охрана": 529,
+      "Диагностическая подсистема": 80
+    },
+    "sensor_types": {
+      "КД АВ": 397,
+      "Тепловой датчик": 472,
+      "Датчик температуры": 600,
+      "Датчик движения": 804,
+      "КД Дверь": 917,
+      "Состояние охраны": 47,
+      "Состояние УИР-Р": 762,
+      "Датчик дыма": 4337,
+      "КД Люк": 55,
+      "Датчик затопления": 25,
+      "Ручной извещатель": 130,
+      "Стекло": 29,
+      "Состояние фазы": 957,
+      "Состояние вентилятора": 354,
+      "Переключатель": 801,
+      "Газовый датчик": 529,
+      "Состояние насоса": 180,
+      "ИБП": 80,
+      "9-секционный люк": 9
+    }
+  },
+  "objects": {
+    "rows": 95,
+    "distinct_ids": 95,
+    "unresolved_parent_ids": [
+      "3831"
+    ],
+    "columns": [
+      "ид_объект",
+      "иерархия_уровень",
+      "родитель",
+      "вид_объекта",
+      "диспетчерское_название_объекта"
+    ]
+  },
+  "limitations": [
+    "No confirmed ODS/repair outcomes or sensor-to-object mapping supplied in these CSVs.",
+    "Alarm/state record counts are not counts of independent incidents.",
+    "Full archive duplicate event IDs are not checked by this bounded-memory profiler.",
+    "Input timestamps have no timezone; MSK needs domain confirmation before UTC conversion."
+  ],
+  "example": {
+    "rows": 169993,
+    "channels": 1241,
+    "min_date": "2026-08-01",
+    "max_date": "2026-08-01",
+    "distinct_dates": 1,
+    "missing_calendar_dates": [],
+    "alarm_rows": 207,
+    "alarm_share": 0.0012176971992964416,
+    "invalid_alarm_flags": 0,
+    "nulls": {},
+    "unmatched_rows": 0,
+    "duplicate_event_ids": 0,
+    "nonnumeric_value_rows": 9931,
+    "known_state_rows": {
+      "Норма": 941,
+      "Неисправен": 105,
+      "Обнаружен дым": 2
+    },
+    "alarm_rows_by_sensor_type": {
+      "КД АВ": 8,
+      "Состояние фазы": 30,
+      "Состояние насоса": 108,
+      "Состояние вентилятора": 28,
+      "ИБП": 11,
+      "Датчик движения": 1,
+      "Датчик дыма": 16,
+      "Состояние охраны": 5
+    },
+    "technical_fault_state_rows": 105,
+    "technical_fault_channels": 69,
+    "fault_state_without_alarm_rows": 0,
+    "technical_fault_rows_by_sensor_type": {
+      "Состояние фазы": 30,
+      "Состояние насоса": 49,
+      "Состояние вентилятора": 14,
+      "Датчик дыма": 12
+    }
+  },
+  "archive": {
+    "name": "<архив 8>",
+    "rows": 30695389,
+    "channels": 11447,
+    "min_date": "2026-01-01",
+    "max_date": "2026-06-30",
+    "distinct_dates": 180,
+    "missing_calendar_dates": [
+      "2026-06-01"
+    ],
+    "alarm_rows": 195422,
+    "alarm_share": 0.006366493677600893,
+    "invalid_alarm_flags": 0,
+    "nulls": {},
+    "unmatched_rows": 122,
+    "duplicate_event_ids": null,
+    "nonnumeric_value_rows": 6000135,
+    "known_state_rows": {
+      "Неисправен": 113413,
+      "Норма": 1006358,
+      "Обнаружен дым": 15934
+    },
+    "alarm_rows_by_sensor_type": {
+      "Датчик температуры": 19343,
+      "ИБП": 1492,
+      "Датчик дыма": 77925,
+      "Датчик движения": 9787,
+      "Состояние вентилятора": 18659,
+      "Состояние охраны": 471,
+      "Состояние фазы": 3692,
+      "Состояние насоса": 31168,
+      "КД АВ": 13944,
+      "Стекло": 565,
+      "Газовый датчик": 1640,
+      "КД Дверь": 2623,
+      "unmapped": 9,
+      "Ручной извещатель": 10136,
+      "Состояние УИР-Р": 2591,
+      "Датчик затопления": 140,
+      "КД Люк": 319,
+      "Тепловой датчик": 401,
+      "9-секционный люк": 63,
+      "Переключатель": 454
+    },
+    "technical_fault_state_rows": 113360,
+    "technical_fault_channels": 1580,
+    "fault_state_without_alarm_rows": 53,
+    "technical_fault_rows_by_sensor_type": {
+      "Датчик температуры": 17819,
+      "Датчик дыма": 59879,
+      "Состояние вентилятора": 9240,
+      "ИБП": 43,
+      "Состояние фазы": 3023,
+      "Состояние насоса": 13434,
+      "Газовый датчик": 266,
+      "Ручной извещатель": 9558,
+      "КД АВ": 68,
+      "Тепловой датчик": 5,
+      "КД Люк": 13,
+      "unmapped": 2,
+      "9-секционный люк": 5,
+      "Датчик движения": 4,
+      "КД Дверь": 1
+    }
+  },
+  "completed_at": "2026-09-15T20:14:50.347547+00:00"
+}

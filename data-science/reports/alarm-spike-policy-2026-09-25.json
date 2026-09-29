@@ -1,0 +1,215 @@
+{
+  "audit_sha256": "3249f39527737a954deff75e2f03775fcd20bfd487ccd1bcf7bf13620f2e090a",
+  "base_manifest_sha256": "e9a225c09f3de5f797f5dd3a044dabb862a7922fd685eda2bab37aa7578ac9a4",
+  "comparison_by_month_scope": [
+    {
+      "after_alarm_percent": null,
+      "after_alarm_true": 0,
+      "after_rows": 0,
+      "before_alarm_percent": 4.5833,
+      "before_alarm_true": 99646,
+      "before_rows": 2174108,
+      "excluded_alarm_true": 99646,
+      "excluded_rows": 2174108,
+      "month": "2020-02",
+      "reason": "reviewed_all_sensor_feb_mar_2020_spike",
+      "scope": "all_sensor_types",
+      "share_of_month_alarms_excluded": 1.0
+    },
+    {
+      "after_alarm_percent": null,
+      "after_alarm_true": 0,
+      "after_rows": 0,
+      "before_alarm_percent": 3.40401,
+      "before_alarm_true": 65758,
+      "before_rows": 1931783,
+      "excluded_alarm_true": 65758,
+      "excluded_rows": 1931783,
+      "month": "2020-03",
+      "reason": "reviewed_all_sensor_feb_mar_2020_spike",
+      "scope": "all_sensor_types",
+      "share_of_month_alarms_excluded": 1.0
+    },
+    {
+      "after_alarm_percent": 0.00281,
+      "after_alarm_true": 102,
+      "after_rows": 3634481,
+      "before_alarm_percent": 0.18924,
+      "before_alarm_true": 7032,
+      "before_rows": 3715893,
+      "excluded_alarm_true": 6930,
+      "excluded_rows": 81412,
+      "month": "2021-07",
+      "reason": "reviewed_gas_2021_boundary_spike",
+      "scope": "gas_only",
+      "share_of_month_alarms_excluded": 0.985495
+    },
+    {
+      "after_alarm_percent": 0.02024,
+      "after_alarm_true": 553,
+      "after_rows": 2732657,
+      "before_alarm_percent": 1.11845,
+      "before_alarm_true": 32114,
+      "before_rows": 2871296,
+      "excluded_alarm_true": 31561,
+      "excluded_rows": 138639,
+      "month": "2025-11",
+      "reason": "reviewed_gas_nov_2025_spike",
+      "scope": "gas_only",
+      "share_of_month_alarms_excluded": 0.98278
+    }
+  ],
+  "evaluation_status": {
+    "test_2025": "outcome_inspected_and_exclusion_selected_not_blind",
+    "test_2026": "monthly_outcome_distribution_inspected_not_untouched"
+  },
+  "excluded_curated_rows": 4325942,
+  "gas_2026_max_month": {
+    "alarm_percent": 0.00928,
+    "alarm_true": 395,
+    "month": "2026-04",
+    "records": 4255258
+  },
+  "highlighted_channel_concentration": [
+    {
+      "alarm_true": 18127,
+      "month": "2020-02",
+      "sensor_type": "Состояние вентилятора",
+      "top_channel_alarm_share": 0.8727864511502179
+    },
+    {
+      "alarm_true": 51427,
+      "month": "2020-03",
+      "sensor_type": "Датчик движения",
+      "top_channel_alarm_share": 0.8910494487331557
+    },
+    {
+      "alarm_true": 7032,
+      "month": "2021-07",
+      "sensor_type": "Газовый датчик",
+      "top_channel_alarm_share": 0.6362343572241184
+    },
+    {
+      "alarm_true": 32114,
+      "month": "2025-11",
+      "sensor_type": "Газовый датчик",
+      "top_channel_alarm_share": 0.22697265989910942
+    }
+  ],
+  "interpretation": [
+    "The tall gas point near the 2026 tick is November 2025, not a 2026 month.",
+    "The 2020 February-March rise mixes sensor types and unknown current references; a high raw alarm rate alone does not prove bad data.",
+    "The July 2021 gas anomaly is concentrated on 2 July; retaining the rest of 2021 is still not approved for training.",
+    "November 2025 was in a reserved test slice and was inspected before this policy. That slice cannot serve as an untouched final holdout.",
+    "The 2026 monthly outcome distribution was also inspected; no exclusion boundary was selected in that period.",
+    "This report describes event-level alarm shares; it does not define a next-day target or physical failure outcome."
+  ],
+  "policy_manifest_sha256": "fc2189d1272964dfb078e92f38b69137fe324ca48f23116ebedec786b9d2fbd2",
+  "policy_version": "alarm-spike-exclusions-v1",
+  "top_alarm_texts_by_period": {
+    "2020-02": [
+      {
+        "alarm_true": 48973,
+        "sensor_type": "<unknown>",
+        "value_raw": "Не замкнут"
+      },
+      {
+        "alarm_true": 11502,
+        "sensor_type": "Состояние вентилятора",
+        "value_raw": "Обесточен"
+      },
+      {
+        "alarm_true": 9479,
+        "sensor_type": "Датчик движения",
+        "value_raw": "Обнаружено движение"
+      },
+      {
+        "alarm_true": 6623,
+        "sensor_type": "Состояние вентилятора",
+        "value_raw": "Неисправен"
+      },
+      {
+        "alarm_true": 4013,
+        "sensor_type": "<unknown>",
+        "value_raw": "Неисправен"
+      },
+      {
+        "alarm_true": 3257,
+        "sensor_type": "КД АВ",
+        "value_raw": "Не замкнут"
+      },
+      {
+        "alarm_true": 3165,
+        "sensor_type": "Датчик дыма",
+        "value_raw": "Неисправен"
+      },
+      {
+        "alarm_true": 2710,
+        "sensor_type": "КД Дверь",
+        "value_raw": "Не замкнут"
+      }
+    ],
+    "2020-03": [
+      {
+        "alarm_true": 50651,
+        "sensor_type": "Датчик движения",
+        "value_raw": "Обнаружено движение"
+      },
+      {
+        "alarm_true": 3542,
+        "sensor_type": "КД АВ",
+        "value_raw": "Не замкнут"
+      },
+      {
+        "alarm_true": 2808,
+        "sensor_type": "<unknown>",
+        "value_raw": "Не замкнут"
+      },
+      {
+        "alarm_true": 2301,
+        "sensor_type": "КД Дверь",
+        "value_raw": "Не замкнут"
+      },
+      {
+        "alarm_true": 1342,
+        "sensor_type": "Состояние насоса",
+        "value_raw": "Работают все насосы в АНС"
+      },
+      {
+        "alarm_true": 775,
+        "sensor_type": "Датчик движения",
+        "value_raw": "Неисправен"
+      },
+      {
+        "alarm_true": 576,
+        "sensor_type": "Состояние насоса",
+        "value_raw": "Неисправен"
+      },
+      {
+        "alarm_true": 573,
+        "sensor_type": "Датчик дыма",
+        "value_raw": "Обнаружен дым"
+      }
+    ],
+    "2021-07-02": [
+      {
+        "alarm_true": 6929,
+        "sensor_type": "Газовый датчик",
+        "value_raw": "Неисправен"
+      },
+      {
+        "alarm_true": 1,
+        "sensor_type": "Газовый датчик",
+        "value_raw": "Отключено устройство"
+      }
+    ],
+    "2025-11-06": [
+      {
+        "alarm_true": 31561,
+        "sensor_type": "Газовый датчик",
+        "value_raw": "Неисправен"
+      }
+    ]
+  },
+  "working_curated_rows": 294489410
+}

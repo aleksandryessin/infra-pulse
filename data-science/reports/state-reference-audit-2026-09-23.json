@@ -1,0 +1,45 @@
+{
+  "catalogue": {
+    "columns": [
+      "тип_датчика",
+      "ид_набор_состояний",
+      "название_состояния",
+      "тревожное"
+    ],
+    "conflicting_alarm_keys": 1,
+    "exact_duplicate_rows": 3,
+    "has_channel_key": false,
+    "has_effective_dates": false,
+    "has_numeric_thresholds": false,
+    "has_numeric_units": false,
+    "rows": 62,
+    "sensor_types": 10,
+    "state_sets": 17
+  },
+  "catalogue_sha256": "b968f3652ed33fd6e0d2dccee334275436dada67f4549763cfb4b2072108b5cc",
+  "code_sha256": "925f80ea02043a6509687127f0764955a52c79d09f24b266b22beec4be089da7",
+  "conclusion": "partial_text_catalogue_no_automatic_remapping",
+  "config_sha256": "38b4b2d6fd1c344b2e0911fcd8aae9fffb105d850c1032a0e601e9a2b0e2e4b1",
+  "coverage_semantics": "potential type+lexeme match; no channel-to-set join key",
+  "curated_manifest_sha256": "36a304d20f97fd6572e3dbf902ad8f1015a7bd094ab1ad529b1193efd3f01b72",
+  "curated_text_coverage": {
+    "all_text_records": 70407340,
+    "all_text_records_with_type_lexeme_match": 2661354,
+    "gas_fault_lexeme_in_catalogue": false,
+    "gas_target_lexeme_in_catalogue": false,
+    "gas_target_records": 15516,
+    "gas_text_records": 653835,
+    "gas_text_records_with_type_lexeme_match": 323250,
+    "gas_unknown_lexeme_in_catalogue": false
+  },
+  "dataset_sha256": "6093811125717a0bd67139e2dc1480f475fdcb3450ce89a71d7b91e0686dad0b",
+  "etl_code_sha256": "b29a4da160578937450812c7c2d02618ec39e0c5b29fb0f7f63f6b6a74271839",
+  "git_dirty": true,
+  "git_sha": "879828d90cca55d2e69720512d5f06a32e6c264a",
+  "models_fitted": 0,
+  "runtime": {
+    "elapsed_seconds": 0.287,
+    "peak_rss_mb": 107.9
+  },
+  "version": "state-reference-audit-v1"
+}

@@ -1,0 +1,138 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+}
+
+/* Принятая палитра C4/C5, см. docs/design/SYSTEM.md. */
+:root,
+:root[data-theme='light'] {
+  --app-bg: #f4f6f9;
+  --surface: #ffffff;
+  --surface-soft: #f6f8fb;
+  --foreground: #122c48;
+  --muted: #536983;
+  --line: #dbe3eb;
+  --nav: #122e49;
+  --selected-surface: #edf4ff;
+  --accent-text: #2563d7;
+  /* Красный — только текущая тревога источника; янтарный — только прогноз. */
+  --attention-text: #a22e3c;
+  --attention-fill: #b3303f;
+  --forecast-text: #915b00;
+  --forecast-fill: #c98a12;
+  --forecast-soft: #fdf4e1;
+  --neutral-text: #52657c;
+  --neutral-fill: #8193a8;
+  --success-text: #21704d;
+  --focus: #2563d7;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --app-bg: #102537;
+  --surface: #172f43;
+  --surface-soft: #1c354b;
+  --foreground: #e8f0f7;
+  --muted: #b7c8d9;
+  --line: #355269;
+  --nav: #0b2032;
+  --selected-surface: #244a6d;
+  --accent-text: #80bbff;
+  --attention-text: #ffc1c8;
+  --attention-fill: #ff8b98;
+  --forecast-text: #ffe0a0;
+  --forecast-fill: #e8b14a;
+  --forecast-soft: #3a3421;
+  --neutral-text: #d1dfeb;
+  --neutral-fill: #9fb4c8;
+  --success-text: #7ad8b2;
+  --focus: #80bbff;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--foreground);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.5715;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root > .ant-layout {
+  min-height: 100vh;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+h1, h2, h3 { color: var(--foreground); }
+a { color: var(--accent-text); text-decoration: none; }
+
+.app-content.ant-layout-content { padding: 20px 28px 0; min-width: 0; }
+.app-footer { display: flex; justify-content: space-between; gap: 16px; padding: 12px 28px; color: var(--muted); font-size: 12px; }
+/* C4: панели разделяются границами, без теней. */
+.ant-card { box-shadow: none; }
+
+/* Экран без меню: проверка входа, ошибка сессии */
+.full-screen { min-height: 100vh; display: grid; place-items: center; padding: 24px; background: var(--app-bg); }
+.full-screen > * { width: 100%; max-width: 640px; }
+
+/* Общие элементы разделов */
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+.panel__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.panel__head h2 { margin: 0; font-size: 17px; font-weight: 650; line-height: 1.3; }
+.panel__head .panel__meta { color: var(--muted); font-size: 12px; }
+.panel__body { padding: 12px 16px; }
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.page-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin: 0 0 12px; color: var(--muted); }
+.page-line strong { color: var(--foreground); font-weight: 600; }
+.stack { display: grid; gap: 12px; }
+.link-button { padding: 0; border: 0; background: none; color: var(--accent-text); font: inherit; cursor: pointer; text-align: left; }
+.link-button:hover { text-decoration: underline; }
+.text-label { display: inline-flex; align-items: center; gap: 4px; padding: 0 6px; border: 1px solid var(--line); border-radius: 4px; font-size: 12px; line-height: 20px; color: var(--muted); white-space: nowrap; }
+.text-label--new { color: var(--accent-text); border-color: var(--accent-text); }
+.text-label--forecast { color: var(--forecast-text); border-color: var(--forecast-fill); }
+.text-label--alarm { color: var(--attention-text); border-color: var(--attention-fill); }
+.text-label--draft { color: var(--foreground); border-style: dashed; }
+.text-label--overdue { color: var(--foreground); border-color: var(--foreground); font-weight: 600; }
+.icon-inline { flex: none; vertical-align: -2px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 760px) { .app-content.ant-layout-content { padding: 16px; } .app-footer { padding: 12px 16px; flex-wrap: wrap; } }
+.tag--muted { color: var(--muted); font-style: normal; }
+
+/* Поле даты дд.мм.гггг (RuDateInput): свой календарь под полем; закрывается кликом вне, Esc и выбором дня. */
+.ru-date { position: relative; display: inline-flex; }
+.ru-date__calendar { display: inline-flex; align-items: center; padding: 0; border: 0; background: none; color: var(--muted); cursor: pointer; }
+.ru-date__calendar:hover, .ru-date__calendar[aria-expanded="true"] { color: var(--accent-text); }
+.ru-date__calendar:focus-visible, .ru-date__nav:focus-visible, .ru-date__day:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; border-radius: 2px; }
+.ru-date__popup { position: absolute; top: calc(100% + 4px); left: 0; z-index: 30; display: grid; gap: 6px; width: 252px; padding: 8px 10px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 6px 16px rgb(18 44 72 / 14%); }
+.ru-date__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ru-date__month { font-weight: 600; color: var(--foreground); }
+.ru-date__nav { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; padding: 0; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--foreground); cursor: pointer; }
+.ru-date__nav:hover { color: var(--accent-text); border-color: var(--accent-text); }
+.ru-date__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.ru-date__weekday { padding: 2px 0; text-align: center; color: var(--muted); font-size: 12px; }
+.ru-date__day { height: 30px; padding: 0; border: 1px solid transparent; border-radius: 4px; background: none; color: var(--foreground); font: inherit; font-size: 13px; cursor: pointer; }
+.ru-date__day:hover { background: var(--selected-surface); }
+.ru-date__day--other { color: var(--muted); }
+.ru-date__day--selected, .ru-date__day--selected:hover { background: var(--accent-text); border-color: var(--accent-text); color: var(--surface); font-weight: 600; }
+/* Сбой отрисовки раздела (RouteError): ссылка рядом с кнопкой. */
+.route-error__link { align-self: center; white-space: nowrap; }

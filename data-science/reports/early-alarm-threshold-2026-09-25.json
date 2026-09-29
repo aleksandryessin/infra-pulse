@@ -1,0 +1,152 @@
+{
+  "hypothetical_additional_exclusion_after_existing_overlay": {
+    "alarm_true": 83643,
+    "months": [
+      "2019-01",
+      "2019-02",
+      "2020-01",
+      "2020-06"
+    ],
+    "remaining_working_rows": 288312456,
+    "rows": 6176954
+  },
+  "interpretation": [
+    "Monthly event-level alarm share mixes channel types, observation cadence, and real state messages. Exceeding 1% alone does not establish corrupt data.",
+    "This 1% alarm-row share is unrelated to the customer-reported 1% methane volume threshold.",
+    "Threshold is selected after viewing outcomes; it may be studied as sensitivity analysis but is not an accepted exclusion or blind-test rule."
+  ],
+  "metric": "100 * count(alarm=true) / count(event rows) for each calendar month, all channel types",
+  "months_above_threshold": [
+    {
+      "alarm_percent": 1.47743,
+      "alarm_true": 15621,
+      "already_removed_by_overlay": false,
+      "month": "2019-01",
+      "rows": 1057311,
+      "top_sensor_alarm_counts": [
+        {
+          "alarm_true": 9057,
+          "sensor_type": "Состояние насоса"
+        },
+        {
+          "alarm_true": 2725,
+          "sensor_type": "Датчик движения"
+        },
+        {
+          "alarm_true": 1108,
+          "sensor_type": "<unknown>"
+        }
+      ]
+    },
+    {
+      "alarm_percent": 1.29851,
+      "alarm_true": 15822,
+      "already_removed_by_overlay": false,
+      "month": "2019-02",
+      "rows": 1218476,
+      "top_sensor_alarm_counts": [
+        {
+          "alarm_true": 7800,
+          "sensor_type": "Датчик движения"
+        },
+        {
+          "alarm_true": 1719,
+          "sensor_type": "<unknown>"
+        },
+        {
+          "alarm_true": 1582,
+          "sensor_type": "КД АВ"
+        }
+      ]
+    },
+    {
+      "alarm_percent": 1.51206,
+      "alarm_true": 25619,
+      "already_removed_by_overlay": false,
+      "month": "2020-01",
+      "rows": 1694306,
+      "top_sensor_alarm_counts": [
+        {
+          "alarm_true": 14500,
+          "sensor_type": "Датчик дыма"
+        },
+        {
+          "alarm_true": 3177,
+          "sensor_type": "Датчик движения"
+        },
+        {
+          "alarm_true": 2464,
+          "sensor_type": "КД АВ"
+        }
+      ]
+    },
+    {
+      "alarm_percent": 4.5833,
+      "alarm_true": 99646,
+      "already_removed_by_overlay": true,
+      "month": "2020-02",
+      "rows": 2174108,
+      "top_sensor_alarm_counts": [
+        {
+          "alarm_true": 53410,
+          "sensor_type": "<unknown>"
+        },
+        {
+          "alarm_true": 18127,
+          "sensor_type": "Состояние вентилятора"
+        },
+        {
+          "alarm_true": 9507,
+          "sensor_type": "Датчик движения"
+        }
+      ]
+    },
+    {
+      "alarm_percent": 3.40401,
+      "alarm_true": 65758,
+      "already_removed_by_overlay": true,
+      "month": "2020-03",
+      "rows": 1931783,
+      "top_sensor_alarm_counts": [
+        {
+          "alarm_true": 51427,
+          "sensor_type": "Датчик движения"
+        },
+        {
+          "alarm_true": 3543,
+          "sensor_type": "КД АВ"
+        },
+        {
+          "alarm_true": 3279,
+          "sensor_type": "<unknown>"
+        }
+      ]
+    },
+    {
+      "alarm_percent": 1.20447,
+      "alarm_true": 26581,
+      "already_removed_by_overlay": false,
+      "month": "2020-06",
+      "rows": 2206861,
+      "top_sensor_alarm_counts": [
+        {
+          "alarm_true": 12863,
+          "sensor_type": "Датчик движения"
+        },
+        {
+          "alarm_true": 5959,
+          "sensor_type": "Состояние насоса"
+        },
+        {
+          "alarm_true": 3456,
+          "sensor_type": "<unknown>"
+        }
+      ]
+    }
+  ],
+  "overlay_manifest_sha256": "fc2189d1272964dfb078e92f38b69137fe324ca48f23116ebedec786b9d2fbd2",
+  "scope": "2019-01 through 2020-12, before 2021",
+  "source_audit_sha256": "3249f39527737a954deff75e2f03775fcd20bfd487ccd1bcf7bf13620f2e090a",
+  "status": "diagnostic_only_no_threshold_policy_adopted",
+  "threshold_percent_strictly_above": 1.0
+}

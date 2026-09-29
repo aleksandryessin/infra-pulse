@@ -1,0 +1,46 @@
+[project]
+name = "infra-pulse-msk"
+version = "0.1.0"
+description = "Sensor condition analytics and preventive maintenance: team starter"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = ["infra-pulse-backend"]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["backend", "packages/core", "data-science"]
+
+[tool.uv.sources]
+infra-pulse-backend = { workspace = true }
+infra-pulse-core = { workspace = true }
+infra-pulse-research = { workspace = true }
+
+[dependency-groups]
+dev = ["pytest>=8,<9", "httpx>=0.28,<1", "ruff>=0.12,<1"]
+data = ["duckdb>=1.4,<2", "pyarrow>=20,<24"]
+platform = ["sqlalchemy>=2.0,<3", "alembic>=1.15,<2", "psycopg[binary]>=3.2,<4"]
+inference = ["infra-pulse-core[features]", "catboost>=1.2.8,<2"]
+train = ["infra-pulse-research"]
+research = ["jupyterlab>=4.4,<5", "matplotlib>=3.10,<4"]
+# Local sequence experiments only; kept out of API/worker and standard checks.
+sequence = ["infra-pulse-research", "torch>=2.6,<3"]
+# Only to reproduce the v6/v7 comparisons (TUNING_V6.md, FEATURES_V7.md); the product and
+# the final v9 list do not use them. Not installed by CI: on Linux xgboost pulls
+# nvidia-nccl-cu13 (~305 MB). `uv sync --group research --group legacy-boosting`.
+legacy-boosting = ["lightgbm>=4.6,<5", "xgboost>=3,<4"]
+
+[tool.pytest.ini_options]
+testpaths = ["backend/tests", "data-science/tests", "tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["infra_pulse_backend", "infra_pulse_core", "infra_pulse_research"]

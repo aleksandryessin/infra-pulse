@@ -1,0 +1,31 @@
+{
+  "version": "sensor-failure-model-v5-long",
+  "status": "labels for the v5 exploration 2 (user decision 26.09.2026, no training): horizons 15, 21 and 30 days; same protocol as sensor-failure-model-v5 (Q 24 h, W 10 min, daily 00:00 cutoffs, same exclusions and Q shadow)",
+  "labels_config": "configs/sensor_failure_v1.json",
+  "pre_registration": "none: exploration on the development folds, see experiments/sensor-failure/TUNING_V5.md",
+  "episode": {"q_hours": 24, "cluster_window_minutes": 10},
+  "targets": {
+    "connection_loss_all": {"label": "connection_loss", "episode_filter": null, "role": "all 'Неисправен' episodes, no duration filter"},
+    "connection_loss_ge2s": {
+      "label": "connection_loss",
+      "episode_filter": {"op": ">=", "seconds": 2},
+      "role": "the threshold the user means ('>= 2 s')",
+      "note": "with 1 s timestamps this adds the episodes of exactly 2 s to the > 2 s target"
+    }
+  },
+  "episode_filter_rule": "an episode qualifies if the filter is null, it is open at data end, or date_diff('second', start_at, end_at) satisfies the filter",
+  "horizons": {
+    "360h": {"cadence": "daily 00:00 labels; rolling list, window 15 days"},
+    "504h": {"cadence": "daily 00:00 labels; rolling list, window 21 days"},
+    "720h": {"cadence": "daily 00:00 labels; rolling list, window 30 days"}
+  },
+  "weekly_horizons": [],
+  "periods": {
+    "development": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2025-01-01"]],
+    "calibration_and_threshold": [["2025-01-01", "2025-07-01"]],
+    "holdout": [["2025-07-01", "2026-07-01"]],
+    "excluded": "2021 and cutoffs whose 30-day lookback touches 2021 or starts before 2019-01-01"
+  },
+  "built_for": "development months only (2019-01..2020-12, 2022-01..2024-12); calibration and holdout months are not labelled",
+  "card_units": {"A": "object_id x sensor_type"}
+}

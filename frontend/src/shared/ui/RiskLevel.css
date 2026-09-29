@@ -1,0 +1,32 @@
+/*
+ * Метка уровня риска (ТЗ §10). Палитра прогноза: высокий — сплошная янтарная плашка,
+ * средний — светлая с янтарной рамкой, низкий и «не определён» — нейтральные (последний —
+ * пунктир). Контраст текста ≥ 4,5:1 в обеих темах: #fff на #915b00 ≈ 5,7; #915b00 на #fdf4e1
+ * ≈ 5,2; тёмная тема — #172f43 на #ffe0a0 ≈ 10, #ffe0a0 на #3a3421 ≈ 9,6.
+ */
+.risk-level {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 7px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.risk-level--small { gap: 4px; padding: 0 5px; font-size: 11px; line-height: 16px; }
+.risk-level__bars { flex: none; }
+.risk-level__bar { fill: none; stroke: currentColor; stroke-width: 1; }
+.risk-level__bar--on { fill: currentColor; }
+
+.risk-level--high { background: var(--forecast-text); border-color: var(--forecast-text); color: var(--surface); }
+.risk-level--medium { background: var(--forecast-soft); border-color: var(--forecast-fill); color: var(--forecast-text); }
+.risk-level--low { background: var(--surface); border-color: var(--neutral-fill); color: var(--neutral-text); font-weight: 500; }
+.risk-level--unknown { background: transparent; border-color: var(--neutral-fill); border-style: dashed; color: var(--muted); font-weight: 500; }
+
+.risk-level-summary { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; }
+.risk-level-summary__label { color: var(--muted); }
+.risk-level-summary .risk-level strong { font-weight: 700; }

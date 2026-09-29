@@ -1,0 +1,71 @@
+{
+  "version": "sensor-failure-tuning-v5",
+  "status": "frozen_before_fit_2026-09-26_user_instruction",
+  "instruction": "the user stopped v4 on 2026-09-26 ('24 h is not needed; look from 5 days, better 10-14') and instructed 'go to v5'; Head DS wrote the plan; criteria frozen before the first fit",
+  "amended_before_fit": "changed by the user before any fit (2026-09-26): instead of 72 fits (4 horizons x 3 sets x 3 seeds x 2 folds, target all episodes) only 10 fits with one seed (17) on the '>= 2 s' target at 10 and 14 days; because one seed gives no noise estimate the criterion is model vs static list and persistence; set comparisons with F2 are exploration only; the 'all episodes' stage and other horizons with a model only after the user's decision on these results",
+  "document": "experiments/sensor-failure/TUNING_V5.md",
+  "basis": "TUNING_V4.md (stopped; partial fold 2023: F2 0.126, +W 0.136, +E 0.107, +R 0.115, +all 0.108 at 24 h) and reports/sensor-failure-v4-prep-2026-09-26.json",
+  "interpretation": "registered loss of connection ('Неисправен', organizer: loss of connection with the device); not a confirmed breakdown; alarm is not a confirmed failure",
+  "labels": {"config": "configs/sensor_failure_model_v5.json", "dir": "artifacts/sensor-failure-v1/model_labels_v5", "months": "development only"},
+  "thresholds": {
+    "all": {"target": "connection_loss_all", "episode_filter": null, "role": "stage 0; the model stage 'all episodes' waits for the user's decision"},
+    "ge2s": {"target": "connection_loss_ge2s", "episode_filter": {"op": ">=", "seconds": 2}, "role": "stage 0 and stage 1 (the threshold the user means)"},
+    "gt2s": {"target": "connection_loss_gt2s", "episode_filter": {"op": ">", "seconds": 2}, "role": "stage 0 reference (v2-v4 target)"}
+  },
+  "horizons": {"120h": 5, "168h": 7, "240h": 10, "336h": 14},
+  "issue": "daily at 00:00 local; unit A card = object_id x sensor_type (one model for all sensor types; sensor and system types are features)",
+  "policies": {
+    "main": "rolling list with release: a card is open for D days (D = window of the horizon) and leaves the list when its event starts inside the window; the place is free from the next cutoff; about one new card a day: at most D open",
+    "extra": "the same policy with at most 5 open",
+    "reference": "the same budgets without release (rolling list of v2-v4)",
+    "definition": "sensor_failure_nodes.select_rolling_release; precision and recall of an issued card use its own window"
+  },
+  "folds": [
+    {"fit": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2023-01-01"]], "evaluate": [["2023-01-01", "2024-01-01"]]},
+    {"fit": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2024-01-01"]], "evaluate": [["2024-01-01", "2025-01-01"]]}
+  ],
+  "fold_note": "embargo = horizon (fit cutoffs whose window crosses the fit/evaluate boundary are dropped); calibration and holdout are not read; no final stage",
+  "fit_rows": "as v2-v4: candidate rows with a known label of the horizon, all positives plus the deterministic 10% hash sample of negatives weighted 10 before Balanced weighting; rows ordered by (channel_id, issued_at) so a fit is reproducible for a seed and thread count",
+  "stage0": {
+    "fitting": "none",
+    "grid": "thresholds {> 2 s, >= 2 s, all} x horizons {5, 7, 10, 14 days} x budgets {D open, 5 open} x {with release, without release}",
+    "measures": "events, base rate of evaluable cards, ceiling (greedy oracle under the same policy), persistence and static list P/R, median lead of captured events, new cards per day and per window"
+  },
+  "stage1": {
+    "target": "connection_loss_ge2s",
+    "fits": [
+      {"horizon": "240h", "set": "F2"},
+      {"horizon": "240h", "set": "F2+sel"},
+      {"horizon": "336h", "set": "F2"},
+      {"horizon": "336h", "set": "F2+sel"},
+      {"horizon": "336h", "set": "F2+W"}
+    ],
+    "folds": [2023, 2024],
+    "fit_count": 10,
+    "feature_sets": {
+      "F2": ["hist__", "cal__", "cat__", "ctx__"],
+      "F2+W": ["hist__", "cal__", "cat__", "ctx__", "w4__"],
+      "F2+sel": ["hist__", "cal__", "cat__", "ctx__", "w4__", "k4__", "s4__", "t4__", "n4__"]
+    },
+    "why_sel": "v4 groups W, K, S, T, N; E and R excluded before v5 fits by the partial v4 result (both below F2 on fold 2023)",
+    "features": "F2 = artifacts/sensor-failure-v1/features (00:00); v4 groups = artifacts/sensor-failure-v1/features_v4 (the same 00:00 cutoffs, point in time)",
+    "catboost": {"config": "c3", "depth": 6, "iterations": 1000, "learning_rate": 0.03, "loss_function": "Logloss", "l2_leaf_reg": 5, "auto_class_weights": "Balanced", "task_type": "CPU", "thread_count": 6, "random_seed": 17},
+    "card_aggregation": "mean_top2, model only",
+    "optional": "for the same models, the policy with at most 5 open (no refit)",
+    "not_now": ["F2+sel-rank (E and S as within-day ranks): next step", "models on the 'all episodes' target and on 5 and 7 days: after the user's decision"]
+  },
+  "criteria": {
+    "main": "per horizon and model: card precision above the static list of last year under the main policy with the week-block paired bootstrap 95% lower bound of the difference > 0 (pooled 2023-2024, 400 replicates, seed 17), AND event recall >= static-list recall - 0.02; the same comparison with persistence is reported; object-block CI reported",
+    "sets": "differences F2+sel - F2 and F2+W - F2 are exploration only: with one seed there is no noise estimate, so no claim of a gain is made; the v3 seed spread (up to 0.014 at precision about 0.15) is printed beside them as a noise reference",
+    "product_horizon": "chosen by the user and the technologist from the final table; not chosen here",
+    "stop": "after these 10 fits the run stops and reports"
+  },
+  "mlflow": {
+    "tracking_uri": "http://127.0.0.1:5059",
+    "experiment": "sensor-failure-tuning-v5",
+    "created_before_fits": true,
+    "reference_run_names": ["ORACLE ceiling (не модель)", "persistence (правило)", "static list (правило)"],
+    "never_delete": true
+  },
+  "runner": "data-science/scripts/tune_sensor_failure_v5.py (stages stage0, fit, report)"
+}

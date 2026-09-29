@@ -1,0 +1,27 @@
+# OPS-G (OPS-06): the only data source of Grafana. The login is a member of the
+# PostgreSQL group analytics_read (migration 0016): SELECT on schema `analytics`,
+# read-only transactions, statement_timeout 10 s, at most 5 connections
+# (deploy/grafana/create-reader.sh). Values come from the grafana service environment
+# (deploy/compose.public.yaml <- server .env); no secret is kept in Git.
+apiVersion: 1
+
+datasources:
+  - name: InfraPulse analytics
+    uid: infrapulse-analytics
+    type: grafana-postgresql-datasource
+    access: proxy
+    url: db:5432
+    user: ${GRAFANA_DB_USER}
+    isDefault: true
+    editable: false
+    jsonData:
+      database: ${POSTGRES_DB}
+      sslmode: disable
+      postgresVersion: 1700
+      timescaledb: false
+      maxOpenConns: 5
+      maxIdleConns: 2
+      connMaxLifetime: 14400
+      timeInterval: 1m
+    secureJsonData:
+      password: ${GRAFANA_DB_PASSWORD}

@@ -1,0 +1,363 @@
+{
+  "version": "sensor-failure-v1",
+  "status": "draft_labels_measurement_2026-09-26",
+  "question": "Will an episode of a registered technical event (technical value or connection-loss state) start on the channel in [issued_at, issued_at + H)?",
+  "interpretation": "registered technical event of a channel; not a confirmed breakdown (the cause is known only after a field visit)",
+  "source": {
+    "opener": "infra_pulse_research.modeling.fire_source.open_fire_source",
+    "view": "current_enriched_events",
+    "snapshot_version": "journal-curated-v4",
+    "policy_version": "alarm-spike-exclusions-v1",
+    "reference_basis": "current_snapshot_no_validity_dates",
+    "registry": "data-science/artifacts/subsystem-alarm-v1/registry",
+    "timezone": "Europe/Moscow assumed local wall time",
+    "epoch_rows": "rows with is_epoch_placeholder are kept when event_ts_local_raw parses: the epoch is the VALUE of 'Состояние охраны', not the timestamp",
+    "alarm_level": "alarm is evaluated per channel x timestamp: numeric rows never carry alarm=true, the paired text row at the same timestamp does"
+  },
+  "unit": [
+    "channel_id",
+    "label",
+    "issued_at"
+  ],
+  "cadence": "daily 00:00 local",
+  "horizons_hours": [
+    24,
+    48,
+    168
+  ],
+  "labels": {
+    "technical_value": {
+      "kind": "technical_value",
+      "role": "main numeric label",
+      "reason_provider": "infra_pulse_research.modeling.sensor_technical_values.technical_reason_sql (config sensor_technical_values_v1.json)",
+      "provisional_fallback": "temperature: value_numeric = -127 -> 'code', < -40 -> 'below_range', > 85 -> 'above_range'",
+      "sensor_types": [
+        "Датчик температуры",
+        "Газовый датчик",
+        "ИБП"
+      ],
+      "exclude_reasons": [
+        "epoch_value"
+      ],
+      "clean": "in scope, technical reason NULL and a numeric value (value_numeric or parsed value_raw); text rows such as 'Неисправен' are neutral",
+      "status": "Head DS 2026-09-26: epoch_value excluded from the main label; temperature is the main numeric case, gas reported separately"
+    },
+    "technical_value_epoch": {
+      "kind": "technical_value",
+      "role": "sensitivity: main + 'Состояние охраны' epoch value",
+      "sensor_types": [
+        "Датчик температуры",
+        "Газовый датчик",
+        "ИБП",
+        "Состояние охраны"
+      ],
+      "exclude_reasons": [],
+      "clean_any_value_sensor_types": [
+        "Состояние охраны"
+      ],
+      "clean": "as main; for 'Состояние охраны' any non-technical value_raw is clean"
+    },
+    "connection_loss": {
+      "kind": "text_state",
+      "role": "main (strict)",
+      "rules": [
+        {
+          "states": [
+            "Неисправен"
+          ],
+          "sensor_types": [
+            "Газовый датчик",
+            "Датчик дыма",
+            "Тепловой датчик",
+            "Ручной извещатель",
+            "Состояние УИР-Р",
+            "КД Дверь",
+            "КД АВ",
+            "КД Люк",
+            "Стекло",
+            "Датчик движения",
+            "Датчик затопления",
+            "Датчик температуры",
+            "ИБП",
+            "Состояние фазы"
+          ]
+        }
+      ],
+      "neutral_states": [
+        "Неопределен",
+        "Не определено",
+        "Выключен",
+        "Много неисправных устройств",
+        "Отключено устройство"
+      ],
+      "clean": "value_raw IS NOT NULL, in scope, not a candidate state of any rule and not neutral",
+      "status": "technologist classification 2026-09-26 (TECHNOLOGIST_REVIEW.md), agent role, not customer approval"
+    },
+    "connection_loss_s1": {
+      "kind": "text_state",
+      "role": "sensitivity S1: strict + 'Отключено устройство'",
+      "rules": [
+        {
+          "states": [
+            "Неисправен",
+            "Отключено устройство"
+          ],
+          "sensor_types": [
+            "Газовый датчик",
+            "Датчик дыма",
+            "Тепловой датчик",
+            "Ручной извещатель",
+            "Состояние УИР-Р",
+            "КД Дверь",
+            "КД АВ",
+            "КД Люк",
+            "Стекло",
+            "Датчик движения",
+            "Датчик затопления",
+            "Датчик температуры",
+            "ИБП",
+            "Состояние фазы"
+          ]
+        }
+      ],
+      "neutral_states": [
+        "Неопределен",
+        "Не определено",
+        "Выключен",
+        "Много неисправных устройств"
+      ]
+    },
+    "connection_loss_s2": {
+      "kind": "text_state",
+      "role": "sensitivity S2: S1 + 'Неисправен' of pumps and fans (status bundle, report separately)",
+      "rules": [
+        {
+          "states": [
+            "Неисправен",
+            "Отключено устройство"
+          ],
+          "sensor_types": [
+            "Газовый датчик",
+            "Датчик дыма",
+            "Тепловой датчик",
+            "Ручной извещатель",
+            "Состояние УИР-Р",
+            "КД Дверь",
+            "КД АВ",
+            "КД Люк",
+            "Стекло",
+            "Датчик движения",
+            "Датчик затопления",
+            "Датчик температуры",
+            "ИБП",
+            "Состояние фазы"
+          ]
+        },
+        {
+          "states": [
+            "Неисправен"
+          ],
+          "sensor_types": [
+            "Состояние насоса",
+            "Состояние вентилятора"
+          ]
+        }
+      ],
+      "neutral_states": [
+        "Неопределен",
+        "Не определено",
+        "Выключен",
+        "Много неисправных устройств",
+        "Отключено устройство"
+      ]
+    },
+    "connection_loss_end_undetermined": {
+      "kind": "text_state",
+      "role": "sensitivity: 'Неопределен' is clean, so an episode ends at the first 'Неопределен'",
+      "rules": [
+        {
+          "states": [
+            "Неисправен"
+          ],
+          "sensor_types": [
+            "Газовый датчик",
+            "Датчик дыма",
+            "Тепловой датчик",
+            "Ручной извещатель",
+            "Состояние УИР-Р",
+            "КД Дверь",
+            "КД АВ",
+            "КД Люк",
+            "Стекло",
+            "Датчик движения",
+            "Датчик затопления",
+            "Датчик температуры",
+            "ИБП",
+            "Состояние фазы"
+          ]
+        }
+      ],
+      "neutral_states": [
+        "Не определено",
+        "Выключен",
+        "Много неисправных устройств",
+        "Отключено устройство"
+      ]
+    }
+  },
+  "episode": {
+    "q_hours_grid": [
+      24,
+      168
+    ],
+    "q_hours": 24,
+    "q_status": "recommended by the development measurement 2026-09-26; pending Head DS decision",
+    "start": "candidate timestamp with no candidate of the label in the previous Q hours and at least one clean timestamp since the previous candidate (a channel stuck in the state stays in one episode)",
+    "end": "first clean-only timestamp strictly after the start; NULL = open at data end",
+    "simultaneous": "a timestamp with candidate and clean rows is a candidate timestamp with a conflict; it neither ends an episode nor is ordered",
+    "end_search_days": [
+      2,
+      35,
+      null
+    ],
+    "min_duration_hours_variants": [
+      1
+    ],
+    "min_duration_rule": "duration-conditioned label: count only starts whose episode lasts >= d hours or is open at data end; start detection and active_episode use all episodes"
+  },
+  "cluster": {
+    "w_minutes_grid": [
+      1,
+      10,
+      60
+    ],
+    "w_minutes": 10,
+    "w_status": "organizers' reference; pending Head DS decision",
+    "scope": "object_id x label",
+    "rule": "episode starts sorted in time; a start joins the current cluster when the gap to the previous start of the same object and label is <= W minutes (chaining)"
+  },
+  "exclusion_precedence": {
+    "measurement": [
+      "insufficient_lookback",
+      "excluded_2021_and_lookback",
+      "data_end",
+      "split_boundary",
+      "no_prior_history",
+      "source_coverage",
+      "policy_day",
+      "lookback_coverage",
+      "active_episode"
+    ],
+    "model": [
+      "not_weekly_cutoff",
+      "insufficient_lookback",
+      "excluded_2021_and_lookback",
+      "data_end",
+      "split_boundary",
+      "source_coverage",
+      "policy_day",
+      "lookback_coverage",
+      "no_prior_history",
+      "active_episode",
+      "q_shadow"
+    ],
+    "note": "model: window-level reasons first (identical for all channels of an object x sensor type), then channel eligibility"
+  },
+  "splits": {
+    "development": [
+      [
+        "2019-01-31",
+        "2021-01-01"
+      ],
+      [
+        "2022-01-31",
+        "2025-01-01"
+      ]
+    ],
+    "excluded": [
+      [
+        "2021-01-01",
+        "2022-01-31"
+      ]
+    ],
+    "calibration_and_threshold": [
+      [
+        "2025-01-01",
+        "2025-07-01"
+      ]
+    ],
+    "holdout": [
+      [
+        "2025-07-01",
+        "2026-07-01"
+      ]
+    ]
+  },
+  "measurement": {
+    "periods": "development only",
+    "budgets_per_day": [
+      10,
+      20
+    ],
+    "budgets_per_week": [
+      20,
+      50
+    ],
+    "weekly_cutoff": "Monday 00:00, horizon 168 h",
+    "persistence_lookback_days": 7,
+    "claim_check": "share of connection-loss starts in object clusters of 5-75 channels within 10 minutes"
+  },
+  "not_labels": {
+    "states": [
+      "Не определено",
+      "Выключен",
+      "Обесточен",
+      "Батарея*",
+      "Питание от батарей",
+      "Много неисправных устройств"
+    ],
+    "note": "never candidates; 'Не определено', 'Выключен', 'Много неисправных устройств' and 'Неопределен' are neutral (neither start nor end); other determined states are clean. Temperature 'Не определено' with -127 belongs to technical_value (features catalogue). Epoch-date rows are dropped."
+  },
+  "splits_note": "periods of configs/sensor_failure_model_v1.json; cutoffs before 2019-01-31 map to 'excluded' with reason insufficient_lookback",
+  "targets": {
+    "connection_loss_1h": {
+      "label": "connection_loss",
+      "min_duration_hours": 1,
+      "role": "main (user decision 2026-09-26)"
+    },
+    "technical_value": {
+      "label": "technical_value",
+      "min_duration_hours": null,
+      "role": "main numeric (effectively temperature)"
+    },
+    "connection_loss_all": {
+      "label": "connection_loss",
+      "min_duration_hours": null,
+      "role": "declared sensitivity: all durations"
+    },
+    "connection_loss_s1_1h": {
+      "label": "connection_loss_s1",
+      "min_duration_hours": 1,
+      "role": "declared sensitivity: S1 state list, same >= 1 h filter as main"
+    },
+    "connection_loss_s2_1h": {
+      "label": "connection_loss_s2",
+      "min_duration_hours": 1,
+      "role": "declared sensitivity: S2 (pumps/fans), reported separately, same >= 1 h filter"
+    },
+    "technical_value_1h": {
+      "label": "technical_value",
+      "min_duration_hours": 1,
+      "role": "declared sensitivity: technical episodes >= 1 h"
+    }
+  },
+  "targets_rule": {
+    "qualifying_episode": "min_duration_hours null -> every episode; else duration >= min or open at data end",
+    "channel_label": "y=1 if a qualifying episode of the channel starts in [t, t+H)",
+    "event": "cluster of episode starts of the label (Q, W of the model config); qualifies if >= 1 member episode is qualifying",
+    "card": "object_id x sensor_type; y_card=1 if a qualifying event starts in [t, t+H) and has a member on a candidate channel of the card",
+    "candidate": "known before t, not in an active episode and not in the Q shadow at t (only information before t)",
+    "weekly": "horizon 168 h is issued on Mondays 00:00; other days get exclusion reason not_weekly_cutoff"
+  },
+  "model_config": "configs/sensor_failure_model_v1.json"
+}

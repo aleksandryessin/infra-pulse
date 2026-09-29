@@ -1,0 +1,78 @@
+.forecast-page { display: grid; gap: 12px; }
+.forecast-page .page-line { margin: 0; }
+.panel__foot { margin: 0; padding: 6px 16px 8px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); }
+
+/* «Сейчас»: объекты окна и последние сообщения по времени события (обкатка 29.09).
+   Замечание владельца 29.09: две колонки — только когда панель шире 1400 px (по ширине панели, а не
+   окна: меню бывает свёрнуто); ячейки строки не шире строки — текст обрезается многоточием в своей
+   ячейке и не наезжает на соседнюю колонку, полный текст — в подсказке. */
+.now-block { container-type: inline-size; }
+.now-block__empty { margin: 0; padding: 10px 16px; color: var(--muted); }
+.now-grid { display: grid; grid-template-columns: minmax(0, 1fr); }
+.now-col { min-width: 0; }
+@container (min-width: 1400px) {
+  .now-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .now-col + .now-col { border-left: 1px solid var(--line); }
+}
+.now-col__title { margin: 0; padding: 6px 16px 4px; color: var(--muted); font-size: 12px; font-weight: 600; }
+.now-col__more { margin: 0; padding: 4px 16px 6px; background: none; border: 0; border-top: 1px solid var(--line); width: 100%; text-align: left; color: var(--accent-text); font: inherit; font-size: 13px; cursor: pointer; }
+.now-list { list-style: none; margin: 0; padding: 0; }
+.now-list li { border-top: 1px solid var(--line); }
+.now-object, .now-list__row { display: grid; align-items: center; gap: 8px; width: 100%; min-height: 30px; padding: 3px 16px; text-align: left; background: none; border: 0; color: var(--foreground); font: inherit; }
+.now-object { grid-template-columns: 14px minmax(120px, 1fr) minmax(0, 184px) minmax(0, 92px) minmax(170px, 1.25fr); }
+.now-list__row { grid-template-columns: 14px 92px minmax(100px, 0.9fr) minmax(110px, 1.1fr) minmax(100px, max-content); }
+button.now-object, button.now-list__row { cursor: pointer; }
+button.now-object:hover, button.now-list__row:hover { background: var(--selected-surface); }
+.now-object__name, .now-list__object { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.now-object__counts, .now-object__scheme, .now-object__last, .now-list__time, .now-list__channel { min-width: 0; color: var(--muted); font-size: 13px; white-space: nowrap; }
+.now-object__counts, .now-object__scheme, .now-list__channel { overflow: hidden; text-overflow: ellipsis; }
+/* Время последнего сообщения не сжимается; текст — многоточием внутри ячейки. */
+.now-object__last { display: flex; align-items: baseline; gap: 4px; overflow: hidden; }
+.now-object__time { flex: none; }
+.now-object__value, .now-list__value { min-width: 0; overflow: hidden; text-overflow: ellipsis; color: var(--attention-text); font-weight: 600; white-space: nowrap; }
+.now-list__kind { color: var(--attention-text); font-size: 12px; font-weight: 400; }
+
+/* Список прогноза: 10 строк видны без прокрутки на 1920×1080 */
+.forecast-list .panel__head h2 { display: inline-flex; align-items: center; gap: 8px; }
+.forecast-rows { list-style: none; margin: 0; padding: 0; }
+.forecast-rows li + li { border-top: 1px solid var(--line); }
+/* Колонка оценки с меткой уровня риска: в одну строку при 1920, при 1366 метка над оценкой. */
+.forecast-row { display: grid; grid-template-columns: 16px minmax(220px, 1.3fr) minmax(200px, 0.8fr) minmax(200px, 1.2fr) minmax(270px, 1.2fr) 18px; align-items: center; gap: 14px; min-height: 38px; padding: 3px 16px; color: var(--foreground); }
+.forecast-row:hover { background: var(--selected-surface); color: var(--foreground); }
+.forecast-row:focus-visible { outline-offset: -2px; }
+.forecast-row__object { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.forecast-row__object strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-shrink: 0; max-width: 100%; }
+.forecast-row__term, .forecast-row__frequency { color: var(--muted); font-size: 13px; }
+.forecast-row__frequency { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; white-space: nowrap; }
+/* «событие за 14 сут до выдачи»: серый текст без рамки, строка не переносится (F1). */
+.forecast-row__recent { min-width: 0; color: var(--muted); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.forecast-row__nodecision { display: inline-flex; align-items: center; gap: 6px; color: var(--foreground); font-weight: 600; }
+.forecast-row__nodecision--overdue { color: var(--muted); font-weight: 700; }
+.forecast-list__head { align-items: flex-start; }
+.forecast-list__meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 4px 12px; }
+.forecast-list__subtitle { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+.now-block__notice { margin: 0; padding: 8px 16px; border-bottom: 1px solid var(--line); background: var(--surface-soft); font-size: 13px; }
+.forecast-row__decision { color: var(--foreground); }
+.forecast-row__chevron { color: var(--accent-text); }
+
+.released-block.ant-collapse { background: var(--surface); border-color: var(--line); border-radius: 4px; }
+.released-block .ant-collapse-item:last-child, .released-block .ant-collapse-item:last-child > .ant-collapse-header { border-radius: 4px; }
+.released-block .ant-collapse-content { border-color: var(--line); }
+.released-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.released-rows a { color: var(--foreground); }
+.released-rows a:hover { color: var(--accent-text); }
+
+@media (max-width: 1280px) {
+  .forecast-row { grid-template-columns: 16px 1.4fr 1fr 1fr 18px; }
+  .forecast-row__frequency { display: none; }
+}
+@media (max-width: 760px) {
+  .now-list__row, .forecast-row { grid-template-columns: 16px 1fr; }
+  .now-list__row > *:nth-child(n + 3), .forecast-row > *:nth-child(n + 3) { grid-column: 2; }
+  .now-object { display: flex; flex-wrap: wrap; gap: 0 10px; }
+  .now-object__name { flex: 1 0 calc(100% - 32px); }
+  .now-object__counts { margin-left: 24px; }
+  .forecast-row__chevron { display: none; }
+}
+
+.forecast-list__all-decided { display: flex; align-items: center; gap: 8px; margin: 0; padding: 10px 16px; border-bottom: 1px solid var(--line); background: var(--surface-soft); font-weight: 600; }

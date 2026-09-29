@@ -1,0 +1,13 @@
+.state-message { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; color: var(--foreground); }
+.state-message--compact { padding: 8px 12px; }
+.state-message__icon { flex: none; margin-top: 1px; color: var(--muted); }
+.state-message__text { display: grid; gap: 2px; min-width: 0; }
+.state-message__text > span { color: var(--muted); }
+.state-message__code { font-size: 12px; }
+.state-message__actions { display: flex; gap: 8px; margin-left: auto; flex: none; }
+.state-message--loading .state-message__icon { animation: state-spin 1.2s linear infinite; }
+.state-message--error { border-left: 3px solid var(--foreground); }
+.state-message--stale { border-left: 3px dashed var(--muted); }
+.state-message--denied { border-left: 3px solid var(--muted); }
+@keyframes state-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .state-message--loading .state-message__icon { animation: none; } }

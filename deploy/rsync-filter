@@ -1,0 +1,48 @@
+# rsync filter for delivering a verified checkout to <DEPLOY_PATH>/app/ on the stand.
+# Used by .github/workflows/deploy.yml: rsync --filter='merge deploy/rsync-filter'.
+# The first matching rule wins. Excluded paths are never sent to the server.
+
+# Version control, CI and local tool state
+- /.git
+- /.github/
+- /.claude/
+- /.agents/
+- /.vscode/
+- .DS_Store
+
+# Environments, caches and build outputs (images are built on the server)
+- .venv/
+- node_modules/
+- __pycache__/
+- .pytest_cache/
+- .ruff_cache/
+- .mypy_cache/
+- .uv-cache/
+- .npm-cache/
+- .ipynb_checkpoints/
+- /frontend/dist/
+- /var/
+
+# Secrets: only committed templates travel; the real .env lives in <DEPLOY_PATH>/shared/
++ /.env.example
++ /deploy/.env.server.example
+- .env
+- .env.*
+# lldap accounts with passwords stay in <DEPLOY_PATH>/shared/ (deploy/lldap/bootstrap.sh)
+- lldap-users*.txt
+
+# Research: only the manifest that the uv workspace lock needs
++ /data-science/
++ /data-science/pyproject.toml
+- /data-science/**
+
+# Data, models and local stores, wherever they appear
+- *.parquet
+- *.7z
+- *.zip
+- *.db
+- *.db-shm
+- *.db-wal
+- mlruns/
+- /artifacts/
+- /data/

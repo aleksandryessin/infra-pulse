@@ -1,0 +1,2531 @@
+{
+ "study": "sensor-failure v3 preparation: branches A (06:00 issue) and C (issue policy)",
+ "status": "development folds only (evaluation years 2023, 2024); untrained references (persistence, static list, ceiling); no model fit; calibration and holdout not read",
+ "target": "connection_loss_gt2s",
+ "horizon_hours": 24,
+ "unit": "A: object x sensor type",
+ "interpretation": "registered loss-of-connection event > 2 s; not a confirmed breakdown",
+ "static_list": "per card: target events of its object x sensor type known before the cutoff in the previous 365 days (point in time; > 2 s known 2 s after a member start)",
+ "days_off": "Saturday/Sunday only; no verified holiday calendar in the repository",
+ "git_sha": "80970f12c1effc187e45920099259bc4cd00814d",
+ "git_dirty": true,
+ "inputs": {
+  "0000": {
+   "labels_summary_sha256": "5e649fc89e91b8f2dfb2553b9c9ad415e3d4529bc07eecde7b04a7618b031540",
+   "cutoff_hour": 0
+  },
+  "0600": {
+   "labels_summary_sha256": "5e81a9ec69ece408122dc862c8f965e8b262385dcb7afcd76d1ade74589a58d3",
+   "cutoff_hour": 6
+  }
+ },
+ "variants": {
+  "0000": {
+   "event_shares": {
+    "qualifying_events_2023_2024": 1980,
+    "share_starting_at_or_after_06": 0.908080808080808,
+    "share_starting_00_06": 0.09191919191919191,
+    "share_with_prior_same_day_object_event": 0.26262626262626265,
+    "share_after_06_with_object_event_00_06": 0.03787878787878788,
+    "share_after_06_with_object_candidate_00_06": 0.03888888888888889
+   },
+   "folds": {
+    "2023": {
+     "2_per_day": {
+      "persistence": {
+       "cards_selected": 730,
+       "precision": 0.1095890410958904,
+       "recall": 0.11434511434511435,
+       "recall_capturable": 0.11664899257688228,
+       "lead_median_h": 10.899861111111111,
+       "events": 962,
+       "captured": 110,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.12692307692307692,
+       "weekend_precision": 0.06666666666666667,
+       "events_weekday_recall": 0.11311672683513839,
+       "events_weekend_recall": 0.12213740458015267,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 32,
+        "recall": 0.12648221343873517,
+        "lead_hours_median": 11.599027777777778
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 709,
+        "captured": 78,
+        "recall": 0.11001410437235543,
+        "lead_hours_median": 10.4625
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 99,
+        "recall": 0.11211778029445074,
+        "lead_hours_median": 11.225833333333334
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 79,
+        "captured": 11,
+        "recall": 0.13924050632911392,
+        "lead_hours_median": 3.2066666666666666
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 4,
+        "recall": 0.19047619047619047,
+        "lead_hours_median": 11.410555555555556
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 941,
+        "captured": 106,
+        "recall": 0.1126461211477152,
+        "lead_hours_median": 10.880694444444444
+       }
+      },
+      "static_list": {
+       "cards_selected": 730,
+       "precision": 0.10410958904109589,
+       "recall": 0.14241164241164242,
+       "recall_capturable": 0.14528101802757157,
+       "lead_median_h": 11.12111111111111,
+       "events": 962,
+       "captured": 137,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.11153846153846154,
+       "weekend_precision": 0.08571428571428572,
+       "events_weekday_recall": 0.14320096269554752,
+       "events_weekend_recall": 0.13740458015267176,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 61,
+        "recall": 0.24110671936758893,
+        "lead_hours_median": 11.607222222222223
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 709,
+        "captured": 76,
+        "recall": 0.1071932299012694,
+        "lead_hours_median": 10.404305555555556
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 132,
+        "recall": 0.14949037372593432,
+        "lead_hours_median": 11.261111111111111
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 79,
+        "captured": 5,
+        "recall": 0.06329113924050633,
+        "lead_hours_median": 3.201388888888889
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 0,
+        "recall": 0.0,
+        "lead_hours_median": null
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 941,
+        "captured": 137,
+        "recall": 0.14558979808714134,
+        "lead_hours_median": 11.12111111111111
+       }
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 2
+       },
+       "cards_selected": 730,
+       "card_precision": 0.6835616438356165,
+       "event_recall": 0.7401247401247402,
+       "event_recall_capturable": 0.7550371155885471,
+       "events": 962
+      }
+     },
+     "2_weekday_1_weekend": {
+      "persistence": {
+       "cards_selected": 625,
+       "precision": 0.1136,
+       "recall": 0.10291060291060292,
+       "recall_capturable": 0.10498409331919406,
+       "lead_median_h": 10.889722222222222,
+       "events": 962,
+       "captured": 99,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.12692307692307692,
+       "weekend_precision": 0.047619047619047616,
+       "events_weekday_recall": 0.11311672683513839,
+       "events_weekend_recall": 0.03816793893129771,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 30,
+        "recall": 0.11857707509881422,
+        "lead_hours_median": 11.417916666666667
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 709,
+        "captured": 69,
+        "recall": 0.09732016925246827,
+        "lead_hours_median": 10.435555555555556
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 90,
+        "recall": 0.10192525481313704,
+        "lead_hours_median": 11.088194444444444
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 79,
+        "captured": 9,
+        "recall": 0.11392405063291139,
+        "lead_hours_median": 3.253888888888889
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 3,
+        "recall": 0.14285714285714285,
+        "lead_hours_median": 11.004444444444445
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 941,
+        "captured": 96,
+        "recall": 0.10201912858660998,
+        "lead_hours_median": 10.880694444444444
+       },
+       "cards_per_working_cutoff_mean": 2.0,
+       "cards_per_day_off_cutoff_mean": 1.0,
+       "days_off": "weekends only (no verified holiday calendar)"
+      },
+      "static_list": {
+       "cards_selected": 625,
+       "precision": 0.1168,
+       "recall": 0.1392931392931393,
+       "recall_capturable": 0.1420996818663839,
+       "lead_median_h": 11.078194444444444,
+       "events": 962,
+       "captured": 134,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.11153846153846154,
+       "weekend_precision": 0.14285714285714285,
+       "events_weekday_recall": 0.14320096269554752,
+       "events_weekend_recall": 0.11450381679389313,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 61,
+        "recall": 0.24110671936758893,
+        "lead_hours_median": 11.607222222222223
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 709,
+        "captured": 73,
+        "recall": 0.10296191819464035,
+        "lead_hours_median": 10.338611111111112
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 129,
+        "recall": 0.14609286523216308,
+        "lead_hours_median": 11.247222222222222
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 79,
+        "captured": 5,
+        "recall": 0.06329113924050633,
+        "lead_hours_median": 3.201388888888889
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 0,
+        "recall": 0.0,
+        "lead_hours_median": null
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 941,
+        "captured": 134,
+        "recall": 0.14240170031880978,
+        "lead_hours_median": 11.078194444444444
+       },
+       "cards_per_working_cutoff_mean": 2.0,
+       "cards_per_day_off_cutoff_mean": 1.0,
+       "days_off": "weekends only (no verified holiday calendar)"
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 2,
+        "weekend_k": 1
+       },
+       "cards_selected": 625,
+       "card_precision": 0.744,
+       "event_recall": 0.7047817047817048,
+       "event_recall_capturable": 0.71898197242842,
+       "events": 962
+      }
+     },
+     "1_per_day": {
+      "persistence": {
+       "cards_selected": 365,
+       "precision": 0.1178082191780822,
+       "recall": 0.058212058212058215,
+       "recall_capturable": 0.05938494167550371,
+       "lead_median_h": 10.704027777777778,
+       "events": 962,
+       "captured": 56,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.14615384615384616,
+       "weekend_precision": 0.047619047619047616,
+       "events_weekday_recall": 0.061371841155234655,
+       "events_weekend_recall": 0.03816793893129771,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 14,
+        "recall": 0.05533596837944664,
+        "lead_hours_median": 11.250416666666666
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 709,
+        "captured": 42,
+        "recall": 0.05923836389280677,
+        "lead_hours_median": 10.385833333333334
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 49,
+        "recall": 0.05549263873159683,
+        "lead_hours_median": 11.225833333333334
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 79,
+        "captured": 7,
+        "recall": 0.08860759493670886,
+        "lead_hours_median": 1.9075
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 3,
+        "recall": 0.14285714285714285,
+        "lead_hours_median": 11.004444444444445
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 941,
+        "captured": 53,
+        "recall": 0.0563230605738576,
+        "lead_hours_median": 10.686666666666667
+       }
+      },
+      "static_list": {
+       "cards_selected": 365,
+       "precision": 0.13150684931506848,
+       "recall": 0.07172557172557173,
+       "recall_capturable": 0.07317073170731707,
+       "lead_median_h": 10.861944444444445,
+       "events": 962,
+       "captured": 69,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.12692307692307692,
+       "weekend_precision": 0.14285714285714285,
+       "events_weekday_recall": 0.06498194945848375,
+       "events_weekend_recall": 0.11450381679389313,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 21,
+        "recall": 0.08300395256916997,
+        "lead_hours_median": 11.7175
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 709,
+        "captured": 48,
+        "recall": 0.06770098730606489,
+        "lead_hours_median": 10.004722222222222
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 64,
+        "recall": 0.072480181200453,
+        "lead_hours_median": 11.10125
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 79,
+        "captured": 5,
+        "recall": 0.06329113924050633,
+        "lead_hours_median": 3.201388888888889
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 0,
+        "recall": 0.0,
+        "lead_hours_median": null
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 941,
+        "captured": 69,
+        "recall": 0.07332624867162593,
+        "lead_hours_median": 10.861944444444445
+       }
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 1
+       },
+       "cards_selected": 365,
+       "card_precision": 0.8082191780821918,
+       "event_recall": 0.5051975051975052,
+       "event_recall_capturable": 0.5153764581124072,
+       "events": 962
+      }
+     },
+     "3_per_day": {
+      "persistence": {
+       "cards_selected": 1095,
+       "precision": 0.09406392694063927,
+       "recall": 0.1444906444906445,
+       "recall_capturable": 0.1474019088016967,
+       "lead_median_h": 10.871666666666666,
+       "events": 962,
+       "captured": 139,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.11025641025641025,
+       "weekend_precision": 0.05396825396825397,
+       "events_weekday_recall": 0.1444043321299639,
+       "events_weekend_recall": 0.1450381679389313,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 40,
+        "recall": 0.15810276679841898,
+        "lead_hours_median": 11.6325
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 709,
+        "captured": 99,
+        "recall": 0.13963328631875882,
+        "lead_hours_median": 10.425
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 126,
+        "recall": 0.14269535673839184,
+        "lead_hours_median": 11.116388888888888
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 79,
+        "captured": 13,
+        "recall": 0.16455696202531644,
+        "lead_hours_median": 3.253888888888889
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 4,
+        "recall": 0.19047619047619047,
+        "lead_hours_median": 11.410555555555556
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 941,
+        "captured": 135,
+        "recall": 0.1434643995749203,
+        "lead_hours_median": 10.861944444444445
+       }
+      },
+      "static_list": {
+       "cards_selected": 1095,
+       "precision": 0.08493150684931507,
+       "recall": 0.16216216216216217,
+       "recall_capturable": 0.16542948038176034,
+       "lead_median_h": 11.261111111111111,
+       "events": 962,
+       "captured": 156,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.09102564102564102,
+       "weekend_precision": 0.06984126984126984,
+       "events_weekday_recall": 0.16125150421179302,
+       "events_weekend_recall": 0.16793893129770993,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 63,
+        "recall": 0.2490118577075099,
+        "lead_hours_median": 11.7175
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 709,
+        "captured": 93,
+        "recall": 0.1311706629055007,
+        "lead_hours_median": 10.520833333333334
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 149,
+        "recall": 0.16874292185730463,
+        "lead_hours_median": 11.344444444444445
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 79,
+        "captured": 7,
+        "recall": 0.08860759493670886,
+        "lead_hours_median": 3.1838888888888888
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 0,
+        "recall": 0.0,
+        "lead_hours_median": null
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 941,
+        "captured": 156,
+        "recall": 0.16578108395324123,
+        "lead_hours_median": 11.261111111111111
+       }
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 3
+       },
+       "cards_selected": 1095,
+       "card_precision": 0.5662100456621004,
+       "event_recall": 0.8617463617463618,
+       "event_recall_capturable": 0.8791092258748674,
+       "events": 962
+      }
+     }
+    },
+    "2024": {
+     "2_per_day": {
+      "persistence": {
+       "cards_selected": 726,
+       "precision": 0.12258953168044077,
+       "recall": 0.11591355599214145,
+       "recall_capturable": 0.11895161290322581,
+       "lead_median_h": 11.036944444444444,
+       "events": 1018,
+       "captured": 118,
+       "cards_evaluable": 103790,
+       "card_positives": 777,
+       "card_base_rate": 0.007486270353598613,
+       "cards_evaluable_per_cutoff": 285.9228650137741,
+       "cutoffs": 363,
+       "weekday_precision": 0.1423076923076923,
+       "weekend_precision": 0.07281553398058252,
+       "events_weekday_recall": 0.11237230419977298,
+       "events_weekend_recall": 0.1386861313868613,
+       "events_prior_same_day_object_event": {
+        "events": 267,
+        "captured": 29,
+        "recall": 0.10861423220973783,
+        "lead_hours_median": 11.29861111111111
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 751,
+        "captured": 89,
+        "recall": 0.118508655126498,
+        "lead_hours_median": 10.708333333333334
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 915,
+        "captured": 99,
+        "recall": 0.10819672131147541,
+        "lead_hours_median": 12.023333333333333
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 103,
+        "captured": 19,
+        "recall": 0.18446601941747573,
+        "lead_hours_median": 1.8283333333333334
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 12,
+        "recall": 0.2222222222222222,
+        "lead_hours_median": 14.96861111111111
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 964,
+        "captured": 106,
+        "recall": 0.10995850622406639,
+        "lead_hours_median": 10.871944444444445
+       }
+      },
+      "static_list": {
+       "cards_selected": 726,
+       "precision": 0.14738292011019283,
+       "recall": 0.13163064833005894,
+       "recall_capturable": 0.1350806451612903,
+       "lead_median_h": 11.126944444444444,
+       "events": 1018,
+       "captured": 134,
+       "cards_evaluable": 103790,
+       "card_positives": 777,
+       "card_base_rate": 0.007486270353598613,
+       "cards_evaluable_per_cutoff": 285.9228650137741,
+       "cutoffs": 363,
+       "weekday_precision": 0.1576923076923077,
+       "weekend_precision": 0.12135922330097088,
+       "events_weekday_recall": 0.12145289443813848,
+       "events_weekend_recall": 0.19708029197080293,
+       "events_prior_same_day_object_event": {
+        "events": 267,
+        "captured": 28,
+        "recall": 0.10486891385767791,
+        "lead_hours_median": 11.41875
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 751,
+        "captured": 106,
+        "recall": 0.1411451398135819,
+        "lead_hours_median": 10.908472222222223
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 915,
+        "captured": 125,
+        "recall": 0.1366120218579235,
+        "lead_hours_median": 11.677222222222222
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 103,
+        "captured": 9,
+        "recall": 0.08737864077669903,
+        "lead_hours_median": 3.058333333333333
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 1,
+        "recall": 0.018518518518518517,
+        "lead_hours_median": 9.511111111111111
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 964,
+        "captured": 133,
+        "recall": 0.13796680497925312,
+        "lead_hours_median": 11.160277777777777
+       }
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 2
+       },
+       "cards_selected": 726,
+       "card_precision": 0.7134986225895317,
+       "event_recall": 0.7406679764243614,
+       "event_recall_capturable": 0.7600806451612904,
+       "events": 1018
+      }
+     },
+     "2_weekday_1_weekend": {
+      "persistence": {
+       "cards_selected": 623,
+       "precision": 0.13162118780096307,
+       "recall": 0.10903732809430255,
+       "recall_capturable": 0.11189516129032258,
+       "lead_median_h": 11.114166666666666,
+       "events": 1018,
+       "captured": 111,
+       "cards_evaluable": 103790,
+       "card_positives": 777,
+       "card_base_rate": 0.007486270353598613,
+       "cards_evaluable_per_cutoff": 285.9228650137741,
+       "cutoffs": 363,
+       "weekday_precision": 0.1423076923076923,
+       "weekend_precision": 0.07766990291262135,
+       "events_weekday_recall": 0.11237230419977298,
+       "events_weekend_recall": 0.08759124087591241,
+       "events_prior_same_day_object_event": {
+        "events": 267,
+        "captured": 29,
+        "recall": 0.10861423220973783,
+        "lead_hours_median": 11.29861111111111
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 751,
+        "captured": 82,
+        "recall": 0.10918774966711052,
+        "lead_hours_median": 10.955555555555556
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 915,
+        "captured": 93,
+        "recall": 0.10163934426229508,
+        "lead_hours_median": 12.29111111111111
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 103,
+        "captured": 18,
+        "recall": 0.17475728155339806,
+        "lead_hours_median": 1.8111111111111111
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 12,
+        "recall": 0.2222222222222222,
+        "lead_hours_median": 14.96861111111111
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 964,
+        "captured": 99,
+        "recall": 0.10269709543568464,
+        "lead_hours_median": 10.976666666666667
+       },
+       "cards_per_working_cutoff_mean": 2.0,
+       "cards_per_day_off_cutoff_mean": 1.0,
+       "days_off": "weekends only (no verified holiday calendar)"
+      },
+      "static_list": {
+       "cards_selected": 623,
+       "precision": 0.15409309791332262,
+       "recall": 0.11984282907662082,
+       "recall_capturable": 0.12298387096774194,
+       "lead_median_h": 11.126944444444444,
+       "events": 1018,
+       "captured": 122,
+       "cards_evaluable": 103790,
+       "card_positives": 777,
+       "card_base_rate": 0.007486270353598613,
+       "cards_evaluable_per_cutoff": 285.9228650137741,
+       "cutoffs": 363,
+       "weekday_precision": 0.1576923076923077,
+       "weekend_precision": 0.13592233009708737,
+       "events_weekday_recall": 0.12145289443813848,
+       "events_weekend_recall": 0.10948905109489052,
+       "events_prior_same_day_object_event": {
+        "events": 267,
+        "captured": 27,
+        "recall": 0.10112359550561797,
+        "lead_hours_median": 11.160277777777777
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 751,
+        "captured": 95,
+        "recall": 0.12649800266311584,
+        "lead_hours_median": 10.844166666666666
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 915,
+        "captured": 113,
+        "recall": 0.12349726775956284,
+        "lead_hours_median": 11.677222222222222
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 103,
+        "captured": 9,
+        "recall": 0.08737864077669903,
+        "lead_hours_median": 3.058333333333333
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 1,
+        "recall": 0.018518518518518517,
+        "lead_hours_median": 9.511111111111111
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 964,
+        "captured": 121,
+        "recall": 0.12551867219917012,
+        "lead_hours_median": 11.160277777777777
+       },
+       "cards_per_working_cutoff_mean": 2.0,
+       "cards_per_day_off_cutoff_mean": 1.0,
+       "days_off": "weekends only (no verified holiday calendar)"
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 2,
+        "weekend_k": 1
+       },
+       "cards_selected": 623,
+       "card_precision": 0.7768860353130016,
+       "event_recall": 0.7082514734774067,
+       "event_recall_capturable": 0.7268145161290323,
+       "events": 1018
+      }
+     },
+     "1_per_day": {
+      "persistence": {
+       "cards_selected": 363,
+       "precision": 0.14600550964187328,
+       "recall": 0.06483300589390963,
+       "recall_capturable": 0.06653225806451613,
+       "lead_median_h": 10.815833333333334,
+       "events": 1018,
+       "captured": 66,
+       "cards_evaluable": 103790,
+       "card_positives": 777,
+       "card_base_rate": 0.007486270353598613,
+       "cards_evaluable_per_cutoff": 285.9228650137741,
+       "cutoffs": 363,
+       "weekday_precision": 0.17307692307692307,
+       "weekend_precision": 0.07766990291262135,
+       "events_weekday_recall": 0.06129398410896708,
+       "events_weekend_recall": 0.08759124087591241,
+       "events_prior_same_day_object_event": {
+        "events": 267,
+        "captured": 13,
+        "recall": 0.04868913857677903,
+        "lead_hours_median": 10.545555555555556
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 751,
+        "captured": 53,
+        "recall": 0.07057256990679095,
+        "lead_hours_median": 10.923333333333334
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 915,
+        "captured": 50,
+        "recall": 0.0546448087431694,
+        "lead_hours_median": 12.157222222222222
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 103,
+        "captured": 16,
+        "recall": 0.1553398058252427,
+        "lead_hours_median": 1.8111111111111111
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 3,
+        "recall": 0.05555555555555555,
+        "lead_hours_median": 12.29111111111111
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 964,
+        "captured": 63,
+        "recall": 0.06535269709543569,
+        "lead_hours_median": 10.708333333333334
+       }
+      },
+      "static_list": {
+       "cards_selected": 363,
+       "precision": 0.1652892561983471,
+       "recall": 0.06777996070726916,
+       "recall_capturable": 0.06955645161290322,
+       "lead_median_h": 11.7725,
+       "events": 1018,
+       "captured": 69,
+       "cards_evaluable": 103790,
+       "card_positives": 777,
+       "card_base_rate": 0.007486270353598613,
+       "cards_evaluable_per_cutoff": 285.9228650137741,
+       "cutoffs": 363,
+       "weekday_precision": 0.17692307692307693,
+       "weekend_precision": 0.13592233009708737,
+       "events_weekday_recall": 0.06129398410896708,
+       "events_weekend_recall": 0.10948905109489052,
+       "events_prior_same_day_object_event": {
+        "events": 267,
+        "captured": 10,
+        "recall": 0.03745318352059925,
+        "lead_hours_median": 11.828333333333333
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 751,
+        "captured": 59,
+        "recall": 0.07856191744340879,
+        "lead_hours_median": 11.7725
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 915,
+        "captured": 64,
+        "recall": 0.06994535519125683,
+        "lead_hours_median": 12.492083333333333
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 103,
+        "captured": 5,
+        "recall": 0.04854368932038835,
+        "lead_hours_median": 3.058333333333333
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 1,
+        "recall": 0.018518518518518517,
+        "lead_hours_median": 9.511111111111111
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 964,
+        "captured": 68,
+        "recall": 0.07053941908713693,
+        "lead_hours_median": 12.045694444444445
+       }
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 1
+       },
+       "cards_selected": 363,
+       "card_precision": 0.8402203856749312,
+       "event_recall": 0.5137524557956779,
+       "event_recall_capturable": 0.5272177419354839,
+       "events": 1018
+      }
+     },
+     "3_per_day": {
+      "persistence": {
+       "cards_selected": 1089,
+       "precision": 0.1111111111111111,
+       "recall": 0.15717092337917485,
+       "recall_capturable": 0.16129032258064516,
+       "lead_median_h": 10.951666666666666,
+       "events": 1018,
+       "captured": 160,
+       "cards_evaluable": 103790,
+       "card_positives": 777,
+       "card_base_rate": 0.007486270353598613,
+       "cards_evaluable_per_cutoff": 285.9228650137741,
+       "cutoffs": 363,
+       "weekday_precision": 0.12435897435897436,
+       "weekend_precision": 0.07766990291262135,
+       "events_weekday_recall": 0.14982973893303064,
+       "events_weekend_recall": 0.20437956204379562,
+       "events_prior_same_day_object_event": {
+        "events": 267,
+        "captured": 40,
+        "recall": 0.149812734082397,
+        "lead_hours_median": 11.14097222222222
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 751,
+        "captured": 120,
+        "recall": 0.15978695073235685,
+        "lead_hours_median": 10.547777777777778
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 915,
+        "captured": 134,
+        "recall": 0.146448087431694,
+        "lead_hours_median": 11.605833333333333
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 103,
+        "captured": 26,
+        "recall": 0.2524271844660194,
+        "lead_hours_median": 1.9913888888888889
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 17,
+        "recall": 0.3148148148148148,
+        "lead_hours_median": 12.29111111111111
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 964,
+        "captured": 143,
+        "recall": 0.1483402489626556,
+        "lead_hours_median": 10.820555555555556
+       }
+      },
+      "static_list": {
+       "cards_selected": 1089,
+       "precision": 0.1487603305785124,
+       "recall": 0.1944990176817289,
+       "recall_capturable": 0.19959677419354838,
+       "lead_median_h": 11.254583333333333,
+       "events": 1018,
+       "captured": 198,
+       "cards_evaluable": 103790,
+       "card_positives": 777,
+       "card_base_rate": 0.007486270353598613,
+       "cards_evaluable_per_cutoff": 285.9228650137741,
+       "cutoffs": 363,
+       "weekday_precision": 0.15256410256410258,
+       "weekend_precision": 0.13915857605177995,
+       "events_weekday_recall": 0.17366628830874006,
+       "events_weekend_recall": 0.3284671532846715,
+       "events_prior_same_day_object_event": {
+        "events": 267,
+        "captured": 39,
+        "recall": 0.14606741573033707,
+        "lead_hours_median": 11.677222222222222
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 751,
+        "captured": 159,
+        "recall": 0.21171770972037285,
+        "lead_hours_median": 10.972777777777777
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 915,
+        "captured": 177,
+        "recall": 0.19344262295081968,
+        "lead_hours_median": 12.004444444444445
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 103,
+        "captured": 21,
+        "recall": 0.20388349514563106,
+        "lead_hours_median": 2.8533333333333335
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 2,
+        "recall": 0.037037037037037035,
+        "lead_hours_median": 9.667222222222222
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 964,
+        "captured": 196,
+        "recall": 0.2033195020746888,
+        "lead_hours_median": 11.369444444444444
+       }
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 3
+       },
+       "cards_selected": 1089,
+       "card_precision": 0.5876951331496786,
+       "event_recall": 0.8595284872298625,
+       "event_recall_capturable": 0.8820564516129032,
+       "events": 1018
+      }
+     }
+    }
+   },
+   "mean_over_folds": {
+    "2_per_day": {
+     "persistence": {
+      "precision": 0.1160892863881656,
+      "recall": 0.1151293351686279,
+      "cards_selected": 728.0,
+      "card_base_rate": 0.007367124641275558,
+      "lead_median_h": 10.968402777777778
+     },
+     "static_list": {
+      "precision": 0.12574625457564437,
+      "recall": 0.1370211453708507,
+      "cards_selected": 728.0,
+      "card_base_rate": 0.007367124641275558,
+      "lead_median_h": 11.124027777777776
+     },
+     "ceiling": {
+      "card_precision": 0.6985301332125741,
+      "event_recall": 0.7403963582745507,
+      "cards_selected": 728.0
+     }
+    },
+    "2_weekday_1_weekend": {
+     "persistence": {
+      "precision": 0.12261059390048154,
+      "recall": 0.10597396550245274,
+      "cards_selected": 624.0,
+      "card_base_rate": 0.007367124641275558,
+      "lead_median_h": 11.001944444444444
+     },
+     "static_list": {
+      "precision": 0.1354465489566613,
+      "recall": 0.12956798418488005,
+      "cards_selected": 624.0,
+      "card_base_rate": 0.007367124641275558,
+      "lead_median_h": 11.102569444444445
+     },
+     "ceiling": {
+      "card_precision": 0.7604430176565008,
+      "event_recall": 0.7065165891295557,
+      "cards_selected": 624.0
+     }
+    },
+    "1_per_day": {
+     "persistence": {
+      "precision": 0.13190686440997773,
+      "recall": 0.06152253205298392,
+      "cards_selected": 364.0,
+      "card_base_rate": 0.007367124641275558,
+      "lead_median_h": 10.759930555555556
+     },
+     "static_list": {
+      "precision": 0.1483980527567078,
+      "recall": 0.06975276621642044,
+      "cards_selected": 364.0,
+      "card_base_rate": 0.007367124641275558,
+      "lead_median_h": 11.317222222222224
+     },
+     "ceiling": {
+      "card_precision": 0.8242197818785615,
+      "event_recall": 0.5094749804965915,
+      "cards_selected": 364.0
+     }
+    },
+    "3_per_day": {
+     "persistence": {
+      "precision": 0.10258751902587518,
+      "recall": 0.15083078393490967,
+      "cards_selected": 1092.0,
+      "card_base_rate": 0.007367124641275558,
+      "lead_median_h": 10.911666666666665
+     },
+     "static_list": {
+      "precision": 0.11684591871391373,
+      "recall": 0.17833058992194553,
+      "cards_selected": 1092.0,
+      "card_base_rate": 0.007367124641275558,
+      "lead_median_h": 11.257847222222221
+     },
+     "ceiling": {
+      "card_precision": 0.5769525894058896,
+      "event_recall": 0.8606374244881121,
+      "cards_selected": 1092.0
+     }
+    }
+   }
+  },
+  "0600": {
+   "event_shares": {
+    "qualifying_events_2023_2024": 1980,
+    "share_starting_at_or_after_06": 0.908080808080808,
+    "share_starting_00_06": 0.09191919191919191,
+    "share_with_prior_same_day_object_event": 0.26262626262626265,
+    "share_after_06_with_object_event_00_06": 0.03787878787878788,
+    "share_after_06_with_object_candidate_00_06": 0.03888888888888889
+   },
+   "folds": {
+    "2023": {
+     "2_per_day": {
+      "persistence": {
+       "cards_selected": 730,
+       "precision": 0.09726027397260274,
+       "recall": 0.0954356846473029,
+       "recall_capturable": 0.09776833156216791,
+       "lead_median_h": 5.530833333333334,
+       "events": 964,
+       "captured": 92,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.11153846153846154,
+       "weekend_precision": 0.06190476190476191,
+       "events_weekday_recall": 0.09243697478991597,
+       "events_weekend_recall": 0.11450381679389313,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 22,
+        "recall": 0.08695652173913043,
+        "lead_hours_median": 5.677361111111111
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 711,
+        "captured": 70,
+        "recall": 0.09845288326300984,
+        "lead_hours_median": 5.466111111111111
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 86,
+        "recall": 0.09739524348810873,
+        "lead_hours_median": 5.282361111111111
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 81,
+        "captured": 6,
+        "recall": 0.07407407407407407,
+        "lead_hours_median": 22.416805555555555
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 3,
+        "recall": 0.14285714285714285,
+        "lead_hours_median": 5.004444444444444
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 943,
+        "captured": 89,
+        "recall": 0.09437963944856839,
+        "lead_hours_median": 5.5344444444444445
+       }
+      },
+      "static_list": {
+       "cards_selected": 730,
+       "precision": 0.10410958904109589,
+       "recall": 0.1421161825726141,
+       "recall_capturable": 0.14558979808714134,
+       "lead_median_h": 5.343055555555556,
+       "events": 964,
+       "captured": 137,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.11538461538461539,
+       "weekend_precision": 0.0761904761904762,
+       "events_weekday_recall": 0.14285714285714285,
+       "events_weekend_recall": 0.13740458015267176,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 61,
+        "recall": 0.24110671936758893,
+        "lead_hours_median": 5.607222222222222
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 711,
+        "captured": 76,
+        "recall": 0.10689170182841069,
+        "lead_hours_median": 4.638888888888889
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 132,
+        "recall": 0.14949037372593432,
+        "lead_hours_median": 5.261111111111111
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 81,
+        "captured": 5,
+        "recall": 0.06172839506172839,
+        "lead_hours_median": 21.20138888888889
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 0,
+        "recall": 0.0,
+        "lead_hours_median": null
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 943,
+        "captured": 137,
+        "recall": 0.14528101802757157,
+        "lead_hours_median": 5.343055555555556
+       }
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 2
+       },
+       "cards_selected": 730,
+       "card_precision": 0.6767123287671233,
+       "event_recall": 0.7302904564315352,
+       "event_recall_capturable": 0.7481402763018066,
+       "events": 964
+      }
+     },
+     "2_weekday_1_weekend": {
+      "persistence": {
+       "cards_selected": 625,
+       "precision": 0.1024,
+       "recall": 0.08713692946058091,
+       "recall_capturable": 0.08926673751328375,
+       "lead_median_h": 5.347361111111111,
+       "events": 964,
+       "captured": 84,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.11153846153846154,
+       "weekend_precision": 0.05714285714285714,
+       "events_weekday_recall": 0.09243697478991597,
+       "events_weekend_recall": 0.05343511450381679,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 21,
+        "recall": 0.08300395256916997,
+        "lead_hours_median": 5.637222222222222
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 711,
+        "captured": 63,
+        "recall": 0.08860759493670886,
+        "lead_hours_median": 5.289722222222222
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 78,
+        "recall": 0.08833522083805209,
+        "lead_hours_median": 5.233055555555556
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 81,
+        "captured": 6,
+        "recall": 0.07407407407407407,
+        "lead_hours_median": 22.416805555555555
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 3,
+        "recall": 0.14285714285714285,
+        "lead_hours_median": 5.004444444444444
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 943,
+        "captured": 81,
+        "recall": 0.08589607635206786,
+        "lead_hours_median": 5.405
+       },
+       "cards_per_working_cutoff_mean": 2.0,
+       "cards_per_day_off_cutoff_mean": 1.0,
+       "days_off": "weekends only (no verified holiday calendar)"
+      },
+      "static_list": {
+       "cards_selected": 625,
+       "precision": 0.1168,
+       "recall": 0.13900414937759337,
+       "recall_capturable": 0.14240170031880978,
+       "lead_median_h": 5.326805555555556,
+       "events": 964,
+       "captured": 134,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.11538461538461539,
+       "weekend_precision": 0.12380952380952381,
+       "events_weekday_recall": 0.14285714285714285,
+       "events_weekend_recall": 0.11450381679389313,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 61,
+        "recall": 0.24110671936758893,
+        "lead_hours_median": 5.607222222222222
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 711,
+        "captured": 73,
+        "recall": 0.10267229254571027,
+        "lead_hours_median": 4.6002777777777775
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 129,
+        "recall": 0.14609286523216308,
+        "lead_hours_median": 5.247222222222222
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 81,
+        "captured": 5,
+        "recall": 0.06172839506172839,
+        "lead_hours_median": 21.20138888888889
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 0,
+        "recall": 0.0,
+        "lead_hours_median": null
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 943,
+        "captured": 134,
+        "recall": 0.1420996818663839,
+        "lead_hours_median": 5.326805555555556
+       },
+       "cards_per_working_cutoff_mean": 2.0,
+       "cards_per_day_off_cutoff_mean": 1.0,
+       "days_off": "weekends only (no verified holiday calendar)"
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 2,
+        "weekend_k": 1
+       },
+       "cards_selected": 625,
+       "card_precision": 0.7424,
+       "event_recall": 0.6981327800829875,
+       "event_recall_capturable": 0.7151965993623804,
+       "events": 964
+      }
+     },
+     "1_per_day": {
+      "persistence": {
+       "cards_selected": 365,
+       "precision": 0.09863013698630137,
+       "recall": 0.04149377593360996,
+       "recall_capturable": 0.04250797024442083,
+       "lead_median_h": 5.466111111111111,
+       "events": 964,
+       "captured": 40,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.11538461538461539,
+       "weekend_precision": 0.05714285714285714,
+       "events_weekday_recall": 0.04201680672268908,
+       "events_weekend_recall": 0.03816793893129771,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 7,
+        "recall": 0.02766798418972332,
+        "lead_hours_median": 5.225833333333333
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 711,
+        "captured": 33,
+        "recall": 0.046413502109704644,
+        "lead_hours_median": 5.527222222222222
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 37,
+        "recall": 0.04190260475651189,
+        "lead_hours_median": 5.289722222222222
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 81,
+        "captured": 3,
+        "recall": 0.037037037037037035,
+        "lead_hours_median": 22.530277777777776
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 3,
+        "recall": 0.14285714285714285,
+        "lead_hours_median": 5.004444444444444
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 943,
+        "captured": 37,
+        "recall": 0.03923647932131495,
+        "lead_hours_median": 5.527222222222222
+       }
+      },
+      "static_list": {
+       "cards_selected": 365,
+       "precision": 0.13150684931506848,
+       "recall": 0.07157676348547717,
+       "recall_capturable": 0.07332624867162593,
+       "lead_median_h": 5.310555555555555,
+       "events": 964,
+       "captured": 69,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.1346153846153846,
+       "weekend_precision": 0.12380952380952381,
+       "events_weekday_recall": 0.06482593037214886,
+       "events_weekend_recall": 0.11450381679389313,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 21,
+        "recall": 0.08300395256916997,
+        "lead_hours_median": 5.7175
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 711,
+        "captured": 48,
+        "recall": 0.06751054852320675,
+        "lead_hours_median": 5.045416666666666
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 64,
+        "recall": 0.072480181200453,
+        "lead_hours_median": 5.10125
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 81,
+        "captured": 5,
+        "recall": 0.06172839506172839,
+        "lead_hours_median": 21.20138888888889
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 0,
+        "recall": 0.0,
+        "lead_hours_median": null
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 943,
+        "captured": 69,
+        "recall": 0.07317073170731707,
+        "lead_hours_median": 5.310555555555555
+       }
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 1
+       },
+       "cards_selected": 365,
+       "card_precision": 0.8164383561643835,
+       "event_recall": 0.5051867219917012,
+       "event_recall_capturable": 0.5175345377258236,
+       "events": 964
+      }
+     },
+     "3_per_day": {
+      "persistence": {
+       "cards_selected": 1095,
+       "precision": 0.08949771689497717,
+       "recall": 0.1400414937759336,
+       "recall_capturable": 0.1434643995749203,
+       "lead_median_h": 5.405,
+       "events": 964,
+       "captured": 135,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.10256410256410256,
+       "weekend_precision": 0.05714285714285714,
+       "events_weekday_recall": 0.13805522208883553,
+       "events_weekend_recall": 0.15267175572519084,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 39,
+        "recall": 0.1541501976284585,
+        "lead_hours_median": 5.637222222222222
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 711,
+        "captured": 96,
+        "recall": 0.1350210970464135,
+        "lead_hours_median": 5.1906944444444445
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 124,
+        "recall": 0.1404303510758777,
+        "lead_hours_median": 5.116388888888888
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 81,
+        "captured": 11,
+        "recall": 0.13580246913580246,
+        "lead_hours_median": 22.303333333333335
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 3,
+        "recall": 0.14285714285714285,
+        "lead_hours_median": 5.004444444444444
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 943,
+        "captured": 132,
+        "recall": 0.13997879109225875,
+        "lead_hours_median": 5.466111111111111
+       }
+      },
+      "static_list": {
+       "cards_selected": 1095,
+       "precision": 0.08493150684931507,
+       "recall": 0.16182572614107885,
+       "recall_capturable": 0.16578108395324123,
+       "lead_median_h": 5.393888888888888,
+       "events": 964,
+       "captured": 156,
+       "cards_evaluable": 104029,
+       "card_positives": 754,
+       "card_base_rate": 0.007247978928952504,
+       "cards_evaluable_per_cutoff": 285.0109589041096,
+       "cutoffs": 365,
+       "weekday_precision": 0.09358974358974359,
+       "weekend_precision": 0.06349206349206349,
+       "events_weekday_recall": 0.1608643457382953,
+       "events_weekend_recall": 0.16793893129770993,
+       "events_prior_same_day_object_event": {
+        "events": 253,
+        "captured": 63,
+        "recall": 0.2490118577075099,
+        "lead_hours_median": 5.7175
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 711,
+        "captured": 93,
+        "recall": 0.1308016877637131,
+        "lead_hours_median": 4.861944444444444
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 883,
+        "captured": 149,
+        "recall": 0.16874292185730463,
+        "lead_hours_median": 5.344444444444444
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 81,
+        "captured": 7,
+        "recall": 0.08641975308641975,
+        "lead_hours_median": 21.183888888888887
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 21,
+        "captured": 0,
+        "recall": 0.0,
+        "lead_hours_median": null
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 943,
+        "captured": 156,
+        "recall": 0.16542948038176034,
+        "lead_hours_median": 5.393888888888888
+       }
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 3
+       },
+       "cards_selected": 1095,
+       "card_precision": 0.5616438356164384,
+       "event_recall": 0.8516597510373444,
+       "event_recall_capturable": 0.8724760892667375,
+       "events": 964
+      }
+     }
+    },
+    "2024": {
+     "2_per_day": {
+      "persistence": {
+       "cards_selected": 722,
+       "precision": 0.12880886426592797,
+       "recall": 0.12055335968379446,
+       "recall_capturable": 0.12410986775178026,
+       "lead_median_h": 6.730555555555555,
+       "events": 1012,
+       "captured": 122,
+       "cards_evaluable": 103218,
+       "card_positives": 770,
+       "card_base_rate": 0.007459939157898816,
+       "cards_evaluable_per_cutoff": 285.9224376731302,
+       "cutoffs": 361,
+       "weekday_precision": 0.14864864864864866,
+       "weekend_precision": 0.0784313725490196,
+       "events_weekday_recall": 0.11542857142857142,
+       "events_weekend_recall": 0.15328467153284672,
+       "events_prior_same_day_object_event": {
+        "events": 266,
+        "captured": 31,
+        "recall": 0.11654135338345864,
+        "lead_hours_median": 6.291111111111111
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 746,
+        "captured": 91,
+        "recall": 0.12198391420911528,
+        "lead_hours_median": 7.642222222222222
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 912,
+        "captured": 107,
+        "recall": 0.11732456140350878,
+        "lead_hours_median": 5.725
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 100,
+        "captured": 15,
+        "recall": 0.15,
+        "lead_hours_median": 19.714444444444446
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 13,
+        "recall": 0.24074074074074073,
+        "lead_hours_median": 8.018888888888888
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 958,
+        "captured": 109,
+        "recall": 0.11377870563674322,
+        "lead_hours_median": 6.597777777777778
+       }
+      },
+      "static_list": {
+       "cards_selected": 722,
+       "precision": 0.14958448753462603,
+       "recall": 0.1324110671936759,
+       "recall_capturable": 0.1363173957273652,
+       "lead_median_h": 6.388472222222222,
+       "events": 1012,
+       "captured": 134,
+       "cards_evaluable": 103218,
+       "card_positives": 770,
+       "card_base_rate": 0.007459939157898816,
+       "cards_evaluable_per_cutoff": 285.9224376731302,
+       "cutoffs": 361,
+       "weekday_precision": 0.1583011583011583,
+       "weekend_precision": 0.12745098039215685,
+       "events_weekday_recall": 0.12228571428571429,
+       "events_weekend_recall": 0.19708029197080293,
+       "events_prior_same_day_object_event": {
+        "events": 266,
+        "captured": 28,
+        "recall": 0.10526315789473684,
+        "lead_hours_median": 5.41875
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 746,
+        "captured": 106,
+        "recall": 0.14209115281501342,
+        "lead_hours_median": 6.531666666666666
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 912,
+        "captured": 125,
+        "recall": 0.13706140350877194,
+        "lead_hours_median": 5.677222222222222
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 100,
+        "captured": 9,
+        "recall": 0.09,
+        "lead_hours_median": 21.058333333333334
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 1,
+        "recall": 0.018518518518518517,
+        "lead_hours_median": 3.511111111111111
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 958,
+        "captured": 133,
+        "recall": 0.13883089770354906,
+        "lead_hours_median": 6.458055555555555
+       }
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 2
+       },
+       "cards_selected": 722,
+       "card_precision": 0.7160664819944599,
+       "event_recall": 0.7430830039525692,
+       "event_recall_capturable": 0.7650050864699899,
+       "events": 1012
+      }
+     },
+     "2_weekday_1_weekend": {
+      "persistence": {
+       "cards_selected": 620,
+       "precision": 0.13870967741935483,
+       "recall": 0.11363636363636363,
+       "recall_capturable": 0.11698880976602238,
+       "lead_median_h": 6.776111111111111,
+       "events": 1012,
+       "captured": 115,
+       "cards_evaluable": 103218,
+       "card_positives": 770,
+       "card_base_rate": 0.007459939157898816,
+       "cards_evaluable_per_cutoff": 285.9224376731302,
+       "cutoffs": 361,
+       "weekday_precision": 0.14864864864864866,
+       "weekend_precision": 0.08823529411764706,
+       "events_weekday_recall": 0.11428571428571428,
+       "events_weekend_recall": 0.10948905109489052,
+       "events_prior_same_day_object_event": {
+        "events": 266,
+        "captured": 31,
+        "recall": 0.11654135338345864,
+        "lead_hours_median": 6.291111111111111
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 746,
+        "captured": 84,
+        "recall": 0.1126005361930295,
+        "lead_hours_median": 7.644722222222223
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 912,
+        "captured": 101,
+        "recall": 0.11074561403508772,
+        "lead_hours_median": 5.725
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 100,
+        "captured": 14,
+        "recall": 0.14,
+        "lead_hours_median": 19.75416666666667
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 13,
+        "recall": 0.24074074074074073,
+        "lead_hours_median": 8.018888888888888
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 958,
+        "captured": 102,
+        "recall": 0.10647181628392484,
+        "lead_hours_median": 6.525833333333333
+       },
+       "cards_per_working_cutoff_mean": 2.0,
+       "cards_per_day_off_cutoff_mean": 1.0,
+       "days_off": "weekends only (no verified holiday calendar)"
+      },
+      "static_list": {
+       "cards_selected": 620,
+       "precision": 0.15483870967741936,
+       "recall": 0.11956521739130435,
+       "recall_capturable": 0.12309257375381485,
+       "lead_median_h": 6.318888888888889,
+       "events": 1012,
+       "captured": 121,
+       "cards_evaluable": 103218,
+       "card_positives": 770,
+       "card_base_rate": 0.007459939157898816,
+       "cards_evaluable_per_cutoff": 285.9224376731302,
+       "cutoffs": 361,
+       "weekday_precision": 0.1583011583011583,
+       "weekend_precision": 0.13725490196078433,
+       "events_weekday_recall": 0.12114285714285715,
+       "events_weekend_recall": 0.10948905109489052,
+       "events_prior_same_day_object_event": {
+        "events": 266,
+        "captured": 27,
+        "recall": 0.10150375939849623,
+        "lead_hours_median": 5.160277777777778
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 746,
+        "captured": 94,
+        "recall": 0.1260053619302949,
+        "lead_hours_median": 6.531666666666666
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 912,
+        "captured": 113,
+        "recall": 0.12390350877192982,
+        "lead_hours_median": 5.677222222222222
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 100,
+        "captured": 8,
+        "recall": 0.08,
+        "lead_hours_median": 21.09777777777778
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 1,
+        "recall": 0.018518518518518517,
+        "lead_hours_median": 3.511111111111111
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 958,
+        "captured": 120,
+        "recall": 0.12526096033402923,
+        "lead_hours_median": 6.388472222222222
+       },
+       "cards_per_working_cutoff_mean": 2.0,
+       "cards_per_day_off_cutoff_mean": 1.0,
+       "days_off": "weekends only (no verified holiday calendar)"
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 2,
+        "weekend_k": 1
+       },
+       "cards_selected": 620,
+       "card_precision": 0.7806451612903226,
+       "event_recall": 0.7114624505928854,
+       "event_recall_capturable": 0.7324516785350966,
+       "events": 1012
+      }
+     },
+     "1_per_day": {
+      "persistence": {
+       "cards_selected": 361,
+       "precision": 0.1523545706371191,
+       "recall": 0.07509881422924901,
+       "recall_capturable": 0.07731434384537131,
+       "lead_median_h": 8.99638888888889,
+       "events": 1012,
+       "captured": 76,
+       "cards_evaluable": 103218,
+       "card_positives": 770,
+       "card_base_rate": 0.007459939157898816,
+       "cards_evaluable_per_cutoff": 285.9224376731302,
+       "cutoffs": 361,
+       "weekday_precision": 0.1776061776061776,
+       "weekend_precision": 0.08823529411764706,
+       "events_weekday_recall": 0.06971428571428571,
+       "events_weekend_recall": 0.10948905109489052,
+       "events_prior_same_day_object_event": {
+        "events": 266,
+        "captured": 23,
+        "recall": 0.08646616541353383,
+        "lead_hours_median": 8.018888888888888
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 746,
+        "captured": 53,
+        "recall": 0.07104557640750671,
+        "lead_hours_median": 9.110833333333334
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 912,
+        "captured": 64,
+        "recall": 0.07017543859649122,
+        "lead_hours_median": 7.2091666666666665
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 100,
+        "captured": 12,
+        "recall": 0.12,
+        "lead_hours_median": 20.306944444444447
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 13,
+        "recall": 0.24074074074074073,
+        "lead_hours_median": 8.018888888888888
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 958,
+        "captured": 63,
+        "recall": 0.06576200417536535,
+        "lead_hours_median": 9.110833333333334
+       }
+      },
+      "static_list": {
+       "cards_selected": 361,
+       "precision": 0.16620498614958448,
+       "recall": 0.06719367588932806,
+       "recall_capturable": 0.06917599186164802,
+       "lead_median_h": 6.623472222222222,
+       "events": 1012,
+       "captured": 68,
+       "cards_evaluable": 103218,
+       "card_positives": 770,
+       "card_base_rate": 0.007459939157898816,
+       "cards_evaluable_per_cutoff": 285.9224376731302,
+       "cutoffs": 361,
+       "weekday_precision": 0.1776061776061776,
+       "weekend_precision": 0.13725490196078433,
+       "events_weekday_recall": 0.060571428571428575,
+       "events_weekend_recall": 0.10948905109489052,
+       "events_prior_same_day_object_event": {
+        "events": 266,
+        "captured": 10,
+        "recall": 0.03759398496240601,
+        "lead_hours_median": 5.828333333333333
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 746,
+        "captured": 58,
+        "recall": 0.0777479892761394,
+        "lead_hours_median": 6.73
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 912,
+        "captured": 63,
+        "recall": 0.06907894736842106,
+        "lead_hours_median": 6.526111111111111
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 100,
+        "captured": 5,
+        "recall": 0.05,
+        "lead_hours_median": 21.058333333333334
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 1,
+        "recall": 0.018518518518518517,
+        "lead_hours_median": 3.511111111111111
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 958,
+        "captured": 67,
+        "recall": 0.06993736951983298,
+        "lead_hours_median": 6.683888888888889
+       }
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 1
+       },
+       "cards_selected": 361,
+       "card_precision": 0.8421052631578947,
+       "event_recall": 0.5158102766798419,
+       "event_recall_capturable": 0.5310274669379451,
+       "events": 1012
+      }
+     },
+     "3_per_day": {
+      "persistence": {
+       "cards_selected": 1083,
+       "precision": 0.10987996306555864,
+       "recall": 0.15316205533596838,
+       "recall_capturable": 0.15768056968463887,
+       "lead_median_h": 7.642222222222222,
+       "events": 1012,
+       "captured": 155,
+       "cards_evaluable": 103218,
+       "card_positives": 770,
+       "card_base_rate": 0.007459939157898816,
+       "cards_evaluable_per_cutoff": 285.9224376731302,
+       "cutoffs": 361,
+       "weekday_precision": 0.12097812097812098,
+       "weekend_precision": 0.08169934640522876,
+       "events_weekday_recall": 0.14057142857142857,
+       "events_weekend_recall": 0.23357664233576642,
+       "events_prior_same_day_object_event": {
+        "events": 266,
+        "captured": 37,
+        "recall": 0.13909774436090225,
+        "lead_hours_median": 6.233333333333333
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 746,
+        "captured": 118,
+        "recall": 0.1581769436997319,
+        "lead_hours_median": 7.987916666666667
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 912,
+        "captured": 135,
+        "recall": 0.14802631578947367,
+        "lead_hours_median": 6.023333333333333
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 100,
+        "captured": 20,
+        "recall": 0.2,
+        "lead_hours_median": 19.663611111111113
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 13,
+        "recall": 0.24074074074074073,
+        "lead_hours_median": 8.018888888888888
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 958,
+        "captured": 142,
+        "recall": 0.14822546972860126,
+        "lead_hours_median": 6.979166666666666
+       }
+      },
+      "static_list": {
+       "cards_selected": 1083,
+       "precision": 0.1505078485687904,
+       "recall": 0.1956521739130435,
+       "recall_capturable": 0.20142421159715157,
+       "lead_median_h": 6.580416666666666,
+       "events": 1012,
+       "captured": 198,
+       "cards_evaluable": 103218,
+       "card_positives": 770,
+       "card_base_rate": 0.007459939157898816,
+       "cards_evaluable_per_cutoff": 285.9224376731302,
+       "cutoffs": 361,
+       "weekday_precision": 0.15572715572715573,
+       "weekend_precision": 0.13725490196078433,
+       "events_weekday_recall": 0.17485714285714285,
+       "events_weekend_recall": 0.3284671532846715,
+       "events_prior_same_day_object_event": {
+        "events": 266,
+        "captured": 39,
+        "recall": 0.14661654135338345,
+        "lead_hours_median": 5.677222222222222
+       },
+       "events_not_prior_same_day_object_event": {
+        "events": 746,
+        "captured": 159,
+        "recall": 0.2131367292225201,
+        "lead_hours_median": 6.776111111111111
+       },
+       "events_starts_after_cutoff_hour": {
+        "events": 912,
+        "captured": 177,
+        "recall": 0.19407894736842105,
+        "lead_hours_median": 6.004444444444444
+       },
+       "events_not_starts_after_cutoff_hour": {
+        "events": 100,
+        "captured": 21,
+        "recall": 0.21,
+        "lead_hours_median": 20.85333333333333
+       },
+       "events_prior_object_event_before_cutoff": {
+        "events": 54,
+        "captured": 2,
+        "recall": 0.037037037037037035,
+        "lead_hours_median": 3.667222222222222
+       },
+       "events_not_prior_object_event_before_cutoff": {
+        "events": 958,
+        "captured": 196,
+        "recall": 0.2045929018789144,
+        "lead_hours_median": 6.640833333333333
+       }
+      },
+      "ceiling": {
+       "policy": {
+        "type": "topk",
+        "k": 3
+       },
+       "cards_selected": 1083,
+       "card_precision": 0.5872576177285319,
+       "event_recall": 0.8596837944664032,
+       "event_recall_capturable": 0.8850457782299085,
+       "events": 1012
+      }
+     }
+    }
+   },
+   "mean_over_folds": {
+    "2_per_day": {
+     "persistence": {
+      "precision": 0.11303456911926535,
+      "recall": 0.10799452216554868,
+      "cards_selected": 726.0,
+      "card_base_rate": 0.00735395904342566,
+      "lead_median_h": 6.130694444444444
+     },
+     "static_list": {
+      "precision": 0.12684703828786095,
+      "recall": 0.137263624883145,
+      "cards_selected": 726.0,
+      "card_base_rate": 0.00735395904342566,
+      "lead_median_h": 5.865763888888889
+     },
+     "ceiling": {
+      "card_precision": 0.6963894053807915,
+      "event_recall": 0.7366867301920522,
+      "cards_selected": 726.0
+     }
+    },
+    "2_weekday_1_weekend": {
+     "persistence": {
+      "precision": 0.12055483870967743,
+      "recall": 0.10038664654847226,
+      "cards_selected": 622.5,
+      "card_base_rate": 0.00735395904342566,
+      "lead_median_h": 6.061736111111111
+     },
+     "static_list": {
+      "precision": 0.1358193548387097,
+      "recall": 0.12928468338444887,
+      "cards_selected": 622.5,
+      "card_base_rate": 0.00735395904342566,
+      "lead_median_h": 5.822847222222222
+     },
+     "ceiling": {
+      "card_precision": 0.7615225806451613,
+      "event_recall": 0.7047976153379365,
+      "cards_selected": 622.5
+     }
+    },
+    "1_per_day": {
+     "persistence": {
+      "precision": 0.12549235381171023,
+      "recall": 0.058296295081429486,
+      "cards_selected": 363.0,
+      "card_base_rate": 0.00735395904342566,
+      "lead_median_h": 7.23125
+     },
+     "static_list": {
+      "precision": 0.14885591773232648,
+      "recall": 0.06938521968740262,
+      "cards_selected": 363.0,
+      "card_base_rate": 0.00735395904342566,
+      "lead_median_h": 5.967013888888889
+     },
+     "ceiling": {
+      "card_precision": 0.8292718096611391,
+      "event_recall": 0.5104984993357715,
+      "cards_selected": 363.0
+     }
+    },
+    "3_per_day": {
+     "persistence": {
+      "precision": 0.0996888399802679,
+      "recall": 0.146601774555951,
+      "cards_selected": 1089.0,
+      "card_base_rate": 0.00735395904342566,
+      "lead_median_h": 6.523611111111111
+     },
+     "static_list": {
+      "precision": 0.11771967770905273,
+      "recall": 0.17873895002706117,
+      "cards_selected": 1089.0,
+      "card_base_rate": 0.00735395904342566,
+      "lead_median_h": 5.987152777777777
+     },
+     "ceiling": {
+      "card_precision": 0.5744507266724852,
+      "event_recall": 0.8556717727518738,
+      "cards_selected": 1089.0
+     }
+    }
+   }
+  }
+ },
+ "bootstrap_pooled_2023_2024": {
+  "replicates": 400,
+  "seed": 17,
+  "blocks": 106,
+  "scheme": "iso_week (cards by cutoff, events by start)",
+  "variants": {
+   "0000|2_per_day|persistence": {
+    "policy": {
+     "type": "topk",
+     "k": 2
+    },
+    "card_precision": {
+     "point": 0.11607142857142858,
+     "low": 0.09971968497390529,
+     "high": 0.13302218872820237,
+     "undefined_replicates": 0
+    },
+    "event_recall": {
+     "point": 0.11515151515151516,
+     "low": 0.09425160661446462,
+     "high": 0.13649809352964928,
+     "undefined_replicates": 0
+    }
+   },
+   "0000|2_per_day|static_list": {
+    "policy": {
+     "type": "topk",
+     "k": 2
+    },
+    "card_precision": {
+     "point": 0.12568681318681318,
+     "low": 0.10757512315270937,
+     "high": 0.14373702112423917,
+     "undefined_replicates": 0
+    },
+    "event_recall": {
+     "point": 0.13686868686868686,
+     "low": 0.11133589914270452,
+     "high": 0.1627624486190236,
+     "undefined_replicates": 0
+    }
+   },
+   "0000|2_weekday_1_weekend|persistence": {
+    "policy": {
+     "type": "topk",
+     "k": 2,
+     "weekend_k": 1
+    },
+    "card_precision": {
+     "point": 0.12259615384615384,
+     "low": 0.10248723801298561,
+     "high": 0.14139491321499773,
+     "undefined_replicates": 0
+    },
+    "event_recall": {
+     "point": 0.10606060606060606,
+     "low": 0.08330820660723649,
+     "high": 0.12871059057476072,
+     "undefined_replicates": 0
+    }
+   },
+   "0000|2_weekday_1_weekend|static_list": {
+    "policy": {
+     "type": "topk",
+     "k": 2,
+     "weekend_k": 1
+    },
+    "card_precision": {
+     "point": 0.13541666666666666,
+     "low": 0.11574788283122042,
+     "high": 0.15525827076730564,
+     "undefined_replicates": 0
+    },
+    "event_recall": {
+     "point": 0.1292929292929293,
+     "low": 0.10372104919418167,
+     "high": 0.15638095576876168,
+     "undefined_replicates": 0
+    }
+   },
+   "0600|2_per_day|persistence": {
+    "policy": {
+     "type": "topk",
+     "k": 2
+    },
+    "card_precision": {
+     "point": 0.11294765840220386,
+     "low": 0.09540055898516901,
+     "high": 0.1295852348729247,
+     "undefined_replicates": 0
+    },
+    "event_recall": {
+     "point": 0.1082995951417004,
+     "low": 0.08719717875888533,
+     "high": 0.13126299453329776,
+     "undefined_replicates": 0
+    }
+   },
+   "0600|2_per_day|static_list": {
+    "policy": {
+     "type": "topk",
+     "k": 2
+    },
+    "card_precision": {
+     "point": 0.12672176308539945,
+     "low": 0.10869342480399144,
+     "high": 0.1444168284125266,
+     "undefined_replicates": 0
+    },
+    "event_recall": {
+     "point": 0.13714574898785425,
+     "low": 0.11162875437196,
+     "high": 0.16324720695995348,
+     "undefined_replicates": 0
+    }
+   },
+   "0600|2_weekday_1_weekend|persistence": {
+    "policy": {
+     "type": "topk",
+     "k": 2,
+     "weekend_k": 1
+    },
+    "card_precision": {
+     "point": 0.12048192771084337,
+     "low": 0.10121185665585765,
+     "high": 0.14035401002506265,
+     "undefined_replicates": 0
+    },
+    "event_recall": {
+     "point": 0.1007085020242915,
+     "low": 0.07978953485764687,
+     "high": 0.12119116544690585,
+     "undefined_replicates": 0
+    }
+   },
+   "0600|2_weekday_1_weekend|static_list": {
+    "policy": {
+     "type": "topk",
+     "k": 2,
+     "weekend_k": 1
+    },
+    "card_precision": {
+     "point": 0.1357429718875502,
+     "low": 0.11463350656508987,
+     "high": 0.15550681029601227,
+     "undefined_replicates": 0
+    },
+    "event_recall": {
+     "point": 0.12904858299595143,
+     "low": 0.10342908970400991,
+     "high": 0.15624188703711833,
+     "undefined_replicates": 0
+    }
+   }
+  },
+  "deltas": {
+   "A persistence: 06-00": {
+    "a": "0600|2_per_day|persistence",
+    "b": "0000|2_per_day|persistence",
+    "card_precision": {
+     "point": -0.0031237701692247155,
+     "low": -0.01243921222967556,
+     "high": 0.006763874495523858,
+     "undefined_replicates": 0,
+     "share_positive": 0.295
+    },
+    "event_recall": {
+     "point": -0.006851920009814758,
+     "low": -0.02041827924062393,
+     "high": 0.005857895347265402,
+     "undefined_replicates": 0,
+     "share_positive": 0.1325
+    }
+   },
+   "C 0000 persistence: 2/1-2/2": {
+    "a": "0000|2_weekday_1_weekend|persistence",
+    "b": "0000|2_per_day|persistence",
+    "card_precision": {
+     "point": 0.006524725274725265,
+     "low": -0.00046414108545337723,
+     "high": 0.012859441499447987,
+     "undefined_replicates": 0,
+     "share_positive": 0.9575
+    },
+    "event_recall": {
+     "point": -0.009090909090909094,
+     "low": -0.013904044826088978,
+     "high": -0.004915000605261324,
+     "undefined_replicates": 0,
+     "share_positive": 0.0
+    }
+   },
+   "C 0600 persistence: 2/1-2/2": {
+    "a": "0600|2_weekday_1_weekend|persistence",
+    "b": "0600|2_per_day|persistence",
+    "card_precision": {
+     "point": 0.007534269308639513,
+     "low": 0.0018975290353205401,
+     "high": 0.012658551327929033,
+     "undefined_replicates": 0,
+     "share_positive": 1.0
+    },
+    "event_recall": {
+     "point": -0.007591093117408895,
+     "low": -0.01153174074426573,
+     "high": -0.004248802385588076,
+     "undefined_replicates": 0,
+     "share_positive": 0.0
+    }
+   },
+   "A static_list: 06-00": {
+    "a": "0600|2_per_day|static_list",
+    "b": "0000|2_per_day|static_list",
+    "card_precision": {
+     "point": 0.0010349498985862682,
+     "low": -0.0011831919328522793,
+     "high": 0.003372875421967242,
+     "undefined_replicates": 0,
+     "share_positive": 0.81
+    },
+    "event_recall": {
+     "point": 0.00027706211916739276,
+     "low": 0.0,
+     "high": 0.0007992326465792846,
+     "undefined_replicates": 0,
+     "share_positive": 0.8575
+    }
+   },
+   "C 0000 static_list: 2/1-2/2": {
+    "a": "0000|2_weekday_1_weekend|static_list",
+    "b": "0000|2_per_day|static_list",
+    "card_precision": {
+     "point": 0.009729853479853473,
+     "low": 0.00447273736553984,
+     "high": 0.014684914830052378,
+     "undefined_replicates": 0,
+     "share_positive": 0.9975
+    },
+    "event_recall": {
+     "point": -0.007575757575757569,
+     "low": -0.011454898081165095,
+     "high": -0.0038584637268847745,
+     "undefined_replicates": 0,
+     "share_positive": 0.0
+    }
+   },
+   "C 0600 static_list: 2/1-2/2": {
+    "a": "0600|2_weekday_1_weekend|static_list",
+    "b": "0600|2_per_day|static_list",
+    "card_precision": {
+     "point": 0.009021208802150738,
+     "low": 0.003174364814324369,
+     "high": 0.01410000429979314,
+     "undefined_replicates": 0,
+     "share_positive": 0.9975
+    },
+    "event_recall": {
+     "point": -0.008097165991902827,
+     "low": -0.012266928361138366,
+     "high": -0.004146426537129855,
+     "undefined_replicates": 0,
+     "share_positive": 0.0
+    }
+   },
+   "static-persistence 0000 2_per_day": {
+    "a": "0000|2_per_day|static_list",
+    "b": "0000|2_per_day|persistence",
+    "card_precision": {
+     "point": 0.009615384615384609,
+     "low": -0.014403786799620137,
+     "high": 0.03172818509334206,
+     "undefined_replicates": 0,
+     "share_positive": 0.825
+    },
+    "event_recall": {
+     "point": 0.021717171717171704,
+     "low": -0.006710340929600048,
+     "high": 0.05294637575490775,
+     "undefined_replicates": 0,
+     "share_positive": 0.9275
+    }
+   },
+   "static-persistence 0000 2_weekday_1_weekend": {
+    "a": "0000|2_weekday_1_weekend|static_list",
+    "b": "0000|2_weekday_1_weekend|persistence",
+    "card_precision": {
+     "point": 0.012820512820512817,
+     "low": -0.012097018276966338,
+     "high": 0.035881633721524135,
+     "undefined_replicates": 0,
+     "share_positive": 0.845
+    },
+    "event_recall": {
+     "point": 0.02323232323232323,
+     "low": -0.005808594276160981,
+     "high": 0.05545074205643528,
+     "undefined_replicates": 0,
+     "share_positive": 0.94
+    }
+   },
+   "static-persistence 0600 2_per_day": {
+    "a": "0600|2_per_day|static_list",
+    "b": "0600|2_per_day|persistence",
+    "card_precision": {
+     "point": 0.013774104683195593,
+     "low": -0.008929186343959068,
+     "high": 0.03474308934141917,
+     "undefined_replicates": 0,
+     "share_positive": 0.8825
+    },
+    "event_recall": {
+     "point": 0.028846153846153855,
+     "low": -0.0016009380611395735,
+     "high": 0.06539628606417185,
+     "undefined_replicates": 0,
+     "share_positive": 0.97
+    }
+   },
+   "static-persistence 0600 2_weekday_1_weekend": {
+    "a": "0600|2_weekday_1_weekend|static_list",
+    "b": "0600|2_weekday_1_weekend|persistence",
+    "card_precision": {
+     "point": 0.015261044176706817,
+     "low": -0.010434226885130652,
+     "high": 0.03914906150690838,
+     "undefined_replicates": 0,
+     "share_positive": 0.88
+    },
+    "event_recall": {
+     "point": 0.028340080971659923,
+     "low": -0.002087137113791345,
+     "high": 0.06324887872574547,
+     "undefined_replicates": 0,
+     "share_positive": 0.965
+    }
+   }
+  }
+ },
+ "seconds": 9.5
+}

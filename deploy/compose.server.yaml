@@ -1,0 +1,286 @@
+# Server (stand) override for compose.yaml. Run from the delivered checkout root:
+#
+#   docker compose -f compose.yaml -f deploy/compose.server.yaml \
+#     --env-file <DEPLOY_PATH>/shared/.env <command>
+#
+# Runbook: deploy/README.md. Real values live only in the server .env (never in Git);
+# the template is deploy/.env.server.example. Needs Docker Compose >= 2.24.4 (!reset).
+#
+# Access model, stage 1: nothing listens on public interfaces. Web and API are bound
+# to 127.0.0.1 and reached through an SSH tunnel; PostgreSQL is not published at all.
+#
+# PostgreSQL roles (deploy/README.md «Роли PostgreSQL»): api and worker connect as the
+# runtime role infra_pulse_app (DML only, backend/migrations/9000_runtime_role.sql) with
+# INFRA_DB_APP_PASSWORD, which remote-deploy.sh generates into the server .env. migrate,
+# replay-loader, received-watcher and backup keep the owner POSTGRES_USER. Rollback:
+# INFRA_DB_APP_DSN in the server .env replaces the DSN of api and worker.
+#
+# Resource budget for a 6 vCPU / 11 GiB host. Long-running limits add up to
+# 5 vCPU / ~5.8 GiB (db 2/3g, api 1.5/1g, worker 1/1.5g, web 0.5/256m); the public
+# override (deploy/compose.public.yaml) adds caddy and lldap, 0.5/256m each, i.e.
+# 6 vCPU / ~6.3 GiB. One-shot tools add up to 2 vCPU / 2 GiB only while they run;
+# the optional backup profile adds 0.5 vCPU / 512 MiB (idle between daily runs) and the
+# analytics profile of the public override (Grafana, OPS-G) 0.5 vCPU / 512 MiB.
+# The rest is headroom for the OS (deploy/README.md «Бюджет ресурсов»).
+
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "5"
+
+x-ops-build: &ops-build
+  context: .
+  dockerfile: backend/Dockerfile
+  target: ops
+
+x-hardening: &hardening
+  security_opt:
+    - "no-new-privileges:true"
+
+services:
+  db:
+    <<: *hardening
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in the server .env}
+    # Only reachable on the Compose network; use `docker compose exec db psql` for admin.
+    ports: !reset []
+    # B1 load test (27.09, local PostgreSQL 14): with the image defaults (128MB / 1GB)
+    # each daily CSV load grew from 5-6 s to 9-17 s as history accumulated (frequent
+    # checkpoints); with 512MB / 4GB it stayed at 4.3-6.2 s. Fits mem_limit 3g; the WAL
+    # may take up to ~4 GB of disk in the postgres_data volume between checkpoints.
+    command: ["postgres", "-c", "shared_buffers=512MB", "-c", "max_wal_size=4GB"]
+    restart: unless-stopped
+    mem_limit: 3g
+    cpus: 2.0
+    shm_size: 256m
+    stop_grace_period: 60s
+    logging: *logging
+
+  api:
+    <<: *hardening
+    environment:
+      INFRA_MODE: ${INFRA_MODE:-fixture}
+      INFRA_DB_DSN: ${INFRA_DB_APP_DSN:-postgresql://infra_pulse_app:${INFRA_DB_APP_PASSWORD:?set INFRA_DB_APP_PASSWORD in the server .env}@db:5432/${POSTGRES_DB:-infra_pulse}?application_name=infra-pulse-api}
+      INFRA_REPLAY_NAMESPACE: ${INFRA_REPLAY_NAMESPACE:-stand-replay}
+      # Passed through only when set in the server .env (replay mode needs it).
+      INFRA_REPLAY_SNAPSHOT_ID:
+      INFRA_RECEIVED_NAMESPACE: ${INFRA_RECEIVED_NAMESPACE:-stand-received}
+      INFRA_RECEIVED_STREAM_ID: ${INFRA_RECEIVED_STREAM_ID:-stand-received-1}
+      # Notes are unauthenticated (D02/D03): keep false unless access is tunnel-only.
+      INFRA_ENABLE_LOCAL_REVIEWS: ${INFRA_ENABLE_LOCAL_REVIEWS:-false}
+      # B1x: batches per integration token per minute on POST /api/v1/observations.
+      INFRA_INTEGRATION_REQUESTS_PER_MINUTE: ${INFRA_INTEGRATION_REQUESTS_PER_MINUTE:-60}
+      # G1: «Исследование» outside fixture mode reads the summary built into the image
+      # (backend/scripts/export_research_summary.py -> backend/research/).
+      INFRA_RESEARCH_SUMMARY_PATH: ${INFRA_RESEARCH_SUMMARY_PATH:-/app/backend/research/research-summary.json}
+    ports: !override
+      - "127.0.0.1:${API_PORT:-8000}:8000"
+    # Not the local one-shot `migrate` of compose.yaml: here it is in the tools profile
+    # and remote-deploy.sh / restore.sh run it before `up`.
+    depends_on: !override
+      db:
+        condition: service_healthy
+    labels:
+      infra-pulse.revision: ${APP_REVISION:-unknown}
+    restart: unless-stopped
+    mem_limit: 1g
+    cpus: 1.5
+    logging: *logging
+
+  web:
+    <<: *hardening
+    build:
+      args:
+        # The SPA mode is fixed at build time and follows the API mode.
+        VITE_DATA_MODE: ${INFRA_MODE:-fixture}
+        # 1 only on a public stand with the analytics profile (Grafana behind Caddy).
+        VITE_GRAFANA_LINK: ${INFRA_GRAFANA_LINK:-}
+    ports: !override
+      - "127.0.0.1:${WEB_PORT:-8080}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+        # nginx resolves `api` once at start; restart it whenever api is recreated.
+        restart: true
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+    labels:
+      infra-pulse.revision: ${APP_REVISION:-unknown}
+    restart: unless-stopped
+    mem_limit: 256m
+    cpus: 0.5
+    logging: *logging
+
+  # Long-running ingestion worker (B1): uploads from the shared `uploads` volume ->
+  # PostgreSQL -> forecast recompute -> import status. Same backend image, stage
+  # `worker`. As infra_pulse_app it skips the migrations (migrate applies them before
+  # `up`); with the owner DSN of a rollback it applies them at start. Exactly one instance.
+  worker:
+    <<: *hardening
+    environment:
+      INFRA_DB_DSN: ${INFRA_DB_APP_DSN:-postgresql://infra_pulse_app:${INFRA_DB_APP_PASSWORD:?set INFRA_DB_APP_PASSWORD in the server .env}@db:5432/${POSTGRES_DB:-infra_pulse}?application_name=infra-pulse-worker}
+      INFRA_RECEIVED_NAMESPACE: ${INFRA_RECEIVED_NAMESPACE:-stand-received}
+      INFRA_RECEIVED_STREAM_ID: ${INFRA_RECEIVED_STREAM_ID:-stand-received-1}
+    depends_on: !override
+      db:
+        condition: service_healthy
+    labels:
+      infra-pulse.revision: ${APP_REVISION:-unknown}
+    restart: unless-stopped
+    # A 50 MB journal (~0.9 M rows) is parsed in memory; 170k rows peak well below this.
+    mem_limit: 1536m
+    cpus: 1.0
+    stop_grace_period: 30s
+    logging: *logging
+
+  # One-shot, as the owner: apply operational SQL migrations (idempotent), then LOGIN
+  # and the password of the runtime role infra_pulse_app, checked by one login (the
+  # password goes as a SCRAM verifier, never in plain text to the server). Started by
+  # deploy/remote-deploy.sh and deploy/restore.sh before `up` in every mode.
+  migrate:
+    <<: *hardening
+    profiles: ["tools"]
+    build: *ops-build
+    environment:
+      INFRA_DB_DSN: postgresql://${POSTGRES_USER:-infra_pulse}:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in the server .env}@db:5432/${POSTGRES_DB:-infra_pulse}
+      INFRA_DB_APP_PASSWORD: ${INFRA_DB_APP_PASSWORD:?set INFRA_DB_APP_PASSWORD in the server .env}
+    command: ["python", "backend/scripts/migrate_operational_db.py"]
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+    mem_limit: 512m
+    cpus: 1.0
+    logging: *logging
+
+  # One-shot: load a bounded window of an accepted curated snapshot into PostgreSQL.
+  # The server data directory is mounted read-only; nothing is copied into the image.
+  #   docker compose ... run --build --rm replay-loader \
+  #     --snapshot /data/curated/<snapshot> --month YYYY-MM --start <ISO> --end <ISO>
+  replay-loader:
+    <<: *hardening
+    profiles: ["tools"]
+    build: *ops-build
+    environment:
+      INFRA_REPLAY_DSN: postgresql://${POSTGRES_USER:-infra_pulse}:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in the server .env}@db:5432/${POSTGRES_DB:-infra_pulse}
+    entrypoint:
+      - python
+      - backend/scripts/load_attention_replay.py
+      - --namespace
+      - ${INFRA_REPLAY_NAMESPACE:-stand-replay}
+    volumes:
+      - type: bind
+        source: ${INFRA_SERVER_DATA_DIR:-/srv/infra-pulse/data}
+        target: /data
+        read_only: true
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+    mem_limit: 2g
+    cpus: 2.0
+    logging: *logging
+
+  # DEPRECATED (27.09, B1): replaced by `worker` + POST /api/v1/imports for the CSV
+  # journal. Kept only for candidate-format JSON batches until removed; it writes the
+  # same received scope and takes the same scope lock, so both can run together.
+  # Long-running (profile "received"): poll a read-only inbox of candidate-format
+  # JSON batches. Activate with COMPOSE_PROFILES=received in the server .env.
+  received-watcher:
+    <<: *hardening
+    profiles: ["received"]
+    build: *ops-build
+    environment:
+      INFRA_RECEIVED_DSN: postgresql://${POSTGRES_USER:-infra_pulse}:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in the server .env}@db:5432/${POSTGRES_DB:-infra_pulse}
+    command:
+      - python
+      - backend/scripts/load_received_batch.py
+      - --directory
+      - /inbox
+      - --stream
+      - ${INFRA_RECEIVED_STREAM_ID:-stand-received-1}
+      - --namespace
+      - ${INFRA_RECEIVED_NAMESPACE:-stand-received}
+      - --watch
+    volumes:
+      - type: bind
+        source: ${INFRA_SERVER_INBOX_DIR:-/srv/infra-pulse/inbox}
+        target: /inbox
+        read_only: true
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: 0.5
+    logging: *logging
+
+  # OPS-B (27.09): daily backup, profile "backup" (COMPOSE_PROFILES=backup in the server
+  # .env). The same postgres image as db, so pg_dump matches the server major version.
+  # deploy/backup.sh --loop waits for BACKUP_AT (UTC), writes <BACKUP_DIR>/<UTC stamp>/
+  # (pg_dump -Fc, uploads, configuration without secrets, manifest with SHA-256) and
+  # rotates by BACKUP_KEEP_DAYS; logs carry the time and size of every run. It reads the
+  # database over the Compose network and the uploads volume read-only; the backup
+  # directory is the only writable mount. Runs as the deploy user (BACKUP_UID/BACKUP_GID),
+  # who owns the copies. No healthcheck: `up --wait` only needs it running, and a failed
+  # backup never blocks a deploy (check: deploy/README.md «Ежедневная проверка»).
+  backup:
+    <<: *hardening
+    profiles: ["backup"]
+    image: postgres:17-alpine
+    user: "${BACKUP_UID:-1000}:${BACKUP_GID:-1000}"
+    entrypoint: ["bash", "/app/deploy/backup.sh"]
+    command: ["--loop"]
+    environment:
+      PGHOST: db
+      PGPORT: "5432"
+      PGUSER: ${POSTGRES_USER:-infra_pulse}
+      PGPASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in the server .env}
+      PGDATABASE: ${POSTGRES_DB:-infra_pulse}
+      BACKUP_DIR: /backups
+      BACKUP_UPLOADS_DIR: /uploads
+      BACKUP_APP_DIR: /app
+      BACKUP_AT: ${BACKUP_AT:-00:30}
+      BACKUP_KEEP_DAYS: ${BACKUP_KEEP_DAYS:-14}
+      BACKUP_KEEP_MIN: ${BACKUP_KEEP_MIN:-3}
+      APP_REVISION: ${APP_REVISION:-unknown}
+    volumes:
+      - type: volume
+        source: uploads
+        target: /uploads
+        read_only: true
+      - type: bind
+        source: ./compose.yaml
+        target: /app/compose.yaml
+        read_only: true
+      # The delivered deploy/ holds no secrets (rsync-filter); backup.sh also copies an
+      # allowlist only, never .env or lldap-users*.txt.
+      - type: bind
+        source: ./deploy
+        target: /app/deploy
+        read_only: true
+      # Must exist on the host (owned by BACKUP_UID, chmod 700); not created implicitly.
+      - type: bind
+        source: ${BACKUP_DIR:-/srv/infra-pulse/backups}
+        target: /backups
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    depends_on:
+      db:
+        condition: service_healthy
+      # A fresh uploads volume must get its owner from the app image first.
+      worker:
+        condition: service_started
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: 0.5
+    stop_grace_period: 30s
+    logging: *logging

@@ -1,0 +1,249 @@
+{
+  "by_year_descriptive": {
+    "2019": {
+      "curated_rows": 20915859,
+      "epoch_flagged_rows": 0,
+      "raw_alarm_rate": 0.0061701506019905756,
+      "raw_alarm_true": 129054,
+      "timestamp_group_multirow_survivors": 185836,
+      "unknown_reference_rows": 2475387
+    },
+    "2020": {
+      "curated_rows": 28098930,
+      "epoch_flagged_rows": 172,
+      "raw_alarm_rate": 0.011464066425305163,
+      "raw_alarm_true": 322128,
+      "timestamp_group_multirow_survivors": 611303,
+      "unknown_reference_rows": 3274375
+    },
+    "2021": {
+      "curated_rows": 39852557,
+      "epoch_flagged_rows": 9288,
+      "raw_alarm_rate": 0.0030079876681438533,
+      "raw_alarm_true": 119876,
+      "timestamp_group_multirow_survivors": 342012,
+      "unknown_reference_rows": 2556445
+    },
+    "2022": {
+      "curated_rows": 43423449,
+      "epoch_flagged_rows": 15156,
+      "raw_alarm_rate": 0.0030390722763638605,
+      "raw_alarm_true": 131967,
+      "timestamp_group_multirow_survivors": 1002395,
+      "unknown_reference_rows": 328825
+    },
+    "2023": {
+      "curated_rows": 31322874,
+      "epoch_flagged_rows": 16162,
+      "raw_alarm_rate": 0.003368177517810147,
+      "raw_alarm_true": 105501,
+      "timestamp_group_multirow_survivors": 2138311,
+      "unknown_reference_rows": 20996
+    },
+    "2024": {
+      "curated_rows": 48993335,
+      "epoch_flagged_rows": 16108,
+      "raw_alarm_rate": 0.0023171110927639443,
+      "raw_alarm_true": 113523,
+      "timestamp_group_multirow_survivors": 1137014,
+      "unknown_reference_rows": 5244
+    },
+    "2025": {
+      "curated_rows": 55521310,
+      "epoch_flagged_rows": 15320,
+      "raw_alarm_rate": 0.004578620353158093,
+      "raw_alarm_true": 254211,
+      "timestamp_group_multirow_survivors": 1284809,
+      "unknown_reference_rows": 524
+    },
+    "2026": {
+      "curated_rows": 30687038,
+      "epoch_flagged_rows": 6951,
+      "raw_alarm_rate": 0.006315695897401372,
+      "raw_alarm_true": 193810,
+      "timestamp_group_multirow_survivors": 1182709,
+      "unknown_reference_rows": 118
+    }
+  },
+  "etl_version": "journal-curated-v4",
+  "evidence_type": "local prepared-data accounting and descriptive quality",
+  "exclusion_policy": {
+    "interval": [
+      "2021-04-01",
+      "2021-07-01"
+    ],
+    "version": "exclude-2021-apr-jun-v1"
+  },
+  "input_archive_bytes": 1747206082,
+  "limitations": [
+    "Raw alarm is an observed event flag, not a confirmed physical failure.",
+    "No daily future target or point-in-time features were built.",
+    "Maintenance schedules are unjoined 2026 plans without completion evidence.",
+    "Reference object membership is a current undated snapshot.",
+    "The first execution's generation peak RSS was lost when an auxiliary global-ID audit hit 4 GB; the accepted output was recovered from persisted stage with both DATA-03 equations."
+  ],
+  "maintenance_source_sha256": {
+    "<архив 12>": "8ae33d6362ee16c935f59349ad9c66c1c76c1785fb10e02b828ce003b672cf4d",
+    "<архив 13>": "ef14db84b977a418d346afc3b2b5f0a8a5aef1820144fc955a7c774939a9cd68"
+  },
+  "manifest_sha256": "e9a225c09f3de5f797f5dd3a044dabb862a7922fd685eda2bab37aa7578ac9a4",
+  "models_fitted": 0,
+  "output_parquet_hashes_in_manifest": 453,
+  "publication_recovery": "all monthly outputs reconciled to persisted stage; global ID audit omitted",
+  "publication_status": "accepted",
+  "retained_2021_july_gas_comparison": {
+    "interpretation": "A descriptive raw-alarm regime check, not R-2021 acceptance or proof of physical faults. A remaining discontinuity keeps 2021 training eligibility unresolved.",
+    "raw_alarm_rate_above_both_neighbors": true,
+    "same_month_years": [
+      {
+        "gas_records": 750163,
+        "raw_alarm_rate": 5.3321744740809664e-05,
+        "raw_alarm_true": 40,
+        "raw_alarm_true_fault_text": 0,
+        "year": 2020
+      },
+      {
+        "gas_records": 3715893,
+        "raw_alarm_rate": 0.0018924118643889908,
+        "raw_alarm_true": 7032,
+        "raw_alarm_true_fault_text": 6940,
+        "year": 2021
+      },
+      {
+        "gas_records": 3461772,
+        "raw_alarm_rate": 2.7442592984171114e-05,
+        "raw_alarm_true": 95,
+        "raw_alarm_true_fault_text": 18,
+        "year": 2022
+      }
+    ]
+  },
+  "runtime": {
+    "generation_peak_rss_mb": null,
+    "generation_peak_rss_reason": "first process exited on auxiliary global-ID OOM",
+    "recovery_elapsed_seconds": 8.816,
+    "recovery_peak_rss_mb": 319.4
+  },
+  "snapshot_disk_bytes": 14581460410,
+  "source_archive_sha256": {
+    "2019": "262d5fb712feee3d4b92ae4cf09ce8e02c52eef25d9539f3a5769bae3d05a39c",
+    "2020": "632deca3a179b6e4114c0e619324738b508ea68aaf85b350462bff9b27db0edc",
+    "2021": "2970bdce42bcbb7a93358a19145d5cd45f0596e4c2633c1e9507d244b28e10f5",
+    "2022": "ca58b2a4931d738b38a596e279d2effa490700bb2ebe8d3db971283a6eef446d",
+    "2023": "6737008e77a0ce1610bb1205652a842311ab319cf7eac8edc951670a28a3ab40",
+    "2024": "d39ce19910e0761f7435eb4a6ebb3004b6df383e18d57c3cad8865deea1bbea9",
+    "2025": "605232bc0bcffd585e7a11cd87f239896b9dab1c58efebd256c4ec8478c6cd56",
+    "2026": "bdc0a6ebcdedf145d390abe8e2c9c3272f6a17d39d47e488acea7142ca7dec29"
+  },
+  "source_by_year": {
+    "2019": {
+      "N_accepted": 20993328,
+      "N_curated": 20915859,
+      "N_dedup_removed": 77469,
+      "N_input_records": 20993328,
+      "N_out_of_scope": 0,
+      "N_quarantine": 0,
+      "N_technical_headers": 0
+    },
+    "2020": {
+      "N_accepted": 28172398,
+      "N_curated": 28098930,
+      "N_dedup_removed": 73468,
+      "N_input_records": 28172398,
+      "N_out_of_scope": 0,
+      "N_quarantine": 0,
+      "N_technical_headers": 0
+    },
+    "2021": {
+      "N_accepted": 39910332,
+      "N_curated": 39852557,
+      "N_dedup_removed": 57775,
+      "N_input_records": 53698948,
+      "N_out_of_scope": 13788616,
+      "N_quarantine": 0,
+      "N_technical_headers": 0
+    },
+    "2022": {
+      "N_accepted": 43483149,
+      "N_curated": 43423449,
+      "N_dedup_removed": 59700,
+      "N_input_records": 43483149,
+      "N_out_of_scope": 0,
+      "N_quarantine": 0,
+      "N_technical_headers": 0
+    },
+    "2023": {
+      "N_accepted": 31937125,
+      "N_curated": 31322874,
+      "N_dedup_removed": 614251,
+      "N_input_records": 31937125,
+      "N_out_of_scope": 0,
+      "N_quarantine": 0,
+      "N_technical_headers": 0
+    },
+    "2024": {
+      "N_accepted": 49023883,
+      "N_curated": 48993335,
+      "N_dedup_removed": 30548,
+      "N_input_records": 49023883,
+      "N_out_of_scope": 0,
+      "N_quarantine": 0,
+      "N_technical_headers": 0
+    },
+    "2025": {
+      "N_accepted": 55541796,
+      "N_curated": 55521310,
+      "N_dedup_removed": 20486,
+      "N_input_records": 55541797,
+      "N_out_of_scope": 0,
+      "N_quarantine": 0,
+      "N_technical_headers": 1
+    },
+    "2026": {
+      "N_accepted": 30695389,
+      "N_curated": 30687038,
+      "N_dedup_removed": 8351,
+      "N_input_records": 30695389,
+      "N_out_of_scope": 0,
+      "N_quarantine": 0,
+      "N_technical_headers": 0
+    }
+  },
+  "source_calendar_gaps": [
+    "2024-04-07",
+    "2024-04-08",
+    "2026-06-01"
+  ],
+  "split_reservations": {
+    "development_candidate": [
+      "2019-01-01",
+      "2025-01-01"
+    ],
+    "diagnostic_gap": [
+      "2026-06-01",
+      "2026-07-01"
+    ],
+    "test_2025": [
+      "2025-07-01",
+      "2026-01-01"
+    ],
+    "test_2026": [
+      "2026-01-01",
+      "2026-06-01"
+    ],
+    "validation": [
+      "2025-01-01",
+      "2025-07-01"
+    ]
+  },
+  "totals": {
+    "N_accepted": 299757400,
+    "N_curated": 298815352,
+    "N_dedup_removed": 942048,
+    "N_input_records": 313546017,
+    "N_out_of_scope": 13788616,
+    "N_quarantine": 0,
+    "N_technical_headers": 1
+  },
+  "training_eligibility_2021": "unresolved_retained_july_regime_break"
+}

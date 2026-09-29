@@ -1,0 +1,396 @@
+{
+  "uid": "infrapulse-signals-numeric",
+  "title": "Сигналы: числовые значения",
+  "description": "OPS-06. Числовые значения каналов (газ, температура и другие) по времени из analytics.signal_numeric. Только чтение. На стенде числовых каналов нет: значения каналов текстовые — дашборд «Сигналы: текстовые состояния».",
+  "tags": [
+    "infrapulse",
+    "signals",
+    "ops-06"
+  ],
+  "timezone": "Europe/Moscow",
+  "editable": false,
+  "graphTooltip": 1,
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "",
+  "time": {
+    "from": "2026-05-20T21:00:00.000Z",
+    "to": "2026-06-01T20:59:59.000Z"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "1m",
+      "5m",
+      "15m",
+      "1h"
+    ]
+  },
+  "fiscalYearStartMonth": 0,
+  "liveNow": false,
+  "links": [
+    {
+      "title": "InfraPulse",
+      "type": "dashboards",
+      "tags": [
+        "infrapulse"
+      ],
+      "includeVars": true,
+      "keepTime": true,
+      "asDropdown": false,
+      "targetBlank": false
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "name": "alarm источника",
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "infrapulse-analytics"
+        },
+        "enable": true,
+        "hide": false,
+        "iconColor": "#E0752D",
+        "target": {
+          "refId": "Alarm",
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT alarm.\"time\",\n       coalesce(channel.channel_name, alarm.channel_id) || ' · ' || alarm.channel_id || ': ' || alarm.value_raw AS text,\n       'alarm источника' AS tags\nFROM (\n  SELECT event_at AS \"time\", channel_id, value_raw\n  FROM analytics.source_alarms\n  WHERE namespace_id = ${namespace:sqlstring}\n    AND snapshot_id = ${snapshot:sqlstring}\n    AND channel_id = ANY(ARRAY[${channel:sqlstring}]::text[])\n    AND $__timeFilter(event_at)\n  ORDER BY event_at DESC\n  LIMIT 2000\n) AS alarm\nLEFT JOIN analytics.channels AS channel ON channel.channel_id = alarm.channel_id\nORDER BY 1"
+        }
+      }
+    ]
+  },
+  "templating": {
+    "list": [
+      {
+        "name": "namespace",
+        "label": "Область данных",
+        "description": "Пространство received или replay (analytics.scopes)",
+        "type": "query",
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "infrapulse-analytics"
+        },
+        "query": "WITH options AS (\n  SELECT namespace_id, max(coalesce(last_received_at, window_end)) AS latest\n  FROM analytics.scopes GROUP BY namespace_id\n)\nSELECT __text, __value FROM (\n  SELECT namespace_id AS __text, namespace_id AS __value, latest FROM options\n  UNION ALL\n  SELECT '— областей данных нет —', '', NULL WHERE NOT EXISTS (SELECT 1 FROM options)\n) AS listed\nORDER BY latest DESC NULLS LAST",
+        "definition": "WITH options AS (\n  SELECT namespace_id, max(coalesce(last_received_at, window_end)) AS latest\n  FROM analytics.scopes GROUP BY namespace_id\n)\nSELECT __text, __value FROM (\n  SELECT namespace_id AS __text, namespace_id AS __value, latest FROM options\n  UNION ALL\n  SELECT '— областей данных нет —', '', NULL WHERE NOT EXISTS (SELECT 1 FROM options)\n) AS listed\nORDER BY latest DESC NULLS LAST",
+        "refresh": 1,
+        "multi": false,
+        "includeAll": false,
+        "sort": 0,
+        "hide": 0,
+        "current": {},
+        "options": []
+      },
+      {
+        "name": "snapshot",
+        "label": "Поток или срез",
+        "type": "query",
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "infrapulse-analytics"
+        },
+        "query": "WITH options AS (\n  SELECT snapshot_id, coalesce(last_received_at, window_end) AS latest\n  FROM analytics.scopes WHERE namespace_id = ${namespace:sqlstring}\n)\nSELECT __text, __value FROM (\n  SELECT snapshot_id AS __text, snapshot_id AS __value, latest FROM options\n  UNION ALL\n  SELECT '— потоков и срезов нет —', '', NULL WHERE NOT EXISTS (SELECT 1 FROM options)\n) AS listed\nORDER BY latest DESC NULLS LAST",
+        "definition": "WITH options AS (\n  SELECT snapshot_id, coalesce(last_received_at, window_end) AS latest\n  FROM analytics.scopes WHERE namespace_id = ${namespace:sqlstring}\n)\nSELECT __text, __value FROM (\n  SELECT snapshot_id AS __text, snapshot_id AS __value, latest FROM options\n  UNION ALL\n  SELECT '— потоков и срезов нет —', '', NULL WHERE NOT EXISTS (SELECT 1 FROM options)\n) AS listed\nORDER BY latest DESC NULLS LAST",
+        "refresh": 1,
+        "multi": false,
+        "includeAll": false,
+        "sort": 0,
+        "hide": 0,
+        "current": {},
+        "options": []
+      },
+      {
+        "name": "object",
+        "label": "Объект",
+        "type": "query",
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "infrapulse-analytics"
+        },
+        "query": "WITH options AS (\n  SELECT coalesce(object.object_name, object.object_id) || ' · ' || object.object_id AS __text,\n         object.object_id AS __value\n  FROM (SELECT object_id, min(object_name) AS object_name FROM analytics.channels\n        WHERE object_id IS NOT NULL GROUP BY object_id) AS object\n  WHERE EXISTS (SELECT 1 FROM analytics.signals AS record\n                WHERE record.namespace_id = ${namespace:sqlstring}\n                  AND record.snapshot_id = ${snapshot:sqlstring}\n                  AND record.object_id = object.object_id)\n)\nSELECT __text, __value FROM options\nUNION ALL\nSELECT '— в области нет записей объектов справочника —', '' WHERE NOT EXISTS (SELECT 1 FROM options)\nORDER BY 1",
+        "definition": "WITH options AS (\n  SELECT coalesce(object.object_name, object.object_id) || ' · ' || object.object_id AS __text,\n         object.object_id AS __value\n  FROM (SELECT object_id, min(object_name) AS object_name FROM analytics.channels\n        WHERE object_id IS NOT NULL GROUP BY object_id) AS object\n  WHERE EXISTS (SELECT 1 FROM analytics.signals AS record\n                WHERE record.namespace_id = ${namespace:sqlstring}\n                  AND record.snapshot_id = ${snapshot:sqlstring}\n                  AND record.object_id = object.object_id)\n)\nSELECT __text, __value FROM options\nUNION ALL\nSELECT '— в области нет записей объектов справочника —', '' WHERE NOT EXISTS (SELECT 1 FROM options)\nORDER BY 1",
+        "refresh": 1,
+        "multi": true,
+        "includeAll": false,
+        "sort": 0,
+        "hide": 0,
+        "current": {},
+        "options": [],
+        "description": "Объекты справочника, у которых есть записи в выбранной области"
+      },
+      {
+        "name": "sensor_type",
+        "label": "Тип датчика",
+        "type": "query",
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "infrapulse-analytics"
+        },
+        "query": "WITH options AS (\n  SELECT DISTINCT channel.sensor_type\n  FROM analytics.channels AS channel\n  WHERE channel.object_id = ANY(ARRAY[${object:sqlstring}]::text[])\n    AND channel.sensor_type IS NOT NULL\n    AND EXISTS (SELECT 1 FROM analytics.signal_numeric AS record\n                WHERE record.namespace_id = ${namespace:sqlstring}\n                  AND record.snapshot_id = ${snapshot:sqlstring}\n                  AND record.channel_id = channel.channel_id\n                  AND $__timeFilter(record.event_at))\n)\nSELECT sensor_type AS __text, sensor_type AS __value FROM options\nUNION ALL\nSELECT '— нет числовых записей в окне —', '' WHERE NOT EXISTS (SELECT 1 FROM options)\nORDER BY 1",
+        "definition": "WITH options AS (\n  SELECT DISTINCT channel.sensor_type\n  FROM analytics.channels AS channel\n  WHERE channel.object_id = ANY(ARRAY[${object:sqlstring}]::text[])\n    AND channel.sensor_type IS NOT NULL\n    AND EXISTS (SELECT 1 FROM analytics.signal_numeric AS record\n                WHERE record.namespace_id = ${namespace:sqlstring}\n                  AND record.snapshot_id = ${snapshot:sqlstring}\n                  AND record.channel_id = channel.channel_id\n                  AND $__timeFilter(record.event_at))\n)\nSELECT sensor_type AS __text, sensor_type AS __value FROM options\nUNION ALL\nSELECT '— нет числовых записей в окне —', '' WHERE NOT EXISTS (SELECT 1 FROM options)\nORDER BY 1",
+        "refresh": 2,
+        "multi": true,
+        "includeAll": true,
+        "sort": 0,
+        "hide": 0,
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "options": [],
+        "description": "Типы датчиков выбранных объектов, у каналов которых есть числовые значения в выбранном окне"
+      },
+      {
+        "name": "channel",
+        "label": "Канал",
+        "type": "query",
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "infrapulse-analytics"
+        },
+        "query": "WITH options AS (\n  SELECT coalesce(channel.channel_name, channel.channel_id) || ' · ' || channel.channel_id AS __text,\n         channel.channel_id AS __value\n  FROM analytics.channels AS channel\n  WHERE channel.object_id = ANY(ARRAY[${object:sqlstring}]::text[])\n    AND channel.sensor_type = ANY(ARRAY[${sensor_type:sqlstring}]::text[])\n    AND EXISTS (SELECT 1 FROM analytics.signal_numeric AS record\n                WHERE record.namespace_id = ${namespace:sqlstring}\n                  AND record.snapshot_id = ${snapshot:sqlstring}\n                  AND record.channel_id = channel.channel_id\n                  AND $__timeFilter(record.event_at))\n)\nSELECT __text, __value FROM options\nUNION ALL\nSELECT '— нет каналов с числовыми записями в окне —', '' WHERE NOT EXISTS (SELECT 1 FROM options)\nORDER BY 1",
+        "definition": "WITH options AS (\n  SELECT coalesce(channel.channel_name, channel.channel_id) || ' · ' || channel.channel_id AS __text,\n         channel.channel_id AS __value\n  FROM analytics.channels AS channel\n  WHERE channel.object_id = ANY(ARRAY[${object:sqlstring}]::text[])\n    AND channel.sensor_type = ANY(ARRAY[${sensor_type:sqlstring}]::text[])\n    AND EXISTS (SELECT 1 FROM analytics.signal_numeric AS record\n                WHERE record.namespace_id = ${namespace:sqlstring}\n                  AND record.snapshot_id = ${snapshot:sqlstring}\n                  AND record.channel_id = channel.channel_id\n                  AND $__timeFilter(record.event_at))\n)\nSELECT __text, __value FROM options\nUNION ALL\nSELECT '— нет каналов с числовыми записями в окне —', '' WHERE NOT EXISTS (SELECT 1 FROM options)\nORDER BY 1",
+        "refresh": 2,
+        "multi": true,
+        "includeAll": true,
+        "sort": 0,
+        "hide": 0,
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "options": [],
+        "description": "Каналы с числовыми значениями в выбранном окне"
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "text",
+      "title": "",
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "**На стенде числовых каналов нет:** в данных стенда значения каналов текстовые — смотрите дашборд «Сигналы: текстовые состояния» (он открывается по умолчанию). Этот дашборд нужен для данных с числовыми значениями (газ, температура).\n\nЧисловые значения каналов (`value_numeric`; исходный текст значения хранится дословно). Оранжевые метки — записи с флагом источника `alarm = true`: это сообщение источника, **не подтверждённый отказ**. Время — Москва (исходное время журнала принято как МСК). Данные — `analytics.signal_numeric`, только чтение. «— нет числовых записей в окне —» в фильтре означает, что у каналов выбранных объектов в этом окне только текстовые значения (они — на дашборде «Сигналы: текстовые состояния») или записей нет."
+      }
+    },
+    {
+      "id": 5,
+      "type": "table",
+      "title": "Область данных",
+      "description": "Первая и последняя запись выбранной области по времени события (Москва), число записей области и записей выбранных каналов в окне. Если панели ниже пусты, сравните окно с этими датами; ссылка в дате последней записи открывает последние 7 сут данных области. Если записей в окне больше лимита, панели показывают последние.",
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "infrapulse-analytics"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "infrapulse-analytics"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT scope.first_at AS \"Первая запись\",\n       scope.last_at AS \"Последняя запись\",\n       scope.records AS \"Записей в области\",\n       CASE WHEN EXISTS (SELECT 1 FROM analytics.signal_numeric\n                         WHERE namespace_id = ${namespace:sqlstring}\n                           AND snapshot_id = ${snapshot:sqlstring})\n            THEN 'есть' ELSE 'нет' END AS \"Числовые записи в области\",\n       CASE WHEN in_window.records > 50000 THEN 'больше 50 000: на панели типа видны последние'\n            ELSE in_window.records::text END AS \"Числовых записей каналов в окне\",\n       (extract(epoch FROM scope.last_at) * 1000)::bigint - 7 * 86400000 AS week_from,\n       (extract(epoch FROM scope.last_at) * 1000)::bigint + 60000 AS week_to\nFROM (\n  SELECT (SELECT event_at FROM analytics.signals\n          WHERE namespace_id = ${namespace:sqlstring} AND snapshot_id = ${snapshot:sqlstring}\n          ORDER BY event_at LIMIT 1) AS first_at,\n         (SELECT event_at FROM analytics.signals\n          WHERE namespace_id = ${namespace:sqlstring} AND snapshot_id = ${snapshot:sqlstring}\n          ORDER BY event_at DESC LIMIT 1) AS last_at,\n         (SELECT row_count FROM analytics.scopes\n          WHERE namespace_id = ${namespace:sqlstring} AND snapshot_id = ${snapshot:sqlstring}) AS records\n) AS scope,\n(\n  SELECT count(*) AS records FROM (\n    SELECT 1 FROM analytics.signal_numeric\n    WHERE namespace_id = ${namespace:sqlstring}\n      AND snapshot_id = ${snapshot:sqlstring}\n      AND channel_id = ANY(ARRAY[${channel:sqlstring}]::text[])\n      AND $__timeFilter(event_at)\n    LIMIT 50001\n  ) AS capped\n) AS in_window"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "noValue": "нет записей"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Последняя запись"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "title": "Последние 7 сут данных области",
+                    "url": "/d/infrapulse-signals-numeric?${__all_variables}&from=${__data.fields.week_from}&to=${__data.fields.week_to}&timezone=Europe%2FMoscow"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "^week_(from|to)$"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm"
+      }
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Значения: $sensor_type",
+      "description": "Канал и время → числовое значение. Отдельная панель на каждый выбранный тип датчика: у газа и температуры разные шкалы. Серия — канал (название · ID). Показываются не больше 50 000 последних значений окна.",
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "infrapulse-analytics"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "infrapulse-analytics"
+          },
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT latest.\"time\",\n       coalesce(channel.channel_name, latest.channel_id) || ' · ' || latest.channel_id AS metric,\n       latest.value\nFROM (\n  SELECT event_at AS \"time\", channel_id, value_numeric AS value\n  FROM analytics.signal_numeric\n  WHERE namespace_id = ${namespace:sqlstring}\n    AND snapshot_id = ${snapshot:sqlstring}\n    AND sensor_type = ANY(ARRAY[${sensor_type:sqlstring}]::text[])\n    AND channel_id = ANY(ARRAY[${channel:sqlstring}]::text[])\n    AND $__timeFilter(event_at)\n  ORDER BY event_at DESC\n  LIMIT 50000\n) AS latest\nLEFT JOIN analytics.channels AS channel ON channel.channel_id = latest.channel_id\nORDER BY 1"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "stepAfter",
+            "lineWidth": 1,
+            "pointSize": 4,
+            "showPoints": "always",
+            "spanNulls": false,
+            "fillOpacity": 0,
+            "axisPlacement": "auto"
+          },
+          "unit": "none",
+          "decimals": 2,
+          "noValue": "Нет числовых записей выбранных каналов в этом окне: у них только текстовые значения или записей нет — см. строку «Область данных»"
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ]
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "repeat": "sensor_type",
+      "repeatDirection": "v"
+    },
+    {
+      "id": 3,
+      "type": "table",
+      "title": "Записи за период (дословно)",
+      "description": "Последние 500 числовых записей выбранных каналов с исходным текстом значения и флагом alarm источника.",
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "infrapulse-analytics"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "infrapulse-analytics"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT record.event_at AS \"Время\",\n       coalesce(object.object_name, record.object_id) AS \"Объект\",\n       record.sensor_type AS \"Тип датчика\",\n       coalesce(channel.channel_name, record.channel_id) || ' · ' || record.channel_id AS \"Канал\",\n       record.value_raw AS \"Значение (исходный текст)\",\n       CASE WHEN record.source_alarm THEN 'да' ELSE 'нет' END AS \"alarm источника\"\nFROM (\n  SELECT event_at, object_id, sensor_type, channel_id, value_raw, source_alarm\n  FROM analytics.signal_numeric\n  WHERE namespace_id = ${namespace:sqlstring}\n    AND snapshot_id = ${snapshot:sqlstring}\n    AND channel_id = ANY(ARRAY[${channel:sqlstring}]::text[])\n    AND $__timeFilter(event_at)\n  ORDER BY event_at DESC\n  LIMIT 500\n) AS record\nLEFT JOIN analytics.channels AS channel ON channel.channel_id = record.channel_id\nLEFT JOIN analytics.objects AS object ON object.object_id = record.object_id\nORDER BY record.event_at DESC"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "noValue": "Нет числовых записей выбранных каналов в этом окне"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Канал"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 320
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Время"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 190
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm"
+      }
+    }
+  ]
+}

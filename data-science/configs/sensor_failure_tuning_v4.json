@@ -1,0 +1,408 @@
+{
+  "version": "sensor-failure-tuning-v4",
+  "status": "frozen_before_fit_2026-09-26_user_confirmed",
+  "confirmation": "user confirmed 2026-09-26 (via Head DS) the pre-registration as drafted in TUNING_V4.md ('Текст для подтверждения'): v4 feature groups N/E/K/S/R/T/W over F2 on the 2023/2024 folds, one CatBoost model for all sensor types (c3 for every set, c1 for F2 and F2+all), seeds 17/18/19 on 6 threads, paired-by-seed criterion at 24 h / 2 cards per day, node score propagation and unit N reported, holdout untouched; with one change: 120 h (rolling list, 5 days, at most 5 open) enters the secondary criterion",
+  "stopped": "CV stopped by the user 2026-09-26 (processes terminated by Head DS): only fold 2023 at 24 h was scored (27 fits with metrics), fold 2024 not scored (14 fits without metrics), c1 and secondary horizons not run; no verdict. Continued as sensor-failure-tuning-v5 (horizons from 5 days). Criteria above were not changed.",
+  "approved_direction": "user approved the v4 study 2026-09-26 (via Head DS): ideas I1 (hidden nodes) and I4 (process / decayed counters) with extended feature engineering, one model for all sensor types, node combination as a separate direction, plus group W from the I2 check; this pre-registration still needs confirmation before the first fit",
+  "basis": "experiments/sensor-failure/HEAD_DS_NEXT_IDEAS_2026-09-26.md; CV v3 (experiments/sensor-failure/TUNING_V3.md)",
+  "document": "experiments/sensor-failure/TUNING_V4.md",
+  "question": "Do point-in-time features of hidden co-failure nodes, decayed counters, calendar, network background, relative anomaly and target encoding raise card precision at 2 cards per day of a registered loss of connection > 2 s ('Неисправен', organizer: loss of connection with the device) starting on a candidate channel of the card within 24 h after the 00:00 cutoff, over the F2 baseline, and does combining channels into nodes (score propagation, unit N) help?",
+  "interpretation": "registered technical event; not a confirmed breakdown; alarm is not a confirmed failure; a node is an inferred co-failure group, not a confirmed physical device",
+  "target": {
+    "name": "connection_loss_gt2s",
+    "label": "connection_loss",
+    "episode_filter": {
+      "op": ">",
+      "seconds": 2
+    },
+    "horizon_hours": 24
+  },
+  "secondary_horizons": {
+    "72h": {
+      "labels": "artifacts/sensor-failure-v1/model_labels_v2 (cards/links 72h)",
+      "policies": [
+        {
+          "type": "rolling",
+          "max_open": 6,
+          "window_days": 3
+        },
+        {
+          "type": "rolling",
+          "max_open": 3,
+          "window_days": 3
+        }
+      ],
+      "main_policy": {
+        "type": "rolling",
+        "max_open": 6,
+        "window_days": 3
+      }
+    },
+    "120h": {
+      "labels": "artifacts/sensor-failure-v1/model_labels_v4_120h, built with configs/sensor_failure_model_v4_120h.json (development months only; same exclusions and Q shadow as v2)",
+      "policies": [
+        {
+          "type": "rolling",
+          "max_open": 5,
+          "window_days": 5
+        },
+        {
+          "type": "rolling",
+          "max_open": 3,
+          "window_days": 5
+        }
+      ],
+      "main_policy": {
+        "type": "rolling",
+        "max_open": 5,
+        "window_days": 5
+      },
+      "issue": "rolling list: every day new cards for object x sensor type pairs without an open card, no displacement, a card stays open 5 days"
+    },
+    "role": "models on the horizon's own label for the best 24 h candidate and F2+all (c3, seeds 17/18/19); 120 h at most 5 open is a secondary criterion, 120 h at most 3 open and 72 h (at most 6 and 3 open) are reported only; the primary criterion stays 24 h, 2 cards per day"
+  },
+  "one_model": "a single CatBoost model per target x horizon for all sensor types; sensor and system types are features (cat__), as in v2/v3",
+  "issue": {
+    "cutoff_hour": 0,
+    "labels": "artifacts/sensor-failure-v1/model_labels_v2",
+    "features_f2": "artifacts/sensor-failure-v1/features",
+    "features_v4": "artifacts/sensor-failure-v1/features_v4/<group>"
+  },
+  "folds": [
+    {
+      "fit": [
+        [
+          "2019-01-31",
+          "2021-01-01"
+        ],
+        [
+          "2022-01-31",
+          "2023-01-01"
+        ]
+      ],
+      "evaluate": [
+        [
+          "2023-01-01",
+          "2024-01-01"
+        ]
+      ]
+    },
+    {
+      "fit": [
+        [
+          "2019-01-31",
+          "2021-01-01"
+        ],
+        [
+          "2022-01-31",
+          "2024-01-01"
+        ]
+      ],
+      "evaluate": [
+        [
+          "2024-01-01",
+          "2025-01-01"
+        ]
+      ]
+    }
+  ],
+  "fold_note": "as v2/v3; calibration (2025 H1) and holdout (2025-07..2026-06) are not read; no final stage",
+  "fit_rows": "as v2/v3: candidate rows with a known label, all positives plus the deterministic 10% hash sample of negatives, weighted 10 before Balanced weighting",
+  "groups": {
+    "N": {
+      "prefix": "n4__",
+      "idea": "I1 hidden nodes",
+      "node_rule": {
+        "min_joint": 3,
+        "min_ratio": 0.8,
+        "max_event_size": 60,
+        "source": "artifacts/sensor-failure-v1/ideas/cofailure.py"
+      },
+      "point_in_time": "monthly snapshot: the graph of each month uses only member starts before the first day of the month; a channel outside every group is its own node",
+      "history": "the node's history is the union of its channels' history (an event counts for the node at the first start of a member on the node)"
+    },
+    "E": {
+      "prefix": "e4__",
+      "idea": "I4-lite",
+      "half_lives_days": [
+        1,
+        3,
+        7,
+        30
+      ],
+      "levels": [
+        "channel (starts)",
+        "node",
+        "object x sensor type",
+        "object (events)"
+      ],
+      "intervals": "last 10 inter-event intervals: median, CV, expected next = last + median, due within 1 day",
+      "hawkes_tau": {
+        "6h": 0.25,
+        "1d": 1.0,
+        "7d": 7.0
+      },
+      "hawkes_source": "candidate timestamps of the label in hourly buckets, object x sensor type and object"
+    },
+    "K": {
+      "prefix": "k4__",
+      "holidays": {
+        "source": "Labour Code of the Russian Federation, art. 112 part 1 (non-working holidays: 1-6 and 8 January New Year holidays, 7 January, 23 February, 8 March, 1 May, 9 May, 12 June, 4 November)",
+        "years": [
+          2019,
+          2026
+        ],
+        "month_days": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            23
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            9
+          ],
+          [
+            6,
+            12
+          ],
+          [
+            11,
+            4
+          ]
+        ],
+        "not_applied": "weekend transfers set by annual government decrees (e.g. a holiday on a weekend moved to a weekday) are not in the repository and are not applied"
+      },
+      "not_repeated": "weekday, weekend and month are cal__ columns of F2"
+    },
+    "S": {
+      "prefix": "s4__",
+      "windows_days": [
+        1,
+        3,
+        7
+      ],
+      "area": "level-2 parent of the object in the current object reference (1 / 16 / 78 hierarchy, no validity dates)"
+    },
+    "R": {
+      "prefix": "r4__",
+      "history_days": 180,
+      "levels": [
+        "object",
+        "node"
+      ],
+      "window_days": 7,
+      "z_sd_floor": 0.25
+    },
+    "T": {
+      "prefix": "t4__",
+      "window_days": 365,
+      "prior_days": 90,
+      "units": [
+        "object x sensor type (prior: sensor type)",
+        "node (prior: node size 1..5+)"
+      ],
+      "events": "target events known to qualify before t (static-list rule)"
+    },
+    "W": {
+      "prefix": "w4__",
+      "idea": "I2 traces of power and works (reports/sensor-failure-v4-i2-precursors-2026-09-26.json)",
+      "window": "[t - 24 h, t), records of the object's other channels, journal working_events (texts as artifacts/sensor-failure-v1/ideas/i2/i2.py)",
+      "signals": {
+        "pumpfan_deenergized": "'Обесточен' of 'Состояние насоса' / 'Состояние вентилятора': flag and count",
+        "deenergized": "'Обесточен' of any sensor type: flag and count",
+        "switched_off_device": "'Выключен' of devices other than 'Переключатель', pumps and fans: flag",
+        "hatch_open": "'Не замкнут' of 'КД Люк': flag"
+      },
+      "not_used": "door, motion and 'КД АВ' records over the past day (ratio to control about 1.0 in I2)"
+    }
+  },
+  "branch_B_not_here": "object rhythm (same weekday 7/14 d ago, recency of the object's last event, session days, weekday/working-hour profile, periodicity) belongs to branch B and enters v4 as a separate ablation when delivered",
+  "candidates": {
+    "baseline": "F2 (hist__, cal__, cat__, ctx__)",
+    "feature_sets": {
+      "F2": [
+        "hist__",
+        "cal__",
+        "cat__",
+        "ctx__"
+      ],
+      "F2+N": [
+        "hist__",
+        "cal__",
+        "cat__",
+        "ctx__",
+        "n4__"
+      ],
+      "F2+E": [
+        "hist__",
+        "cal__",
+        "cat__",
+        "ctx__",
+        "e4__"
+      ],
+      "F2+K": [
+        "hist__",
+        "cal__",
+        "cat__",
+        "ctx__",
+        "k4__"
+      ],
+      "F2+S": [
+        "hist__",
+        "cal__",
+        "cat__",
+        "ctx__",
+        "s4__"
+      ],
+      "F2+R": [
+        "hist__",
+        "cal__",
+        "cat__",
+        "ctx__",
+        "r4__"
+      ],
+      "F2+T": [
+        "hist__",
+        "cal__",
+        "cat__",
+        "ctx__",
+        "t4__"
+      ],
+      "F2+W": [
+        "hist__",
+        "cal__",
+        "cat__",
+        "ctx__",
+        "w4__"
+      ],
+      "F2+all": [
+        "hist__",
+        "cal__",
+        "cat__",
+        "ctx__",
+        "n4__",
+        "e4__",
+        "k4__",
+        "s4__",
+        "r4__",
+        "t4__",
+        "w4__"
+      ]
+    },
+    "catboost_configs": {
+      "c3": {
+        "depth": 6,
+        "iterations": 1000,
+        "learning_rate": 0.03,
+        "use": "every feature set (best mean in CV v3)"
+      },
+      "c1": {
+        "depth": 6,
+        "iterations": 400,
+        "learning_rate": 0.05,
+        "use": "F2 and F2+all only (sensitivity)"
+      }
+    },
+    "catboost_fixed": {
+      "loss_function": "Logloss",
+      "l2_leaf_reg": 5,
+      "auto_class_weights": "Balanced",
+      "task_type": "CPU",
+      "thread_count": 6
+    },
+    "seeds": [
+      17,
+      18,
+      19
+    ],
+    "card_aggregation": "mean_top2 (unit A)",
+    "node_combination": {
+      "channel_score": [
+        "model_only",
+        "max(own, node max)",
+        "max(own, node noisy-OR)"
+      ],
+      "applied_to": "F2 and F2+all at c3",
+      "unit_N": "card = node (a channel without a node is its own node); the event stays the mass cluster; node -> event by channel overlap; ceiling, persistence and static list of unit N on the same folds"
+    }
+  },
+  "hygiene": {
+    "thread_count": "fixed 6; cv.json records thread_count, os.cpu_count() and the CPU model",
+    "paired_by_seed": "for a candidate and the baseline of the same configuration, the difference is taken per seed (same seed, same fit rows) and per fold",
+    "tie_rule": "a candidate ties with the baseline unless the mean paired difference (over seeds and folds) exceeds the spread (max - min over seeds) of the fold-mean paired differences; ties go to the baseline",
+    "seed_ensemble": "bootstrap intervals use the mean of the three seeds' card scores"
+  },
+  "criteria": {
+    "primary": "unit A, 24 h, 2 cards per day: paired-by-seed difference of card precision (candidate - F2, same configuration) > 0 on both folds (seed means), AND its mean over seeds and folds > its seed spread (not a tie), AND candidate event recall >= persistence recall - 0.02",
+    "secondary": "72 h rolling lists (at most 6 and 3 open) and 120 h at most 3 open: reported only (models vs persistence, static list and ceiling)",
+    "references": "persistence and the static list of last year at the same budget; ceilings reported",
+    "T_proxy_check": "F2+T is flagged as an object proxy if its week-block CI of the precision difference is above zero but the object-block CI is not; T passes only without the flag",
+    "node_combination": "a combination passes if its paired difference to model_only (same feature set, configuration and seed) satisfies the primary rule; unit N is reported beside unit A against its own ceiling, persistence and static list, the product unit is chosen by the technologist and the user",
+    "weekly_ci": "95% week-block bootstrap (400 replicates, seed 17) on the pooled evaluation years with bootstrap_variant_deltas, seed ensemble; object blocks reported",
+    "failure": "a group that does not pass is not used; the result is reported as is",
+    "best_candidate": "among feature sets passing the primary criterion (c3), the one with the largest mean paired difference; if none passes, the best candidate is F2 itself",
+    "secondary_120h": {
+      "policy": {
+        "type": "rolling",
+        "max_open": 5,
+        "window_days": 5
+      },
+      "models": "the best 24 h candidate and F2+all (c3, seed ensemble = mean of the three seeds' card scores)",
+      "rule": "card precision of the model above the static list of last year: week-block paired bootstrap (400 replicates, seed 17) 95% lower bound of the difference > 0 on the pooled evaluation years 2023-2024; AND event recall of the model >= static-list recall - 0.02",
+      "reported": "object-block CI of the same difference; persistence and ceiling; per-fold and per-seed values"
+    }
+  },
+  "mlflow": {
+    "tracking_uri": "http://127.0.0.1:5059",
+    "experiment": "sensor-failure-tuning-v4",
+    "created_before_fits": true,
+    "never_delete": true
+  },
+  "runner": "data-science/scripts/tune_sensor_failure_v4.py: stage describe (no fitting), stage cv (lanes run as parallel processes, 6 CatBoost threads each), stage report",
+  "describe_report": "reports/sensor-failure-v4-prep-2026-09-26.json (untrained, evaluation years 2023/2024)",
+  "describe_findings": {
+    "unit_N": "before any model, unit N at 2 cards per day is below unit A: persistence P 0.048 / R 0.034 and static list 0.095 / 0.067 vs unit A 0.116 / 0.115 and 0.126 / 0.137 (object x type cards cover many channels); N stays a reported unit, not a gate",
+    "node_propagation": "for persistence with the max card aggregation, propagating the node max changes nothing (nodes lie inside one object and mostly one type); it can only matter for model scores aggregated by mean_top2"
+  },
+  "time_budget": "24 h: c3 9 feature sets x 3 seeds x 2 folds = 54 fits (about 90-145 s each), c1 2 x 3 x 2 = 12 fits (about 35-60 s); secondary 72 h and 120 h: 2 sets x 3 seeds x 2 folds each = 24 fits: about 3.5 hours; node combinations need no extra fits"
+}

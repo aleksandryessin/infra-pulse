@@ -1,0 +1,63 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+.DS_Store
+.env
+.env.*
+!.env.example
+!deploy/.env.server.example
+# Test directory accounts with passwords live only on the server (deploy/lldap).
+lldap-users*.txt
+.uv-cache/
+.npm-cache/
+frontend/node_modules/
+frontend/dist/
+# Legacy output paths remain ignored to protect old local runs.
+data/raw/
+data/curated/
+data/features/
+data/quarantine/
+artifacts/*
+!artifacts/README.md
+reports/local/
+mlruns/
+*.db
+*.db-shm
+*.db-wal
+*.7z
+*.parquet
+.ipynb_checkpoints/
+
+
+# Research: track instructions/configs, never local datasets or run stores.
+data-science/data/*
+data-science/data/raw/
+!data-science/data/README.md
+!data-science/data/parquet/
+data-science/data/parquet/*
+!data-science/data/parquet/README.md
+data-science/artifacts/*
+!data-science/artifacts/README.md
+data-science/mlflow/store/
+data-science/mlflow/mlruns/
+data-science/mlflow/mlartifacts/
+
+# Local serving data/model mounts, distinct from research outputs.
+var/
+
+# Private reports moved with the research component.
+data-science/reports/local/
+
+# Local tool settings are not published.
+.claude/
+.agents/
+AGENTS.md
+CLAUDE.md

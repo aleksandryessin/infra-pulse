@@ -1,0 +1,77 @@
+{
+  "version": "sensor-failure-features-v7",
+  "status": "frozen_before_fit_2026-09-27_head_ds",
+  "frozen_note": "frozen after the drift stage (labels not read) and before the first fit; rank_features filled by the declared drift rule from artifacts/sensor-failure-v1/tuning_v7/drift_v7.json (univariate AUC 2023 / 2024: pair_age_days 0.867 / 0.879, type_rate_net_365d 0.686 / 0.603, type_rate_net_30d 0.619 / 0.540)",
+  "fixed_by": "Head DS (user assigned modelling to Head DS); criteria, candidates and modes as given in the v7 task of 2026-09-27; the list of rank-normalised features is filled mechanically by the drift rule below, declared before the drift run",
+  "document": "experiments/sensor-failure/FEATURES_V7.md",
+  "basis": "docs/reviews/team-brainstorm-2026-09-27 (CONTEXT, ds-a-signal, ds-b-formulation); TUNING_V4/V5; EVALUATION.md (honest recall, decision 27.09.2026); step 1 diagnostics of v7 (artifacts/sensor-failure-v1/tuning_v7/diagnostics.json)",
+  "interpretation": "registered loss of connection >= 2 s ('Неисправен', organizer: loss of connection with the device); not a confirmed breakdown; alarm is not a confirmed failure",
+  "target": "connection_loss_ge2s",
+  "labels": {"config": "configs/sensor_failure_model_v5.json", "dir": "artifacts/sensor-failure-v1/model_labels_v5", "months": "development only"},
+  "unit": "one row per card = object x sensor type x local 00:00 (universe of model_labels_v5 cards); label = event of the pair in [t, t + D)",
+  "features": {
+    "dir": "artifacts/sensor-failure-v1/features_v7",
+    "builder": "data-science/scripts/build_sensor_failure_v7_features.py (modeling/sensor_failure_fe_v7.py)",
+    "point_in_time": "strictly before the 00:00 cutoff; p7h__events_365d equals the static list on every card (checked at build)"
+  },
+  "horizons": {"168h": 7, "336h": 14},
+  "folds": [
+    {"fit": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2023-01-01"]], "evaluate": [["2023-01-01", "2024-01-01"]]},
+    {"fit": [["2019-01-31", "2021-01-01"], ["2022-01-31", "2024-01-01"]], "evaluate": [["2024-01-01", "2025-01-01"]]}
+  ],
+  "fold_note": "embargo = horizon (fit cutoffs whose window crosses the end of a fit range are dropped); calibration and holdout are not read",
+  "fit_rows": "evaluable cards (outcome positive or negative) of the fit ranges, all of them (no negative sampling); rows ordered by (issued_at, object_id, sensor_type)",
+  "feature_sets": {
+    "P1": {"prefixes": ["p7h__", "cat__"], "meaning": "pair history only (a learned 'smart list') + sensor and system type"},
+    "P2": {"prefixes": ["p7h__", "p7s__", "p7c__", "cat__"], "meaning": "P1 + severity + composition"},
+    "P3": {"prefixes": ["p7h__", "p7s__", "p7c__", "p7x__", "p7k__", "cat__"], "meaning": "P2 + context for fresh pairs + forecast window"},
+    "P3-rank": {"base": "P3", "rank_features": ["p7c__pair_age_days", "p7x__type_rate_net_30d", "p7x__type_rate_net_365d"], "meaning": "P3 with the drifting features replaced by their percentile rank among the cards of the same issue day"}
+  },
+  "window_columns": "p7k__workdays_{D}d and p7k__holidays_{D}d of the model's own horizon only; season sin/cos for both",
+  "drift": {
+    "groups": ["H", "S", "C", "X"],
+    "univariate_auc_min": 0.6,
+    "rule": "a numeric v7 feature of groups H/S/C/X drifts if its direction-free univariate AUC separating the fold's fit-year cards from the evaluation-year cards is >= 0.60 in either fold (all cards, labels not read); calendar K and categorical columns are never ranked",
+    "declared_before_drift_run": true
+  },
+  "catboost": {"config": "c3", "depth": 6, "iterations": 1000, "learning_rate": 0.03, "loss_function": "Logloss", "l2_leaf_reg": 5, "auto_class_weights": "Balanced", "task_type": "CPU", "thread_count": 6, "seeds": [17, 18, 19]},
+  "lightgbm": {
+    "role": "second family (the v6 environment of the worktree has LightGBM 4.7.0); the same sets, seeds, folds, modes and criterion; CatBoost stays the primary family",
+    "params": {"objective": "binary", "num_leaves": 31, "learning_rate": 0.05, "n_estimators": 500, "n_jobs": 6, "deterministic": true, "force_row_wise": true, "verbose": -1},
+    "params_source": "candidate 1 of configs/sensor_failure_tuning_v6.json",
+    "weights": "balanced classes (sensor_failure_modeling.fit_weights with negative_weight = 1: no negative sample to undo)",
+    "categorical": "cat__ columns as pandas categories of the fit rows",
+    "seeds": "17/18/19 as the LightGBM seed; without subsampling the seed changes only the row sample of bin construction"
+  },
+  "score": "card score of a set = mean of the three seeds' probabilities (ensemble); per-seed points and spread are reported",
+  "fit_count": "4 sets x 3 seeds x 2 folds x 2 horizons = 48 CatBoost + 48 LightGBM",
+  "multiplicity": "4 sets x 2 families x 3 modes = 24 comparisons with the list: a single pass among them is weak evidence",
+  "modes": [
+    {"name": "7d fresh K3", "horizon": "168h", "k": 3, "fresh_only": true, "policy": "rolling list with release, at most K open, window 7 days", "fresh": "card eligible only if its pair has no event counted in [t - 7 d, t) (static-list rule; DS-B 'new risks'); recall over fresh events (no pair event in the 7 days before the event start)"},
+    {"name": "7d K7", "horizon": "168h", "k": 7, "fresh_only": false, "policy": "rolling list with release, at most 7 open, window 7 days"},
+    {"name": "14d K12", "horizon": "336h", "k": 12, "fresh_only": false, "policy": "rolling list with release, at most 12 open, window 14 days"}
+  ],
+  "criterion": {
+    "better_than_statistics": "per set and mode, all of: (1) card precision above the static list in each fold (2023 and 2024, points); (2) paired week-block bootstrap (400 replicates, seed 17) of precision set - list pooled over 2023-2024 with 95% lower bound > 0; (3) honest recall >= list honest recall - 0.02 (pooled)",
+    "recall_margin": 0.02,
+    "honest_recall": "an event counts only if a selected card of its pair is open when it starts (EVALUATION.md, decision 27.09.2026)",
+    "reported": "object-block CI; per-year week-block CI; the same comparison with 'rank F2 + list' of v5 (F2 seed mean at 7 days, F2 s17 at 14 days); persistence, list + persistence and the greedy ceiling; per-seed points",
+    "not_a_release": "a pass is a selection on the development folds; a final check needs its own pre-registration and a period not yet used"
+  },
+  "mlflow": {
+    "tracking_uri": "http://127.0.0.1:5059",
+    "experiment": "sensor-failure-features-v7",
+    "created_before_fits": true,
+    "fit_run_name": "fit v7 ge2s {H}h fold{i} {set} s{seed}",
+    "reference_runs": {
+      "static_list": ["static list (правило)", "Правило без обучения: число событий пары объект × тип за прошлые 365 сут (ориентир v7)."],
+      "persistence": ["persistence (правило)", "Правило без обучения: давность последнего кандидата на каналах карточки."],
+      "list+persistence": ["list + persistence (правило)", "Правило без обучения: среднее внутридневных рангов списка и persistence."],
+      "rank F2+list": ["rank F2 + list v5 (сохранённые оценки v5)", "Среднее внутридневных рангов F2 v5 (7 сут — среднее трёх seed, 14 сут — seed 17) и списка; не новая модель."],
+      "ceiling": ["ORACLE ceiling (не модель)", "Жадный оракул, знающий будущие события; верхняя граница, не модель."]
+    },
+    "never_delete": true
+  },
+  "holdout": "not read; 2025-07..2026-06 has already been used three times",
+  "runner": "data-science/scripts/tune_sensor_failure_v7.py (stages diagnose, drift, fit, report)"
+}
